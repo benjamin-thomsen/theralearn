@@ -16,9 +16,9 @@
 
 The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged.
 
-The Authoritative Lesson Context, Authoritative Curriculum Entry, Authoritative Flashcard Integration, and Quiz Repository first slices are now verified and closed.
+The Authoritative Lesson Context, Authoritative Curriculum Entry, Authoritative Flashcard Integration, and Quiz Repository first slices are verified and closed.
 
-The next dependency-correct responsibility is to derive the smallest quiz activity UI that uses authoritative lesson-scoped quiz questions without reusing legacy topic-slug identity.
+Bounded UI inspection has now established the smallest dependency-correct Server/Client responsibility split for authoritative quiz activity.
 
 ---
 
@@ -61,136 +61,224 @@ Learning activities
 Learner-related result/progress
 ```
 
-Flashcards are already integrated as the first authoritative lesson-scoped activity. Quiz data access is now authoritative at the repository layer and is ready for bounded UI derivation.
+Quiz questions are lesson-scoped learning activities. Data identity and resolution remain server-owned; answer selection and correction reveal are bounded client interaction responsibilities.
 
 ---
 
-## Closed Slice — Quiz Repository First Slice
+## Verified Quiz UI Evidence
 
-Implemented file:
+### Authoritative lesson ownership
 
-```text
-lib/repositories/quizQuestions.ts
-```
+`app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx` is an async Server Component that already owns authoritative course → chapter → lesson resolution and lesson-scoped flashcard loading.
 
-Implementation commit:
+It is therefore the correct server ownership point for loading quiz questions by `lesson.id`.
 
-```text
-25bafe7513f1796790f3c7cb357495fd55822eb3
-Add authoritative quiz question repository
-```
+### Authoritative quiz data access
 
-The repository now provides:
+`lib/repositories/quizQuestions.ts` now exposes:
 
 ```text
-getQuizQuestions(client)
-getQuizQuestionsByLessonId(client, lessonId)
-getQuizQuestionById(client, id)
-createQuizQuestion(client, quizQuestion)
-updateQuizQuestion(client, id, updates)
-deleteQuizQuestion(client, id)
-```
-
-The implementation:
-
-- uses generated `QuizQuestion`, `QuizQuestionInsert`, and `QuizQuestionUpdate` types;
-- uses `Lesson["id"]` for lesson-scoped lookup;
-- introduces no slug-based quiz identity;
-- follows the established flashcard repository error-handling convention;
-- orders full collections by `lesson_id`, `sort_order`, then `question`;
-- orders lesson-scoped collections by `sort_order`, then `question`;
-- changes no schema, generated types, UI, progress behavior, authentication behavior, or legacy quiz data.
-
-GitHub Actions workflow `Verify`, run 82, completed with `success` for `25bafe7513f1796790f3c7cb357495fd55822eb3`.
-
-**Quiz Repository first slice: VERIFIED AND CLOSED.**
-
----
-
-## Current Verified Quiz State
-
-The authoritative data path now exists:
-
-```text
-authoritative lesson
-  ↓
-lesson.id
-  ↓
 getQuizQuestionsByLessonId(client, lesson.id)
-  ↓
-public.quiz_questions
 ```
 
-The UI path does not yet exist.
+No client-side Supabase fetch is required.
 
-The existing `app/quiz/[slug]/page.tsx` remains a client-side legacy activity using hardcoded `data/quiz.ts` and topic-slug identity. It must not be treated as the authoritative integration target without explicit derivation.
+### Legacy quiz route
+
+`app/quiz/[slug]/page.tsx` is a client-side legacy route that:
+
+- derives identity from a topic slug;
+- reads hardcoded `data/quiz.ts`;
+- owns multi-question score/progress/result state;
+- links back to the legacy quiz overview.
+
+It is useful only as interaction-pattern evidence and must not be reused as authoritative route or identity.
+
+### Existing QuizCard component
+
+`components/QuizCard.tsx` is already a client component with bounded per-question answer-selection and reveal state, but it imports the legacy `QuizQuestion` type from `data/quiz` and expects camelCase `correctAnswer` rather than the authoritative database `correct_answer` field.
+
+Its responsibility shape is useful, but modifying it would risk coupling legacy and authoritative quiz models together.
+
+No existing component cleanly owns authoritative database quiz-question interaction.
+
+### Derived responsibility boundary
+
+The smallest correct boundary is:
+
+```text
+Authoritative lesson Server Component
+  ↓ resolves lesson.id
+  ↓ loads published quiz questions server-side
+  ↓ passes serializable authoritative question data
+New narrow Client Component
+  ↓ owns selected answer
+  ↓ owns checked/revealed state
+  ↓ renders correctness + stored explanation
+```
+
+This preserves server data authority and client interaction responsibility without creating a new route or migrating legacy quiz behavior.
+
+---
+
+## Bounded Implementation Plan — Authoritative Quiz Activity First Slice
+
+### Exact code changes
+
+Authorize exactly two product-code files:
+
+```text
+CREATE components/AuthoritativeQuizQuestion.tsx
+MODIFY app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
+```
+
+No CSS file is authorized. No legacy quiz file is authorized.
+
+### Server Component contract
+
+Modify the authoritative lesson route so that it:
+
+1. imports `getQuizQuestionsByLessonId`;
+2. loads quiz questions only after authoritative lesson resolution using `lesson.id`;
+3. filters to published quiz questions before rendering;
+4. preserves all existing lesson and flashcard behavior;
+5. renders no quiz section when there are zero published quiz questions;
+6. passes each authoritative quiz question to the new client component;
+7. remains a Server Component and does not add `"use client"`;
+8. performs no score, progress, mastery, scheduling, or authentication write behavior.
+
+### Client Component contract
+
+Create:
+
+```text
+components/AuthoritativeQuizQuestion.tsx
+```
+
+The component must:
+
+1. include `"use client"`;
+2. accept only the serializable fields needed for one authoritative question:
+   - `id`;
+   - `question`;
+   - `options`;
+   - `correct_answer`;
+   - `explanation`;
+3. own only per-question local interaction state:
+   - selected option index;
+   - whether the answer has been checked;
+4. require the learner to select an option before checking;
+5. prevent answer changes after checking until reset;
+6. reveal whether the selected answer is correct only after checking;
+7. reveal the stored explanation after checking when an explanation exists;
+8. allow a local reset/retry of that question;
+9. persist nothing;
+10. perform no Supabase/network access;
+11. calculate no cross-question score or mastery claim;
+12. use semantic classless markup / minimal inline presentation only, with no new CSS file.
+
+### Learning-principle boundary
+
+The interaction creates an active response before correctness reveal and can support Active Retrieval. Revealing correctness plus the stored explanation can support Informative Correction when the explanation is sufficient for the specific error/context.
+
+This slice must not claim universal satisfaction of either principle and must not claim Objective-Aligned Demonstration, mastery, Distributed Practice, or Adaptive Guidance.
+
+### Explicit non-goals
+
+Do not modify:
+
+```text
+app/quiz/[slug]/page.tsx
+data/quiz.ts
+components/QuizCard.tsx
+```
+
+Do not create a new quiz route, quiz overview, CSS file, result page, scoring system, progress persistence, authentication write, mastery threshold, adaptive testing, scheduler, or spaced-repetition behavior.
+
+---
+
+## Verification Contract
+
+The slice is complete only when verification demonstrates:
+
+1. exactly one new product-code file is created: `components/AuthoritativeQuizQuestion.tsx`;
+2. the only existing product-code file modified is the authoritative lesson route;
+3. lesson route remains a Server Component;
+4. quiz questions are loaded server-side only after authoritative lesson resolution;
+5. lookup uses `getQuizQuestionsByLessonId(client, lesson.id)`;
+6. only published quiz questions are passed to UI;
+7. zero published questions renders no invented quiz fallback content;
+8. client component performs no data fetch;
+9. client state is bounded to one question's selection/check/reset interaction;
+10. correctness is hidden until check;
+11. stored explanation is revealed only after check when present;
+12. no legacy topic slug or `data/quiz.ts` dependency is introduced;
+13. no score, progress persistence, mastery, adaptive logic, scheduling, new route, or new CSS is introduced;
+14. TypeScript passes;
+15. Next.js build passes;
+16. documentation structure verification remains passing;
+17. GitHub Actions passes for the resulting branch head.
+
+Remote published quiz-row availability remains a separate runtime data-state question.
 
 ---
 
 ## Current Risks
 
-### R1 – Quiz UI ownership
-
-**Status: ACTIVE.**
-
-Authoritative quiz data access now exists, but the smallest correct UI ownership boundary has not yet been selected.
-
-### R2 – Client/server responsibility boundary
-
-**Status: ACTIVE.**
-
-Quiz interaction requires learner selection/reveal behavior, while authoritative data access should remain server-owned. The integration must preserve this responsibility split rather than moving Supabase data authority into an unnecessary client fetch.
-
-### R3 – Legacy quiz identity
-
-**Status: ACTIVE.**
-
-The existing `/quiz/[slug]` route uses hardcoded topic slugs. It must not silently become a second authoritative identity model.
-
-### R4 – Remote quiz availability
+### R1 – Remote quiz availability
 
 **Status: OPEN.**
 
 Published remote quiz-question rows have not yet been certified.
 
-### R5 – Learning-principle overclaim
+### R2 – Informative correction quality
 
-**Status: ACTIVE.**
+**Status: OPEN by content.**
 
-A multiple-choice quiz can support retrieval and informative correction depending on interaction design, but its existence alone does not certify objective-aligned demonstration, mastery, adaptation, or durable learning.
+The schema supports explanations, but whether a particular explanation is sufficient correction depends on actual question content and learner error. UI presence alone cannot certify this principle.
+
+### R3 – Legacy quiz identity
+
+**Status: ACTIVE but isolated.**
+
+Legacy `/quiz/[slug]` remains in the repository but is not part of the authoritative integration.
+
+### R4 – Multi-question orchestration
+
+**Status: DEFERRED.**
+
+This first slice intentionally does not introduce score, sequence, result state, or progression across questions.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: CLOSED pending bounded authoritative quiz UI inspection and file-level plan.**
+**Product implementation: OPEN ONLY for the bounded Authoritative Quiz Activity first slice.**
 
-No product-code change is currently authorized.
+Authorized changes:
 
-Repository inspection and control synchronization are allowed.
+```text
+CREATE components/AuthoritativeQuizQuestion.tsx
+MODIFY app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
+```
+
+No other product-code file change is authorized unless verification proves this exact slice cannot compile without one; if so, stop and synchronize control before expanding scope.
 
 ---
 
 ## Current Task
 
-Derive the smallest dependency-correct UI slice that lets a learner answer authoritative quiz questions inside an authoritative lesson context while preserving server-owned data resolution and bounded client-owned interaction state.
+Implement authoritative per-question quiz interaction inside authoritative lesson context exactly as specified above.
 
 ---
 
 ## Next Allowed Action
 
-Inspect:
+Create `components/AuthoritativeQuizQuestion.tsx`, then modify the authoritative lesson route to load published questions through `getQuizQuestionsByLessonId(client, lesson.id)` and render the new bounded client component.
 
-- `app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx` as the authoritative lesson ownership point;
-- `app/quiz/[slug]/page.tsx` only as interaction-pattern evidence, not authority;
-- `app/quiz/[slug]/page.module.css` only if needed to understand whether any existing presentation can be reused without importing legacy identity;
-- `lib/repositories/quizQuestions.ts` as authoritative data access;
-- relevant existing component boundaries under `components/` to determine whether a client interaction component already owns quiz behavior;
-- whether a new narrowly scoped client component is required to preserve the Server Component lesson route while enabling answer selection and correction reveal.
+Then verify both files and project verification. After verification, synchronize `PROJECT_CONTROL.md` before selecting the next slice.
 
-Then synchronize `PROJECT_CONTROL.md` with exactly one bounded file-level quiz UI implementation plan before reopening the code gate.
-
-Do not modify legacy quiz data or route, progress persistence, authentication writes, schema, adaptive testing, mastery logic, scheduling, or broad styling during inspection.
+Do not modify legacy quiz files, progress persistence, authentication writes, schema, scoring, mastery, adaptive testing, scheduling, broad styling, or activity routing in this slice.
 
 ---
 
