@@ -36,9 +36,9 @@ Domain-specific knowledge belongs under `docs/`.
 
 The historical reconstruction and authoritative project-control kernel are established.
 
-The architecture domain has reached a verified repair checkpoint, and the Foundation documentation domain and its entry point are now established.
+The architecture domain has reached a verified repair checkpoint. The Foundation domain and its entry point are established, and the first detailed Foundation ownership unit has now been identified from current authoritative evidence.
 
-The current task is to determine the first detailed Foundation content transfer without re-deriving or duplicating certified methodology.
+The current task is to transfer the upstream Foundation model into its permanent home without re-deriving or expanding it.
 
 ---
 
@@ -153,7 +153,7 @@ The review recovered the permanent methodological principles needed to continue 
 
 Known gaps in the reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
 
-These gaps are currently archival/revision gaps rather than blockers. Historical material should only be reloaded when a specific unresolved Foundation claim requires it.
+These gaps are currently archival/revision gaps rather than blockers. No historical chat reload is currently required for the first Foundation model transfer.
 
 ---
 
@@ -173,18 +173,55 @@ The control kernel remains above domain documentation and does not become the de
 
 ## Foundation Documentation Status
 
-**Status: Domain and entry point established; detailed transfer not yet started**
+**Status: First detailed transfer authorized**
 
-`docs/foundation/README.md` now establishes:
+`docs/foundation/README.md` establishes the Foundation authority boundary and transfer rules.
 
-- the Foundation domain as the permanent home for detailed certified methodology;
-- its authority position below the root control kernel and above downstream domain interpretation;
-- separation from decisions, references, architecture, product, and development documentation;
-- the rule that certified methodology is transferred, not re-derived;
-- historical material as targeted evidence rather than default authority;
-- a conceptual future ownership map without prematurely creating child files.
+Inspection of `PROJECT_HANDBOOK.md`, `PROJECT_OVERVIEW.md`, `PROJECT_CONTROL.md`, and the Foundation README established sufficient current authority to define the first detailed Foundation ownership unit without historical chat recovery.
 
-No detailed Foundation child document exists yet.
+### Authorized first child
+
+```text
+docs/foundation/FOUNDATION_MODEL.md
+```
+
+### Ownership boundary
+
+`FOUNDATION_MODEL.md` will own the upstream certified methodological core required to constrain downstream derivation.
+
+Its transfer scope is limited to permanent Foundation-level meaning already supported by current authority:
+
+- Foundation purpose and authority posture;
+- derivation before invention;
+- verify before change / no guessing as a methodological constraint where it expresses Foundation discipline rather than operational procedure;
+- one authoritative home / information placement at the methodological level;
+- information lifecycle as a permanent transition from observation through verification and authoritative placement;
+- responsibility and authority separation before implementation components;
+- phase separation and the rule that later phases do not silently redefine earlier certified phases;
+- implementation realizes derived architecture rather than redefining it;
+- systematic refutation as the certification posture;
+- `Closed for Extension, Open for Refutation`;
+- the upstream dependency direction from Foundation toward derivation, implementation, and verification.
+
+### Explicit exclusions
+
+The first Foundation model document must not own:
+
+- the detailed six-responsibility model — reserved for a later responsibility ownership unit;
+- detailed architecture or implementation mapping;
+- Developer Toolkit workflow or command behavior;
+- current project state;
+- product requirements or learning model;
+- historical falsification-attempt chronology;
+- certification-history narrative;
+- raw chat evidence;
+- new principles not already supported by current authority.
+
+### Evidence status
+
+Current root authority is sufficient for this transfer scope.
+
+No specific missing permanent claim has been identified that requires historical evidence before `FOUNDATION_MODEL.md` can be created.
 
 ---
 
@@ -251,12 +288,13 @@ No such artifact should be deleted or implemented merely because it has been ide
 - Remaining architecture topics classified against current evidence.
 - Existing documentation domains inspected for Foundation/method authority.
 - `docs/foundation/` selected as the permanent home for detailed certified methodology.
-- `docs/foundation/README.md` created and verified as the Foundation authority boundary and ownership entry point.
+- `docs/foundation/README.md` created and verified.
+- First Foundation ownership unit and transfer scope identified from current authority.
 
 ### Not yet completed
 
-- Determine and transfer the first detailed Foundation document.
-- Transfer and verify the remaining detailed certified Foundation/method content into authoritative homes.
+- Create and verify `docs/foundation/FOUNDATION_MODEL.md`.
+- Determine and transfer later Foundation ownership units.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -278,7 +316,7 @@ Implementation and historical decisions are ahead of several non-architecture do
 
 Detailed certified methodology could be copied into multiple documents, mixed with historical process narrative, or unintentionally re-derived.
 
-**Mitigation:** transfer one ownership unit at a time, identify source evidence before writing, and verify semantic preservation after each transfer.
+**Mitigation:** `FOUNDATION_MODEL.md` has a bounded transfer scope and explicit exclusions; transfer only currently supported permanent meaning and verify semantic preservation after creation.
 
 ### R3 – Stale roadmap/backlog state
 
@@ -312,33 +350,32 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Determine the first detailed Foundation ownership unit and its exact evidence requirements before creating any Foundation child document.
-
-The first transfer should begin with the most upstream permanent Foundation model, not with downstream implementation responsibilities or certification history.
+Transfer the authorized upstream Foundation model into `docs/foundation/FOUNDATION_MODEL.md` using only the bounded scope and current authoritative evidence defined above.
 
 ---
 
 ## Next Allowed Action
 
-Inspect current authoritative root documents for the permanent Foundation v1.0 concepts already preserved there, especially:
+Create and verify only:
 
-- the core problem statement;
-- Single Source of Truth / one authoritative home;
-- information lifecycle and placement;
-- state-transition principles;
-- responsibility/authority separation at the high level;
-- Runtime/Tooling separation where it is a Foundation-level invariant rather than implementation detail;
-- the dependency relationship from Foundation toward derivation and implementation.
+```text
+docs/foundation/FOUNDATION_MODEL.md
+```
 
-Then determine the exact ownership boundary and proposed filename for the first Foundation child document.
+Use as evidence:
 
-Do not create the child document during this inspection step.
+- `PROJECT_HANDBOOK.md`;
+- `PROJECT_OVERVIEW.md`;
+- `PROJECT_CONTROL.md`;
+- `docs/foundation/README.md`.
 
-Do not reload historical chats unless a specific required permanent claim cannot be established from `PROJECT_HANDBOOK.md`, `PROJECT_OVERVIEW.md`, `PROJECT_CONTROL.md`, and `docs/foundation/README.md`.
+Do not reload historical chats for this transfer unless a concrete contradiction appears while writing.
 
-If current authority is sufficient, update `PROJECT_CONTROL.md` with the authorized first Foundation child document and its transfer scope before writing it.
+Do not add the detailed responsibility model, certification chronology, architecture implementation details, product definitions, or Toolkit workflow.
 
-If current authority is insufficient, identify the exact missing claims before requesting targeted historical evidence.
+The document must distinguish Foundation-level methodological constraints from operational governance that remains in the Handbook.
+
+After creation, re-read and verify `FOUNDATION_MODEL.md`, then update `PROJECT_CONTROL.md` before selecting any later Foundation ownership unit.
 
 ---
 
