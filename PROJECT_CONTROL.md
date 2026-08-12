@@ -36,9 +36,9 @@ Domain-specific knowledge belongs under `docs/`.
 
 The historical reconstruction and authoritative project-control kernel are established.
 
-The architecture domain has reached a verified repair checkpoint. The Foundation domain and its entry point are established, and the first detailed Foundation ownership unit has now been identified from current authoritative evidence.
+The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, and the upstream `FOUNDATION_MODEL.md` are now established.
 
-The current task is to transfer the upstream Foundation model into its permanent home without re-deriving or expanding it.
+The current task is to determine whether the detailed Implementation Responsibility Model can be transferred next from current authority or whether targeted historical evidence is required.
 
 ---
 
@@ -48,7 +48,7 @@ The current task is to transfer the upstream Foundation model into its permanent
 migration-next16-to-root
 ```
 
-This branch contains the current reconstructed and verified development state plus the authoritative control, Foundation entry point, and repaired architecture documents.
+This branch contains the current reconstructed and verified development state plus the authoritative control, Foundation documentation, and repaired architecture documents.
 
 `main` has not yet been updated with this development history.
 
@@ -117,7 +117,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-The repaired core architecture/control documents and `docs/foundation/README.md` have been re-read from the target GitHub branch after commit.
+The repaired core architecture/control documents, `docs/foundation/README.md`, and `docs/foundation/FOUNDATION_MODEL.md` have been re-read from the target GitHub branch after their commits.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -125,7 +125,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 ## Historical Reconstruction Status
 
-**Status: Methodically complete for current continuation**
+**Status: Methodically complete for current continuation; detailed evidence selectively incomplete**
 
 The historical review re-established the development chain:
 
@@ -153,7 +153,7 @@ The review recovered the permanent methodological principles needed to continue 
 
 Known gaps in the reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
 
-These gaps are currently archival/revision gaps rather than blockers. No historical chat reload is currently required for the first Foundation model transfer.
+These gaps remain archival/revision gaps unless a specific detailed Foundation transfer requires evidence not preserved in current authority.
 
 ---
 
@@ -173,55 +173,26 @@ The control kernel remains above domain documentation and does not become the de
 
 ## Foundation Documentation Status
 
-**Status: First detailed transfer authorized**
+**Status: Upstream model established; next ownership unit under evidence review**
 
-`docs/foundation/README.md` establishes the Foundation authority boundary and transfer rules.
+### Established
 
-Inspection of `PROJECT_HANDBOOK.md`, `PROJECT_OVERVIEW.md`, `PROJECT_CONTROL.md`, and the Foundation README established sufficient current authority to define the first detailed Foundation ownership unit without historical chat recovery.
+- `docs/foundation/README.md` — Foundation authority boundary, placement, transfer rule, and ownership routing;
+- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core governing derivation, authority/placement, information lifecycle/state transition, phase separation, implementation dependency, and refutation posture.
 
-### Authorized first child
+`FOUNDATION_MODEL.md` was transferred from current authoritative project evidence without historical chat reload and explicitly excludes the detailed six-responsibility model and certification chronology.
 
-```text
-docs/foundation/FOUNDATION_MODEL.md
-```
+### Candidate next ownership unit
 
-### Ownership boundary
+The next logical Foundation unit is the detailed methodological responsibility model because:
 
-`FOUNDATION_MODEL.md` will own the upstream certified methodological core required to constrain downstream derivation.
+- the Foundation Model already establishes Responsibility before Components and conceptual separation of authority/execution;
+- `PROJECT_OVERVIEW.md` and `PROJECT_HANDBOOK.md` both preserve the six responsibility names;
+- the historical reconstruction confirms that Implementation Responsibility Model followed Implementation Architecture Derivation and preceded Completeness Analysis.
 
-Its transfer scope is limited to permanent Foundation-level meaning already supported by current authority:
+However, the current root documents preserve only the names and high-level role of the six responsibilities. They do not currently preserve the full historical contract for each responsibility, such as purpose, authority, inputs, outputs, allowed/forbidden dependencies, preserved properties, verifiable boundaries, and certification criteria.
 
-- Foundation purpose and authority posture;
-- derivation before invention;
-- verify before change / no guessing as a methodological constraint where it expresses Foundation discipline rather than operational procedure;
-- one authoritative home / information placement at the methodological level;
-- information lifecycle as a permanent transition from observation through verification and authoritative placement;
-- responsibility and authority separation before implementation components;
-- phase separation and the rule that later phases do not silently redefine earlier certified phases;
-- implementation realizes derived architecture rather than redefining it;
-- systematic refutation as the certification posture;
-- `Closed for Extension, Open for Refutation`;
-- the upstream dependency direction from Foundation toward derivation, implementation, and verification.
-
-### Explicit exclusions
-
-The first Foundation model document must not own:
-
-- the detailed six-responsibility model — reserved for a later responsibility ownership unit;
-- detailed architecture or implementation mapping;
-- Developer Toolkit workflow or command behavior;
-- current project state;
-- product requirements or learning model;
-- historical falsification-attempt chronology;
-- certification-history narrative;
-- raw chat evidence;
-- new principles not already supported by current authority.
-
-### Evidence status
-
-Current root authority is sufficient for this transfer scope.
-
-No specific missing permanent claim has been identified that requires historical evidence before `FOUNDATION_MODEL.md` can be created.
+Therefore a full detailed responsibility-model transfer must not be written from names alone.
 
 ---
 
@@ -289,12 +260,12 @@ No such artifact should be deleted or implemented merely because it has been ide
 - Existing documentation domains inspected for Foundation/method authority.
 - `docs/foundation/` selected as the permanent home for detailed certified methodology.
 - `docs/foundation/README.md` created and verified.
-- First Foundation ownership unit and transfer scope identified from current authority.
+- `docs/foundation/FOUNDATION_MODEL.md` created and verified from current authority.
 
 ### Not yet completed
 
-- Create and verify `docs/foundation/FOUNDATION_MODEL.md`.
-- Determine and transfer later Foundation ownership units.
+- Recover sufficient evidence for the detailed responsibility-model ownership unit.
+- Determine and transfer later Foundation ownership units, including responsibility and certification material where supported.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -312,11 +283,11 @@ Implementation and historical decisions are ahead of several non-architecture do
 
 **Mitigation:** continue documentation repair before resuming ordinary feature development.
 
-### R2 – Foundation duplication or reinterpretation during transfer
+### R2 – Responsibility-model reconstruction from insufficient evidence
 
-Detailed certified methodology could be copied into multiple documents, mixed with historical process narrative, or unintentionally re-derived.
+The six responsibility names are preserved, but their detailed contracts are not currently present in the authoritative root files.
 
-**Mitigation:** `FOUNDATION_MODEL.md` has a bounded transfer scope and explicit exclusions; transfer only currently supported permanent meaning and verify semantic preservation after creation.
+**Mitigation:** do not reconstruct detailed responsibility definitions from names or implementation structure. Search current repository documentation first; if insufficient, recover only the targeted historical responsibility evidence required for authoritative transfer.
 
 ### R3 – Stale roadmap/backlog state
 
@@ -350,32 +321,38 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Transfer the authorized upstream Foundation model into `docs/foundation/FOUNDATION_MODEL.md` using only the bounded scope and current authoritative evidence defined above.
+Determine whether sufficient detailed responsibility-model evidence already exists anywhere in the current repository documentation before requesting historical evidence.
+
+The target is not to write the responsibility model yet. The target is to identify the authoritative evidence needed to transfer it without guessing.
 
 ---
 
 ## Next Allowed Action
 
-Create and verify only:
+Search the current repository documentation for detailed responsibility-model material using the preserved responsibility names and known contract fields.
 
-```text
-docs/foundation/FOUNDATION_MODEL.md
-```
+Search for evidence covering:
 
-Use as evidence:
+- interpretation responsibility;
+- authority responsibility;
+- state responsibility;
+- placement responsibility;
+- execution responsibility;
+- verification responsibility;
+- responsibility contract;
+- purpose;
+- authority;
+- input/output;
+- allowed/forbidden dependencies;
+- preserved architectural properties;
+- verifiable boundaries;
+- certification criteria.
 
-- `PROJECT_HANDBOOK.md`;
-- `PROJECT_OVERVIEW.md`;
-- `PROJECT_CONTROL.md`;
-- `docs/foundation/README.md`.
+Do not create a responsibility-model document during this search.
 
-Do not reload historical chats for this transfer unless a concrete contradiction appears while writing.
+If current repository documentation contains sufficient detailed evidence, classify its authority and update `PROJECT_CONTROL.md` with a bounded transfer scope.
 
-Do not add the detailed responsibility model, certification chronology, architecture implementation details, product definitions, or Toolkit workflow.
-
-The document must distinguish Foundation-level methodological constraints from operational governance that remains in the Handbook.
-
-After creation, re-read and verify `FOUNDATION_MODEL.md`, then update `PROJECT_CONTROL.md` before selecting any later Foundation ownership unit.
+If repository documentation is insufficient, identify the exact missing responsibility evidence and then use targeted historical review material only for those missing definitions/contracts. Do not restart broad historical chat reconstruction.
 
 ---
 
