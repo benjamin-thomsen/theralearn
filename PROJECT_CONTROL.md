@@ -38,7 +38,7 @@ The historical reconstruction and authoritative project-control kernel are estab
 
 The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, and the upstream `FOUNDATION_MODEL.md` are now established.
 
-The current task is to determine whether the detailed Implementation Responsibility Model can be transferred next from current authority or whether targeted historical evidence is required.
+Targeted Historical Recovery of the detailed Implementation Responsibility Model is complete. The current task is the bounded authoritative transfer of the recovered six-responsibility model to its permanent Foundation ownership unit.
 
 ---
 
@@ -125,7 +125,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 ## Historical Reconstruction Status
 
-**Status: Methodically complete for current continuation; detailed evidence selectively incomplete**
+**Status: Methodically complete for current continuation; targeted Responsibility Model recovery complete**
 
 The historical review re-established the development chain:
 
@@ -151,9 +151,22 @@ Historical Certification Review
 
 The review recovered the permanent methodological principles needed to continue the project.
 
-Known gaps in the reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
+Targeted Historical Recovery has now recovered the original full contracts for all six responsibilities in Implementation Responsibility Model v1.0:
 
-These gaps remain archival/revision gaps unless a specific detailed Foundation transfer requires evidence not preserved in current authority.
+- interpretation responsibility;
+- authority responsibility;
+- state responsibility;
+- placement responsibility;
+- execution responsibility;
+- verification responsibility.
+
+Each recovered responsibility uses the locked contract fields: purpose, responsibility, authority, input, output, allowed dependencies, forbidden dependencies, preserved architectural properties, verifiable boundaries, and certification criteria. Historical evidence for the horizontal analysis and minimality analysis has also been recovered.
+
+The concrete historical evidence gap blocking Responsibility Model transfer is therefore closed. Historical material remains evidence rather than automatic authority, and no further broad historical recovery is authorized for this transfer.
+
+Known gaps in the wider reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
+
+These remaining gaps are archival/revision gaps unless a later specific Foundation transfer requires evidence not preserved in current authority.
 
 ---
 
@@ -173,7 +186,7 @@ The control kernel remains above domain documentation and does not become the de
 
 ## Foundation Documentation Status
 
-**Status: Upstream model established; next ownership unit under evidence review**
+**Status: Upstream model established; Responsibility Model transfer authorized as next bounded ownership unit**
 
 ### Established
 
@@ -182,17 +195,17 @@ The control kernel remains above domain documentation and does not become the de
 
 `FOUNDATION_MODEL.md` was transferred from current authoritative project evidence without historical chat reload and explicitly excludes the detailed six-responsibility model and certification chronology.
 
-### Candidate next ownership unit
+### Next ownership unit
 
-The next logical Foundation unit is the detailed methodological responsibility model because:
+The next bounded Foundation ownership unit is the detailed Implementation Responsibility Model.
 
-- the Foundation Model already establishes Responsibility before Components and conceptual separation of authority/execution;
-- `PROJECT_OVERVIEW.md` and `PROJECT_HANDBOOK.md` both preserve the six responsibility names;
-- the historical reconstruction confirms that Implementation Responsibility Model followed Implementation Architecture Derivation and preceded Completeness Analysis.
+The historical evidence required for authoritative transfer has now been recovered for all six original responsibility contracts, together with the horizontal analysis and minimality analysis. The transfer must preserve the recovered model without reconstruction, improvement, or re-derivation.
 
-However, the current root documents preserve only the names and high-level role of the six responsibilities. They do not currently preserve the full historical contract for each responsibility, such as purpose, authority, inputs, outputs, allowed/forbidden dependencies, preserved properties, verifiable boundaries, and certification criteria.
+Transfer rule:
 
-Therefore a full detailed responsibility-model transfer must not be written from names alone.
+**Transfer – do not re-derive.**
+
+Historical evidence must be transferred into the permanent Foundation ownership unit and only becomes current project authority through that controlled transfer and verification.
 
 ---
 
@@ -261,11 +274,14 @@ No such artifact should be deleted or implemented merely because it has been ide
 - `docs/foundation/` selected as the permanent home for detailed certified methodology.
 - `docs/foundation/README.md` created and verified.
 - `docs/foundation/FOUNDATION_MODEL.md` created and verified from current authority.
+- Targeted Historical Recovery completed for all six detailed Implementation Responsibility Model contracts.
+- Historical evidence for the Responsibility Model horizontal analysis and minimality analysis recovered.
+- The concrete Responsibility Model evidence gap closed; no further broad historical recovery is required for this transfer.
 
 ### Not yet completed
 
-- Recover sufficient evidence for the detailed responsibility-model ownership unit.
-- Determine and transfer later Foundation ownership units, including responsibility and certification material where supported.
+- Transfer and verify the recovered six-responsibility model into its permanent Foundation ownership unit.
+- Determine and transfer later Foundation ownership units, including certification material where supported.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -283,11 +299,11 @@ Implementation and historical decisions are ahead of several non-architecture do
 
 **Mitigation:** continue documentation repair before resuming ordinary feature development.
 
-### R2 – Responsibility-model reconstruction from insufficient evidence
+### R2 – Responsibility-model transfer fidelity
 
-The six responsibility names are preserved, but their detailed contracts are not currently present in the authoritative root files.
+The detailed six-responsibility contracts have been recovered from targeted historical evidence but have not yet been transferred into current Foundation authority.
 
-**Mitigation:** do not reconstruct detailed responsibility definitions from names or implementation structure. Search current repository documentation first; if insufficient, recover only the targeted historical responsibility evidence required for authoritative transfer.
+**Mitigation:** transfer the recovered contracts without reconstruction, improvement, or re-derivation; preserve the locked contract structure and verify the resulting permanent ownership unit before proceeding.
 
 ### R3 – Stale roadmap/backlog state
 
@@ -321,38 +337,47 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Determine whether sufficient detailed responsibility-model evidence already exists anywhere in the current repository documentation before requesting historical evidence.
+Perform the bounded authoritative transfer of the recovered Implementation Responsibility Model v1.0 into its permanent Foundation ownership unit.
 
-The target is not to write the responsibility model yet. The target is to identify the authoritative evidence needed to transfer it without guessing.
+The transfer scope is limited to the recovered six-responsibility model and its recovered supporting horizontal and minimality analyses. Historical evidence is source evidence, not automatic authority.
+
+No responsibility contract may be reconstructed, improved, or re-derived during transfer.
 
 ---
 
 ## Next Allowed Action
 
-Search the current repository documentation for detailed responsibility-model material using the preserved responsibility names and known contract fields.
+Create the permanent Foundation ownership unit for the recovered Implementation Responsibility Model and transfer the recovered primary evidence into it.
 
-Search for evidence covering:
+The transferred model must preserve all six responsibilities:
 
 - interpretation responsibility;
 - authority responsibility;
 - state responsibility;
 - placement responsibility;
 - execution responsibility;
-- verification responsibility;
-- responsibility contract;
+- verification responsibility.
+
+For each responsibility, preserve the locked contract fields:
+
 - purpose;
+- responsibility;
 - authority;
-- input/output;
-- allowed/forbidden dependencies;
+- input;
+- output;
+- allowed dependencies;
+- forbidden dependencies;
 - preserved architectural properties;
 - verifiable boundaries;
 - certification criteria.
 
-Do not create a responsibility-model document during this search.
+Include the recovered horizontal analysis and minimality analysis only within the same bounded Responsibility Model ownership scope where they establish the model's completeness/minimality.
 
-If current repository documentation contains sufficient detailed evidence, classify its authority and update `PROJECT_CONTROL.md` with a bounded transfer scope.
+**Transfer – do not re-derive.**
 
-If repository documentation is insufficient, identify the exact missing responsibility evidence and then use targeted historical review material only for those missing definitions/contracts. Do not restart broad historical chat reconstruction.
+Do not reconstruct missing wording, improve the contracts, add new responsibilities, or resume MVP feature development.
+
+After transfer, re-read and verify the new Foundation ownership unit before updating `PROJECT_CONTROL.md` again or proceeding to any later Foundation material.
 
 ---
 
