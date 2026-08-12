@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getChapterBySlug } from "@/lib/repositories/chapters";
 import { getCourseBySlug } from "@/lib/repositories/courses";
+import { getFlashcardsByLessonId } from "@/lib/repositories/flashcards";
 import { getLessonBySlug } from "@/lib/repositories/lessons";
 import { createClient } from "@/lib/supabase/server";
 
@@ -35,6 +36,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
     notFound();
   }
 
+  const flashcards = (await getFlashcardsByLessonId(client, lesson.id)).filter(
+    (flashcard) => flashcard.is_published,
+  );
+
   return (
     <main>
       <nav aria-label="Pensumhierarki">
@@ -63,6 +68,20 @@ export default async function LessonPage({ params }: LessonPageProps) {
           <h2 id="lesson-content-heading">Indhold</h2>
           <p style={{ whiteSpace: "pre-wrap" }}>{lesson.content}</p>
         </section>
+
+        {flashcards.length > 0 && (
+          <section aria-labelledby="flashcards-heading">
+            <h2 id="flashcards-heading">Flashcards</h2>
+            <p>Prøv at svare fra hukommelsen, før du viser svaret.</p>
+
+            {flashcards.map((flashcard) => (
+              <details key={flashcard.id}>
+                <summary>{flashcard.front_text}</summary>
+                <p>{flashcard.back_text}</p>
+              </details>
+            ))}
+          </section>
+        )}
       </article>
     </main>
   );
