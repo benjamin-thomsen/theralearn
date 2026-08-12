@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 
+import AuthoritativeQuizQuestion from "@/components/AuthoritativeQuizQuestion";
 import { getChapterBySlug } from "@/lib/repositories/chapters";
 import { getCourseBySlug } from "@/lib/repositories/courses";
 import { getFlashcardsByLessonId } from "@/lib/repositories/flashcards";
 import { getLessonBySlug } from "@/lib/repositories/lessons";
+import { getQuizQuestionsByLessonId } from "@/lib/repositories/quizQuestions";
 import { createClient } from "@/lib/supabase/server";
 
 type LessonPageProps = {
@@ -39,6 +41,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const flashcards = (await getFlashcardsByLessonId(client, lesson.id)).filter(
     (flashcard) => flashcard.is_published,
   );
+  const quizQuestions = (
+    await getQuizQuestionsByLessonId(client, lesson.id)
+  ).filter((quizQuestion) => quizQuestion.is_published);
 
   return (
     <main>
@@ -79,6 +84,24 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 <summary>{flashcard.front_text}</summary>
                 <p>{flashcard.back_text}</p>
               </details>
+            ))}
+          </section>
+        )}
+
+        {quizQuestions.length > 0 && (
+          <section aria-labelledby="quiz-heading">
+            <h2 id="quiz-heading">Quiz</h2>
+            <p>Vælg et svar, før du tjekker facit og forklaring.</p>
+
+            {quizQuestions.map((quizQuestion) => (
+              <AuthoritativeQuizQuestion
+                key={quizQuestion.id}
+                id={quizQuestion.id}
+                question={quizQuestion.question}
+                options={quizQuestion.options}
+                correct_answer={quizQuestion.correct_answer}
+                explanation={quizQuestion.explanation}
+              />
             ))}
           </section>
         )}
