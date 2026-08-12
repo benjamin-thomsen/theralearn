@@ -12,13 +12,19 @@
 
 ## Current Phase
 
-**MVP Learning Loop Implementation — Authoritative Quiz Activity Integration**
+**MVP Learning Loop Implementation — Authoritative Quiz Runtime Data Verification**
 
 The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged.
 
-The Authoritative Lesson Context, Authoritative Curriculum Entry, Authoritative Flashcard Integration, and Quiz Repository first slices are verified and closed.
+The following bounded slices are verified and closed:
 
-Bounded UI inspection has now established the smallest dependency-correct Server/Client responsibility split for authoritative quiz activity.
+- Authoritative Lesson Context;
+- Authoritative Curriculum Entry;
+- Authoritative Flashcard Integration;
+- Quiz Repository first slice;
+- Authoritative Quiz Activity first slice.
+
+The next unresolved dependency is runtime data availability: whether published authoritative quiz-question rows actually exist remotely for lesson-scoped rendering.
 
 ---
 
@@ -28,14 +34,14 @@ Bounded UI inspection has now established the smallest dependency-correct Server
 migration-next16-to-root
 ```
 
-Verified quiz repository implementation commit:
+Verified Authoritative Quiz Activity implementation commit:
 
 ```text
-25bafe7513f1796790f3c7cb357495fd55822eb3
-Add authoritative quiz question repository
+1d441497213d7caf1c30710ec6c1caca4865d9d8
+Integrate authoritative lesson quiz activity
 ```
 
-GitHub Actions workflow `Verify`, run 82, completed successfully for that exact commit.
+GitHub Actions workflow `Verify`, run 86, completed successfully for that exact commit.
 
 ---
 
@@ -61,165 +67,59 @@ Learning activities
 Learner-related result/progress
 ```
 
-Quiz questions are lesson-scoped learning activities. Data identity and resolution remain server-owned; answer selection and correction reveal are bounded client interaction responsibilities.
+Features are mechanisms; Learning Principles are authority. No single feature may overclaim realization of a Learning Principle.
 
 ---
 
-## Verified Quiz UI Evidence
+## Verified Authoritative Quiz Activity First Slice
 
-### Authoritative lesson ownership
+The authoritative lesson route remains the Server Component ownership point for course → chapter → lesson resolution.
 
-`app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx` is an async Server Component that already owns authoritative course → chapter → lesson resolution and lesson-scoped flashcard loading.
-
-It is therefore the correct server ownership point for loading quiz questions by `lesson.id`.
-
-### Authoritative quiz data access
-
-`lib/repositories/quizQuestions.ts` now exposes:
+After authoritative lesson resolution it loads lesson-scoped quiz questions through:
 
 ```text
 getQuizQuestionsByLessonId(client, lesson.id)
 ```
 
-No client-side Supabase fetch is required.
-
-### Legacy quiz route
-
-`app/quiz/[slug]/page.tsx` is a client-side legacy route that:
-
-- derives identity from a topic slug;
-- reads hardcoded `data/quiz.ts`;
-- owns multi-question score/progress/result state;
-- links back to the legacy quiz overview.
-
-It is useful only as interaction-pattern evidence and must not be reused as authoritative route or identity.
-
-### Existing QuizCard component
-
-`components/QuizCard.tsx` is already a client component with bounded per-question answer-selection and reveal state, but it imports the legacy `QuizQuestion` type from `data/quiz` and expects camelCase `correctAnswer` rather than the authoritative database `correct_answer` field.
-
-Its responsibility shape is useful, but modifying it would risk coupling legacy and authoritative quiz models together.
-
-No existing component cleanly owns authoritative database quiz-question interaction.
-
-### Derived responsibility boundary
-
-The smallest correct boundary is:
-
-```text
-Authoritative lesson Server Component
-  ↓ resolves lesson.id
-  ↓ loads published quiz questions server-side
-  ↓ passes serializable authoritative question data
-New narrow Client Component
-  ↓ owns selected answer
-  ↓ owns checked/revealed state
-  ↓ renders correctness + stored explanation
-```
-
-This preserves server data authority and client interaction responsibility without creating a new route or migrating legacy quiz behavior.
-
----
-
-## Bounded Implementation Plan — Authoritative Quiz Activity First Slice
-
-### Exact code changes
-
-Authorize exactly two product-code files:
-
-```text
-CREATE components/AuthoritativeQuizQuestion.tsx
-MODIFY app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
-```
-
-No CSS file is authorized. No legacy quiz file is authorized.
-
-### Server Component contract
-
-Modify the authoritative lesson route so that it:
-
-1. imports `getQuizQuestionsByLessonId`;
-2. loads quiz questions only after authoritative lesson resolution using `lesson.id`;
-3. filters to published quiz questions before rendering;
-4. preserves all existing lesson and flashcard behavior;
-5. renders no quiz section when there are zero published quiz questions;
-6. passes each authoritative quiz question to the new client component;
-7. remains a Server Component and does not add `"use client"`;
-8. performs no score, progress, mastery, scheduling, or authentication write behavior.
-
-### Client Component contract
-
-Create:
+Published quiz questions are filtered server-side and passed as serializable data to:
 
 ```text
 components/AuthoritativeQuizQuestion.tsx
 ```
 
-The component must:
+The client component owns only bounded per-question interaction:
 
-1. include `"use client"`;
-2. accept only the serializable fields needed for one authoritative question:
-   - `id`;
-   - `question`;
-   - `options`;
-   - `correct_answer`;
-   - `explanation`;
-3. own only per-question local interaction state:
-   - selected option index;
-   - whether the answer has been checked;
-4. require the learner to select an option before checking;
-5. prevent answer changes after checking until reset;
-6. reveal whether the selected answer is correct only after checking;
-7. reveal the stored explanation after checking when an explanation exists;
-8. allow a local reset/retry of that question;
-9. persist nothing;
-10. perform no Supabase/network access;
-11. calculate no cross-question score or mastery claim;
-12. use semantic classless markup / minimal inline presentation only, with no new CSS file.
+- answer selection;
+- check/reveal state;
+- correctness reveal;
+- stored explanation reveal;
+- local reset/retry.
 
-### Learning-principle boundary
+It performs no Supabase/network access and introduces no score, progress persistence, mastery, adaptive logic, scheduling, new route, or legacy quiz dependency.
 
-The interaction creates an active response before correctness reveal and can support Active Retrieval. Revealing correctness plus the stored explanation can support Informative Correction when the explanation is sufficient for the specific error/context.
-
-This slice must not claim universal satisfaction of either principle and must not claim Objective-Aligned Demonstration, mastery, Distributed Practice, or Adaptive Guidance.
-
-### Explicit non-goals
-
-Do not modify:
-
-```text
-app/quiz/[slug]/page.tsx
-data/quiz.ts
-components/QuizCard.tsx
-```
-
-Do not create a new quiz route, quiz overview, CSS file, result page, scoring system, progress persistence, authentication write, mastery threshold, adaptive testing, scheduler, or spaced-repetition behavior.
+The implementation can support Active Retrieval through an active response before reveal. Stored correctness/explanation can support Informative Correction when the content is sufficient. No broader learning-principle claim is certified by this slice.
 
 ---
 
-## Verification Contract
+## Verification State
 
-The slice is complete only when verification demonstrates:
+Authoritative Quiz Activity first slice is **CLOSED**.
 
-1. exactly one new product-code file is created: `components/AuthoritativeQuizQuestion.tsx`;
-2. the only existing product-code file modified is the authoritative lesson route;
-3. lesson route remains a Server Component;
-4. quiz questions are loaded server-side only after authoritative lesson resolution;
-5. lookup uses `getQuizQuestionsByLessonId(client, lesson.id)`;
-6. only published quiz questions are passed to UI;
-7. zero published questions renders no invented quiz fallback content;
-8. client component performs no data fetch;
-9. client state is bounded to one question's selection/check/reset interaction;
-10. correctness is hidden until check;
-11. stored explanation is revealed only after check when present;
-12. no legacy topic slug or `data/quiz.ts` dependency is introduced;
-13. no score, progress persistence, mastery, adaptive logic, scheduling, new route, or new CSS is introduced;
-14. TypeScript passes;
-15. Next.js build passes;
-16. documentation structure verification remains passing;
-17. GitHub Actions passes for the resulting branch head.
+Verified implementation commit:
 
-Remote published quiz-row availability remains a separate runtime data-state question.
+```text
+1d441497213d7caf1c30710ec6c1caca4865d9d8
+```
+
+Verified GitHub Actions result:
+
+```text
+Verify #86
+status: completed
+conclusion: success
+```
+
+The successful workflow certifies the repository verification gate for the implementation commit.
 
 ---
 
@@ -227,58 +127,59 @@ Remote published quiz-row availability remains a separate runtime data-state que
 
 ### R1 – Remote quiz availability
 
-**Status: OPEN.**
+**Status: OPEN and now blocking the next quiz integration decision.**
 
-Published remote quiz-question rows have not yet been certified.
+Published remote quiz-question rows have not yet been certified. The authoritative UI correctly renders no quiz section when zero published questions are available, so runtime data state must be verified before deciding whether any further product-code change is necessary.
 
 ### R2 – Informative correction quality
 
 **Status: OPEN by content.**
 
-The schema supports explanations, but whether a particular explanation is sufficient correction depends on actual question content and learner error. UI presence alone cannot certify this principle.
+The schema and UI support stored explanations, but whether a particular explanation provides sufficient correction depends on actual question content and learner error.
 
 ### R3 – Legacy quiz identity
 
 **Status: ACTIVE but isolated.**
 
-Legacy `/quiz/[slug]` remains in the repository but is not part of the authoritative integration.
+Legacy `/quiz/[slug]`, `data/quiz.ts`, and legacy quiz orchestration remain outside the authoritative integration.
 
 ### R4 – Multi-question orchestration
 
 **Status: DEFERRED.**
 
-This first slice intentionally does not introduce score, sequence, result state, or progression across questions.
+No score, sequence, result state, or progression across questions has been authorized.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: OPEN ONLY for the bounded Authoritative Quiz Activity first slice.**
+**Product implementation: PAUSED pending bounded runtime data verification.**
 
-Authorized changes:
+No product-code change is currently authorized.
 
-```text
-CREATE components/AuthoritativeQuizQuestion.tsx
-MODIFY app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
-```
-
-No other product-code file change is authorized unless verification proves this exact slice cannot compile without one; if so, stop and synchronize control before expanding scope.
+Runtime/data inspection may proceed. If inspection identifies a verified data-state defect or missing prerequisite, synchronize this control file before authorizing any implementation response.
 
 ---
 
 ## Current Task
 
-Implement authoritative per-question quiz interaction inside authoritative lesson context exactly as specified above.
+Verify remote authoritative quiz-question availability and its lesson relationship without changing product code.
+
+The inspection must determine whether published quiz-question rows exist remotely and whether they are correctly associated with authoritative lesson IDs that can be reached through the structured curriculum.
 
 ---
 
 ## Next Allowed Action
 
-Create `components/AuthoritativeQuizQuestion.tsx`, then modify the authoritative lesson route to load published questions through `getQuizQuestionsByLessonId(client, lesson.id)` and render the new bounded client component.
+Perform a bounded read-only verification of remote authoritative quiz data:
 
-Then verify both files and project verification. After verification, synchronize `PROJECT_CONTROL.md` before selecting the next slice.
+1. inspect whether published `quiz_questions` rows exist;
+2. verify their `lesson_id` relationships;
+3. verify that at least one related lesson belongs to the authoritative course → chapter → lesson curriculum chain;
+4. make no product-code or schema change during inspection;
+5. synchronize `PROJECT_CONTROL.md` with the verified result before selecting the next implementation slice.
 
-Do not modify legacy quiz files, progress persistence, authentication writes, schema, scoring, mastery, adaptive testing, scheduling, broad styling, or activity routing in this slice.
+If no published rows exist, treat that as a data-state finding rather than a UI defect. Do not invent fallback quiz content or expand legacy quiz scope.
 
 ---
 
