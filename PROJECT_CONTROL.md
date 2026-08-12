@@ -102,6 +102,8 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
+`docs/README.md` has now been repaired and re-read from the target GitHub branch to verify the committed content. A new complete local build/TypeScript/documentation verification has not yet been run after this documentation-only change.
+
 ---
 
 ## Historical Reconstruction Status
@@ -175,6 +177,7 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/product/PRODUCT_VISION.md`;
 - `docs/product/LEARNING_MODEL.md`;
 - `docs/meetings/decisions-log.md`;
+- `docs/architecture/README.md`;
 - `docs/architecture/system-overview.md`;
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`;
@@ -183,14 +186,17 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
+The architecture directory currently contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
+
 `PROJECT_HANDBOOK.md` was also empty at audit start but has now been repaired.
 
 ### Damaged or stale documentation identified
 
-- `docs/README.md` contains corrupted/repeated content and historical shell material.
 - Root `README.md` remains the default Create Next App README and does not describe TheraLearn.
 - `docs/development/IMPROVEMENT_BACKLOG.md` contains items marked Planned that have already been implemented.
 - `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` understates the current Developer Toolkit implementation state.
+
+`docs/README.md` was previously corrupted and contained repeated text, stale structure claims, and historical shell material. It has now been repaired and verified on the target branch.
 
 ### Repository anomaly identified
 
@@ -216,12 +222,13 @@ Its origin and relevance have not yet been verified. It must not be deleted unti
 - `PROJECT_CONTROL.md` established.
 - `PROJECT_HANDBOOK.md` established.
 - Authority model, information-placement rule, working-session lifecycle, workflow gate, and new-chat context recovery are now permanently documented.
+- `docs/README.md` repaired as the domain-documentation entry point and verified after commit.
 
 ### Not yet completed
 
-- Repair `docs/README.md`.
 - Establish authoritative Foundation/method documentation placement below the control layer.
-- Populate or validate empty architecture documents.
+- Repair the architecture domain entry point and determine responsibility/placement for the empty architecture placeholders.
+- Populate or validate architecture documents based on verified architecture and implementation evidence.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Verify the root README role and replace the default template when appropriate.
@@ -262,6 +269,12 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 **Mitigation:** do not merge or rewrite `main` until documentation consolidation reaches a verified checkpoint and integration strategy is reviewed.
 
+### R6 – Empty architecture authority surface
+
+The architecture domain currently exposes an empty `README.md` and multiple empty placeholder documents, while stable architectural concepts and implementation already exist elsewhere.
+
+**Mitigation:** repair the architecture domain entry point first, then populate or validate individual architecture documents only from verified evidence and established responsibility boundaries.
+
 ---
 
 ## Code Change Gate
@@ -276,27 +289,29 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Repair the highest-level domain documentation entry point so the documentation tree itself becomes trustworthy and navigable.
+Establish a trustworthy architecture-domain entry point and determine how the existing empty architecture placeholders should be treated before detailed architecture content is populated.
 
-The first target is `docs/README.md`, which currently declares documentation authority but contains corrupted/repeated content and historical shell material.
+The next target is `docs/architecture/README.md`, which is currently a zero-byte placeholder even though architecture is an authoritative documentation domain.
 
 ---
 
 ## Next Allowed Action
 
-Repair and verify `docs/README.md`.
+Repair and verify `docs/architecture/README.md`.
 
-The repaired file must:
+Before writing it, inspect the architecture directory and use only verified authority from the root control kernel and current repository state.
 
-- describe the purpose and authority of the `docs/` tree;
-- route readers to the appropriate documentation domains;
-- reference the root control kernel rather than duplicating it;
-- state the one-authoritative-home rule;
-- remove corrupted text, stale structure claims, and historical shell commands;
-- avoid claiming that empty domain documents are complete;
-- distinguish documentation structure from documentation completeness.
+The repaired architecture README must:
 
-After `docs/README.md` is repaired, domain documents should be addressed in responsibility order based on verified need and available evidence.
+- define the purpose and authority boundary of `docs/architecture/`;
+- route readers to architecture topics without claiming empty placeholder files are complete;
+- distinguish methodological architecture from implementation mechanisms;
+- preserve the rule that implementation realizes architecture rather than redefining it;
+- reference stable project principles in `PROJECT_OVERVIEW.md` rather than duplicating them;
+- identify documentation completeness as an active repair concern where relevant;
+- avoid inventing architecture content that has not yet been verified.
+
+After the architecture entry point is repaired, individual architecture documents should be addressed one at a time based on verified evidence and responsibility order.
 
 ---
 
