@@ -102,7 +102,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-`docs/README.md` has now been repaired and re-read from the target GitHub branch to verify the committed content. A new complete local build/TypeScript/documentation verification has not yet been run after this documentation-only change.
+`docs/README.md` and `docs/architecture/README.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
 ---
 
@@ -177,7 +177,6 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/product/PRODUCT_VISION.md`;
 - `docs/product/LEARNING_MODEL.md`;
 - `docs/meetings/decisions-log.md`;
-- `docs/architecture/README.md`;
 - `docs/architecture/system-overview.md`;
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`;
@@ -186,9 +185,9 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
-The architecture directory currently contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
+The architecture directory contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
 
-`PROJECT_HANDBOOK.md` was also empty at audit start but has now been repaired.
+`PROJECT_HANDBOOK.md` and `docs/architecture/README.md` were also empty at audit start but have now been repaired.
 
 ### Damaged or stale documentation identified
 
@@ -223,12 +222,12 @@ Its origin and relevance have not yet been verified. It must not be deleted unti
 - `PROJECT_HANDBOOK.md` established.
 - Authority model, information-placement rule, working-session lifecycle, workflow gate, and new-chat context recovery are now permanently documented.
 - `docs/README.md` repaired as the domain-documentation entry point and verified after commit.
+- `docs/architecture/README.md` repaired as the architecture-domain entry point and verified after commit.
 
 ### Not yet completed
 
 - Establish authoritative Foundation/method documentation placement below the control layer.
-- Repair the architecture domain entry point and determine responsibility/placement for the empty architecture placeholders.
-- Populate or validate architecture documents based on verified architecture and implementation evidence.
+- Populate or validate architecture topic documents based on verified architecture and implementation evidence.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Verify the root README role and replace the default template when appropriate.
@@ -269,11 +268,11 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 **Mitigation:** do not merge or rewrite `main` until documentation consolidation reaches a verified checkpoint and integration strategy is reviewed.
 
-### R6 – Empty architecture authority surface
+### R6 – Incomplete architecture topic documentation
 
-The architecture domain currently exposes an empty `README.md` and multiple empty placeholder documents, while stable architectural concepts and implementation already exist elsewhere.
+The architecture domain entry point is now established, but multiple architecture topic files remain empty placeholders while verified implementation already exists.
 
-**Mitigation:** repair the architecture domain entry point first, then populate or validate individual architecture documents only from verified evidence and established responsibility boundaries.
+**Mitigation:** begin with the system-level architecture overview, derive only from the established control kernel and inspected repository evidence, then repair narrower topic documents one at a time.
 
 ---
 
@@ -289,29 +288,39 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Establish a trustworthy architecture-domain entry point and determine how the existing empty architecture placeholders should be treated before detailed architecture content is populated.
+Establish the first authoritative architecture topic document at the system level before repairing narrower frontend, backend, database, authentication, deployment, or integration topics.
 
-The next target is `docs/architecture/README.md`, which is currently a zero-byte placeholder even though architecture is an authoritative documentation domain.
+The target is `docs/architecture/system-overview.md`, currently a zero-byte placeholder.
+
+Because it is the system-level architecture entry below the architecture README, it should establish the verified system boundaries and route detailed concerns to narrower architecture documents rather than attempting to contain every implementation detail.
 
 ---
 
 ## Next Allowed Action
 
-Repair and verify `docs/architecture/README.md`.
+Inspect the current repository structure and the implementation/configuration evidence needed for `docs/architecture/system-overview.md`, then repair and verify that file.
 
-Before writing it, inspect the architecture directory and use only verified authority from the root control kernel and current repository state.
+Do not populate the system overview from historical chats by default.
 
-The repaired architecture README must:
+The repair must use only verified evidence from:
 
-- define the purpose and authority boundary of `docs/architecture/`;
-- route readers to architecture topics without claiming empty placeholder files are complete;
-- distinguish methodological architecture from implementation mechanisms;
-- preserve the rule that implementation realizes architecture rather than redefining it;
-- reference stable project principles in `PROJECT_OVERVIEW.md` rather than duplicating them;
-- identify documentation completeness as an active repair concern where relevant;
-- avoid inventing architecture content that has not yet been verified.
+- the root control kernel;
+- `docs/README.md` and `docs/architecture/README.md`;
+- current repository structure;
+- relevant current implementation and configuration;
+- Git history only where needed for traceability;
+- historical review material only if a concrete unresolved architectural claim cannot otherwise be established.
 
-After the architecture entry point is repaired, individual architecture documents should be addressed one at a time based on verified evidence and responsibility order.
+The system overview must:
+
+- describe the verified high-level system shape and major boundaries;
+- distinguish Runtime from Tooling where supported by verified project authority and implementation;
+- identify major implementation areas without turning folder names into methodological responsibilities;
+- route detailed frontend, backend, database, authentication, deployment, and integration concerns to their own topic documents;
+- distinguish verified implementation facts from permanent architectural rules;
+- avoid claims that cannot be established from inspected evidence.
+
+After `system-overview.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next architecture topic.
 
 ---
 
