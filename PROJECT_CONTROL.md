@@ -22,11 +22,9 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 **Learning Science Evidence Review**
 
-The minimal product-authority layer and initial MVP boundary are established. A read-only MVP implementation gap assessment has also established that the current application contains substantial but disconnected implementation: curriculum/pensum, lesson-like content, quiz, authentication, and local quiz progress are partial; flashcard product flow is missing; and the complete authenticated learning loop is not yet integrated.
+The bounded external learning-science synthesis is complete and candidate-principle certification is in progress.
 
-A bounded external learning-science evidence synthesis has now been completed across the initial candidate areas. The synthesis supports a smaller candidate principle set rather than treating every reviewed technique as an independent platform principle.
-
-The current `LEARNING_MODEL.md` remains deliberately conservative and has not yet been modified. Product implementation remains paused while the candidate principle set is tested for evidence sufficiency, overlap, boundary preservation, and minimum-set coherence before any permanent product-authority transfer.
+The current `LEARNING_MODEL.md` remains unchanged. Product implementation remains paused while the candidate principle set is tested for evidence sufficiency, overlap, boundary preservation, and minimum-set coherence before any permanent product-authority transfer.
 
 ---
 
@@ -57,9 +55,10 @@ Recent verified product/control checkpoints include:
 - Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
 - MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`;
 - MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`;
-- Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`.
+- Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`;
+- initial learning-science evidence synthesis recorded: `3376c32820c0e023cc0a876df74a250afa90791a`.
 
-The implementation gap assessment has verified these current classifications:
+The implementation gap assessment remains:
 
 - authentication/user identity — **Partial**;
 - curriculum/pensum — **Partial**;
@@ -69,7 +68,7 @@ The implementation gap assessment has verified these current classifications:
 - results/progress — **Partial, currently local-browser based rather than authenticated learner/lesson authority**;
 - complete end-to-end learning loop — **Missing / not integrated**.
 
-These classifications remain implementation evidence, but implementation selection is temporarily deferred until the Learning Science Evidence Review is complete.
+Implementation selection remains deferred until the Learning Science Evidence Review is complete.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after the documentation-only repair sequence.
 
@@ -79,103 +78,81 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 **Status: No historical chat recovery currently authorized**
 
-Historical project material remains evidence, not automatic authority.
-
 The Learning Science Evidence Review uses external scientific evidence. Historical project chats are not a substitute for scientific evidence.
 
 ---
 
 ## Product Authority Status
 
-**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED; SCIENCE-DERIVED LEARNING PRINCIPLES ARE CANDIDATES, NOT YET PERMANENT AUTHORITY**
+**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED; SCIENCE-DERIVED LEARNING PRINCIPLES ARE NOT YET PERMANENT AUTHORITY**
 
 Established authorities:
 
-- `docs/product/README.md` — product-domain navigation and placement;
-- `docs/product/PRODUCT_VISION.md` — permanent product intent;
-- `docs/product/LEARNING_MODEL.md` — current evidence-backed structural learning model;
-- `docs/product/mvp.md` — durable initial MVP scope and acceptance boundary.
+- `docs/product/README.md`;
+- `docs/product/PRODUCT_VISION.md`;
+- `docs/product/LEARNING_MODEL.md`;
+- `docs/product/mvp.md`.
 
-The current Learning Model remains valid as a structural model but is not yet sufficient as the scientific design basis for an exceptional learning platform.
-
-No candidate principle has yet been transferred into permanent product authority.
+No science-derived candidate principle has yet been transferred into permanent product authority.
 
 ---
 
 ## Learning Science Evidence Synthesis
 
-**Status: BOUNDED INITIAL SYNTHESIS COMPLETE; PRINCIPLE CERTIFICATION PENDING**
+**Status: BOUNDED INITIAL SYNTHESIS COMPLETE; PRINCIPLE CERTIFICATION IN PROGRESS**
 
-The review prioritized systematic reviews, meta-analyses, major peer-reviewed reviews, and evidence syntheses. The resulting evidence pattern does not justify eight independent permanent platform principles.
+The review prioritized systematic reviews, meta-analyses, major peer-reviewed reviews, and evidence syntheses. The evidence pattern does not justify eight independent permanent platform principles.
 
-### Evidence classifications
+### Candidate classifications
 
-1. **Retrieval practice — Foundational candidate**
-   - strong and broadly generalizable evidence supports active retrieval over passive re-exposure for durable learning;
-   - implementation conditions such as retrieval success, repetition, material, test format, and feedback remain relevant.
+1. **Active Retrieval Principle — NARROWED; certification candidate now evidence-bounded**
+2. **Distributed Relearning Principle — certification pending**
+3. **Informative Correction Principle — certification pending**
+4. **Adaptive Guidance Principle — certification pending**
+5. **Demonstrated Understanding Principle — certification pending**
 
-2. **Spacing / distributed relearning — Foundational candidate**
-   - strong evidence supports distributing learning across time rather than massing equivalent practice;
-   - optimal spacing is conditional on retention goals, material, learner state, and relearning conditions;
-   - spacing is not itself a justification for a specific flashcard algorithm.
+Conditional mechanisms remain:
 
-3. **Corrective / informative feedback — Foundational candidate**
-   - evidence supports feedback as beneficial on average, but feedback is heterogeneous and information content matters;
-   - the platform principle should concern useful correction of learner attempts rather than feedback as a generic feature.
+- self-explanation / elaboration;
+- interleaving;
+- metacognition / calibration.
 
-4. **Cognitive-load-sensitive guidance / worked examples — Foundational constraint candidate**
-   - evidence supports guidance and worked-example approaches particularly where learners lack schemas for complex tasks;
-   - expertise and task complexity create important boundary conditions, so support must not become universal permanent scaffolding.
+### Active Retrieval Principle certification result
 
-5. **Demonstrated understanding / transfer — Foundational outcome candidate**
-   - durable learning cannot always be equated with recall when the target competence requires explanation, discrimination, inference, or application;
-   - transfer is not automatic and must be evaluated relative to the actual learning objective.
+**Decision: NARROW**
 
-6. **Self-explanation / elaboration — Conditional mechanism**
-   - potentially valuable for appropriate material and objectives;
-   - currently better represented as a mechanism available under a broader demonstrated-understanding principle than as an independent universal platform principle.
+The original candidate was too broad because it implied that learning generally should require retrieval. High-quality meta-analytic evidence strongly supports retrieval practice for durable retention of previously acquired knowledge, including substantial classroom evidence, but the magnitude and transfer of benefit depend on conditions such as test format, material matching, corrective feedback, repetitions, timing, initial performance, and the target learning outcome.
 
-7. **Interleaving — Conditional mechanism**
-   - evidence is meaningfully moderated by domain, category similarity, material, and task structure;
-   - it must not become a universal "mix practice" rule.
+Evidence also shows that retrieval should not be assumed to optimize every inferential or transfer task. Therefore retrieval is foundational for durable retention but must not be treated as a universal learning action across all phases and objectives.
 
-8. **Metacognition / calibration — Conditional / deferred mechanism**
-   - learner judgments can be useful but subjective confidence must not be treated as equivalent to demonstrated mastery;
-   - performance evidence should remain distinct from learner confidence.
+The bounded formulation that survives certification is:
 
-### Candidate minimal principle set
+> **Active Retrieval Principle:** When durable retention of previously acquired knowledge is an intended learning outcome, learners should be required to actively retrieve relevant knowledge from memory at appropriate points in the learning process, rather than relying primarily on passive re-exposure.
 
-The current smallest coherent candidate set is:
+This formulation:
 
-1. **Active Retrieval Principle** — learning should require retrieval of relevant knowledge or reasoning rather than rely primarily on passive re-exposure.
+- expresses a learning requirement rather than a feature convention;
+- preserves the strongest evidence scope;
+- leaves retrieval format implementation-independent;
+- does not equate quizzes or flashcards with the principle;
+- preserves room for acquisition, guidance, explanation, inference, and transfer mechanisms where retrieval alone is insufficient;
+- does not by itself change the current MVP acceptance boundary.
+
+**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
+
+---
+
+## Candidate Minimal Principle Set
+
+The current working set is:
+
+1. **Active Retrieval Principle** — narrowed as above.
 2. **Distributed Relearning Principle** — important learning should be revisited across time, with retrieval/relearning distributed in relation to intended durability.
 3. **Informative Correction Principle** — learner attempts should produce sufficient corrective information to repair errors and strengthen accurate understanding.
 4. **Adaptive Guidance Principle** — instructional support should reduce unnecessary cognitive burden during acquisition and be reduced or changed as learner knowledge makes greater independence appropriate.
 5. **Demonstrated Understanding Principle** — where objectives extend beyond recall, mastery should be demonstrated through explanation, discrimination, inference, or application appropriate to the objective.
 
-These formulations are **candidate principles only**. They are not yet permanent TheraLearn product authority.
-
-### Architectural implication under review
-
-The evidence synthesis suggests that product architecture should be derived from a learning process such as:
-
-```text
-Acquire / orient
-      ↓
-Retrieve
-      ↓
-Correct
-      ↓
-Relearn across time
-      ↓
-Demonstrate objective-appropriate understanding
-      ↓
-Adapt subsequent support and practice
-```
-
-This is a candidate learning-process architecture, not yet a replacement for the structural hierarchy in `LEARNING_MODEL.md`.
-
-Existing product concepts such as flashcards and quizzes must be treated as possible mechanisms for realizing learning principles, not as scientific principles or evidence of learning by themselves.
+These remain candidates until the complete set survives certification and minimum-set coherence testing.
 
 ---
 
@@ -189,8 +166,6 @@ The evidence review distinguishes:
 2. **Conditional evidence** — useful under identifiable conditions and therefore suitable only as a bounded principle/mechanism;
 3. **Emerging/uncertain evidence** — promising but insufficient for permanent platform authority;
 4. **Unsupported product convention** — common feature patterns without sufficient evidence to define TheraLearn learning design.
-
-Evidence strength, boundary conditions, learner behavior, mechanism classes, and MVP implications must remain distinct.
 
 A permanent principle must additionally pass a derivation test:
 
@@ -211,19 +186,13 @@ A permanent principle must additionally pass a derivation test:
 
 ### R2 – Learning-science authority gap
 
-**Status: ACTIVE — narrowed from evidence discovery to principle certification.**
+**Status: ACTIVE — candidate-principle certification in progress.**
 
-A bounded evidence synthesis now exists and has produced five candidate foundational principles plus conditional mechanisms. The remaining risk is premature promotion: turning a plausible synthesis into permanent authority before testing minimum-set coherence, evidence scope, and boundary preservation.
-
-**Mitigation:** perform a bounded candidate-principle certification before modifying permanent product authority.
+One candidate has now been narrowed against evidence. The remaining risk is premature promotion before all candidates and the final minimum set have passed the same test.
 
 ### R3 – MVP implementation integration gap
 
 **Status: ACTIVE but temporarily deferred.**
-
-The current implementation is fragmented across hardcoded curriculum, local quiz data/state, browser-local progress, Supabase auth/data structures, and a missing flashcard product flow.
-
-**Mitigation:** resume implementation-gap prioritization after science-derived learning principles are established and the MVP boundary is explicitly checked for required adjustment.
 
 ### R4 – Anomalous repository artifact
 
@@ -245,15 +214,17 @@ No product feature code changes are authorized.
 
 External scientific research, read-only repository inspection, and control/documentation changes required to establish evidence authority are authorized.
 
-The current MVP boundary must not be silently expanded by the evidence review. If scientific derivation demonstrates that a mechanism is essential to the minimum viable learning loop, that must be recorded as an explicit MVP scope decision before implementation.
+The current MVP boundary must not be silently expanded by the evidence review.
 
 ---
 
 ## Current Task
 
-Perform **Candidate Learning Principle Certification** on the five-principle minimal set.
+Continue **Candidate Learning Principle Certification** on the smallest coherent candidate set.
 
-For each candidate, determine:
+The Active Retrieval Principle has completed its individual certification pass with status `NARROW`.
+
+For each remaining candidate, determine:
 
 1. whether the claimed scope is supported strongly enough by the reviewed evidence;
 2. whether important boundary conditions are preserved in the formulation;
@@ -263,20 +234,22 @@ For each candidate, determine:
 6. whether omission would leave a material gap in the science-derived learning architecture;
 7. whether it changes the current MVP acceptance boundary.
 
-The certification target is not five principles by default. The target remains the **smallest coherent set that survives the evidence and derivation tests**.
-
 ---
 
 ## Next Allowed Action
 
-Certify or reject the candidate principles one at a time, beginning with **Active Retrieval Principle**.
+Certify the **Distributed Relearning Principle**.
 
-For each candidate:
+Specifically determine whether:
 
-- test the exact principle claim against the strongest available evidence;
-- identify counter-evidence or boundary conditions that would narrow the claim;
-- test whether the principle is independent of specific product mechanisms;
-- classify it as **CERTIFY**, **NARROW**, **MERGE**, **DEFER**, or **REJECT**.
+- distributed practice is sufficiently strong and generalizable for permanent principle status;
+- the principle should concern spacing alone or the combination of spacing with retrieval/relearning;
+- retention interval, learner state, material type, and spacing schedule require narrowing;
+- the principle remains implementation-independent and does not imply one spaced-repetition algorithm;
+- it is independent enough from Active Retrieval to remain a separate principle rather than being merged;
+- it changes the current MVP boundary.
+
+Classify it as **CERTIFY**, **NARROW**, **MERGE**, **DEFER**, or **REJECT**.
 
 Do not modify `docs/product/LEARNING_MODEL.md`, `docs/product/mvp.md`, or product code during candidate certification.
 
@@ -289,5 +262,3 @@ No historical chat recovery is authorized for this task.
 ## Update Rule
 
 `PROJECT_CONTROL.md` must be updated whenever a verified change materially alters current phase, current task, Next Allowed Action, implementation baseline, verification state, known risks, documentation-repair progress, or code-change permission.
-
-Historical detail should not accumulate here unless required to understand current state.
