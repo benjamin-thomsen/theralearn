@@ -2,7 +2,7 @@
 
 > Version: 1.0
 >
-> Status: Active; transferred from current authoritative project evidence
+> Status: Certified and locked; authoritative Foundation ownership unit
 >
 > Role: Upstream certified methodological core for downstream derivation
 >
@@ -16,9 +16,9 @@ This document owns the upstream methodological core of the TheraLearn Foundation
 
 Its purpose is to preserve the permanent constraints that govern how project knowledge, architecture, responsibility, implementation, and verification may be derived.
 
-It does not describe current project state, detailed implementation architecture, product requirements, Developer Toolkit behavior, the detailed six-responsibility model, or historical certification chronology.
+It does not describe current project state, detailed implementation architecture, product requirements, Developer Toolkit behavior, the detailed six-responsibility model, individual falsification attempts, or historical certification chronology.
 
-Those concerns have other authoritative homes or later Foundation ownership units.
+Those concerns have other authoritative homes or are historical evidence rather than permanent Foundation authority.
 
 ---
 
@@ -234,7 +234,7 @@ Folders, services, files, classes, database tables, UI components, commands, and
 
 Their existence does not define the methodological responsibility model.
 
-The detailed six-responsibility model is intentionally outside this document and requires its own later authoritative ownership unit.
+The detailed six-responsibility model is owned separately by `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
 ---
 
@@ -253,7 +253,7 @@ This preserves the distinction between:
 - what mechanism executes an authorized action;
 - what verifies the result.
 
-The detailed decomposition of these concerns belongs in the later responsibility-model documentation.
+The detailed decomposition of these concerns belongs in `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
 ---
 
@@ -383,6 +383,42 @@ Detailed falsification-attempt chronology and historical certification narrative
 
 ---
 
+## Foundation Certification Scope and Conclusion
+
+Foundation Certification v1.0 evaluated the Foundation that had already completed Foundation Design and Foundation Validation.
+
+Certification was not a design phase. Its scope did not authorize new principles, mechanisms, or architecture. Its purpose was to determine whether the existing Foundation could be accepted as the governing basis for downstream architectural derivation.
+
+The formal certification scope tested the Foundation for:
+
+1. consistency — whether its principles could coexist without contradiction;
+2. completeness — whether a necessary foundational mechanism was missing;
+3. minimality — whether unnecessary or derivable foundational elements remained;
+4. generality — whether the Foundation remained independent of specific information types, modules, workflows, or future extensions;
+5. robustness — whether future features, modules, automation, AI extensions, or workflow changes could be handled without rewriting the foundational rules;
+6. refutability — whether critical contradiction could be actively sought under the Closed for Extension, Open for Refutation posture;
+7. implementability — whether the principles could be realized through concrete mechanisms rather than depending on intuition or theory alone;
+8. protection against architecture drift — whether the Foundation protected its authoritative information, lifecycle, workflow, overview, and control boundaries from competing truths.
+
+The permanent certification conclusion is:
+
+```text
+Foundation v1.0
+Status: CERTIFIED
+State: LOCKED
+Policy: Closed for Extension, Open for Refutation
+```
+
+`LOCKED` does not mean immune from evidence. It means downstream work must first operate within the certified Foundation rather than extending it for convenience.
+
+If a necessary downstream requirement cannot be accommodated without contradicting the Foundation, that is a refutation/review condition. The Foundation must then be explicitly reopened through the appropriate review and certification process rather than silently rewritten by architecture or implementation.
+
+Certification therefore establishes Foundation v1.0 as the methodological and architectural reference point for downstream derivation. Architecture applies and derives from the certified Foundation; implementation realizes authorized architecture. Neither becomes an independent source of Foundation authority.
+
+The certification conclusion does not depend here on preserving the individual historical falsification chronology. Claims about a specific total number of falsification attempts or methodological saturation are not part of this transferred certification scope unless separately verified and authorized.
+
+---
+
 ## Semantic Preservation Rule
 
 Downstream derivation must preserve the meaning of upstream authority.
@@ -406,7 +442,7 @@ When such a change is necessary, it must be treated as an explicit refutation/re
 
 This Foundation Model does not define:
 
-- the detailed six-responsibility model;
+- the detailed six-responsibility model, which is owned by `docs/foundation/RESPONSIBILITY_MODEL.md`;
 - specific application folders, services, modules, classes, or files;
 - database schema;
 - authentication flows;
@@ -416,6 +452,7 @@ This Foundation Model does not define:
 - current project phase or task;
 - individual falsification attempts;
 - historical chat chronology;
+- unverified claims about a specific falsification-attempt count or methodological saturation;
 - future methodology not already supported by current authority.
 
 Those exclusions prevent the Foundation from absorbing downstream information and becoming a duplicate project handbook or architecture document.
@@ -440,7 +477,7 @@ Owns current verified state and Next Allowed Action.
 
 ### `docs/foundation/FOUNDATION_MODEL.md`
 
-Owns the detailed upstream methodological core required for downstream derivation.
+Owns the detailed upstream methodological core required for downstream derivation, including the permanent Foundation certification scope, conclusion, closure state, and downstream authority consequence.
 
 Where a high-level principle appears in Overview or Handbook for routing/governance purposes, this document provides the Foundation-level ownership of its detailed methodological meaning within the authorized transfer scope.
 
@@ -464,13 +501,13 @@ Ordinary downstream work should derive from this model rather than edit it to ac
 
 ## Verification Status
 
-This document was transferred from the current authoritative project evidence in:
+The original Foundation Model transfer was established from current authoritative project evidence in:
 
 - `PROJECT_HANDBOOK.md`;
 - `PROJECT_OVERVIEW.md`;
 - `PROJECT_CONTROL.md`;
 - `docs/foundation/README.md`.
 
-No historical chat material was required for this transfer scope.
+The later bounded certification transfer used targeted primary historical evidence only to close the previously identified certification conclusion/scope gap.
 
-The transfer intentionally excludes detailed responsibility-model content and historical certification chronology pending separate ownership decisions.
+That bounded transfer adds the permanent certification scope, CERTIFIED/LOCKED conclusion, reopening meaning, and downstream authority consequence. It does not transfer historical certification chronology, individual falsification attempts, an unverified falsification-attempt count, or an unverified methodological-saturation claim.
