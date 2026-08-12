@@ -20,18 +20,13 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 ## Current Phase
 
-**MVP Implementation Gap Assessment**
+**Learning Science Evidence Review**
 
-The bounded product-authority repair is complete for the minimal product model required to evaluate MVP implementation.
+The minimal product-authority layer and initial MVP boundary are established. A read-only MVP implementation gap assessment has also established that the current application contains substantial but disconnected implementation: curriculum/pensum, lesson-like content, quiz, authentication, and local quiz progress are partial; flashcard product flow is missing; and the complete authenticated learning loop is not yet integrated.
 
-Established and verified product authorities:
+Before selecting the first implementation seam, the project has identified a higher-order product requirement: TheraLearn is intended not merely to assemble learning features, but to become an exceptional learning platform whose core learning mechanisms are justified by strong learning-science evidence.
 
-- `docs/product/README.md` — product-domain navigation and placement;
-- `docs/product/PRODUCT_VISION.md` — permanent product intent;
-- `docs/product/LEARNING_MODEL.md` — evidence-backed learning structure;
-- `docs/product/mvp.md` — durable initial MVP scope and acceptance boundary.
-
-Ordinary MVP feature coding remains paused until the current implementation has been assessed against the authoritative MVP boundary and the first exact implementation gap has been selected.
+The current `LEARNING_MODEL.md` is deliberately conservative and evidence-bounded to repository structure. It does not yet contain a science-derived set of learning principles. Product implementation remains paused while this bounded evidence review determines which learning principles should become permanent TheraLearn authority.
 
 ---
 
@@ -41,7 +36,7 @@ Ordinary MVP feature coding remains paused until the current implementation has 
 migration-next16-to-root
 ```
 
-The authoritative repaired project state currently lives on this branch. `main` remains behind and must not be merged or rewritten until a later verified integration decision.
+The authoritative project state currently lives on this branch. `main` remains behind and must not be merged or rewritten until a later verified integration decision.
 
 ---
 
@@ -58,14 +53,22 @@ Overall verification: PASS
 
 Recent verified product/control checkpoints include:
 
-- product documentation ownership model: `7e1cfe948695fa15244cf4cb0d8ef897503e798f`;
-- product documentation authority map: `1763274933383b818de1092897c6dc669a52edaa`;
 - Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
 - Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
-- MVP scope transfer authorization: `9f0fb1f6ccc2223e4116f9fbb04ef592a46fdd7e`;
-- MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`.
+- MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`;
+- MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`.
 
-`docs/product/mvp.md` was re-read from the authoritative branch after transfer and verified to define product scope rather than implementation status.
+The implementation gap assessment has verified these current classifications:
+
+- authentication/user identity — **Partial**;
+- curriculum/pensum — **Partial**;
+- lesson/content — **Partial / substantial**;
+- flashcards — **Missing at product-flow level**;
+- quiz — **Partial / substantial**;
+- results/progress — **Partial, currently local-browser based rather than authenticated learner/lesson authority**;
+- complete end-to-end learning loop — **Missing / not integrated**.
+
+These classifications remain implementation evidence, but implementation selection is temporarily deferred until the Learning Science Evidence Review is complete.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after the documentation-only repair sequence.
 
@@ -73,78 +76,62 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 ## Historical Reconstruction Status
 
-**Status: No historical retrieval currently authorized**
+**Status: No historical chat recovery currently authorized**
 
-Historical material remains evidence, not automatic authority.
+Historical project material remains evidence, not automatic authority.
 
-The MVP implementation gap assessment must use current product authority and current repository implementation. Historical recovery is not required unless a concrete bounded evidence gap appears that cannot be resolved from those sources.
+The current Learning Science Evidence Review must use external scientific evidence, prioritizing systematic reviews, meta-analyses, major peer-reviewed reviews, and high-quality evidence syntheses. Historical project chats are not a substitute for scientific evidence.
 
 ---
 
 ## Product Authority Status
 
-**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED**
+**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED; SCIENCE-DERIVED LEARNING PRINCIPLES NOT YET ESTABLISHED**
 
-### Product Vision
+Established authorities:
 
-TheraLearn is an integrated structured learning platform, initially applied to psychotherapy education, with curriculum content and supported learning activities organized as a coherent learning experience.
+- `docs/product/README.md` — product-domain navigation and placement;
+- `docs/product/PRODUCT_VISION.md` — permanent product intent;
+- `docs/product/LEARNING_MODEL.md` — current evidence-backed structural learning model;
+- `docs/product/mvp.md` — durable initial MVP scope and acceptance boundary.
 
-### Learning Model
-
-The current evidence-backed learning structure is:
-
-```text
-Structured curriculum context
-        ↓
-Course
-        ↓
-Chapter
-        ↓
-Lesson
-        ↓
-Learning objectives
-        ↓
-Supporting learning activities
-        ↓
-Learner progress in relation to the lesson
-```
-
-### Initial MVP acceptance boundary
-
-The MVP is product-complete when an authenticated learner can:
-
-1. enter the structured curriculum;
-2. navigate into a lesson/content context;
-3. work with required learning activities in that context, including flashcards and quiz;
-4. receive or view basic result/progress information tied to the learning context;
-5. complete the core learning loop without depending on capabilities outside the initial MVP boundary.
-
-Required MVP capabilities are therefore:
-
-- structured curriculum/pensum;
-- lesson/content context;
-- flashcards in lesson context;
-- quiz in lesson context;
-- basic learner progress/results tied to learning context;
-- authentication/user identity sufficient for learner-related progress.
-
-Reading support and multilingual support remain Product Vision capabilities but are outside the initial MVP acceptance boundary.
+The current Learning Model remains valid as a structural model but is not yet sufficient as the scientific design basis for an exceptional learning platform.
 
 ---
 
-## Documentation Audit Status
+## Current Scientific Evidence Baseline
 
-Product authority repair is sufficient for MVP gap assessment.
+Initial external evidence confirms that learning science contains robust candidate mechanisms relevant to TheraLearn.
 
-Remaining documentation/repository findings are not currently authorized to block the bounded MVP assessment merely because they remain unresolved:
+High-priority evidence areas include:
 
-- deferred product placeholders;
-- empty `docs/meetings/decisions-log.md`;
-- empty development placeholders beyond the already repaired roadmap/backlog;
-- anomalous root artifact `-name package-lock.json`;
-- empty implementation placeholders whose MVP relevance has not yet been established.
+- retrieval practice / testing effect;
+- spacing / distributed practice;
+- successive relearning and the interaction of spacing with retrieval;
+- feedback and corrective feedback;
+- interleaving where domain/task conditions support it;
+- cognitive-load-sensitive instructional design;
+- worked examples and transition toward independent problem solving where appropriate;
+- self-explanation / elaborative learning;
+- metacognition and calibration of learning judgments;
+- transfer and context-sensitive application of knowledge.
 
-These remain future bounded targets unless the MVP gap assessment demonstrates that one directly blocks the core learning loop.
+Initial review evidence strongly supports retrieval practice and spacing across many learning settings, while also showing that effectiveness depends on learning goals, material complexity, learner characteristics, timing, and implementation conditions. Therefore no mechanism is to be converted directly into a universal product feature without a bounded evidence-to-principle derivation.
+
+---
+
+## Evidence Standard
+
+A candidate learning principle must not become permanent TheraLearn authority merely because it is popular, intuitive, or present in another learning product.
+
+The evidence review must distinguish:
+
+1. **Robust evidence** — supported across high-quality reviews/meta-analyses and sufficiently generalizable for a platform-level principle;
+2. **Conditional evidence** — useful under identifiable conditions and therefore suitable only as a bounded principle/mechanism;
+3. **Emerging/uncertain evidence** — promising but insufficient for permanent platform authority;
+4. **Unsupported product convention** — common feature patterns without sufficient evidence to define TheraLearn learning design.
+
+Evidence strength, boundary conditions, risks, and implementation implications must remain distinct.
 
 ---
 
@@ -152,92 +139,88 @@ These remain future bounded targets unless the MVP gap assessment demonstrates t
 
 ### R1 – Product domain authority gap
 
-**Status: CLOSED for the minimal initial MVP assessment.**
+**Status: CLOSED for minimal MVP assessment.**
 
-The product-domain authority layer now contains the required navigation, Product Vision, Learning Model, and durable MVP boundary.
+### R2 – Learning-science authority gap
 
-### R2 – Responsibility-model transfer fidelity
+**Status: ACTIVE — current primary design risk.**
 
-**Status: CLOSED**
+The structural Learning Model exists, but science-derived permanent learning principles have not yet been established. Implementing the next major learning mechanism before resolving this could lock the product into feature conventions rather than evidence-based learning design.
 
-### R3 – Stale roadmap/backlog state
+**Mitigation:** complete a bounded evidence review and derive a minimal set of permanent TheraLearn Learning Principles before selecting the next implementation seam.
 
-**Status: CLOSED**
+### R3 – MVP implementation integration gap
+
+**Status: ACTIVE but temporarily deferred.**
+
+The current implementation is fragmented across hardcoded curriculum, local quiz data/state, browser-local progress, Supabase auth/data structures, and a missing flashcard product flow.
+
+**Mitigation:** resume implementation-gap prioritization after science-derived learning principles are established and the MVP boundary is checked for any required adjustment.
 
 ### R4 – Anomalous repository artifact
 
-**Status: OPEN but not currently MVP-blocking.**
-
-Preserve until separately authorized.
+**Status: OPEN but not currently blocking.**
 
 ### R5 – Branch divergence
 
-The authoritative repaired state is on `migration-next16-to-root`; `main` is behind.
+**Status: OPEN.**
 
-**Mitigation:** no integration until a later verified integration decision.
-
-### R6 – Foundation certification evidence incompleteness
-
-**Status: CLOSED for current permanent Foundation ownership needs.**
-
-### R7 – Unknown MVP implementation completeness
-
-**Status: ACTIVE — current primary risk.**
-
-The repository contains many relevant routes, components, database structures, and auth flows, but existence has not yet been verified against the end-to-end MVP acceptance boundary.
-
-**Mitigation:** perform a bounded implementation-vs-MVP gap assessment before authorizing product code changes.
+No integration with `main` until a later verified decision.
 
 ---
 
 ## Code Change Gate
 
-**Ordinary product feature development: PAUSED pending MVP gap assessment**
+**Product implementation: PAUSED during Learning Science Evidence Review**
 
-No product feature code change is authorized yet.
+No product feature code changes are authorized.
 
-Read-only repository inspection and verification are authorized for the gap assessment.
+External scientific research, read-only repository inspection, and control/documentation changes required to establish evidence authority are authorized.
 
-After the gap assessment selects one exact implementation gap, `PROJECT_CONTROL.md` must be synchronized before implementation is authorized.
+The current MVP boundary must not be silently expanded by the evidence review. If scientific derivation demonstrates that a mechanism is essential to the minimum viable learning loop, that must be recorded as an explicit MVP scope decision before implementation.
 
 ---
 
 ## Current Task
 
-Perform a bounded implementation-vs-MVP gap assessment against the authoritative acceptance boundary in `docs/product/mvp.md`.
+Conduct a bounded Learning Science Evidence Review and derive candidate TheraLearn Learning Principles.
 
-For each required MVP capability, classify current implementation as:
+The review must prioritize high-quality scientific evidence and answer, for each candidate principle:
 
-- **Verified Complete** — evidence supports the capability as part of the required end-to-end learning loop;
-- **Partial** — relevant implementation exists but the MVP capability or integration is incomplete/unverified;
-- **Missing** — required capability has no sufficient implementation evidence;
-- **Blocked/Unknown** — current evidence is insufficient to classify without a narrower verification step.
+- What learning outcome does the evidence support?
+- How strong and generalizable is the evidence?
+- What boundary conditions or known limitations matter?
+- What learner behavior should TheraLearn encourage?
+- What product mechanism classes could implement the principle?
+- Is the principle foundational, conditional, or deferred?
+- Does it affect the current MVP boundary, or only post-MVP product evolution?
 
-Assessment scope:
+Initial candidate areas:
 
-1. authentication/user identity;
-2. structured curriculum/pensum navigation;
-3. lesson/content context;
-4. flashcards in lesson context;
-5. quiz in lesson context;
-6. basic results/progress tied to learning context;
-7. end-to-end connectivity of the complete core learning loop.
+1. retrieval practice;
+2. spacing / distributed practice;
+3. feedback / correction;
+4. interleaving;
+5. cognitive load and worked examples;
+6. self-explanation / elaboration;
+7. metacognition / calibration;
+8. transfer and application.
+
+The goal is not to maximize the number of principles. The goal is the smallest coherent set with strong enough evidence to guide product architecture.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the current repository implementation read-only against the seven assessment areas above.
+Perform the external scientific evidence review read-only, beginning with systematic reviews, meta-analyses, and major peer-reviewed evidence syntheses for the candidate areas above.
 
-Do not modify product code during the assessment.
+Do not modify `LEARNING_MODEL.md`, `mvp.md`, or product code yet.
 
-Do not treat file/route existence as proof of MVP completion. Verify actual data flow, navigation/integration, and user-related behavior where repository evidence permits.
+Produce an evidence matrix that separates evidence strength, boundary conditions, proposed TheraLearn principle, possible product mechanisms, and MVP relevance.
 
-Produce a bounded gap classification and select exactly one highest-priority implementation gap or narrower verification target.
+Then determine the minimal science-derived principle set and synchronize `PROJECT_CONTROL.md` before transferring any principle into permanent product authority.
 
-Then synchronize `PROJECT_CONTROL.md` before any product implementation change is authorized.
-
-A complete local build/TypeScript/documentation verification may be required as part of or immediately after this assessment, but it does not replace functional MVP-gap verification.
+No historical chat recovery is authorized for this task.
 
 ---
 
