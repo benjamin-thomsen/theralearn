@@ -26,7 +26,7 @@ Foundation authority is consolidated, core architecture documentation is repaire
 
 The product documentation domain remains the highest-priority authority repair area before ordinary MVP development can resume.
 
-The product ownership model, product-domain authority map, Product Vision, and Learning Model are now established and verified. Durable MVP scope is the remaining substantive product authority gap.
+The product ownership model, product-domain authority map, Product Vision, and Learning Model are established and verified. The bounded MVP scope analysis is now complete and a minimal durable MVP acceptance boundary has been derived.
 
 ---
 
@@ -59,10 +59,10 @@ Recent verified documentation/control checkpoints include:
 - product documentation ownership model: `7e1cfe948695fa15244cf4cb0d8ef897503e798f`;
 - product documentation authority map: `1763274933383b818de1092897c6dc669a52edaa`;
 - Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
-- Learning Model transfer authorization: `5b0bf61ae7e6ddaa012dc344f52914e924bc2d1c`;
-- Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`.
+- Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
+- MVP scope analysis target selection: `d0ddb1e8cdf0fe5e5275a33b8797e6bb25818cb4`.
 
-`docs/product/LEARNING_MODEL.md` was re-read from the authoritative branch after transfer. It establishes the evidence-backed structural learning model while explicitly leaving unsupported pedagogical mechanisms unestablished.
+The MVP scope analysis inspected the established Product Vision and Learning Model together with current repository implementation. The repository contains concrete product surfaces for curriculum/pensum, quiz, results/progress, dashboard, and authentication, plus the data structures that relate flashcards, quiz questions, and learner progress to lesson context.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -74,7 +74,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 Historical material remains evidence, not automatic authority.
 
-No MVP historical recovery is authorized by default. The durable MVP boundary must first be derived from current Product Vision, Learning Model, current repository implementation, and existing verified project authority. If a required MVP inclusion or acceptance criterion cannot be established, the exact bounded evidence gap must be recorded before historical recovery is considered.
+No historical recovery is required for the bounded minimal MVP scope transfer. Current Product Vision, Learning Model, repository implementation, and verified project authority are sufficient to define a minimal durable MVP boundary.
 
 ---
 
@@ -116,35 +116,64 @@ Remaining empty architecture topics must not be populated merely to eliminate em
 - `docs/product/README.md` — **ESTABLISHED AND VERIFIED**;
 - `docs/product/PRODUCT_VISION.md` — **ESTABLISHED AND VERIFIED**;
 - `docs/product/LEARNING_MODEL.md` — **ESTABLISHED AND VERIFIED**;
-- `docs/product/mvp.md` — intended owner of durable MVP scope and product acceptance boundary.
+- `docs/product/mvp.md` — durable MVP scope and product acceptance boundary; bounded transfer now authorized.
 
 Deferred/overlap placeholders remain non-authoritative and are not authorized for population or deletion.
 
 ---
 
-## Learning Model Status
+## MVP Scope Pre-Write Result
 
-**Status: ESTABLISHED AND VERIFIED**
+**Status: COMPLETE — bounded minimal write can proceed without historical recovery**
 
-The authoritative Learning Model establishes:
+### Required MVP capabilities
 
-```text
-Structured curriculum context
-        ↓
-Course
-        ↓
-Chapter
-        ↓
-Lesson
-        ↓
-Learning objectives
-        ↓
-Supporting learning activities
-        ↓
-Learner progress in relation to the lesson
-```
+The minimal MVP requires:
 
-It establishes lesson as the current central learning-context unit and relates lesson content/objectives to flashcards, quiz questions, and learner progress without inventing unsupported pedagogical mechanisms.
+- structured curriculum/pensum navigation;
+- lesson/content context within the structured curriculum;
+- flashcards operating within lesson context;
+- quiz capability operating within lesson context;
+- basic learner progress/result visibility tied to learning context;
+- authentication/user identity sufficient to support user-related progress.
+
+### Supporting but not defining the MVP
+
+- dashboard/navigation surfaces may support the user experience but are not themselves part of the durable MVP definition;
+- general informational/about surfaces are not MVP-defining capabilities.
+
+### Product Vision capabilities not required for the initial MVP boundary
+
+Current evidence does not require these for the initial MVP acceptance boundary:
+
+- reading support;
+- Danish/English multilingual support.
+
+They remain valid Product Vision capabilities and may be implemented after the initial MVP without changing Product Vision.
+
+### Not established as MVP requirements
+
+- notes;
+- detailed target-user features;
+- advanced/adaptive learning;
+- spaced repetition;
+- mastery learning;
+- commercial/pricing capabilities;
+- release/roadmap functionality.
+
+### Durable MVP acceptance boundary
+
+The MVP is product-complete when an authenticated learner can:
+
+1. enter the structured curriculum;
+2. navigate into a lesson/content context;
+3. work with the required learning activities in that context, including flashcards and quiz;
+4. receive or view basic result/progress information tied to the learning context;
+5. complete this core learning loop without relying on unsupported or out-of-scope Product Vision capabilities.
+
+This is a durable product acceptance boundary, not a statement that the current implementation already satisfies every step.
+
+Current implementation progress and the next implementation action remain owned by `PROJECT_CONTROL.md`.
 
 ---
 
@@ -152,7 +181,7 @@ It establishes lesson as the current central learning-context unit and relates l
 
 Current unresolved findings include:
 
-- `docs/product/mvp.md` remains empty pending bounded evidence-based scope analysis and transfer;
+- `docs/product/mvp.md` remains empty pending the now-authorized bounded transfer;
 - empty/deferred product placeholders remain classified but unresolved for eventual retention/deletion;
 - empty `docs/meetings/decisions-log.md`;
 - empty development placeholders including `docs/development/project-structure.md` and `docs/development/git-workflow.md`;
@@ -177,10 +206,12 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - `docs/product/README.md` established and verified.
 - `docs/product/PRODUCT_VISION.md` established and verified.
 - `docs/product/LEARNING_MODEL.md` established and verified.
+- MVP scope pre-write evidence analysis completed.
 
 ### Not yet completed
 
-- Analyze and establish verified MVP scope authority in `docs/product/mvp.md`.
+- Transfer the bounded MVP scope into `docs/product/mvp.md`.
+- Verify current implementation against the newly established MVP acceptance boundary.
 - Decide later whether deferred product placeholders should be retained or removed.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Retention/deletion decision for `-name package-lock.json`.
@@ -194,11 +225,11 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 
 ### R1 – Product domain authority gap
 
-**Status: ACTIVE, narrowly bounded.**
+**Status: ACTIVE, near closure.**
 
-Product placement authority, Product Vision, and Learning Model are established. Durable MVP scope is now the only remaining substantive product-authority gap identified by the current product ownership model.
+Product placement authority, Product Vision, and Learning Model are established. MVP scope is derived but not yet transferred to its permanent owner.
 
-**Mitigation:** derive and establish the bounded MVP scope before ordinary product development resumes.
+**Mitigation:** transfer the bounded MVP scope, then verify the implementation against the resulting acceptance boundary.
 
 ### R2 – Responsibility-model transfer fidelity
 
@@ -238,31 +269,25 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Perform a bounded pre-write evidence analysis for `docs/product/mvp.md`.
+Transfer the bounded minimal MVP scope and durable acceptance boundary into `docs/product/mvp.md`.
 
-The analysis must determine the durable minimum product scope and acceptance boundary that can be established from current authority and verified implementation evidence.
-
-It must distinguish:
-
-- Product Vision capabilities from actual MVP requirements;
-- Learning Model structures from MVP completion criteria;
-- already implemented capabilities from required-but-incomplete MVP capabilities;
-- durable MVP scope from current implementation progress;
-- MVP acceptance boundary from current project workflow state.
+The document must define product scope, not current implementation progress. It must not claim that an MVP requirement is already complete merely because related files or code exist.
 
 ---
 
 ## Next Allowed Action
 
-Inspect current Product Vision, Learning Model, repository implementation, and existing verified project authority to derive the minimal evidence-backed MVP scope and acceptance boundary.
+Perform a bounded write of only `docs/product/mvp.md` using the verified MVP scope recorded above.
 
-Do not write `docs/product/mvp.md` during this analysis.
+After the write:
 
-Do not assume every existing feature is required for MVP, and do not assume every Product Vision capability must be complete in the MVP unless evidence supports that inclusion.
+1. re-read `mvp.md` from the authoritative branch;
+2. verify its boundary against Product Vision, Learning Model, architecture, and Project Control;
+3. synchronize `PROJECT_CONTROL.md`;
+4. stop before implementation changes;
+5. the subsequent methodological task should be a bounded implementation-vs-MVP gap assessment, not immediate feature coding.
 
-Do not use historical chat material by default. If a necessary MVP inclusion or acceptance criterion cannot be established from current authority or implementation evidence, record the exact bounded evidence gap before any historical recovery is authorized.
-
-After the analysis, synchronize `PROJECT_CONTROL.md` with the result before any MVP document write.
+No historical retrieval is authorized for this transfer.
 
 ---
 
