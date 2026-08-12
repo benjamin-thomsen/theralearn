@@ -28,7 +28,7 @@ Foundation repair has reached a verified consolidation checkpoint. `docs/foundat
 
 The targeted Foundation certification evidence gap is closed. No further historical recovery is currently authorized.
 
-The bounded repository-authority assessment is complete. The next repair target is `docs/development/DOCUMENTATION_TOOL_ROADMAP.md`, selected because it has direct documented drift against current Developer Toolkit implementation and can be repaired from current repository evidence without historical reconstruction.
+The bounded repository-authority assessment selected development/tooling documentation as the highest-priority current repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` has now been synchronized against verified current Developer Toolkit implementation without reconstructing or inventing historical milestone state.
 
 ---
 
@@ -58,9 +58,10 @@ Verified Foundation/control checkpoints now include:
 - Responsibility Model transfer: `4e2d7ebcfca75166e583a379a1153bbd701b59c8`;
 - targeted certification recovery gate: `150ed012696d2ddf7bff926b39a9e6230d246fe3`;
 - certification transfer authorization: `fb8a332b307234a1e2b684e0acf6389444b1cc06`;
-- Foundation certification conclusion/scope transfer: `36ce8c495cf39e5478c172dae45d05e9f642100d`.
+- Foundation certification conclusion/scope transfer: `36ce8c495cf39e5478c172dae45d05e9f642100d`;
+- Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`.
 
-The complete updated `docs/foundation/FOUNDATION_MODEL.md` was re-read from the authoritative branch after the transfer commit.
+The synchronized `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` was re-read from the authoritative branch after its transfer commit, and the branch-ref was verified at that commit.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -135,9 +136,10 @@ Important unresolved documentation drift includes:
 - empty `docs/development/git-workflow.md`;
 - root `README.md` still reflecting the default Create Next App template;
 - stale `docs/development/IMPROVEMENT_BACKLOG.md`;
-- stale `docs/development/DOCUMENTATION_TOOL_ROADMAP.md`;
 - unverified root artifact `-name package-lock.json`;
 - empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
+
+The previously stale `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` has been repaired against current repository implementation.
 
 No empty or anomalous artifact is authorized for deletion, population, or implementation merely because it has been identified.
 
@@ -162,14 +164,14 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - Certification conclusion/scope transferred into `FOUNDATION_MODEL.md` and re-read from the authoritative branch.
 - Foundation certification evidence incompleteness closed for the required permanent transfer scope.
 - Bounded repository-authority assessment completed.
-- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` selected as the next exact repair target from current repository evidence.
+- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` selected, synchronized against current implementation, re-read, and branch-ref verified.
 
 ### Not yet completed
 
-- Synchronize `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` against verified current Developer Toolkit implementation without inventing historical milestone state.
+- Reassess the remaining unresolved documentation targets after roadmap repair.
 - Product documentation repair.
 - Developer Toolkit backlog synchronization.
-- Development-domain documentation audit beyond the selected roadmap target.
+- Development-domain documentation audit beyond the repaired roadmap.
 - Root README repair.
 - Investigation of `-name package-lock.json`.
 - Long-term integration decision for `main`.
@@ -191,9 +193,9 @@ Implementation and historical decisions remain ahead of several non-architecture
 
 ### R3 – Stale roadmap/backlog state
 
-Tooling documentation does not fully reflect implemented capabilities.
+**Status: PARTIALLY CLOSED**
 
-**Mitigation:** repair the selected Documentation Tool roadmap first against verified current implementation, then reassess the backlog as a separate bounded target.
+The Documentation Tool roadmap has been synchronized against current implementation. `docs/development/IMPROVEMENT_BACKLOG.md` remains stale and requires a separate bounded assessment/repair decision.
 
 ### R4 – Unverified repository artifact
 
@@ -227,24 +229,26 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Repair `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` as the next bounded documentation target.
+Reassess the remaining unresolved documentation targets after the verified Documentation Tool roadmap repair and select the next exact bounded repair target.
 
-The repair must synchronize the roadmap with verified current Developer Toolkit implementation and current authority boundaries. It must not infer unverified historical milestone completion, invent version progression, or broaden into backlog repair in the same step.
+The reassessment must use current repository authority and must not assume that `docs/development/IMPROVEMENT_BACKLOG.md` is automatically next merely because it is adjacent to the repaired roadmap.
 
 ---
 
 ## Next Allowed Action
 
-Perform the bounded pre-write synchronization analysis for `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` using current repository evidence already identified and any additional current implementation files strictly necessary to define the safe replacement scope.
+Perform a bounded reprioritization of the remaining unresolved documentation targets using the same criteria:
 
-The selected authority basis is:
+1. authority/ownership significance;
+2. downstream impact on continued development;
+3. demonstrated drift between documentation and verified implementation/state;
+4. availability of sufficient current evidence for repair without guessing.
 
-- `PROJECT_HANDBOOK.md` assigns detailed Developer Toolkit knowledge to the development domain and states that the Toolkit implements workflow rather than defining methodology;
-- `PROJECT_OVERVIEW.md` defines the Toolkit's stable role at a high level;
-- current Toolkit implementation under `tools/docs/` is authoritative for implemented capabilities;
-- the existing roadmap is demonstrably stale where it describes the Developer Toolkit as future planned work and identifies Verification v0.2 as the current focus despite already implemented developer commands.
+Current candidates include the stale Improvement Backlog, empty development-domain files, root README, product documentation, decisions log, and the anomalous root artifact.
 
-Stop before changing any other documentation target. No historical retrieval is authorized for this repair unless a new concrete bounded evidence gap is first recorded here.
+Stop before writing another domain file until one exact next repair target and its authority basis are verified.
+
+No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
 
 ---
 
