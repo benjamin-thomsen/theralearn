@@ -1,0 +1,22 @@
+{
+  "name": "TheraLearn",
+  "short_name": "TheraLearn",
+  "description": "Interaktiv læringsplatform til psykoterapi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f4",
+  "theme_color": "#1f4e43",
+  "lang": "da",
+  "icons": [
+    {
+      "src": "/icon",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

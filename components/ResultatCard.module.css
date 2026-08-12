@@ -1,0 +1,95 @@
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 12px 32px rgba(31, 78, 67, 0.08);
+  border: 1px solid #e3ece8;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  margin: 0;
+  color: #5f7b72;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.title {
+  margin: 0;
+  color: #1f2d29;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #eef7f2;
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+.scoreValue {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f4e43;
+}
+
+.scoreLabel {
+  margin-top: 0.5rem;
+  color: #4d6961;
+  font-size: 1rem;
+}
+
+.feedback {
+  margin: 0;
+  color: #38524a;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.stat {
+  background: #f7faf8;
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat dt {
+  margin-bottom: 0.5rem;
+  color: #6d857d;
+  font-size: 0.9rem;
+}
+
+.stat dd {
+  margin: 0;
+  color: #1f2d29;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .scoreValue {
+    font-size: 2.4rem;
+  }
+}

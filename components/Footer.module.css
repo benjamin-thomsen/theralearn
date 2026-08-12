@@ -1,0 +1,48 @@
+.footer {
+  margin-top: 5rem;
+  background: #1f4e43;
+  color: #ffffff;
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.brand h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.brand p {
+  margin: 0;
+  max-width: 36rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navigation {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.navigation a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.navigation a:hover {
+  opacity: 0.75;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
