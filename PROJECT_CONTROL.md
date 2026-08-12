@@ -6,7 +6,7 @@
 >
 > Role: Current verified project state and workflow gate
 >
-> Last updated: 2026-08-12
+> Last updated: 2026-08-13
 
 ---
 
@@ -56,7 +56,8 @@ Recent verified product/control checkpoints include:
 - MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`;
 - MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`;
 - Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`;
-- initial learning-science evidence synthesis recorded: `3376c32820c0e023cc0a876df74a250afa90791a`.
+- initial learning-science evidence synthesis recorded: `3376c32820c0e023cc0a876df74a250afa90791a`;
+- bounded Active Retrieval certification recorded: `2d9e817b95dfa911eacb886f94e4131ae8af8222`.
 
 The implementation gap assessment remains:
 
@@ -105,8 +106,8 @@ The review prioritized systematic reviews, meta-analyses, major peer-reviewed re
 
 ### Candidate classifications
 
-1. **Active Retrieval Principle — NARROWED; certification candidate now evidence-bounded**
-2. **Distributed Relearning Principle — certification pending**
+1. **Active Retrieval Principle — NARROWED; individual certification complete**
+2. **Distributed Relearning Principle — NARROWED; individual certification complete**
 3. **Informative Correction Principle — certification pending**
 4. **Adaptive Guidance Principle — certification pending**
 5. **Demonstrated Understanding Principle — certification pending**
@@ -140,19 +141,44 @@ This formulation:
 
 **Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
 
+### Distributed Relearning Principle certification result
+
+**Decision: NARROW**
+
+High-quality quantitative synthesis strongly supports distributed over massed practice for durable retention. The evidence is broad enough for a platform-level temporal learning principle, including a large laboratory literature and a newer applied classroom meta-analysis showing a moderate average advantage for distributed practice. However, spacing effects are heterogeneous and the evidence does not support a universal interval, a monotonic rule that more spacing is always better, or one fixed spaced-repetition schedule.
+
+The strongest boundary condition is the interaction between the interstudy interval and the intended retention interval: the spacing associated with better later retention changes as the target retention horizon changes. Material, task complexity, learner population/state, number and form of re-exposures, and applied learning context can also influence observed effects and implementation quality.
+
+The principle should therefore govern the temporal distribution of repeated learning opportunities, not require retrieval inside its own definition. Retrieval and spacing can be combined powerfully through successive relearning, but they remain conceptually and evidentially separable: Active Retrieval governs the learner's memory action; Distributed Relearning governs when repeated learning opportunities occur.
+
+The bounded formulation that survives certification is:
+
+> **Distributed Relearning Principle:** When durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
+
+This formulation:
+
+- captures the robust distributed-practice effect without claiming that one schedule is universally optimal;
+- preserves retention interval, learner/material/task, and schedule conditions as implementation variables;
+- remains independent of any specific flashcard system, scheduler, algorithm, interval sequence, or UI;
+- does not require retrieval as part of the spacing principle itself, preserving conceptual independence from Active Retrieval;
+- permits, but does not mandate, successive relearning as a combined mechanism where both retrieval and distributed practice are appropriate;
+- does not by itself change the current MVP acceptance boundary.
+
+**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
+
 ---
 
 ## Candidate Minimal Principle Set
 
 The current working set is:
 
-1. **Active Retrieval Principle** — narrowed as above.
-2. **Distributed Relearning Principle** — important learning should be revisited across time, with retrieval/relearning distributed in relation to intended durability.
+1. **Active Retrieval Principle** — when durable retention of previously acquired knowledge is an intended learning outcome, learners should actively retrieve relevant knowledge from memory at appropriate points rather than rely primarily on passive re-exposure.
+2. **Distributed Relearning Principle** — when durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
 3. **Informative Correction Principle** — learner attempts should produce sufficient corrective information to repair errors and strengthen accurate understanding.
 4. **Adaptive Guidance Principle** — instructional support should reduce unnecessary cognitive burden during acquisition and be reduced or changed as learner knowledge makes greater independence appropriate.
 5. **Demonstrated Understanding Principle** — where objectives extend beyond recall, mastery should be demonstrated through explanation, discrimination, inference, or application appropriate to the objective.
 
-These remain candidates until the complete set survives certification and minimum-set coherence testing.
+The first two candidates have completed individual certification with status `NARROW`. All candidates remain non-authoritative until the complete set survives individual certification and final minimum-set coherence testing.
 
 ---
 
@@ -188,7 +214,7 @@ A permanent principle must additionally pass a derivation test:
 
 **Status: ACTIVE — candidate-principle certification in progress.**
 
-One candidate has now been narrowed against evidence. The remaining risk is premature promotion before all candidates and the final minimum set have passed the same test.
+Two candidates have now been narrowed against evidence. The remaining risk is premature promotion before all candidates and the final minimum set have passed the same test.
 
 ### R3 – MVP implementation integration gap
 
@@ -222,7 +248,10 @@ The current MVP boundary must not be silently expanded by the evidence review.
 
 Continue **Candidate Learning Principle Certification** on the smallest coherent candidate set.
 
-The Active Retrieval Principle has completed its individual certification pass with status `NARROW`.
+Completed individual certification passes:
+
+- Active Retrieval Principle — `NARROW`;
+- Distributed Relearning Principle — `NARROW`.
 
 For each remaining candidate, determine:
 
@@ -238,15 +267,15 @@ For each remaining candidate, determine:
 
 ## Next Allowed Action
 
-Certify the **Distributed Relearning Principle**.
+Certify the **Informative Correction Principle**.
 
 Specifically determine whether:
 
-- distributed practice is sufficiently strong and generalizable for permanent principle status;
-- the principle should concern spacing alone or the combination of spacing with retrieval/relearning;
-- retention interval, learner state, material type, and spacing schedule require narrowing;
-- the principle remains implementation-independent and does not imply one spaced-repetition algorithm;
-- it is independent enough from Active Retrieval to remain a separate principle rather than being merged;
+- corrective/informative feedback has sufficiently strong and generalizable evidence for permanent principle status;
+- the principle should require feedback after every attempt or instead require sufficient information for error correction under appropriate conditions;
+- feedback timing, content, task type, learner knowledge, correctness, and complexity require narrowing;
+- the principle remains implementation-independent and does not imply one feedback format or UI;
+- it is independent enough from Active Retrieval and Adaptive Guidance to remain a separate principle rather than being merged;
 - it changes the current MVP boundary.
 
 Classify it as **CERTIFY**, **NARROW**, **MERGE**, **DEFER**, or **REJECT**.
@@ -262,3 +291,5 @@ No historical chat recovery is authorized for this task.
 ## Update Rule
 
 `PROJECT_CONTROL.md` must be updated whenever a verified change materially alters current phase, current task, Next Allowed Action, implementation baseline, verification state, known risks, documentation-repair progress, or code-change permission.
+
+Historical detail should not accumulate here unless required to understand current state.
