@@ -10,21 +10,13 @@
 
 ---
 
-## Purpose
-
-This document owns the current verified state of the TheraLearn project: current phase, verified facts, current task, unresolved risks, code-change permission, and Next Allowed Action.
-
-Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`. Governance and workflow rules belong in `PROJECT_HANDBOOK.md`. Domain-specific permanent knowledge belongs under `docs/`.
-
----
-
 ## Current Phase
 
-**MVP Learning Loop Implementation — Task Selection Complete**
+**MVP Learning Loop Implementation — Authoritative Lesson Context**
 
-The Learning Science Evidence Review is complete. The five certified principles are permanent authority in `docs/product/LEARNING_MODEL.md`, and the existing MVP boundary has been explicitly retained.
+The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged. The dependency-correct next implementation responsibility is Authoritative Lesson Context Integration.
 
-A bounded read-only implementation-gap reselection has now been completed against the authoritative Learning Model and MVP acceptance boundary.
+The bounded file-level implementation plan has now been derived from current repository evidence.
 
 ---
 
@@ -34,227 +26,214 @@ A bounded read-only implementation-gap reselection has now been completed agains
 migration-next16-to-root
 ```
 
-The authoritative project state currently lives on this branch. `main` remains behind and must not be merged or rewritten until a later verified integration decision.
+---
+
+## Product Authority
+
+Permanent product authority for this implementation slice is:
+
+- `docs/product/PRODUCT_VISION.md`;
+- `docs/product/LEARNING_MODEL.md`;
+- `docs/product/mvp.md`.
+
+The implementation must preserve lesson as the central current learning-context unit and must not equate feature presence with satisfaction of a certified learning principle.
 
 ---
 
-## Verification State
+## Verified Implementation Evidence
 
-The most recent complete local verification before documentation repair reported:
+### Repository hierarchy
+
+The repository layer already exposes the exact hierarchy required to resolve authoritative lesson context:
+
+- `getCourseBySlug(client, slug)` resolves a course by globally routed course slug;
+- `getChapterBySlug(client, courseId, slug)` resolves a chapter within its parent course;
+- `getLessonBySlug(client, chapterId, slug)` resolves a lesson within its parent chapter.
+
+This means lesson slugs are context-dependent rather than globally sufficient. The natural authoritative route identity is therefore hierarchical:
 
 ```text
-Build: PASS
-TypeScript: PASS
-Documentation structure: PASS
-Overall verification: PASS
+course slug + chapter slug + lesson slug
 ```
 
-Recent verified control/product checkpoints include:
+### Lesson data authority
 
-- final minimum learning-principle set certified: `3ed50ed6a7bd236f18958193cd2b4fd103776565`;
-- certified learning principles transferred: `8a79c7a819bb9c96c513086053415d7b0a1f8f40`;
-- MVP boundary aligned with certified Learning Model: `d352c0fa4e48556a2dc65f5d00a10f0f77bed900`.
+The `lessons` table already owns:
 
-A new complete local build/TypeScript/documentation verification has not yet been run after the documentation-only repair sequence.
+- `id`;
+- `chapter_id`;
+- `slug`;
+- `title`;
+- `summary`;
+- `content`;
+- `learning_objectives`;
+- `sort_order`;
+- `is_published`.
 
----
+Lesson `id` is already the foreign-key authority used by both `flashcards.lesson_id`, `quiz_questions.lesson_id`, and `lesson_progress.lesson_id`.
 
-## Product Authority Status
+Therefore the authoritative lesson surface should expose a database-resolved `lesson.id` as the future integration key rather than deriving identity from the current hardcoded topic slug.
 
-**Status: ESTABLISHED FOR CURRENT MVP IMPLEMENTATION**
+### Server boundary
 
-Permanent authorities:
+`lib/supabase/server.ts` provides an async typed server `createClient()` using `@supabase/ssr` and Next cookies.
 
-- `docs/product/PRODUCT_VISION.md` — product intent;
-- `docs/product/LEARNING_MODEL.md` — structural learning model and certified learning principles;
-- `docs/product/mvp.md` — initial MVP acceptance boundary.
+The authoritative lesson route can therefore remain a Server Component and call repository functions directly without introducing a new client-side data layer.
 
-The certified Learning Model principles are:
+### Current pensum routes
 
-1. Active Retrieval;
-2. Distributed Practice;
-3. Informative Correction;
-4. Adaptive Guidance;
-5. Objective-Aligned Demonstration.
+`app/pensum/page.tsx` is currently a placeholder and does not expose authoritative curriculum entities.
 
----
+`app/pensum/[slug]/page.tsx` is a substantial hardcoded topic page. Its single slug identifies a local in-file object rather than the database course/chapter/lesson hierarchy.
 
-## MVP Boundary Status
-
-**Status: RETAINED — NO SCIENCE-DRIVEN SCOPE EXPANSION REQUIRED**
-
-The MVP remains one coherent authenticated learning loop within structured curriculum context. It does not require a spaced-repetition algorithm, adaptive-learning system, universal mastery threshold, or longitudinal proof of durable retention.
-
-The certified principles constrain implementation quality without silently adding advanced capabilities.
+Reinterpreting that single slug as an authoritative lesson would be ambiguous and would preserve the parallel identity model. It should not be silently converted in place.
 
 ---
 
-## Bounded Implementation-Gap Reselection
+## Bounded Implementation Plan
 
-### Verified implementation evidence
+### Route ownership decision
 
-#### Curriculum / lesson context
-
-The current `app/pensum/[slug]/page.tsx` is a substantial hardcoded content surface with learning objectives, but it does not use the established repository/data authority for courses, chapters, or lessons and does not connect the lesson context to required learning activities.
-
-Classification: **Partial / disconnected**.
-
-#### Flashcards
-
-A typed Supabase repository already exists at `lib/repositories/flashcards.ts`, including `getFlashcardsByLessonId`. The repository therefore has a data-access foundation for lesson-linked flashcards.
-
-No flashcard product route/flow exists in the current `app/` tree, and no current lesson surface exposes a learner flashcard interaction.
-
-Classification: **Missing at product-flow level, with repository foundation present**.
-
-#### Quiz
-
-The current quiz flow is substantial and interactive. `app/quiz/[slug]/page.tsx` supports answer selection, checking, score calculation, explanatory feedback, restart, and completion state.
-
-It currently imports hardcoded `data/quiz.ts` rather than the Supabase `quiz_questions` authority. The `lib/repositories/quizQuestions.ts` repository file exists but is empty. Quiz routing is slug-based and not yet integrated with authoritative lesson/user data.
-
-The current quiz interaction already provides explanatory feedback after answers, which is compatible with Informative Correction at the interaction level, but this does not solve lesson/user integration or persistence.
-
-Classification: **Partial / substantial but disconnected from lesson/user authority**.
-
-#### Learner progress
-
-`app/hooks/useQuizProgress.ts` delegates progress to `lib/progress.ts`, which stores quiz results in browser storage under `quiz-progress` and keys them by slug.
-
-This is not authenticated learner authority and is not authoritative lesson-level progress. It cannot satisfy the MVP's authenticated user-related progress requirement as the permanent implementation.
-
-Classification: **Partial / non-authoritative**.
-
-#### End-to-end loop
-
-The current application has separate pensum, quiz, result/progress, authentication, and repository foundations, but no verified path currently composes them into:
+Create a new hierarchical authoritative lesson route:
 
 ```text
-Authenticated learner
-        ↓
-Authoritative lesson context
-        ↓
-Required learning activity
-        ↓
-Learner-related result/progress
+app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
 ```
 
-Classification: **Missing / not integrated**.
+This route mirrors the existing repository identity constraints and preserves curriculum context explicitly in the URL.
+
+The existing `app/pensum/[slug]/page.tsx` remains untouched in this first slice. It is legacy/hardcoded implementation evidence and must not be silently promoted to database authority.
+
+### Exact first-slice file change
+
+**Create only:**
+
+```text
+app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
+```
+
+No existing product file is modified in the first slice.
+
+### Route resolution algorithm
+
+The new Server Component must:
+
+1. await `params` for `courseSlug`, `chapterSlug`, and `lessonSlug`;
+2. create the typed Supabase server client with `createClient()` from `lib/supabase/server.ts`;
+3. resolve the course with `getCourseBySlug`;
+4. call `notFound()` if the course does not exist or is not published;
+5. resolve the chapter with `getChapterBySlug(client, course.id, chapterSlug)`;
+6. call `notFound()` if the chapter does not exist or is not published;
+7. resolve the lesson with `getLessonBySlug(client, chapter.id, lessonSlug)`;
+8. call `notFound()` if the lesson does not exist or is not published;
+9. render the resolved course/chapter/lesson context using authoritative database fields only.
+
+### First-slice presentation boundary
+
+The route should render only enough information to prove the authoritative seam:
+
+- course title;
+- chapter title;
+- lesson title;
+- lesson summary when present;
+- lesson learning objectives;
+- lesson content.
+
+It must not yet:
+
+- load or render flashcards;
+- load or render quiz questions;
+- write learner progress;
+- introduce a scheduler, mastery rule, adaptive-learning mechanism, or new learning algorithm;
+- migrate or delete the existing hardcoded pensum route;
+- redesign the broader pensum navigation.
+
+### Styling decision
+
+Do not create a new CSS module in this first seam-establishment slice unless required for compilation. Prefer semantic unstyled/minimally classless markup over copying the hardcoded legacy page styles, because copying those styles would enlarge the change without helping establish authority.
+
+A later bounded UI-integration slice can deliberately align the authoritative route with the product design system.
 
 ---
 
-## Task Selection Decision
+## Verification Contract
 
-**Selected next implementation responsibility: establish the authoritative lesson learning-context seam before adding or migrating activity flows.**
+The slice is complete only when repository inspection/build verification demonstrates:
 
-The smallest dependency-correct task is to make a lesson-level product context resolve through the established repository layer and become the stable integration point for lesson-linked learning activities.
+1. the new route is a Server Component and contains no `"use client"` directive;
+2. it uses `createClient()` from the server Supabase boundary;
+3. it resolves course → chapter → lesson through the existing repository functions;
+4. parent IDs constrain child slug resolution;
+5. unpublished or missing course/chapter/lesson states return `notFound()`;
+6. rendered learning objectives and content come from the resolved lesson record;
+7. no flashcard, quiz, or progress code is introduced;
+8. TypeScript passes;
+9. Next.js build passes;
+10. documentation structure verification remains passing.
 
-### Why this precedes flashcard UI
-
-Flashcards are the only required MVP activity currently missing at product-flow level, but implementing a standalone flashcard route first would reproduce the current architectural problem: another disconnected learning utility. The Learning Model explicitly requires activities to live in shared curriculum/lesson context.
-
-The flashcard repository already supports lesson IDs. The missing prerequisite is a product-level lesson context that can supply the authoritative lesson identity to that repository.
-
-### Why this precedes quiz migration
-
-The quiz flow already has substantial learner interaction and informative correction. Migrating its data source before establishing the lesson integration seam would still leave quiz as a separate slug-based utility rather than part of the coherent lesson loop.
-
-### Why this precedes progress persistence
-
-Authenticated progress must attach to an authoritative learning context. Persisting the current slug-based quiz progress first would risk cementing the wrong identity model. Lesson context must be authoritative before learner progress can be correctly keyed and interpreted.
-
-### Why this is smaller than end-to-end integration
-
-Full loop integration spans several responsibilities and would violate the project's one-bounded-change workflow. Establishing the lesson seam is the smallest prerequisite shared by flashcards, quiz integration, and learner progress.
-
----
-
-## Selected Implementation Task
-
-**Authoritative Lesson Context Integration — first bounded implementation slice**
-
-The first implementation slice must establish a repository-backed lesson context without yet implementing flashcards, migrating quiz data, or persisting progress.
-
-Required outcome:
-
-1. a lesson product surface resolves an authoritative lesson through the existing repository layer;
-2. the surface preserves curriculum context rather than becoming a standalone utility;
-3. the lesson identity is available as the future integration key for flashcards, quiz questions, and learner progress;
-4. existing hardcoded content is not silently treated as authoritative database content;
-5. no advanced learning mechanism is introduced.
-
-Before code is changed, inspect the exact current lesson repository API, course/chapter relationships, current pensum routing, Supabase server-client boundary, and available database fields to derive the smallest file-level implementation plan.
+No requirement in this slice claims that the database currently contains a specific seed lesson. Runtime content availability is a separate data-state verification after the route seam exists.
 
 ---
 
 ## Current Risks
 
-### R1 – Learning-principle implementation drift
+### R1 – Parallel identity models
+
+**Status: ACTIVE but bounded.**
+
+The new route establishes the authoritative hierarchy without deleting the old hardcoded route. A later migration decision must determine how navigation transitions from legacy topic slugs to authoritative curriculum URLs.
+
+### R2 – Database content availability
+
+**Status: OPEN.**
+
+The schema and repository contract are verified, but this planning step does not establish that the remote database currently contains published course/chapter/lesson rows suitable for the new route.
+
+### R3 – Learning-principle implementation drift
 
 **Status: ACTIVE.**
 
-Feature presence must not be treated as proof that a Learning Model principle is satisfied.
-
-### R2 – Parallel identity models
-
-**Status: ACTIVE / immediate.**
-
-The application currently mixes hardcoded slugs/content with database IDs and repository-backed entities. Adding new flows before establishing the authoritative lesson seam could deepen this split.
-
-### R3 – Progress authority mismatch
-
-**Status: ACTIVE.**
-
-Browser-local slug-based quiz progress must not become the basis for authenticated learner progress.
+This slice establishes context only. It does not claim to implement Active Retrieval, Informative Correction, Distributed Practice, Adaptive Guidance, or Objective-Aligned Demonstration by itself.
 
 ### R4 – Branch divergence
 
 **Status: OPEN.**
 
-No integration with `main` until a later verified decision.
-
 ---
 
 ## Code Change Gate
 
-**Product implementation: NOT YET OPEN — implementation planning authorized.**
+**Product implementation: OPEN ONLY for the bounded Authoritative Lesson Context first slice.**
 
-The next responsibility has been selected, but code changes remain blocked until the exact repository APIs, routing seam, server/client boundary, and file-level change set have been inspected and recorded.
+Authorized file change:
 
-Read-only repository inspection and `PROJECT_CONTROL.md` synchronization are authorized.
+```text
+CREATE app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
+```
+
+No other product-code file change is authorized unless verification proves that this exact slice cannot compile without one; in that case stop and synchronize control before expanding scope.
 
 ---
 
 ## Current Task
 
-Derive the bounded implementation plan for **Authoritative Lesson Context Integration**.
-
-Inspect only what is necessary to answer:
-
-- which current route should own the authoritative lesson context;
-- how a lesson is resolved from the current URL/routing model;
-- which repository functions and Supabase client are appropriate on that route;
-- what course/chapter context is required to preserve curriculum hierarchy;
-- which exact files must change in the first slice;
-- how the slice will be verified without pulling flashcards, quiz migration, or progress persistence into scope.
+Implement the single authorized authoritative lesson route exactly as specified above.
 
 ---
 
 ## Next Allowed Action
 
-Read the current implementations of:
+Create:
 
-- `lib/repositories/lessons.ts`;
-- relevant course/chapter repository functions;
-- the Supabase server client boundary;
-- `app/pensum/page.tsx` and `app/pensum/[slug]/page.tsx`;
-- any existing route or component that already consumes repository-backed course/chapter/lesson data.
+```text
+app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
+```
 
-Then define the smallest exact file-level implementation plan and synchronize `PROJECT_CONTROL.md` with the plan and explicit code-change permission.
+using the existing server Supabase client and course/chapter/lesson repository functions.
 
-Do not implement flashcards, migrate quiz data, or change progress persistence during this planning step.
+Then verify the resulting file and run the available repository verification appropriate to the change. Do not add flashcards, quiz integration, progress persistence, new styling files, or navigation migration in this slice.
 
-No historical chat recovery is authorized.
+After verification, synchronize `PROJECT_CONTROL.md` before selecting the next implementation slice.
 
 ---
 
