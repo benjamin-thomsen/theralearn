@@ -30,7 +30,9 @@ The targeted Foundation certification evidence gap is closed. No further histori
 
 The bounded repository-authority assessment selected development/tooling documentation as the first high-priority repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been synchronized against verified current Developer Toolkit implementation.
 
-The subsequent bounded reprioritization has selected the root `README.md` as the next exact repair target because it is an active repository entry point with demonstrated current-state drift, while sufficient current authority exists to repair it without historical reconstruction.
+The subsequent bounded reprioritization selected the root `README.md` as the next exact repair target because it is an active repository entry point with demonstrated current-state drift, while sufficient current authority exists to repair it without historical reconstruction.
+
+The bounded README pre-write analysis is now complete. It established a minimal repair scope using only current repository authority and implementation evidence, with no historical recovery required.
 
 ---
 
@@ -63,7 +65,8 @@ Verified Foundation/control checkpoints now include:
 - Foundation certification conclusion/scope transfer: `36ce8c495cf39e5478c172dae45d05e9f642100d`;
 - Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
 - Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`;
-- control synchronization after backlog repair: `7bd97546b3207a27ed7875bb8b49e1e3710ae5dc`.
+- control synchronization after backlog repair: `7bd97546b3207a27ed7875bb8b49e1e3710ae5dc`;
+- root README repair target selection: `920c7a36edaeef943a2519f50732cc5103ab3b6f`.
 
 The synchronized roadmap and backlog were each re-read from the authoritative branch after their transfer commits, and the branch-ref was verified after the backlog/control synchronization.
 
@@ -173,11 +176,12 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - `docs/development/IMPROVEMENT_BACKLOG.md` synchronized against current implementation and roadmap authority, re-read, and branch-ref verified.
 - Bounded reprioritization of remaining unresolved documentation targets completed.
 - Root `README.md` selected as the next exact bounded repair target.
+- Bounded root README pre-write analysis completed against current repository authority and implementation evidence.
 - Anomalous `-name package-lock.json` content inspected and classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
 
 ### Not yet completed
 
-- Repair root `README.md` against current project authority and repository implementation.
+- Repair root `README.md` using the verified bounded scope.
 - Product documentation repair.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Retention/deletion decision for `-name package-lock.json`.
@@ -237,27 +241,36 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Repair the root `README.md` as the next bounded documentation target.
+Repair the root `README.md` as the current bounded documentation target.
 
-The current file is the default Create Next App template and therefore misrepresents the repository at its primary external entry point. The repair must describe only verified current project identity, stack, repository workflow/navigation, and current development status. It must route detailed authority to the existing authoritative documents rather than duplicate them.
+The bounded pre-write analysis is complete. The repair scope is limited to:
+
+- concise TheraLearn identification;
+- verified high-level product direction;
+- current technical stack from repository configuration;
+- minimal verified development commands;
+- authority/documentation navigation;
+- current-development-status routing to `PROJECT_CONTROL.md` rather than duplicated current state.
+
+README remains a repository entry point and navigation surface, not a new authority layer.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded pre-write repair analysis for the root `README.md` using current repository authority only.
+Perform the bounded write of only the root `README.md` using the verified minimal scope.
 
-The authority basis is:
+Use current repository authority and implementation evidence only. The write must:
 
-- the current root `README.md` is demonstrably stale default framework text rather than TheraLearn documentation;
-- `PROJECT_OVERVIEW.md` already owns stable project identity and high-level product direction;
-- `PROJECT_HANDBOOK.md` and `PROJECT_CONTROL.md` own workflow/navigation and current project state;
-- current source/configuration provides sufficient evidence for the current technical stack and executable commands;
-- repairing the repository entry point has broad downstream navigation value without requiring invention of missing product-domain detail.
+- identify TheraLearn without duplicating detailed product authority;
+- summarize only the verified high-level product direction already owned by `PROJECT_OVERVIEW.md`;
+- state only the current technical stack and commands supported by repository configuration;
+- route governance to `PROJECT_HANDBOOK.md`, stable identity to `PROJECT_OVERVIEW.md`, current project state to `PROJECT_CONTROL.md`, and domain-specific permanent knowledge to `docs/`;
+- avoid copying Current Phase, Current Task, Next Allowed Action, Foundation content, historical milestones, or unsupported installation/deployment procedures.
 
-The analysis must determine the minimal README scope and authoritative cross-references before writing it.
+After the write, re-read `README.md`, verify branch-ref and internal authority consistency, then synchronize `PROJECT_CONTROL.md` because workflow state will have changed.
 
-Do not populate empty product/development/meeting files as part of this task. Do not delete the anomalous root artifact. No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
+Do not modify another documentation target as part of the README repair. Do not delete the anomalous root artifact. No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
 
 ---
 
