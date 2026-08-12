@@ -24,9 +24,9 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 The minimal product-authority layer and initial MVP boundary are established. A read-only MVP implementation gap assessment has also established that the current application contains substantial but disconnected implementation: curriculum/pensum, lesson-like content, quiz, authentication, and local quiz progress are partial; flashcard product flow is missing; and the complete authenticated learning loop is not yet integrated.
 
-Before selecting the first implementation seam, the project has identified a higher-order product requirement: TheraLearn is intended not merely to assemble learning features, but to become an exceptional learning platform whose core learning mechanisms are justified by strong learning-science evidence.
+A bounded external learning-science evidence synthesis has now been completed across the initial candidate areas. The synthesis supports a smaller candidate principle set rather than treating every reviewed technique as an independent platform principle.
 
-The current `LEARNING_MODEL.md` is deliberately conservative and evidence-bounded to repository structure. It does not yet contain a science-derived set of learning principles. Product implementation remains paused while this bounded evidence review determines which learning principles should become permanent TheraLearn authority.
+The current `LEARNING_MODEL.md` remains deliberately conservative and has not yet been modified. Product implementation remains paused while the candidate principle set is tested for evidence sufficiency, overlap, boundary preservation, and minimum-set coherence before any permanent product-authority transfer.
 
 ---
 
@@ -56,7 +56,8 @@ Recent verified product/control checkpoints include:
 - Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
 - Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
 - MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`;
-- MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`.
+- MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`;
+- Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`.
 
 The implementation gap assessment has verified these current classifications:
 
@@ -80,13 +81,13 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 Historical project material remains evidence, not automatic authority.
 
-The current Learning Science Evidence Review must use external scientific evidence, prioritizing systematic reviews, meta-analyses, major peer-reviewed reviews, and high-quality evidence syntheses. Historical project chats are not a substitute for scientific evidence.
+The Learning Science Evidence Review uses external scientific evidence. Historical project chats are not a substitute for scientific evidence.
 
 ---
 
 ## Product Authority Status
 
-**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED; SCIENCE-DERIVED LEARNING PRINCIPLES NOT YET ESTABLISHED**
+**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED; SCIENCE-DERIVED LEARNING PRINCIPLES ARE CANDIDATES, NOT YET PERMANENT AUTHORITY**
 
 Established authorities:
 
@@ -97,26 +98,84 @@ Established authorities:
 
 The current Learning Model remains valid as a structural model but is not yet sufficient as the scientific design basis for an exceptional learning platform.
 
+No candidate principle has yet been transferred into permanent product authority.
+
 ---
 
-## Current Scientific Evidence Baseline
+## Learning Science Evidence Synthesis
 
-Initial external evidence confirms that learning science contains robust candidate mechanisms relevant to TheraLearn.
+**Status: BOUNDED INITIAL SYNTHESIS COMPLETE; PRINCIPLE CERTIFICATION PENDING**
 
-High-priority evidence areas include:
+The review prioritized systematic reviews, meta-analyses, major peer-reviewed reviews, and evidence syntheses. The resulting evidence pattern does not justify eight independent permanent platform principles.
 
-- retrieval practice / testing effect;
-- spacing / distributed practice;
-- successive relearning and the interaction of spacing with retrieval;
-- feedback and corrective feedback;
-- interleaving where domain/task conditions support it;
-- cognitive-load-sensitive instructional design;
-- worked examples and transition toward independent problem solving where appropriate;
-- self-explanation / elaborative learning;
-- metacognition and calibration of learning judgments;
-- transfer and context-sensitive application of knowledge.
+### Evidence classifications
 
-Initial review evidence strongly supports retrieval practice and spacing across many learning settings, while also showing that effectiveness depends on learning goals, material complexity, learner characteristics, timing, and implementation conditions. Therefore no mechanism is to be converted directly into a universal product feature without a bounded evidence-to-principle derivation.
+1. **Retrieval practice — Foundational candidate**
+   - strong and broadly generalizable evidence supports active retrieval over passive re-exposure for durable learning;
+   - implementation conditions such as retrieval success, repetition, material, test format, and feedback remain relevant.
+
+2. **Spacing / distributed relearning — Foundational candidate**
+   - strong evidence supports distributing learning across time rather than massing equivalent practice;
+   - optimal spacing is conditional on retention goals, material, learner state, and relearning conditions;
+   - spacing is not itself a justification for a specific flashcard algorithm.
+
+3. **Corrective / informative feedback — Foundational candidate**
+   - evidence supports feedback as beneficial on average, but feedback is heterogeneous and information content matters;
+   - the platform principle should concern useful correction of learner attempts rather than feedback as a generic feature.
+
+4. **Cognitive-load-sensitive guidance / worked examples — Foundational constraint candidate**
+   - evidence supports guidance and worked-example approaches particularly where learners lack schemas for complex tasks;
+   - expertise and task complexity create important boundary conditions, so support must not become universal permanent scaffolding.
+
+5. **Demonstrated understanding / transfer — Foundational outcome candidate**
+   - durable learning cannot always be equated with recall when the target competence requires explanation, discrimination, inference, or application;
+   - transfer is not automatic and must be evaluated relative to the actual learning objective.
+
+6. **Self-explanation / elaboration — Conditional mechanism**
+   - potentially valuable for appropriate material and objectives;
+   - currently better represented as a mechanism available under a broader demonstrated-understanding principle than as an independent universal platform principle.
+
+7. **Interleaving — Conditional mechanism**
+   - evidence is meaningfully moderated by domain, category similarity, material, and task structure;
+   - it must not become a universal "mix practice" rule.
+
+8. **Metacognition / calibration — Conditional / deferred mechanism**
+   - learner judgments can be useful but subjective confidence must not be treated as equivalent to demonstrated mastery;
+   - performance evidence should remain distinct from learner confidence.
+
+### Candidate minimal principle set
+
+The current smallest coherent candidate set is:
+
+1. **Active Retrieval Principle** — learning should require retrieval of relevant knowledge or reasoning rather than rely primarily on passive re-exposure.
+2. **Distributed Relearning Principle** — important learning should be revisited across time, with retrieval/relearning distributed in relation to intended durability.
+3. **Informative Correction Principle** — learner attempts should produce sufficient corrective information to repair errors and strengthen accurate understanding.
+4. **Adaptive Guidance Principle** — instructional support should reduce unnecessary cognitive burden during acquisition and be reduced or changed as learner knowledge makes greater independence appropriate.
+5. **Demonstrated Understanding Principle** — where objectives extend beyond recall, mastery should be demonstrated through explanation, discrimination, inference, or application appropriate to the objective.
+
+These formulations are **candidate principles only**. They are not yet permanent TheraLearn product authority.
+
+### Architectural implication under review
+
+The evidence synthesis suggests that product architecture should be derived from a learning process such as:
+
+```text
+Acquire / orient
+      ↓
+Retrieve
+      ↓
+Correct
+      ↓
+Relearn across time
+      ↓
+Demonstrate objective-appropriate understanding
+      ↓
+Adapt subsequent support and practice
+```
+
+This is a candidate learning-process architecture, not yet a replacement for the structural hierarchy in `LEARNING_MODEL.md`.
+
+Existing product concepts such as flashcards and quizzes must be treated as possible mechanisms for realizing learning principles, not as scientific principles or evidence of learning by themselves.
 
 ---
 
@@ -124,14 +183,23 @@ Initial review evidence strongly supports retrieval practice and spacing across 
 
 A candidate learning principle must not become permanent TheraLearn authority merely because it is popular, intuitive, or present in another learning product.
 
-The evidence review must distinguish:
+The evidence review distinguishes:
 
 1. **Robust evidence** — supported across high-quality reviews/meta-analyses and sufficiently generalizable for a platform-level principle;
 2. **Conditional evidence** — useful under identifiable conditions and therefore suitable only as a bounded principle/mechanism;
 3. **Emerging/uncertain evidence** — promising but insufficient for permanent platform authority;
 4. **Unsupported product convention** — common feature patterns without sufficient evidence to define TheraLearn learning design.
 
-Evidence strength, boundary conditions, risks, and implementation implications must remain distinct.
+Evidence strength, boundary conditions, learner behavior, mechanism classes, and MVP implications must remain distinct.
+
+A permanent principle must additionally pass a derivation test:
+
+- it must express a learning requirement rather than a UI or feature convention;
+- its evidence must be strong enough for the scope claimed;
+- known boundary conditions must remain visible;
+- it must not duplicate another principle unnecessarily;
+- it must be useful for deriving product decisions;
+- it must not imply that one mechanism is the only valid implementation.
 
 ---
 
@@ -143,11 +211,11 @@ Evidence strength, boundary conditions, risks, and implementation implications m
 
 ### R2 – Learning-science authority gap
 
-**Status: ACTIVE — current primary design risk.**
+**Status: ACTIVE — narrowed from evidence discovery to principle certification.**
 
-The structural Learning Model exists, but science-derived permanent learning principles have not yet been established. Implementing the next major learning mechanism before resolving this could lock the product into feature conventions rather than evidence-based learning design.
+A bounded evidence synthesis now exists and has produced five candidate foundational principles plus conditional mechanisms. The remaining risk is premature promotion: turning a plausible synthesis into permanent authority before testing minimum-set coherence, evidence scope, and boundary preservation.
 
-**Mitigation:** complete a bounded evidence review and derive a minimal set of permanent TheraLearn Learning Principles before selecting the next implementation seam.
+**Mitigation:** perform a bounded candidate-principle certification before modifying permanent product authority.
 
 ### R3 – MVP implementation integration gap
 
@@ -155,7 +223,7 @@ The structural Learning Model exists, but science-derived permanent learning pri
 
 The current implementation is fragmented across hardcoded curriculum, local quiz data/state, browser-local progress, Supabase auth/data structures, and a missing flashcard product flow.
 
-**Mitigation:** resume implementation-gap prioritization after science-derived learning principles are established and the MVP boundary is checked for any required adjustment.
+**Mitigation:** resume implementation-gap prioritization after science-derived learning principles are established and the MVP boundary is explicitly checked for required adjustment.
 
 ### R4 – Anomalous repository artifact
 
@@ -183,42 +251,36 @@ The current MVP boundary must not be silently expanded by the evidence review. I
 
 ## Current Task
 
-Conduct a bounded Learning Science Evidence Review and derive candidate TheraLearn Learning Principles.
+Perform **Candidate Learning Principle Certification** on the five-principle minimal set.
 
-The review must prioritize high-quality scientific evidence and answer, for each candidate principle:
+For each candidate, determine:
 
-- What learning outcome does the evidence support?
-- How strong and generalizable is the evidence?
-- What boundary conditions or known limitations matter?
-- What learner behavior should TheraLearn encourage?
-- What product mechanism classes could implement the principle?
-- Is the principle foundational, conditional, or deferred?
-- Does it affect the current MVP boundary, or only post-MVP product evolution?
+1. whether the claimed scope is supported strongly enough by the reviewed evidence;
+2. whether important boundary conditions are preserved in the formulation;
+3. whether the principle is genuinely foundational rather than a conditional mechanism;
+4. whether it overlaps another candidate enough to merge or remove it;
+5. whether it can derive meaningful product behavior without prescribing a specific feature;
+6. whether omission would leave a material gap in the science-derived learning architecture;
+7. whether it changes the current MVP acceptance boundary.
 
-Initial candidate areas:
-
-1. retrieval practice;
-2. spacing / distributed practice;
-3. feedback / correction;
-4. interleaving;
-5. cognitive load and worked examples;
-6. self-explanation / elaboration;
-7. metacognition / calibration;
-8. transfer and application.
-
-The goal is not to maximize the number of principles. The goal is the smallest coherent set with strong enough evidence to guide product architecture.
+The certification target is not five principles by default. The target remains the **smallest coherent set that survives the evidence and derivation tests**.
 
 ---
 
 ## Next Allowed Action
 
-Perform the external scientific evidence review read-only, beginning with systematic reviews, meta-analyses, and major peer-reviewed evidence syntheses for the candidate areas above.
+Certify or reject the candidate principles one at a time, beginning with **Active Retrieval Principle**.
 
-Do not modify `LEARNING_MODEL.md`, `mvp.md`, or product code yet.
+For each candidate:
 
-Produce an evidence matrix that separates evidence strength, boundary conditions, proposed TheraLearn principle, possible product mechanisms, and MVP relevance.
+- test the exact principle claim against the strongest available evidence;
+- identify counter-evidence or boundary conditions that would narrow the claim;
+- test whether the principle is independent of specific product mechanisms;
+- classify it as **CERTIFY**, **NARROW**, **MERGE**, **DEFER**, or **REJECT**.
 
-Then determine the minimal science-derived principle set and synchronize `PROJECT_CONTROL.md` before transferring any principle into permanent product authority.
+Do not modify `docs/product/LEARNING_MODEL.md`, `docs/product/mvp.md`, or product code during candidate certification.
+
+After the minimal principle set is certified, synchronize `PROJECT_CONTROL.md` again before transferring any certified principle into permanent product authority.
 
 No historical chat recovery is authorized for this task.
 
