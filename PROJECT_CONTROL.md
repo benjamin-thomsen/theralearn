@@ -30,9 +30,7 @@ The targeted Foundation certification evidence gap is closed. No further histori
 
 The bounded repository-authority assessment selected development/tooling documentation as the first high-priority repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been synchronized against verified current Developer Toolkit implementation.
 
-The subsequent bounded reprioritization selected the root `README.md` as the next exact repair target because it is an active repository entry point with demonstrated current-state drift, while sufficient current authority exists to repair it without historical reconstruction.
-
-The bounded README pre-write analysis is now complete. It established a minimal repair scope using only current repository authority and implementation evidence, with no historical recovery required.
+The root `README.md` repair is now complete and verified. The repository entry point now identifies TheraLearn, presents only verified stack/commands, and routes detailed authority to the existing control and domain documents without becoming a competing authority.
 
 ---
 
@@ -66,9 +64,11 @@ Verified Foundation/control checkpoints now include:
 - Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
 - Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`;
 - control synchronization after backlog repair: `7bd97546b3207a27ed7875bb8b49e1e3710ae5dc`;
-- root README repair target selection: `920c7a36edaeef943a2519f50732cc5103ab3b6f`.
+- root README repair target selection: `920c7a36edaeef943a2519f50732cc5103ab3b6f`;
+- README write authorization: `5a17a63df0d2fa2840d5173fbcb8e349eebba791`;
+- root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`.
 
-The synchronized roadmap and backlog were each re-read from the authoritative branch after their transfer commits, and the branch-ref was verified after the backlog/control synchronization.
+The repaired root `README.md` was re-read from the authoritative branch after its transfer commit, and the branch-ref was verified at `0284b31788a27c71231b14018e2ce5df16f6b46b`.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -141,11 +141,12 @@ Important unresolved documentation drift includes:
 - empty `docs/meetings/decisions-log.md`;
 - empty `docs/development/project-structure.md`;
 - empty `docs/development/git-workflow.md`;
-- root `README.md` still reflecting the default Create Next App template;
 - anomalous root artifact `-name package-lock.json`, verified to contain pager/`less` help text rather than package-lock data;
 - empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
 
 The previously stale `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been repaired against current repository implementation.
+
+The previously stale root `README.md` has been repaired and is no longer an active documentation-drift finding.
 
 A valid root `package-lock.json` separately exists. No deletion of the anomalous artifact is yet authorized; investigation evidence does not itself authorize mutation.
 
@@ -175,13 +176,13 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` synchronized against current implementation, re-read, and branch-ref verified.
 - `docs/development/IMPROVEMENT_BACKLOG.md` synchronized against current implementation and roadmap authority, re-read, and branch-ref verified.
 - Bounded reprioritization of remaining unresolved documentation targets completed.
-- Root `README.md` selected as the next exact bounded repair target.
+- Root `README.md` selected as a bounded repair target.
 - Bounded root README pre-write analysis completed against current repository authority and implementation evidence.
+- Root `README.md` repaired, re-read, and branch-ref verified.
 - Anomalous `-name package-lock.json` content inspected and classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
 
 ### Not yet completed
 
-- Repair root `README.md` using the verified bounded scope.
 - Product documentation repair.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Retention/deletion decision for `-name package-lock.json`.
@@ -241,36 +242,28 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Repair the root `README.md` as the current bounded documentation target.
+Perform a bounded reprioritization of the remaining unresolved documentation/repository targets after completion of the root `README.md` repair.
 
-The bounded pre-write analysis is complete. The repair scope is limited to:
-
-- concise TheraLearn identification;
-- verified high-level product direction;
-- current technical stack from repository configuration;
-- minimal verified development commands;
-- authority/documentation navigation;
-- current-development-status routing to `PROJECT_CONTROL.md` rather than duplicated current state.
-
-README remains a repository entry point and navigation surface, not a new authority layer.
+The reprioritization must determine which single remaining target has the highest current authority/workflow risk and whether it requires repair, classification, or explicit deferral. Empty files must not be populated merely because they are empty.
 
 ---
 
 ## Next Allowed Action
 
-Perform the bounded write of only the root `README.md` using the verified minimal scope.
+Inspect the remaining unresolved targets using current repository authority and implementation evidence, then select exactly one next bounded target.
 
-Use current repository authority and implementation evidence only. The write must:
+Candidate unresolved areas currently recorded here are:
 
-- identify TheraLearn without duplicating detailed product authority;
-- summarize only the verified high-level product direction already owned by `PROJECT_OVERVIEW.md`;
-- state only the current technical stack and commands supported by repository configuration;
-- route governance to `PROJECT_HANDBOOK.md`, stable identity to `PROJECT_OVERVIEW.md`, current project state to `PROJECT_CONTROL.md`, and domain-specific permanent knowledge to `docs/`;
-- avoid copying Current Phase, Current Task, Next Allowed Action, Foundation content, historical milestones, or unsupported installation/deployment procedures.
+- product documentation (`docs/product/PRODUCT_VISION.md`, `docs/product/LEARNING_MODEL.md`);
+- development documentation beyond roadmap/backlog (`docs/development/project-structure.md`, `docs/development/git-workflow.md`);
+- `docs/meetings/decisions-log.md` placement/need;
+- anomalous root artifact `-name package-lock.json` retention/deletion decision;
+- empty implementation placeholders, only for classification unless a separate implementation action becomes authorized;
+- eventual complete local verification and later `main` integration decision.
 
-After the write, re-read `README.md`, verify branch-ref and internal authority consistency, then synchronize `PROJECT_CONTROL.md` because workflow state will have changed.
+Do not modify any candidate during this reprioritization. Select one exact bounded target first and record the resulting workflow state here before any target-specific mutation.
 
-Do not modify another documentation target as part of the README repair. Do not delete the anomalous root artifact. No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
+No historical retrieval is authorized unless a concrete bounded evidence gap is identified and recorded first.
 
 ---
 
