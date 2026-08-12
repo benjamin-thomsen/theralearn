@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TheraLearn
 
-## Getting Started
+TheraLearn is a learning platform for structured learning, initially focused on psychotherapy education.
 
-First, run the development server:
+The project is intended to bring curriculum content, flashcards, quizzes, learning progress, reading support, and multilingual support into an integrated learning experience. Stable project identity and high-level product direction are owned by [`PROJECT_OVERVIEW.md`](PROJECT_OVERVIEW.md).
+
+## Technical Stack
+
+The current repository uses:
+
+- Next.js 16.2.12;
+- React 19.2.4;
+- TypeScript 5.9.3;
+- Supabase, including `@supabase/supabase-js` and `@supabase/ssr`.
+
+## Development Commands
+
+The repository currently defines these primary npm commands:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
+npm run lint
+npm run docs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Documentation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+TheraLearn separates project information by authority rather than duplicating it across entry points:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [`PROJECT_HANDBOOK.md`](PROJECT_HANDBOOK.md) — governance, workflow, authority rules, and documentation routing;
+- [`PROJECT_OVERVIEW.md`](PROJECT_OVERVIEW.md) — stable project identity and permanent high-level principles;
+- [`PROJECT_CONTROL.md`](PROJECT_CONTROL.md) — current verified project state, current task, risks, code-change permission, and next allowed action;
+- [`docs/`](docs/) — domain-specific permanent documentation.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For current development status and the next authorized project action, read [`PROJECT_CONTROL.md`](PROJECT_CONTROL.md).
