@@ -28,9 +28,9 @@ Foundation repair has reached a verified consolidation checkpoint. `docs/foundat
 
 The targeted Foundation certification evidence gap is closed. No further historical recovery is currently authorized.
 
-The bounded repository-authority assessment selected development/tooling documentation as the highest-priority current repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have now been synchronized against verified current Developer Toolkit implementation.
+The bounded repository-authority assessment selected development/tooling documentation as the first high-priority repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been synchronized against verified current Developer Toolkit implementation.
 
-The next bounded action is to reprioritize the remaining unresolved documentation targets before another target is changed.
+The subsequent bounded reprioritization has selected the root `README.md` as the next exact repair target because it is an active repository entry point with demonstrated current-state drift, while sufficient current authority exists to repair it without historical reconstruction.
 
 ---
 
@@ -62,9 +62,10 @@ Verified Foundation/control checkpoints now include:
 - certification transfer authorization: `fb8a332b307234a1e2b684e0acf6389444b1cc06`;
 - Foundation certification conclusion/scope transfer: `36ce8c495cf39e5478c172dae45d05e9f642100d`;
 - Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
-- Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`.
+- Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`;
+- control synchronization after backlog repair: `7bd97546b3207a27ed7875bb8b49e1e3710ae5dc`.
 
-The synchronized roadmap and backlog were each re-read from the authoritative branch after their transfer commits, and the branch-ref was verified after the backlog transfer.
+The synchronized roadmap and backlog were each re-read from the authoritative branch after their transfer commits, and the branch-ref was verified after the backlog/control synchronization.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -169,18 +170,18 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - Foundation certification evidence incompleteness closed for the required permanent transfer scope.
 - Initial bounded repository-authority assessment completed.
 - `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` synchronized against current implementation, re-read, and branch-ref verified.
-- Remaining-target reprioritization selected `docs/development/IMPROVEMENT_BACKLOG.md`.
-- Bounded pre-write backlog synchronization analysis completed without historical recovery.
 - `docs/development/IMPROVEMENT_BACKLOG.md` synchronized against current implementation and roadmap authority, re-read, and branch-ref verified.
+- Bounded reprioritization of remaining unresolved documentation targets completed.
+- Root `README.md` selected as the next exact bounded repair target.
 - Anomalous `-name package-lock.json` content inspected and classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
 
 ### Not yet completed
 
-- Reprioritize the remaining unresolved documentation targets after roadmap/backlog synchronization.
+- Repair root `README.md` against current project authority and repository implementation.
 - Product documentation repair.
 - Development-domain documentation audit beyond roadmap/backlog.
-- Root README repair.
 - Retention/deletion decision for `-name package-lock.json`.
+- Decisions-log placement/need assessment.
 - Long-term integration decision for `main`.
 - New complete local verification after documentation-only repair commits.
 
@@ -236,26 +237,27 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Reprioritize the remaining unresolved documentation targets after verified synchronization of the Documentation Tool roadmap and Improvement Backlog.
+Repair the root `README.md` as the next bounded documentation target.
 
-The reprioritization must select exactly one next bounded target using current repository authority and must not infer priority merely from file adjacency, emptiness, or historical ordering.
+The current file is the default Create Next App template and therefore misrepresents the repository at its primary external entry point. The repair must describe only verified current project identity, stack, repository workflow/navigation, and current development status. It must route detailed authority to the existing authoritative documents rather than duplicate them.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded reprioritization of the remaining unresolved documentation targets using these criteria:
+Perform a bounded pre-write repair analysis for the root `README.md` using current repository authority only.
 
-1. authority/ownership significance;
-2. downstream impact on continued development;
-3. demonstrated drift between documentation and verified implementation/state;
-4. availability of sufficient current evidence for repair without guessing.
+The authority basis is:
 
-Current unresolved candidates include product documentation, remaining development-domain documentation, root `README.md`, the decisions log, and the anomalous root artifact retention/deletion decision.
+- the current root `README.md` is demonstrably stale default framework text rather than TheraLearn documentation;
+- `PROJECT_OVERVIEW.md` already owns stable project identity and high-level product direction;
+- `PROJECT_HANDBOOK.md` and `PROJECT_CONTROL.md` own workflow/navigation and current project state;
+- current source/configuration provides sufficient evidence for the current technical stack and executable commands;
+- repairing the repository entry point has broad downstream navigation value without requiring invention of missing product-domain detail.
 
-Select exactly one next repair target and record its authority basis before changing another domain file.
+The analysis must determine the minimal README scope and authoritative cross-references before writing it.
 
-No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
+Do not populate empty product/development/meeting files as part of this task. Do not delete the anomalous root artifact. No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
 
 ---
 
