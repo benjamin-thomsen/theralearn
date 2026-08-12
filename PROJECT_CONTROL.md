@@ -102,7 +102,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-`docs/README.md`, `docs/architecture/README.md`, and `docs/architecture/system-overview.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
+`docs/README.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, and `docs/architecture/database.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
 ---
 
@@ -179,14 +179,13 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/meetings/decisions-log.md`;
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`;
-- `docs/architecture/database.md`;
 - `docs/architecture/authentication.md`;
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
 The architecture directory still contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
 
-`PROJECT_HANDBOOK.md`, `docs/architecture/README.md`, and `docs/architecture/system-overview.md` were empty at audit start but have now been repaired where applicable.
+`PROJECT_HANDBOOK.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, and `docs/architecture/database.md` were empty at audit start but have now been repaired where applicable.
 
 ### Damaged or stale documentation identified
 
@@ -223,6 +222,7 @@ Its origin and relevance have not yet been verified. It must not be deleted unti
 - `docs/README.md` repaired as the domain-documentation entry point and verified after commit.
 - `docs/architecture/README.md` repaired as the architecture-domain entry point and verified after commit.
 - `docs/architecture/system-overview.md` established from inspected repository and implementation evidence and verified after commit.
+- `docs/architecture/database.md` established from the complete MVP migration, generated database contract, and persistence boundary evidence and verified after commit.
 
 ### Not yet completed
 
@@ -270,9 +270,9 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 ### R6 – Incomplete architecture topic documentation
 
-The architecture entry point and system overview are now established, but multiple narrower architecture topic files remain empty placeholders while verified implementation evidence already exists.
+The architecture entry point, system overview, and database architecture are now established, but multiple narrower architecture topic files remain empty placeholders while verified implementation evidence already exists.
 
-**Mitigation:** repair narrower architecture topics one at a time, beginning where the strongest direct implementation authority exists and using cross-references instead of duplicating system-level definitions.
+**Mitigation:** repair narrower architecture topics one at a time, following direct implementation dependencies and using cross-references instead of duplicating established database or system-level authority.
 
 ---
 
@@ -288,30 +288,38 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Establish the detailed persistence architecture from the strongest available direct implementation authority before documenting layers that depend on it.
+Establish the authentication and session architecture now that the database identity/profile boundary has been documented.
 
-The next target is `docs/architecture/database.md`, currently a zero-byte placeholder.
+The next target is `docs/architecture/authentication.md`, currently a zero-byte placeholder.
 
-This target is selected because the repository contains a concrete MVP database migration and generated database types. These provide stronger direct evidence for persistence structure than is currently available for broader inferred backend or frontend architecture descriptions.
+This target follows database architecture because authentication identity, application profiles, session propagation, and database RLS are directly connected. The repository already contains concrete login/signup flows, an auth confirmation route, browser/server Supabase clients, session proxy logic, and database policies that provide direct evidence for this boundary.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the complete MVP database migration, generated database types where needed, and repository access contracts relevant to persistence; then repair and verify `docs/architecture/database.md`.
+Inspect the complete authentication/session implementation and relevant database identity/RLS evidence; then repair and verify `docs/architecture/authentication.md`.
 
-Do not infer intended future schema beyond the implemented migration.
+The inspection must include, where relevant:
 
-The database architecture document must:
+- login actions and login UI behavior;
+- signup behavior;
+- `/auth/confirm` route handling;
+- browser Supabase client construction;
+- server Supabase client construction and cookie behavior;
+- root proxy and Supabase session-update proxy;
+- profile creation linkage to `auth.users`;
+- RLS policies that depend on `auth.uid()`.
 
-- describe only verified persisted entities, relationships, constraints, triggers, and row-level security behavior;
-- distinguish Supabase Auth-owned identity from application-owned profile/domain data;
-- identify the generated database types as an implementation contract derived from the schema, not a second schema authority;
-- describe repository access only where necessary to explain the persistence boundary and route detailed repository behavior to backend architecture;
-- avoid treating unimplemented repository placeholders as completed data access;
-- distinguish current database architecture from future product requirements that are not yet implemented.
+The authentication architecture document must:
 
-After `database.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next architecture topic.
+- distinguish authentication identity from application profile data;
+- describe only verified login, signup, confirmation, client, server, cookie, and session-refresh behavior;
+- distinguish authentication from database authorization/RLS while documenting their verified connection;
+- avoid claiming route protection or authorization behavior that is not present in inspected implementation;
+- avoid documenting future password-reset, OAuth, role, admin, or other auth capabilities unless verified in the current repository.
+
+After `authentication.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next architecture topic.
 
 ---
 
