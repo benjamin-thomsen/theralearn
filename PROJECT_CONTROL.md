@@ -22,9 +22,9 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 **Learning Science Evidence Review**
 
-The bounded external learning-science synthesis is complete and candidate-principle certification is in progress.
+The bounded external learning-science synthesis is complete. All five candidate principles have now completed individual certification. Product implementation remains paused while the individually surviving principles undergo final minimum-set coherence testing before any permanent product-authority transfer.
 
-The current `LEARNING_MODEL.md` remains unchanged. Product implementation remains paused while the candidate principle set is tested for evidence sufficiency, overlap, boundary preservation, and minimum-set coherence before any permanent product-authority transfer.
+The current `LEARNING_MODEL.md` remains unchanged.
 
 ---
 
@@ -54,22 +54,12 @@ Recent verified product/control checkpoints include:
 - Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
 - Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
 - MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`;
-- MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`;
 - Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`;
 - initial learning-science evidence synthesis recorded: `3376c32820c0e023cc0a876df74a250afa90791a`;
-- bounded Active Retrieval certification recorded: `2d9e817b95dfa911eacb886f94e4131ae8af8222`;
-- bounded Distributed Relearning certification recorded: `5948d31137414b8b697e9b7e674fb4e76f012325`;
-- bounded Informative Correction certification recorded: `8b81b73ee1f10dd7b8e07ac3b0264ba33b764e43`.
-
-The implementation gap assessment remains:
-
-- authentication/user identity — **Partial**;
-- curriculum/pensum — **Partial**;
-- lesson/content — **Partial / substantial**;
-- flashcards — **Missing at product-flow level**;
-- quiz — **Partial / substantial**;
-- results/progress — **Partial, currently local-browser based rather than authenticated learner/lesson authority**;
-- complete end-to-end learning loop — **Missing / not integrated**.
+- bounded Active Retrieval certification: `2d9e817b95dfa911eacb886f94e4131ae8af8222`;
+- bounded Distributed Relearning certification: `5948d31137414b8b697e9b7e674fb4e76f012325`;
+- bounded Informative Correction certification: `8b81b73ee1f10dd7b8e07ac3b0264ba33b764e43`;
+- bounded Adaptive Guidance certification: `b31c28559bf489f2b6c9400d727a27cce3f0dc2e`.
 
 Implementation selection remains deferred until the Learning Science Evidence Review is complete.
 
@@ -81,7 +71,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 **Status: No historical chat recovery currently authorized**
 
-The Learning Science Evidence Review uses external scientific evidence. Historical project chats are not a substitute for scientific evidence.
+External scientific evidence remains the authority for this review. Historical project chats are not a substitute for scientific evidence.
 
 ---
 
@@ -102,9 +92,7 @@ No science-derived candidate principle has yet been transferred into permanent p
 
 ## Learning Science Evidence Synthesis
 
-**Status: BOUNDED INITIAL SYNTHESIS COMPLETE; PRINCIPLE CERTIFICATION IN PROGRESS**
-
-The review prioritized systematic reviews, meta-analyses, major peer-reviewed reviews, and evidence syntheses. The evidence pattern does not justify eight independent permanent platform principles.
+**Status: INDIVIDUAL PRINCIPLE CERTIFICATION COMPLETE; FINAL MINIMUM-SET COHERENCE TEST PENDING**
 
 ### Candidate classifications
 
@@ -112,7 +100,7 @@ The review prioritized systematic reviews, meta-analyses, major peer-reviewed re
 2. **Distributed Relearning Principle — NARROWED; individual certification complete**
 3. **Informative Correction Principle — NARROWED; individual certification complete**
 4. **Adaptive Guidance Principle — NARROWED; individual certification complete**
-5. **Demonstrated Understanding Principle — certification pending**
+5. **Objective-Aligned Demonstration Principle — NARROWED; individual certification complete**
 
 Conditional mechanisms remain:
 
@@ -120,68 +108,63 @@ Conditional mechanisms remain:
 - interleaving;
 - metacognition / calibration.
 
-### Active Retrieval Principle certification result
+### Active Retrieval Principle
+
+> When durable retention of previously acquired knowledge is an intended learning outcome, learners should be required to actively retrieve relevant knowledge from memory at appropriate points in the learning process, rather than relying primarily on passive re-exposure.
+
+### Distributed Relearning Principle
+
+> When durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
+
+### Informative Correction Principle
+
+> When a learner attempt reveals an error, misconception, or material gap relevant to the learning objective, the learning process should provide sufficient information and opportunity to support correction, with the form and timing of that information determined by the task, learner state, and learning conditions.
+
+### Adaptive Guidance Principle
+
+> During acquisition of sufficiently complex or unfamiliar material, instructional support should be matched to the learner's relevant prior knowledge and the demands of the task so that unnecessary cognitive burden is limited, with support reduced, changed, or removed as greater independent performance becomes appropriate.
+
+### Demonstrated Understanding Principle certification result
 
 **Decision: NARROW**
 
-> **Active Retrieval Principle:** When durable retention of previously acquired knowledge is an intended learning outcome, learners should be required to actively retrieve relevant knowledge from memory at appropriate points in the learning process, rather than relying primarily on passive re-exposure.
+The original candidate name and formulation were too broad because "understanding" is not a single directly observable learning state and because explanation, discrimination, inference, application, and transfer are not interchangeable outcomes. Transfer evidence consistently shows that performance on practiced material does not guarantee performance on novel tasks and that transfer is strongly conditioned by prior knowledge, structural similarity, transfer distance, domain constraints, and the nature of the target task. Retrieval-practice transfer evidence is positive on average but also moderated, reinforcing that successful recall cannot be treated as universal evidence of broader competence.
 
-**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
+The foundational requirement that survives is therefore not that every learner must always explain or apply material, nor that TheraLearn should infer a generic mastery state. It is that evidence used to claim learning should match the learning objective. If the intended objective is recall, appropriate retrieval performance may be sufficient evidence. If the intended objective requires discrimination, explanation, inference, application, or transfer, then evidence of learning must require performance that samples that target capability rather than treating recall or confidence as a proxy.
 
-### Distributed Relearning Principle certification result
-
-**Decision: NARROW**
-
-> **Distributed Relearning Principle:** When durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
-
-**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
-
-### Informative Correction Principle certification result
-
-**Decision: NARROW**
-
-> **Informative Correction Principle:** When a learner attempt reveals an error, misconception, or material gap relevant to the learning objective, the learning process should provide sufficient information and opportunity to support correction, with the form and timing of that information determined by the task, learner state, and learning conditions.
-
-**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
-
-### Adaptive Guidance Principle certification result
-
-**Decision: NARROW**
-
-Evidence from cognitive-load research, worked-example research, and expertise-reversal syntheses supports substantial instructional guidance particularly when learners have insufficient prior knowledge to independently manage complex, highly interacting information. Worked examples can reduce unproductive search and support schema acquisition for novices, but the benefit is conditional rather than universal. As learner knowledge increases, guidance that was previously useful can become redundant or even detrimental; therefore permanent scaffolding, worked examples, or maximal explicitness cannot themselves be the platform principle.
-
-The evidence supports a broader expertise-sensitive requirement: instructional support should be sufficient for the learner and task while avoiding unnecessary cognitive burden, and it should change as prior knowledge and competence change. This retains cognitive-load sensitivity without turning one instructional technique or a particular load taxonomy into product authority.
+Self-explanation remains a conditional learning mechanism: it can support learning and transfer under suitable conditions, but it is neither necessary nor sufficient as the universal demonstration format.
 
 The bounded formulation that survives certification is:
 
-> **Adaptive Guidance Principle:** During acquisition of sufficiently complex or unfamiliar material, instructional support should be matched to the learner's relevant prior knowledge and the demands of the task so that unnecessary cognitive burden is limited, with support reduced, changed, or removed as greater independent performance becomes appropriate.
+> **Objective-Aligned Demonstration Principle:** Claims that a learner has achieved a learning objective should be supported by observable performance aligned with that objective; when the objective extends beyond recall, evidence should sample the relevant explanation, discrimination, inference, application, or transfer capability rather than infer it from recall or subjective confidence alone.
 
 This formulation:
 
-- preserves the strong worked-example/guidance evidence where novice knowledge is insufficient for efficient independent problem solving;
-- explicitly preserves the expertise-reversal boundary and therefore rejects permanent maximal scaffolding;
-- treats task complexity, element interactivity, learner prior knowledge/state, and changing expertise as relevant conditions rather than fixed product assumptions;
-- does not make worked examples, step-by-step instruction, hints, progressive disclosure, fading, or another instructional format mandatory;
-- remains implementation-independent and does not prescribe a UI, adaptive algorithm, AI tutor, or learner-model implementation;
-- remains distinct from Informative Correction because guidance structures acquisition/support before or during performance, whereas correction responds to learning-relevant errors revealed by learner attempts;
-- remains distinct from Demonstrated Understanding because guidance governs support conditions, whereas demonstrated understanding governs what counts as evidence of objective-appropriate learning;
-- does not by itself add an adaptive-learning system or another capability to the MVP boundary. It may later constrain lesson/content and activity design, but advanced/adaptive learning remains outside the current MVP unless separately authorized.
+- preserves the distinction between retention and broader competence;
+- does not claim that far transfer is automatic or generally easy;
+- keeps transfer distance, task/domain similarity, prior knowledge, assessment format, and target competence as boundary conditions;
+- does not require every learning interaction to include explanation, application, or transfer;
+- keeps self-explanation as a conditional mechanism rather than making it a universal principle;
+- remains independent of a particular quiz format, assessment type, mastery threshold, grading model, analytics system, or UI;
+- remains distinct from Active Retrieval because retrieval is a learning action and retention mechanism, whereas objective-aligned demonstration governs what evidence is sufficient for a particular learning claim;
+- remains distinct from Adaptive Guidance because guidance governs support during acquisition, whereas demonstration governs evidence relative to the intended outcome;
+- does not by itself add a comprehensive mastery/competence system to the MVP boundary. The current MVP requires basic results/progress, not generalized mastery certification. Any stronger MVP assessment requirement would require an explicit scope decision after final principle certification.
 
-**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
+**Certification status:** `NARROW`. The renamed Objective-Aligned Demonstration Principle is retained as the current certified candidate for final minimum-set coherence testing.
 
 ---
 
 ## Candidate Minimal Principle Set
 
-The current working set is:
+The individually surviving working set is:
 
-1. **Active Retrieval Principle** — when durable retention of previously acquired knowledge is an intended learning outcome, learners should actively retrieve relevant knowledge from memory at appropriate points rather than rely primarily on passive re-exposure.
-2. **Distributed Relearning Principle** — when durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
-3. **Informative Correction Principle** — when a learner attempt reveals an error, misconception, or material gap relevant to the learning objective, the learning process should provide sufficient information and opportunity to support correction, with the form and timing determined by the task, learner state, and learning conditions.
-4. **Adaptive Guidance Principle** — during acquisition of sufficiently complex or unfamiliar material, instructional support should be matched to the learner's relevant prior knowledge and task demands so that unnecessary cognitive burden is limited, with support reduced, changed, or removed as greater independent performance becomes appropriate.
-5. **Demonstrated Understanding Principle** — where objectives extend beyond recall, mastery should be demonstrated through explanation, discrimination, inference, or application appropriate to the objective.
+1. **Active Retrieval Principle** — learner action for durable retention.
+2. **Distributed Relearning Principle** — temporal distribution of repeated learning opportunities.
+3. **Informative Correction Principle** — repair of learning-relevant errors and gaps revealed by performance.
+4. **Adaptive Guidance Principle** — expertise- and task-sensitive instructional support during acquisition.
+5. **Objective-Aligned Demonstration Principle** — evidence requirements aligned to the intended learning objective.
 
-The first four candidates have completed individual certification with status `NARROW`. All candidates remain non-authoritative until the complete set survives individual certification and final minimum-set coherence testing.
+All five have completed individual certification with status `NARROW`. This does **not** yet establish that all five belong in permanent authority. The complete set must now pass minimum-set coherence testing for overlap, necessity, coverage, interaction, and derivational usefulness.
 
 ---
 
@@ -189,21 +172,14 @@ The first four candidates have completed individual certification with status `N
 
 A candidate learning principle must not become permanent TheraLearn authority merely because it is popular, intuitive, or present in another learning product.
 
-The evidence review distinguishes:
+A permanent principle must:
 
-1. **Robust evidence** — supported across high-quality reviews/meta-analyses and sufficiently generalizable for a platform-level principle;
-2. **Conditional evidence** — useful under identifiable conditions and therefore suitable only as a bounded principle/mechanism;
-3. **Emerging/uncertain evidence** — promising but insufficient for permanent platform authority;
-4. **Unsupported product convention** — common feature patterns without sufficient evidence to define TheraLearn learning design.
-
-A permanent principle must additionally pass a derivation test:
-
-- it must express a learning requirement rather than a UI or feature convention;
-- its evidence must be strong enough for the scope claimed;
-- known boundary conditions must remain visible;
-- it must not duplicate another principle unnecessarily;
-- it must be useful for deriving product decisions;
-- it must not imply that one mechanism is the only valid implementation.
+- express a learning requirement rather than a UI or feature convention;
+- claim no broader scope than the evidence supports;
+- preserve material boundary conditions;
+- avoid unnecessary duplication with another principle;
+- derive meaningful product behavior without prescribing one mechanism;
+- occupy a necessary role in the smallest coherent learning architecture.
 
 ---
 
@@ -215,9 +191,11 @@ A permanent principle must additionally pass a derivation test:
 
 ### R2 – Learning-science authority gap
 
-**Status: ACTIVE — candidate-principle certification in progress.**
+**Status: ACTIVE — narrowed to final minimum-set certification.**
 
-Four candidates have now been narrowed against evidence. The remaining risk is premature promotion before the final candidate and the final minimum set have passed the same test.
+All five candidates have survived individual review only after narrowing. Individual evidence sufficiency does not prove that all five are jointly necessary or optimally separated.
+
+**Mitigation:** perform final minimum-set coherence testing before any permanent product-authority transfer.
 
 ### R3 – MVP implementation integration gap
 
@@ -241,46 +219,35 @@ No integration with `main` until a later verified decision.
 
 No product feature code changes are authorized.
 
-External scientific research, read-only repository inspection, and control/documentation changes required to establish evidence authority are authorized.
-
-The current MVP boundary must not be silently expanded by the evidence review.
+Do not modify `docs/product/LEARNING_MODEL.md`, `docs/product/mvp.md`, or product code yet.
 
 ---
 
 ## Current Task
 
-Continue **Candidate Learning Principle Certification** on the smallest coherent candidate set.
+Perform **Final Minimum-Set Coherence Testing** on the five individually surviving principles.
 
-Completed individual certification passes:
+Test the set as a system rather than five independent claims:
 
-- Active Retrieval Principle — `NARROW`;
-- Distributed Relearning Principle — `NARROW`;
-- Informative Correction Principle — `NARROW`;
-- Adaptive Guidance Principle — `NARROW`.
+1. **Coverage:** does the set cover the minimum learning architecture required by the evidence without a material gap?
+2. **Independence:** does each principle govern a distinct learning requirement?
+3. **Necessity:** would removal of any principle leave a meaningful science-derived design gap?
+4. **Overlap:** can any principles be merged without losing important boundary conditions or derivational clarity?
+5. **Interaction:** are relationships between acquisition, retrieval, correction, temporal distribution, and objective-aligned evidence coherent without implying a rigid universal sequence?
+6. **Mechanism independence:** does the set remain neutral among valid product implementations?
+7. **MVP impact:** which principles constrain the existing MVP and which would require an explicit future scope decision?
 
-One individual candidate remains before final minimum-set coherence testing.
+The target remains the **smallest coherent set**, not preservation of five principles by default.
 
 ---
 
 ## Next Allowed Action
 
-Certify the **Demonstrated Understanding Principle**.
+Perform the **Final Minimum-Set Coherence Test**.
 
-Specifically determine whether:
+For each surviving principle, run an omission test and a pairwise-overlap test. Then determine the final set and classify each principle as **RETAIN**, **MERGE**, or **REMOVE** for permanent-authority transfer.
 
-- evidence concerning transfer, application, explanation, discrimination, inference, and objective-aligned assessment is sufficiently strong and coherent for permanent principle status;
-- the principle should concern demonstrated understanding broadly or only require performance evidence aligned to the intended learning objective;
-- transfer distance, domain knowledge, task similarity, learner knowledge, assessment format, and target competence require narrowing;
-- self-explanation should remain a conditional mechanism rather than becoming part of the principle definition;
-- the principle remains implementation-independent and does not imply one assessment format or mastery system;
-- it is independent enough from Active Retrieval and Adaptive Guidance to remain a separate principle rather than being merged;
-- it changes the current MVP boundary.
-
-Classify it as **CERTIFY**, **NARROW**, **MERGE**, **DEFER**, or **REJECT**.
-
-Do not modify `docs/product/LEARNING_MODEL.md`, `docs/product/mvp.md`, or product code during candidate certification.
-
-After this final individual certification, perform final minimum-set coherence testing before transferring any principle into permanent product authority.
+Do not transfer the principles into `docs/product/LEARNING_MODEL.md` yet. After the final set is determined, synchronize `PROJECT_CONTROL.md` with the certification result before any product-authority transfer.
 
 No historical chat recovery is authorized for this task.
 
