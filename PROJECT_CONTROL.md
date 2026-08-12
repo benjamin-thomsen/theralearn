@@ -102,7 +102,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-`docs/README.md` and `docs/architecture/README.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
+`docs/README.md`, `docs/architecture/README.md`, and `docs/architecture/system-overview.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
 ---
 
@@ -177,7 +177,6 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/product/PRODUCT_VISION.md`;
 - `docs/product/LEARNING_MODEL.md`;
 - `docs/meetings/decisions-log.md`;
-- `docs/architecture/system-overview.md`;
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`;
 - `docs/architecture/database.md`;
@@ -185,9 +184,9 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
-The architecture directory contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
+The architecture directory still contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
 
-`PROJECT_HANDBOOK.md` and `docs/architecture/README.md` were also empty at audit start but have now been repaired.
+`PROJECT_HANDBOOK.md`, `docs/architecture/README.md`, and `docs/architecture/system-overview.md` were empty at audit start but have now been repaired where applicable.
 
 ### Damaged or stale documentation identified
 
@@ -223,11 +222,12 @@ Its origin and relevance have not yet been verified. It must not be deleted unti
 - Authority model, information-placement rule, working-session lifecycle, workflow gate, and new-chat context recovery are now permanently documented.
 - `docs/README.md` repaired as the domain-documentation entry point and verified after commit.
 - `docs/architecture/README.md` repaired as the architecture-domain entry point and verified after commit.
+- `docs/architecture/system-overview.md` established from inspected repository and implementation evidence and verified after commit.
 
 ### Not yet completed
 
 - Establish authoritative Foundation/method documentation placement below the control layer.
-- Populate or validate architecture topic documents based on verified architecture and implementation evidence.
+- Populate or validate remaining architecture topic documents based on verified architecture and implementation evidence.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Verify the root README role and replace the default template when appropriate.
@@ -270,9 +270,9 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 ### R6 – Incomplete architecture topic documentation
 
-The architecture domain entry point is now established, but multiple architecture topic files remain empty placeholders while verified implementation already exists.
+The architecture entry point and system overview are now established, but multiple narrower architecture topic files remain empty placeholders while verified implementation evidence already exists.
 
-**Mitigation:** begin with the system-level architecture overview, derive only from the established control kernel and inspected repository evidence, then repair narrower topic documents one at a time.
+**Mitigation:** repair narrower architecture topics one at a time, beginning where the strongest direct implementation authority exists and using cross-references instead of duplicating system-level definitions.
 
 ---
 
@@ -288,39 +288,30 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Establish the first authoritative architecture topic document at the system level before repairing narrower frontend, backend, database, authentication, deployment, or integration topics.
+Establish the detailed persistence architecture from the strongest available direct implementation authority before documenting layers that depend on it.
 
-The target is `docs/architecture/system-overview.md`, currently a zero-byte placeholder.
+The next target is `docs/architecture/database.md`, currently a zero-byte placeholder.
 
-Because it is the system-level architecture entry below the architecture README, it should establish the verified system boundaries and route detailed concerns to narrower architecture documents rather than attempting to contain every implementation detail.
+This target is selected because the repository contains a concrete MVP database migration and generated database types. These provide stronger direct evidence for persistence structure than is currently available for broader inferred backend or frontend architecture descriptions.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the current repository structure and the implementation/configuration evidence needed for `docs/architecture/system-overview.md`, then repair and verify that file.
+Inspect the complete MVP database migration, generated database types where needed, and repository access contracts relevant to persistence; then repair and verify `docs/architecture/database.md`.
 
-Do not populate the system overview from historical chats by default.
+Do not infer intended future schema beyond the implemented migration.
 
-The repair must use only verified evidence from:
+The database architecture document must:
 
-- the root control kernel;
-- `docs/README.md` and `docs/architecture/README.md`;
-- current repository structure;
-- relevant current implementation and configuration;
-- Git history only where needed for traceability;
-- historical review material only if a concrete unresolved architectural claim cannot otherwise be established.
+- describe only verified persisted entities, relationships, constraints, triggers, and row-level security behavior;
+- distinguish Supabase Auth-owned identity from application-owned profile/domain data;
+- identify the generated database types as an implementation contract derived from the schema, not a second schema authority;
+- describe repository access only where necessary to explain the persistence boundary and route detailed repository behavior to backend architecture;
+- avoid treating unimplemented repository placeholders as completed data access;
+- distinguish current database architecture from future product requirements that are not yet implemented.
 
-The system overview must:
-
-- describe the verified high-level system shape and major boundaries;
-- distinguish Runtime from Tooling where supported by verified project authority and implementation;
-- identify major implementation areas without turning folder names into methodological responsibilities;
-- route detailed frontend, backend, database, authentication, deployment, and integration concerns to their own topic documents;
-- distinguish verified implementation facts from permanent architectural rules;
-- avoid claims that cannot be established from inspected evidence.
-
-After `system-overview.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next architecture topic.
+After `database.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next architecture topic.
 
 ---
 
