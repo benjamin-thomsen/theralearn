@@ -36,9 +36,9 @@ Domain-specific knowledge belongs under `docs/`.
 
 The historical reconstruction and authoritative project-control kernel are established.
 
-The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, and the upstream `FOUNDATION_MODEL.md` are now established.
+The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, the upstream `FOUNDATION_MODEL.md`, and the authoritative `RESPONSIBILITY_MODEL.md` are now established.
 
-Targeted Historical Recovery of the detailed Implementation Responsibility Model is complete. The current task is the bounded authoritative transfer of the recovered six-responsibility model to its permanent Foundation ownership unit.
+The bounded authoritative transfer of Implementation Responsibility Model v1.0 is complete and verified. The current task is to determine the next bounded Foundation ownership/documentation unit from existing repository authority without guessing or automatically converting historical phase chronology into documents.
 
 ---
 
@@ -117,7 +117,9 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-The repaired core architecture/control documents, `docs/foundation/README.md`, and `docs/foundation/FOUNDATION_MODEL.md` have been re-read from the target GitHub branch after their commits.
+The repaired core architecture/control documents, `docs/foundation/README.md`, `docs/foundation/FOUNDATION_MODEL.md`, and `docs/foundation/RESPONSIBILITY_MODEL.md` have been re-read from the target GitHub branch after their commits.
+
+The Responsibility Model transfer checkpoint was verified on branch `migration-next16-to-root` at commit `4e2d7ebcfca75166e583a379a1153bbd701b59c8`, parent `00aa95a90b801379b243196a60f91c2714c97960`. The transfer commit adds only `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -125,7 +127,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 ## Historical Reconstruction Status
 
-**Status: Methodically complete for current continuation; targeted Responsibility Model recovery complete**
+**Status: Methodically complete for current continuation; targeted Responsibility Model recovery transferred and verified**
 
 The historical review re-established the development chain:
 
@@ -151,7 +153,7 @@ Historical Certification Review
 
 The review recovered the permanent methodological principles needed to continue the project.
 
-Targeted Historical Recovery has now recovered the original full contracts for all six responsibilities in Implementation Responsibility Model v1.0:
+Targeted Historical Recovery recovered the original full contracts for all six responsibilities in Implementation Responsibility Model v1.0:
 
 - interpretation responsibility;
 - authority responsibility;
@@ -160,9 +162,9 @@ Targeted Historical Recovery has now recovered the original full contracts for a
 - execution responsibility;
 - verification responsibility.
 
-Each recovered responsibility uses the locked contract fields: purpose, responsibility, authority, input, output, allowed dependencies, forbidden dependencies, preserved architectural properties, verifiable boundaries, and certification criteria. Historical evidence for the horizontal analysis and minimality analysis has also been recovered.
+Each recovered responsibility uses the locked contract fields: purpose, responsibility, authority, input, output, allowed dependencies, forbidden dependencies, preserved architectural properties, verifiable boundaries, and certification criteria. Historical evidence for the horizontal analysis and minimality analysis was also recovered.
 
-The concrete historical evidence gap blocking Responsibility Model transfer is therefore closed. Historical material remains evidence rather than automatic authority, and no further broad historical recovery is authorized for this transfer.
+That bounded evidence has now been transferred into `docs/foundation/RESPONSIBILITY_MODEL.md` and verified from the authoritative branch. Historical material remains evidence rather than automatic authority. No further broad historical recovery is authorized.
 
 Known gaps in the wider reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
 
@@ -186,26 +188,27 @@ The control kernel remains above domain documentation and does not become the de
 
 ## Foundation Documentation Status
 
-**Status: Upstream model established; Responsibility Model transfer authorized as next bounded ownership unit**
+**Status: Foundation entry point, upstream model, and Responsibility Model established; next bounded ownership assessment authorized**
 
 ### Established
 
 - `docs/foundation/README.md` — Foundation authority boundary, placement, transfer rule, and ownership routing;
-- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core governing derivation, authority/placement, information lifecycle/state transition, phase separation, implementation dependency, and refutation posture.
+- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core governing derivation, authority/placement, information lifecycle/state transition, phase separation, implementation dependency, and refutation posture;
+- `docs/foundation/RESPONSIBILITY_MODEL.md` — authoritative Implementation Responsibility Model v1.0 containing all six locked responsibility contracts plus the bounded horizontal and minimality analyses.
 
-`FOUNDATION_MODEL.md` was transferred from current authoritative project evidence without historical chat reload and explicitly excludes the detailed six-responsibility model and certification chronology.
+`RESPONSIBILITY_MODEL.md` was transferred without reconstruction or re-derivation and verified from the authoritative branch after commit.
 
-### Next ownership unit
+### Next ownership assessment
 
-The next bounded Foundation ownership unit is the detailed Implementation Responsibility Model.
+The Foundation routing map identifies later potential ownership in derivation/certification material where permanent downstream interpretation requires it, but the routing map is conceptual and does not authorize a child-document name by itself.
 
-The historical evidence required for authoritative transfer has now been recovered for all six original responsibility contracts, together with the horizontal analysis and minimality analysis. The transfer must preserve the recovered model without reconstruction, improvement, or re-derivation.
+The next bounded action is therefore to inspect current repository authority and determine the exact next permanent Foundation concept, whether it already has an authoritative home, and whether current evidence is sufficient for transfer.
+
+If a concrete evidence gap is found, it must be identified explicitly and bounded before any targeted historical retrieval is authorized.
 
 Transfer rule:
 
 **Transfer – do not re-derive.**
-
-Historical evidence must be transferred into the permanent Foundation ownership unit and only becomes current project authority through that controlled transfer and verification.
 
 ---
 
@@ -276,12 +279,15 @@ No such artifact should be deleted or implemented merely because it has been ide
 - `docs/foundation/FOUNDATION_MODEL.md` created and verified from current authority.
 - Targeted Historical Recovery completed for all six detailed Implementation Responsibility Model contracts.
 - Historical evidence for the Responsibility Model horizontal analysis and minimality analysis recovered.
-- The concrete Responsibility Model evidence gap closed; no further broad historical recovery is required for this transfer.
+- The concrete Responsibility Model evidence gap closed.
+- `docs/foundation/RESPONSIBILITY_MODEL.md` transferred through the verified Git-object procedure and re-read from the authoritative branch.
+- Responsibility Model horizontal analysis and minimality analysis transferred within the bounded ownership scope.
+- Responsibility Model transfer fidelity verified; no further recovery is required for that ownership unit.
 
 ### Not yet completed
 
-- Transfer and verify the recovered six-responsibility model into its permanent Foundation ownership unit.
-- Determine and transfer later Foundation ownership units, including certification material where supported.
+- Determine the next bounded Foundation ownership/documentation unit from current authority and transfer it only where supported.
+- Transfer later Foundation certification/derivation material only if a permanent ownership need and sufficient evidence are verified.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -301,9 +307,11 @@ Implementation and historical decisions are ahead of several non-architecture do
 
 ### R2 – Responsibility-model transfer fidelity
 
-The detailed six-responsibility contracts have been recovered from targeted historical evidence but have not yet been transferred into current Foundation authority.
+**Status: CLOSED**
 
-**Mitigation:** transfer the recovered contracts without reconstruction, improvement, or re-derivation; preserve the locked contract structure and verify the resulting permanent ownership unit before proceeding.
+The six responsibility contracts, horizontal analysis, and minimality analysis have been transferred to `docs/foundation/RESPONSIBILITY_MODEL.md` and re-read from the authoritative branch. The transfer commit changes only that ownership unit relative to its clean parent checkpoint.
+
+No further mitigation is required unless later verification produces contradictory evidence.
 
 ### R3 – Stale roadmap/backlog state
 
@@ -337,47 +345,39 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Perform the bounded authoritative transfer of the recovered Implementation Responsibility Model v1.0 into its permanent Foundation ownership unit.
+Perform the bounded ownership assessment for the next Foundation documentation unit using current repository authority.
 
-The transfer scope is limited to the recovered six-responsibility model and its recovered supporting horizontal and minimality analyses. Historical evidence is source evidence, not automatic authority.
+The assessment must determine:
 
-No responsibility contract may be reconstructed, improved, or re-derived during transfer.
+- the exact permanent concept that still requires a Foundation home;
+- whether that concept already has an authoritative home;
+- whether current repository/control evidence is sufficient to transfer it;
+- whether derivation/certification material is required for downstream interpretation rather than merely present in historical chronology;
+- whether any missing evidence is concrete enough to justify a separately authorized, targeted historical retrieval.
+
+Do not create a new Foundation child document, invent a document name, or reload historical material merely because a historical phase exists.
 
 ---
 
 ## Next Allowed Action
 
-Create the permanent Foundation ownership unit for the recovered Implementation Responsibility Model and transfer the recovered primary evidence into it.
+Inspect the existing Foundation authority and current repository documentation to identify the next bounded permanent Foundation ownership need, with derivation/certification material as the already documented candidate area.
 
-The transferred model must preserve all six responsibilities:
+Use the ownership rules in `docs/foundation/README.md`:
 
-- interpretation responsibility;
-- authority responsibility;
-- state responsibility;
-- placement responsibility;
-- execution responsibility;
-- verification responsibility.
+1. identify the exact permanent concept;
+2. identify current authoritative evidence;
+3. determine whether historical evidence is actually required;
+4. keep permanent meaning separate from historical process narrative;
+5. establish one authoritative home before transfer.
 
-For each responsibility, preserve the locked contract fields:
+If current authority is sufficient, establish the exact bounded transfer target before writing it.
 
-- purpose;
-- responsibility;
-- authority;
-- input;
-- output;
-- allowed dependencies;
-- forbidden dependencies;
-- preserved architectural properties;
-- verifiable boundaries;
-- certification criteria.
-
-Include the recovered horizontal analysis and minimality analysis only within the same bounded Responsibility Model ownership scope where they establish the model's completeness/minimality.
+If current authority is insufficient, stop at an explicit bounded evidence-gap statement before any targeted historical retrieval.
 
 **Transfer – do not re-derive.**
 
-Do not reconstruct missing wording, improve the contracts, add new responsibilities, or resume MVP feature development.
-
-After transfer, re-read and verify the new Foundation ownership unit before updating `PROJECT_CONTROL.md` again or proceeding to any later Foundation material.
+Do not resume MVP feature development and do not perform broad historical recovery.
 
 ---
 
