@@ -28,9 +28,9 @@ Foundation repair has reached a verified consolidation checkpoint. `docs/foundat
 
 The targeted Foundation certification evidence gap is closed. No further historical recovery is currently authorized.
 
-The bounded repository-authority assessment selected development/tooling documentation as the first high-priority repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been synchronized against verified current Developer Toolkit implementation.
+Development/tooling roadmap and backlog documentation have been synchronized against verified implementation, and the root `README.md` repair is complete and verified.
 
-The root `README.md` repair is now complete and verified. The repository entry point now identifies TheraLearn, presents only verified stack/commands, and routes detailed authority to the existing control and domain documents without becoming a competing authority.
+The latest bounded reprioritization identifies the product documentation domain as the highest remaining authority risk before ordinary MVP development can resume. The entire current `docs/product/` placeholder set is empty, so product-document ownership must be assessed before any individual product document is populated.
 
 ---
 
@@ -55,7 +55,7 @@ Documentation structure: PASS
 Overall verification: PASS
 ```
 
-Verified Foundation/control checkpoints now include:
+Verified Foundation/control checkpoints include:
 
 - Responsibility Model transfer: `4e2d7ebcfca75166e583a379a1153bbd701b59c8`;
 - targeted certification recovery gate: `150ed012696d2ddf7bff926b39a9e6230d246fe3`;
@@ -66,9 +66,12 @@ Verified Foundation/control checkpoints now include:
 - control synchronization after backlog repair: `7bd97546b3207a27ed7875bb8b49e1e3710ae5dc`;
 - root README repair target selection: `920c7a36edaeef943a2519f50732cc5103ab3b6f`;
 - README write authorization: `5a17a63df0d2fa2840d5173fbcb8e349eebba791`;
-- root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`.
+- root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`;
+- control synchronization after README repair: `2e1a32da30fb4b2c7e978eeaf0448b0d5d4eefac`.
 
-The repaired root `README.md` was re-read from the authoritative branch after its transfer commit, and the branch-ref was verified at `0284b31788a27c71231b14018e2ce5df16f6b46b`.
+The repaired root `README.md` was re-read from the authoritative branch after its transfer commit, and its branch-ref was verified.
+
+The subsequent bounded reprioritization inspected the product directory, development documentation candidates, meetings decisions log, and anomalous root artifact without modifying those candidates.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -85,11 +88,9 @@ Completed bounded historical recoveries:
 - all six Implementation Responsibility Model contracts plus horizontal/minimality evidence;
 - Foundation certification conclusion and certification scope.
 
-The certification recovery established the permanent CERTIFIED/LOCKED conclusion, Closed for Extension / Open for Refutation posture, reopening meaning, formal certification scope, and downstream authority consequence.
-
-Previously reported claims concerning 120 passed falsification attempts and methodological saturation were not required for the bounded transfer and were not added to Foundation authority. Known gaps in individual falsification chronology remain archival/revision gaps unless a later explicit authority need makes one of them necessary.
-
 Historical material remains evidence, not automatic authority.
+
+No product-history retrieval is currently authorized. A product authority assessment must first determine whether current repository authority and implementation evidence are sufficient or whether a concrete bounded evidence gap exists.
 
 ---
 
@@ -97,17 +98,11 @@ Historical material remains evidence, not automatic authority.
 
 **Status: Consolidated Foundation authority established for current known permanent needs**
 
-### Established ownership units
+Established ownership units:
 
 - `docs/foundation/README.md` — Foundation authority boundary, placement, transfer rule, and ownership routing;
 - `docs/foundation/FOUNDATION_MODEL.md` — certified upstream methodological core, derivation rules, certification method, permanent certification scope/conclusion, closure/reopening meaning, and downstream authority consequence;
 - `docs/foundation/RESPONSIBILITY_MODEL.md` — authoritative Implementation Responsibility Model v1.0 with all six locked responsibility contracts plus bounded horizontal and minimality analyses.
-
-### Certification transfer result
-
-The certification conclusion/scope was transferred into the existing `FOUNDATION_MODEL.md`, not a new child document, preserving One Authoritative Home and avoiding historical-phase-driven document proliferation.
-
-The transfer explicitly excludes individual falsification chronology and unsupported claims about a specific falsification-attempt count or methodological saturation.
 
 No current evidence demonstrates another concrete Foundation ownership gap that requires historical retrieval.
 
@@ -134,23 +129,31 @@ Remaining empty architecture topics must not be populated merely to eliminate em
 
 ## Documentation Audit Findings
 
-Important unresolved documentation drift includes:
+The current `docs/product/` directory is an empty placeholder set. Verified empty files include:
 
-- empty `docs/product/PRODUCT_VISION.md`;
-- empty `docs/product/LEARNING_MODEL.md`;
+- `docs/product/README.md`;
+- `docs/product/PRODUCT_VISION.md`;
+- `docs/product/LEARNING_MODEL.md`;
+- `docs/product/feature-catalog.md`;
+- `docs/product/learning-philosophy.md`;
+- `docs/product/mvp.md`;
+- `docs/product/release-plan.md`;
+- `docs/product/roadmap.md`;
+- `docs/product/target-users.md`;
+- `docs/product/vision.md`.
+
+This does not authorize population of all placeholders. Their intended ownership boundaries, necessity, and possible overlap must be determined first.
+
+Other unresolved findings include:
+
 - empty `docs/meetings/decisions-log.md`;
-- empty `docs/development/project-structure.md`;
-- empty `docs/development/git-workflow.md`;
+- empty development placeholders including `docs/development/project-structure.md` and `docs/development/git-workflow.md`;
 - anomalous root artifact `-name package-lock.json`, verified to contain pager/`less` help text rather than package-lock data;
 - empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
 
-The previously stale `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been repaired against current repository implementation.
+Development documentation is not wholly empty: substantive Developer Toolkit architecture documents plus the synchronized roadmap/backlog already exist. This lowers its immediate authority risk relative to the product domain.
 
-The previously stale root `README.md` has been repaired and is no longer an active documentation-drift finding.
-
-A valid root `package-lock.json` separately exists. No deletion of the anomalous artifact is yet authorized; investigation evidence does not itself authorize mutation.
-
-No empty or anomalous artifact is authorized for deletion, population, or implementation merely because it has been identified.
+The anomalous root artifact is classified but not currently a product/architecture authority blocker. No deletion is authorized.
 
 ---
 
@@ -163,27 +166,19 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - `docs/README.md` repaired and verified.
 - Core architecture documentation repaired and verified.
 - Foundation domain placement and entry point established.
-- `FOUNDATION_MODEL.md` established and verified from current authority.
-- Targeted Responsibility Model recovery completed and transferred.
-- `RESPONSIBILITY_MODEL.md` established and verified.
-- Responsibility Model transfer fidelity closed as R2.
-- Derivation rules and certification method verified as already owned by `FOUNDATION_MODEL.md`.
-- Targeted certification conclusion/scope recovery completed.
-- Permanent certification ownership determined as existing `FOUNDATION_MODEL.md`.
-- Certification conclusion/scope transferred into `FOUNDATION_MODEL.md` and re-read from the authoritative branch.
-- Foundation certification evidence incompleteness closed for the required permanent transfer scope.
-- Initial bounded repository-authority assessment completed.
-- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` synchronized against current implementation, re-read, and branch-ref verified.
-- `docs/development/IMPROVEMENT_BACKLOG.md` synchronized against current implementation and roadmap authority, re-read, and branch-ref verified.
-- Bounded reprioritization of remaining unresolved documentation targets completed.
-- Root `README.md` selected as a bounded repair target.
-- Bounded root README pre-write analysis completed against current repository authority and implementation evidence.
+- Foundation model and responsibility model established and verified.
+- Required Foundation certification conclusion/scope transferred and verified.
+- Development Documentation Tool roadmap and Improvement Backlog synchronized and verified.
 - Root `README.md` repaired, re-read, and branch-ref verified.
-- Anomalous `-name package-lock.json` content inspected and classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
+- Post-README bounded reprioritization completed without candidate mutation.
+- Product documentation selected as the next highest-risk authority domain.
+- `docs/product/README.md` selected as the exact next bounded target for authority/placement assessment.
+- Anomalous `-name package-lock.json` classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
 
 ### Not yet completed
 
-- Product documentation repair.
+- Product authority/placement assessment.
+- Product documentation repair based on that assessment.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Retention/deletion decision for `-name package-lock.json`.
 - Decisions-log placement/need assessment.
@@ -196,9 +191,11 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 
 ### R1 – Domain documentation drift
 
-Implementation and historical decisions remain ahead of several non-architecture documentation files.
+**Status: ACTIVE — product domain now highest priority.**
 
-**Mitigation:** continue bounded documentation repair before ordinary feature development.
+Stable high-level product direction exists in `PROJECT_OVERVIEW.md`, but the intended product-domain authority layer is currently empty. Resuming ordinary MVP development before product ownership is clarified would risk deriving product decisions from implementation or chat rather than authoritative product documentation.
+
+**Mitigation:** establish product authority/placement boundaries before product-document population or ordinary MVP development.
 
 ### R2 – Responsibility-model transfer fidelity
 
@@ -208,13 +205,11 @@ Implementation and historical decisions remain ahead of several non-architecture
 
 **Status: CLOSED**
 
-The Documentation Tool roadmap and Improvement Backlog have both been synchronized against current implementation. The backlog now distinguishes Done, Partially Implemented, Candidate, Superseded, and Unresolved states and no longer treats the old linear target-version sequence as authoritative implementation state.
-
 ### R4 – Anomalous repository artifact
 
-`-name package-lock.json` has been inspected. Its content is pager/`less` command help, not package-lock data, while a separate valid `package-lock.json` exists.
+`-name package-lock.json` contains pager/`less` command help, not package-lock data, while a separate valid `package-lock.json` exists.
 
-**Mitigation:** preserve the artifact until a separate bounded retention/deletion decision is authorized; do not delete merely because it is anomalous.
+**Mitigation:** preserve until a separate bounded retention/deletion decision is authorized.
 
 ### R5 – Branch divergence
 
@@ -225,8 +220,6 @@ The authoritative repaired state is on `migration-next16-to-root`; `main` is beh
 ### R6 – Foundation certification evidence incompleteness
 
 **Status: CLOSED for current permanent Foundation ownership needs.**
-
-The required certification conclusion/scope is now authoritative in `FOUNDATION_MODEL.md`. No further certification-history retrieval is authorized.
 
 ---
 
@@ -242,28 +235,33 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Perform a bounded reprioritization of the remaining unresolved documentation/repository targets after completion of the root `README.md` repair.
+Perform a bounded product authority/placement assessment centered on `docs/product/README.md`.
 
-The reprioritization must determine which single remaining target has the highest current authority/workflow risk and whether it requires repair, classification, or explicit deferral. Empty files must not be populated merely because they are empty.
+The purpose is to determine the minimal authoritative structure required for permanent product knowledge before any product placeholder is populated.
+
+The assessment must distinguish at minimum:
+
+- stable high-level product identity already owned by `PROJECT_OVERVIEW.md`;
+- detailed product vision;
+- learning-model knowledge;
+- MVP scope/state;
+- target-user knowledge;
+- feature catalog/roadmap/release-plan concepts;
+- product-domain navigation/ownership role of `docs/product/README.md`.
+
+It must explicitly test for overlap among `PRODUCT_VISION.md`, `vision.md`, `LEARNING_MODEL.md`, `learning-philosophy.md`, and other placeholders rather than assuming each file should survive.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the remaining unresolved targets using current repository authority and implementation evidence, then select exactly one next bounded target.
+Inspect current repository authority and implementation evidence relevant to product information placement, centered on `docs/product/README.md`, and derive the minimal product-document ownership model.
 
-Candidate unresolved areas currently recorded here are:
+Do not populate or delete any product placeholder during this assessment.
 
-- product documentation (`docs/product/PRODUCT_VISION.md`, `docs/product/LEARNING_MODEL.md`);
-- development documentation beyond roadmap/backlog (`docs/development/project-structure.md`, `docs/development/git-workflow.md`);
-- `docs/meetings/decisions-log.md` placement/need;
-- anomalous root artifact `-name package-lock.json` retention/deletion decision;
-- empty implementation placeholders, only for classification unless a separate implementation action becomes authorized;
-- eventual complete local verification and later `main` integration decision.
+Do not reconstruct product history by default. If current repository authority and implementation evidence cannot establish a required permanent product fact, record the exact bounded evidence gap before authorizing any historical recovery.
 
-Do not modify any candidate during this reprioritization. Select one exact bounded target first and record the resulting workflow state here before any target-specific mutation.
-
-No historical retrieval is authorized unless a concrete bounded evidence gap is identified and recorded first.
+After the assessment, synchronize `PROJECT_CONTROL.md` with the resulting ownership decision and select exactly one subsequent bounded product action.
 
 ---
 
