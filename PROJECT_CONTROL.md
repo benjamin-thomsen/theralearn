@@ -28,9 +28,9 @@ Foundation repair has reached a verified consolidation checkpoint. `docs/foundat
 
 The targeted Foundation certification evidence gap is closed. No further historical recovery is currently authorized.
 
-The bounded repository-authority assessment selected development/tooling documentation as the highest-priority current repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` has been synchronized against verified current Developer Toolkit implementation.
+The bounded repository-authority assessment selected development/tooling documentation as the highest-priority current repair area. `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have now been synchronized against verified current Developer Toolkit implementation.
 
-The subsequent bounded reprioritization has identified `docs/development/IMPROVEMENT_BACKLOG.md` as the next exact repair target because it contains direct, item-level state drift against current implementation while retaining active priority and target-version claims.
+The next bounded action is to reprioritize the remaining unresolved documentation targets before another target is changed.
 
 ---
 
@@ -61,9 +61,10 @@ Verified Foundation/control checkpoints now include:
 - targeted certification recovery gate: `150ed012696d2ddf7bff926b39a9e6230d246fe3`;
 - certification transfer authorization: `fb8a332b307234a1e2b684e0acf6389444b1cc06`;
 - Foundation certification conclusion/scope transfer: `36ce8c495cf39e5478c172dae45d05e9f642100d`;
-- Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`.
+- Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
+- Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`.
 
-The synchronized `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` was re-read from the authoritative branch after its transfer commit, and the branch-ref was verified at that commit.
+The synchronized roadmap and backlog were each re-read from the authoritative branch after their transfer commits, and the branch-ref was verified after the backlog transfer.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -137,11 +138,10 @@ Important unresolved documentation drift includes:
 - empty `docs/development/project-structure.md`;
 - empty `docs/development/git-workflow.md`;
 - root `README.md` still reflecting the default Create Next App template;
-- stale `docs/development/IMPROVEMENT_BACKLOG.md`;
-- anomalous root artifact `-name package-lock.json`, now verified to contain pager/`less` help text rather than package-lock data;
+- anomalous root artifact `-name package-lock.json`, verified to contain pager/`less` help text rather than package-lock data;
 - empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
 
-The previously stale `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` has been repaired against current repository implementation.
+The previously stale `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` and `docs/development/IMPROVEMENT_BACKLOG.md` have been repaired against current repository implementation.
 
 A valid root `package-lock.json` separately exists. No deletion of the anomalous artifact is yet authorized; investigation evidence does not itself authorize mutation.
 
@@ -168,14 +168,15 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - Certification conclusion/scope transferred into `FOUNDATION_MODEL.md` and re-read from the authoritative branch.
 - Foundation certification evidence incompleteness closed for the required permanent transfer scope.
 - Initial bounded repository-authority assessment completed.
-- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` selected, synchronized against current implementation, re-read, and branch-ref verified.
-- Remaining-target reprioritization completed.
-- `docs/development/IMPROVEMENT_BACKLOG.md` selected as the next exact bounded repair target.
+- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` synchronized against current implementation, re-read, and branch-ref verified.
+- Remaining-target reprioritization selected `docs/development/IMPROVEMENT_BACKLOG.md`.
+- Bounded pre-write backlog synchronization analysis completed without historical recovery.
+- `docs/development/IMPROVEMENT_BACKLOG.md` synchronized against current implementation and roadmap authority, re-read, and branch-ref verified.
 - Anomalous `-name package-lock.json` content inspected and classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
 
 ### Not yet completed
 
-- Synchronize `docs/development/IMPROVEMENT_BACKLOG.md` against verified current implementation and current roadmap authority without inventing historical completion dates or version progression.
+- Reprioritize the remaining unresolved documentation targets after roadmap/backlog synchronization.
 - Product documentation repair.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Root README repair.
@@ -199,9 +200,9 @@ Implementation and historical decisions remain ahead of several non-architecture
 
 ### R3 – Stale roadmap/backlog state
 
-**Status: PARTIALLY CLOSED**
+**Status: CLOSED**
 
-The Documentation Tool roadmap has been synchronized against current implementation. `docs/development/IMPROVEMENT_BACKLOG.md` remains stale and is now the selected next repair target.
+The Documentation Tool roadmap and Improvement Backlog have both been synchronized against current implementation. The backlog now distinguishes Done, Partially Implemented, Candidate, Superseded, and Unresolved states and no longer treats the old linear target-version sequence as authoritative implementation state.
 
 ### R4 – Anomalous repository artifact
 
@@ -235,24 +236,24 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Repair `docs/development/IMPROVEMENT_BACKLOG.md` as the next bounded documentation target.
+Reprioritize the remaining unresolved documentation targets after verified synchronization of the Documentation Tool roadmap and Improvement Backlog.
 
-The repair must reconcile its active backlog claims with verified current implementation and the repaired Documentation Tool roadmap. It must distinguish implemented items from still-unverified/future candidates without reconstructing historical milestone chronology.
+The reprioritization must select exactly one next bounded target using current repository authority and must not infer priority merely from file adjacency, emptiness, or historical ordering.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded pre-write synchronization analysis for `docs/development/IMPROVEMENT_BACKLOG.md`.
+Perform a bounded reprioritization of the remaining unresolved documentation targets using these criteria:
 
-The authority basis is:
+1. authority/ownership significance;
+2. downstream impact on continued development;
+3. demonstrated drift between documentation and verified implementation/state;
+4. availability of sufficient current evidence for repair without guessing.
 
-- the backlog currently claims that Developer Toolkit commands and project search are still `Planned`, despite current implementation evidence showing those capabilities exist;
-- the backlog assigns target versions based on the same stale linear milestone sequence that the repaired roadmap no longer treats as authoritative implementation state;
-- current source code/configuration is authoritative for implemented capabilities;
-- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` now owns current Toolkit development direction and explicitly requires future version assignments to be made by a new explicit versioning decision rather than inferred from the old sequence.
+Current unresolved candidates include product documentation, remaining development-domain documentation, root `README.md`, the decisions log, and the anomalous root artifact retention/deletion decision.
 
-The analysis may inspect only current repository evidence necessary to classify existing backlog items safely. Stop before changing any other documentation target.
+Select exactly one next repair target and record its authority basis before changing another domain file.
 
 No historical retrieval is authorized unless a new concrete bounded evidence gap is first recorded here.
 
