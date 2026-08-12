@@ -12,21 +12,9 @@
 
 ## Purpose
 
-This document owns the current verified state of the TheraLearn project.
+This document owns the current verified state of the TheraLearn project: current phase, verified facts, current task, unresolved risks, code-change permission, and Next Allowed Action.
 
-It answers:
-
-- What is the current phase?
-- What has been verified?
-- What is currently being worked on?
-- What is unresolved?
-- What risks or inconsistencies are known?
-- Are code changes currently allowed?
-- What is the next allowed action?
-
-Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`.
-Project governance, authority rules, and documentation navigation belong in `PROJECT_HANDBOOK.md`.
-Domain-specific knowledge belongs under `docs/`.
+Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`. Governance and workflow rules belong in `PROJECT_HANDBOOK.md`. Domain-specific permanent knowledge belongs under `docs/`.
 
 ---
 
@@ -34,13 +22,13 @@ Domain-specific knowledge belongs under `docs/`.
 
 **Domain Documentation Repair and Synchronization**
 
-The historical reconstruction and authoritative project-control kernel are established.
+The architecture repair checkpoint and root control kernel are established. The Foundation entry point, `FOUNDATION_MODEL.md`, and `RESPONSIBILITY_MODEL.md` are established.
 
-The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, the upstream `FOUNDATION_MODEL.md`, and the authoritative `RESPONSIBILITY_MODEL.md` are established.
+The Responsibility Model transfer is complete and verified. The next bounded ownership assessment has identified one concrete remaining Foundation evidence gap: **Foundation certification conclusion + certification scope**.
 
-The bounded Responsibility Model transfer is complete and verified. The subsequent bounded ownership assessment has now identified one concrete remaining Foundation evidence gap: the permanent Foundation certification conclusion and certification scope. Derivation rules and the certification method are already owned by `docs/foundation/FOUNDATION_MODEL.md` and must not be re-derived or duplicated.
+Derivation rules and the certification method are already owned by `docs/foundation/FOUNDATION_MODEL.md`; they must not be re-derived or duplicated.
 
-Targeted historical recovery is authorized only for the missing Foundation certification conclusion and certification scope evidence defined below.
+Targeted historical recovery is now authorized only for the bounded certification conclusion/scope gap defined below.
 
 ---
 
@@ -50,9 +38,7 @@ Targeted historical recovery is authorized only for the missing Foundation certi
 migration-next16-to-root
 ```
 
-This branch contains the current reconstructed and verified development state plus the authoritative control, Foundation documentation, and repaired architecture documents.
-
-`main` has not yet been updated with this development history.
+The authoritative repaired project state currently lives on this branch. `main` remains behind and must not be merged or rewritten until a later verified integration decision.
 
 ---
 
@@ -63,46 +49,29 @@ This branch contains the current reconstructed and verified development state pl
 - Next.js 16.2.12 is in use.
 - TypeScript compilation passes.
 - Production build passes.
-- 21 application routes/pages are generated or server-rendered by the most recent complete verification.
-- A non-blocking `metadataBase` warning remains registered for future resolution.
+- 21 application routes/pages were generated or server-rendered by the most recent complete verification.
+- A non-blocking `metadataBase` warning remains registered for later resolution.
 
-### Supabase
+### Supabase and repository layer
 
-- Supabase CLI workflow was established.
-- MVP database migration exists and was previously pushed to the remote Supabase project.
+- Supabase CLI workflow and remote MVP migration were established.
 - Generated database types exist in `types/database.ts`.
 - Typed Supabase client/server/proxy integration exists.
+- Repository-layer foundations exist for courses, chapters, lessons, flashcards, shared types, and shared error handling.
+- `lib/repositories/quizQuestions.ts` remains an empty placeholder.
 
-### Repository Layer
+### Frontend transitional state
 
-A repository-layer foundation exists under `lib/repositories/`.
+- Next.js App Router structure, global CSS, and colocated CSS Modules are in use.
+- `components/PensumCard.tsx` remains an empty placeholder.
+- Browser-local quiz progress persists through `lib/progress.ts` and `lib/storage.ts`.
+- Broad frontend repository adoption is not yet verified.
 
-Verified implemented areas include courses, chapters, lessons, flashcards, shared repository types, and shared repository error handling.
+### CI and Developer Toolkit
 
-`lib/repositories/quizQuestions.ts` is an empty placeholder and must not be treated as completed repository functionality.
-
-### Frontend Transitional State
-
-- Next.js App Router routing/presentation structure is established.
-- Global CSS and colocated CSS Modules are in use.
-- Reusable UI components exist, but `components/PensumCard.tsx` is an empty placeholder.
-- Browser-local quiz progress persists through `lib/progress.ts` and `lib/storage.ts` using `window.localStorage`.
-- Supabase/repository persistence exists separately and broad frontend repository adoption is not yet verified.
-
-### CI Verification
-
-- `.github/workflows/verify.yml` runs on push and pull request.
-- CI uses Ubuntu, the Node version from `.nvmrc`, `npm ci`, and `./scripts/dev verify`.
-- Public Supabase configuration used during verification is supplied through GitHub Secrets.
-- This is verified CI behavior and is not by itself evidence of a deployment architecture.
-
-### Developer Toolkit
-
-The Developer Toolkit includes verified workflows for help, documentation check, project verification, project/Git status, file output, edit preparation, replace preparation, clipboard copy, and project search.
-
-The Toolkit launcher automatically copies command output to the clipboard except for the dedicated `copy` command.
-
-The Toolkit implements the workflow; it does not define the project methodology.
+- `.github/workflows/verify.yml` runs on push and pull request using `.nvmrc`, `npm ci`, and `./scripts/dev verify`.
+- The Developer Toolkit supports the established documentation/project verification and inspection workflows.
+- The Toolkit implements the workflow; it does not define project methodology.
 
 ---
 
@@ -117,13 +86,14 @@ Documentation structure: PASS
 Overall verification: PASS
 ```
 
-The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
+The documentation structure check proves directory existence, not documentation completeness or authority.
 
-The repaired core architecture/control documents, `docs/foundation/README.md`, `docs/foundation/FOUNDATION_MODEL.md`, and `docs/foundation/RESPONSIBILITY_MODEL.md` have been re-read from the target GitHub branch after their commits.
+The repaired core architecture/control documents and all three current Foundation files have been re-read from the target branch after their relevant commits.
 
-The Responsibility Model transfer checkpoint was verified on branch `migration-next16-to-root` at commit `4e2d7ebcfca75166e583a379a1153bbd701b59c8`, parent `00aa95a90b801379b243196a60f91c2714c97960`. The transfer commit adds only `docs/foundation/RESPONSIBILITY_MODEL.md`.
+Verified checkpoints:
 
-The project-control synchronization checkpoint was verified at commit `7010f9c3d56d57b0be01cc8e210d038ef2b0607f`, parent `4e2d7ebcfca75166e583a379a1153bbd701b59c8`.
+- Responsibility Model transfer: `4e2d7ebcfca75166e583a379a1153bbd701b59c8`, parent `00aa95a90b801379b243196a60f91c2714c97960`;
+- prior project-control synchronization: `7010f9c3d56d57b0be01cc8e210d038ef2b0607f`, parent `4e2d7ebcfca75166e583a379a1153bbd701b59c8`.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -131,9 +101,9 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 ## Historical Reconstruction Status
 
-**Status: Methodically complete for current continuation; targeted Foundation certification conclusion/scope recovery authorized**
+**Status: Methodically complete for continuation; targeted Foundation certification conclusion/scope recovery authorized**
 
-The historical review re-established the development chain:
+The recovered methodological chain is:
 
 ```text
 Foundation Design
@@ -155,17 +125,15 @@ Completeness Analysis
 Historical Certification Review
 ```
 
-The review recovered the permanent methodological principles needed to continue the project.
+Targeted Responsibility Model recovery is complete and its bounded evidence has been transferred into `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
-Targeted Historical Recovery recovered the original full contracts for all six responsibilities in Implementation Responsibility Model v1.0, and that bounded evidence has been transferred into `docs/foundation/RESPONSIBILITY_MODEL.md` and verified from the authoritative branch.
+Known wider historical gaps include falsification attempt 12 and the complete individual sequence between attempts 20 and 119. Current evidence reports a historical certification conclusion of 120 passed falsification attempts and methodological saturation.
 
-Known gaps in the wider reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. Current evidence reports a historical certification conclusion of 120 passed falsification attempts and methodological saturation.
+Those detailed gaps remain archival/revision gaps. They do **not** authorize recovery of the complete falsification chronology.
 
-Those detailed sequence gaps remain archival/revision gaps. They are not authorization to recover all individual falsification attempts.
+The only newly authorized retrieval scope is evidence necessary to establish the permanent Foundation certification conclusion and certification scope.
 
-The only newly authorized historical retrieval scope is evidence required to establish the permanent Foundation certification conclusion and certification scope: what was certified, the scope of that certification, the permanent conclusion, the methodological basis necessary to understand that conclusion, and its consequence for downstream authority.
-
-Historical material remains evidence rather than automatic authority.
+Historical material is evidence, not automatic authority.
 
 ---
 
@@ -173,50 +141,42 @@ Historical material remains evidence rather than automatic authority.
 
 **Status: Established**
 
-The project has three explicit root control documents:
-
-- `PROJECT_HANDBOOK.md` — governance, authority map, workflow entry point, information lifecycle, and context-recovery procedure;
+- `PROJECT_HANDBOOK.md` — governance, authority map, workflow entry point, information lifecycle, and context recovery;
 - `PROJECT_OVERVIEW.md` — stable project identity and permanent high-level principles;
-- `PROJECT_CONTROL.md` — current verified state, workflow gate, risks, and next allowed action.
+- `PROJECT_CONTROL.md` — current verified state, workflow gate, risks, and Next Allowed Action.
 
-The control kernel remains above domain documentation and does not become the detailed methodology archive.
+The control kernel does not become the detailed methodology archive.
 
 ---
 
 ## Foundation Documentation Status
 
-**Status: Core Foundation ownership established; certification conclusion/scope evidence gap explicitly bounded**
+**Status: Core Foundation ownership established; certification conclusion/scope gap explicitly bounded**
 
 ### Established
 
 - `docs/foundation/README.md` — Foundation authority boundary, placement, transfer rule, and ownership routing;
-- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core governing derivation, authority/placement, information lifecycle/state transition, phase separation, implementation dependency, certification through refutation, semantic preservation, and refutation posture;
-- `docs/foundation/RESPONSIBILITY_MODEL.md` — authoritative Implementation Responsibility Model v1.0 containing all six locked responsibility contracts plus the bounded horizontal and minimality analyses.
-
-`RESPONSIBILITY_MODEL.md` was transferred without reconstruction or re-derivation and verified from the authoritative branch after commit.
+- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core, including derivation rules, Certification Through Refutation, semantic preservation, phase separation, and Open for Refutation posture;
+- `docs/foundation/RESPONSIBILITY_MODEL.md` — authoritative Implementation Responsibility Model v1.0 with all six locked responsibility contracts plus bounded horizontal and minimality analyses.
 
 ### Bounded ownership result
 
-The existing Foundation authority establishes that historical phase names do not automatically become permanent ownership units.
+Repository authority supports the following conclusion:
 
-The bounded ownership assessment therefore concludes:
+- derivation rules already have permanent authority in `FOUNDATION_MODEL.md`;
+- the certification method already has permanent authority in `FOUNDATION_MODEL.md`;
+- historical Architecture Derivation and Implementation Architecture Derivation phase names do not justify a separate derivation document;
+- the concrete remaining Foundation evidence gap is the permanent **certification conclusion + certification scope**.
 
-- derivation rules already have permanent authority in `docs/foundation/FOUNDATION_MODEL.md`;
-- the certification method already has permanent authority in `docs/foundation/FOUNDATION_MODEL.md`, including Certification Through Refutation and the Open for Refutation posture;
-- no separate derivation document is justified merely by the historical Architecture Derivation or Implementation Architecture Derivation phase names;
-- the concrete remaining Foundation evidence gap is the permanent certification conclusion and certification scope.
-
-The missing bounded evidence concerns:
+The bounded missing evidence concerns:
 
 - what Foundation material was actually certified;
-- the scope and boundary of the certification;
+- the scope and boundaries of that certification;
 - the permanent certification conclusion;
-- the methodological basis necessary to interpret that conclusion without reproducing historical chronology;
+- the methodological basis necessary to interpret that conclusion without reproducing the historical process;
 - what the certification means for downstream derivation and authority.
 
-This gap does not itself establish a new child-document name or permanent ownership unit. Permanent ownership must be verified after sufficient evidence is recovered and before any new Foundation document is created.
-
-Transfer rule:
+This evidence gap does not establish a new child-document name. Permanent ownership must be verified after sufficient evidence is recovered and before any new Foundation document is created.
 
 **Transfer – do not re-derive.**
 
@@ -235,35 +195,15 @@ Repaired and verified:
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`.
 
-Remaining empty architecture topics have been classified against current evidence and are not to be populated merely to eliminate empty files.
+Remaining empty architecture topics must not be populated merely to eliminate empty files.
 
 ---
 
 ## Documentation Audit Findings
 
-The repository still contains significant non-architecture documentation drift.
+Important unresolved documentation drift includes empty product/development/meeting files, the default root Create Next App README, stale Developer Toolkit roadmap/backlog state, the unverified root artifact `-name package-lock.json`, and the two empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
 
-### Important empty domain files identified
-
-- `docs/product/PRODUCT_VISION.md`;
-- `docs/product/LEARNING_MODEL.md`;
-- `docs/meetings/decisions-log.md`;
-- `docs/development/project-structure.md`;
-- `docs/development/git-workflow.md`.
-
-### Damaged or stale documentation identified
-
-- Root `README.md` remains the default Create Next App README and does not describe TheraLearn.
-- `docs/development/IMPROVEMENT_BACKLOG.md` contains items marked Planned that have already been implemented.
-- `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` understates the current Developer Toolkit implementation state.
-
-### Repository anomalies/placeholders identified
-
-- A root-level file named `-name package-lock.json` exists alongside the normal `package-lock.json`; its origin and relevance remain unverified.
-- `lib/repositories/quizQuestions.ts` is an empty placeholder.
-- `components/PensumCard.tsx` is an empty placeholder while its CSS Module exists.
-
-No such artifact should be deleted or implemented merely because it has been identified during documentation repair.
+No such artifact is authorized for deletion or implementation merely because it has been identified.
 
 ---
 
@@ -271,44 +211,31 @@ No such artifact should be deleted or implemented merely because it has been ide
 
 ### Completed
 
-- Historical project context reconstructed to the level required for continuation.
-- Current local codebase identified.
-- Previously uncommitted Developer Toolkit work reviewed and committed.
-- Repository-layer foundation reviewed and committed.
-- Git author identity corrected across the unpublished development history.
-- Current development branch pushed to GitHub.
-- GitHub repository access verified.
-- Documentation structure audited at the control level.
+- Historical context reconstructed to the level required for continuation.
 - Root control kernel established.
 - `docs/README.md` repaired and verified.
 - Core architecture documentation repaired and verified.
-- Remaining architecture topics classified against current evidence.
-- Existing documentation domains inspected for Foundation/method authority.
-- `docs/foundation/` selected as the permanent home for detailed certified methodology.
-- `docs/foundation/README.md` created and verified.
-- `docs/foundation/FOUNDATION_MODEL.md` created and verified from current authority.
-- Targeted Historical Recovery completed for all six detailed Implementation Responsibility Model contracts.
-- Historical evidence for the Responsibility Model horizontal analysis and minimality analysis recovered.
-- The concrete Responsibility Model evidence gap closed.
-- `docs/foundation/RESPONSIBILITY_MODEL.md` transferred through the verified Git-object procedure and re-read from the authoritative branch.
-- Responsibility Model horizontal analysis and minimality analysis transferred within the bounded ownership scope.
-- Responsibility Model transfer fidelity verified; R2 closed.
-- The next bounded Foundation ownership assessment completed against current repository authority.
+- Foundation domain placement and entry point established.
+- `FOUNDATION_MODEL.md` established and verified from current authority.
+- Targeted Responsibility Model recovery completed.
+- `RESPONSIBILITY_MODEL.md` transferred and verified through the safe Git-object procedure.
+- Responsibility Model transfer fidelity closed as R2.
+- Next bounded Foundation ownership assessment completed.
 - Derivation rules verified as already owned by `FOUNDATION_MODEL.md`.
 - Certification method verified as already owned by `FOUNDATION_MODEL.md`.
 - Foundation certification conclusion/scope identified as the concrete remaining bounded Foundation evidence gap.
 
 ### Not yet completed
 
-- Perform targeted historical recovery only for Foundation certification conclusion and certification scope.
-- Determine permanent ownership for recovered certification conclusion/scope only after sufficient evidence is verified.
-- Transfer certification conclusion/scope only if one authoritative home is established and the evidence supports transfer.
-- Populate or validate product documentation.
-- Update stale Developer Toolkit roadmap/backlog documentation.
-- Audit development-domain entry/structure documentation.
-- Verify the root README role and replace the default template when appropriate.
-- Verify the anomalous `-name package-lock.json` file.
-- Determine the correct long-term branch integration strategy for `main`.
+- Targeted historical recovery for Foundation certification conclusion/scope.
+- Verification of permanent ownership for that recovered certification information.
+- Any later transfer of certification conclusion/scope.
+- Product documentation repair.
+- Developer Toolkit roadmap/backlog synchronization.
+- Development-domain documentation audit.
+- Root README repair.
+- Investigation of `-name package-lock.json`.
+- Long-term integration decision for `main`.
 
 ---
 
@@ -316,41 +243,39 @@ No such artifact should be deleted or implemented merely because it has been ide
 
 ### R1 – Domain documentation drift
 
-Implementation and historical decisions are ahead of several non-architecture domain documentation files.
+Implementation and historical decisions remain ahead of several non-architecture documentation files.
 
-**Mitigation:** continue documentation repair before resuming ordinary feature development.
+**Mitigation:** continue documentation repair before ordinary feature development.
 
 ### R2 – Responsibility-model transfer fidelity
 
 **Status: CLOSED**
 
-The six responsibility contracts, horizontal analysis, and minimality analysis have been transferred to `docs/foundation/RESPONSIBILITY_MODEL.md` and re-read from the authoritative branch. The transfer commit changes only that ownership unit relative to its clean parent checkpoint.
-
-No further mitigation is required unless later verification produces contradictory evidence.
+The six responsibility contracts plus horizontal and minimality analyses are transferred and verified in `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
 ### R3 – Stale roadmap/backlog state
 
-Tooling documentation no longer fully reflects implemented capabilities.
+Tooling documentation does not fully reflect implemented capabilities.
 
-**Mitigation:** synchronize roadmap/backlog against verified implementation after authority placement is stable.
+**Mitigation:** synchronize it after Foundation authority placement is stable.
 
 ### R4 – Unverified repository artifact
 
-`-name package-lock.json` may be an accidental historical artifact.
+`-name package-lock.json` may be accidental.
 
-**Mitigation:** inspect before deletion or retention decision.
+**Mitigation:** inspect before any deletion/retention decision.
 
 ### R5 – Branch divergence
 
-The authoritative repaired project state currently lives on `migration-next16-to-root`, while `main` remains behind.
+The authoritative repaired state is on `migration-next16-to-root`; `main` is behind.
 
-**Mitigation:** do not merge or rewrite `main` until documentation consolidation reaches a verified checkpoint and integration strategy is reviewed.
+**Mitigation:** no integration until documentation consolidation reaches a verified checkpoint.
 
 ### R6 – Foundation certification evidence incompleteness
 
-Current authority preserves the certification method and reports the historical conclusion, but the permanent certification conclusion and certification scope are not yet sufficiently evidenced for authoritative transfer.
+Current authority owns the certification method and reports a historical conclusion, but certification conclusion/scope is not yet sufficiently evidenced for authoritative transfer.
 
-**Mitigation:** perform only the explicitly bounded targeted historical recovery authorized by this control state. Do not expand retrieval to the complete falsification chronology unless a specific required certification claim cannot otherwise be established and `PROJECT_CONTROL.md` is updated again to authorize that narrower need.
+**Mitigation:** perform only the bounded targeted recovery authorized below. Do not expand to the complete falsification chronology without a new explicit control authorization.
 
 ---
 
@@ -358,29 +283,25 @@ Current authority preserves the certification method and reports the historical 
 
 **Ordinary product feature development: PAUSED**
 
-Code changes are currently allowed only when necessary to repair documentation/control infrastructure, verify repository state, correct a demonstrated workflow/system defect, or keep documentation tooling aligned with the established workflow.
+Code changes are allowed only when necessary for documentation/control repair, repository verification, demonstrated workflow/system repair, or alignment of documentation tooling with the established workflow.
 
-The currently authorized next action is historical evidence retrieval and analysis only. It does not authorize product code changes or creation of a new Foundation document.
-
-New product features should not be started until documentation authority and domain synchronization reach a stable checkpoint.
+The current Next Allowed Action is historical evidence retrieval and analysis only. It does not authorize product code changes or creation of a new Foundation document.
 
 ---
 
 ## Current Task
 
-Perform targeted historical recovery exclusively for the bounded Foundation certification conclusion and certification scope evidence gap.
+Perform targeted historical recovery exclusively for the bounded **Foundation certification conclusion + certification scope** evidence gap.
 
 Recover only evidence necessary to determine:
 
 - what was actually certified as Foundation v1.0;
-- the certification scope and its explicit boundaries;
+- the certification scope and explicit boundaries;
 - the permanent certification conclusion;
 - the methodological basis necessary to interpret the conclusion, without re-deriving the already-owned certification method;
-- the downstream authority consequence of the certification.
+- the downstream authority consequence of certification.
 
-The task must not become a reconstruction of the complete Foundation Certification phase or the full falsification chronology.
-
-Historical evidence is evidence, not automatic authority.
+Do not reconstruct the complete Foundation Certification phase or full falsification chronology.
 
 ---
 
@@ -391,12 +312,12 @@ Begin targeted historical recovery only for **Foundation certification conclusio
 The retrieval boundary is strict:
 
 1. seek primary historical evidence that states or directly supports the certification conclusion and scope;
-2. recover only enough surrounding context to preserve the meaning of those claims;
+2. recover only enough surrounding context to preserve those claims' meaning;
 3. compare recovered claims against current `FOUNDATION_MODEL.md` authority and do not re-derive rules already owned there;
-4. stop when the certification conclusion, scope, methodological basis required for interpretation, and downstream authority consequence are sufficiently evidenced;
-5. after recovery, determine the single permanent ownership location before any Foundation document is created or changed.
+4. stop when conclusion, scope, required interpretive basis, and downstream authority consequence are sufficiently evidenced;
+5. then determine the single permanent ownership location before any Foundation document is created or changed.
 
-Explicitly forbidden under this authorization:
+Explicitly forbidden:
 
 - broad historical recovery;
 - automatic recovery of all 120 falsification attempts;
@@ -405,4 +326,14 @@ Explicitly forbidden under this authorization:
 - creation of a new Foundation document before permanent ownership and sufficient evidence are verified;
 - MVP feature development.
 
-If the bounded recovery reveals that a specific missing individual falsification attempt is necessary to establish one of the required permanent certification claims,
+If a specific missing falsification attempt proves necessary to establish a required permanent certification claim, stop and update `PROJECT_CONTROL.md` with that narrower evidence need before retrieving it.
+
+**Transfer – do not re-derive.**
+
+---
+
+## Update Rule
+
+`PROJECT_CONTROL.md` must be updated whenever a verified change materially alters current phase, current task, Next Allowed Action, implementation baseline, verification state, known risks, documentation-repair progress, or code-change permission.
+
+Historical detail should not accumulate here unless required to understand current state.
