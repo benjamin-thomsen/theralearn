@@ -12,11 +12,13 @@
 
 ## Current Phase
 
-**MVP Learning Loop Implementation — Authoritative Flashcard Integration**
+**MVP Learning Loop Implementation — Quiz Authority Integration**
 
 The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged.
 
-The Authoritative Lesson Context and Authoritative Curriculum Entry slices are verified and closed. Repository inspection has now selected flashcards as the first dependency-correct learning-activity integration because their current database and repository ownership already attach them directly to authoritative `lesson.id`.
+The Authoritative Lesson Context, Authoritative Curriculum Entry, and first Authoritative Flashcard Integration slices are now verified and closed.
+
+The next dependency-correct responsibility is to establish authoritative lesson-scoped quiz data access before any quiz UI is integrated into the authoritative lesson context.
 
 ---
 
@@ -26,21 +28,14 @@ The Authoritative Lesson Context and Authoritative Curriculum Entry slices are v
 migration-next16-to-root
 ```
 
-Latest control synchronization commit before this plan:
+Verified flashcard implementation commit:
 
 ```text
-5ce16beecea3f4212563e3ca57a415cfec91fa0b
-Close authoritative curriculum entry slice
+731c9d4c9b87322848b9845c952e7f8dde904ac8
+Integrate authoritative lesson flashcards
 ```
 
-Verified curriculum implementation commit:
-
-```text
-10330e672ffb108c37a9fff1aa3531fa79ce208f
-Add authoritative curriculum entry
-```
-
-GitHub Actions workflow `Verify`, run 76, completed successfully for that exact implementation commit.
+GitHub Actions workflow `Verify`, run 79, completed successfully for that exact commit.
 
 ---
 
@@ -66,191 +61,156 @@ Learning activities
 Learner-related result/progress
 ```
 
-This slice owns only the first bounded `Authoritative lesson context → Learning activities` seam.
-
-The Learning Model establishes that flashcards are attached to lessons and may realize Active Retrieval, Distributed Practice, Informative Correction, or combinations depending on design. Feature presence alone is not evidence that a certified principle is fully satisfied.
+The first authoritative learning activity is now connected to lesson context through `lesson.id`.
 
 ---
 
-## Verified Learning-Activity Evidence
+## Closed Slice — Authoritative Flashcard Integration
 
-### Flashcard data ownership
-
-`public.flashcards` owns:
-
-- `id`;
-- `lesson_id`;
-- `front_text`;
-- `back_text`;
-- `is_published`;
-- `sort_order`;
-- timestamps.
-
-`lesson_id` is a required foreign key to `public.lessons(id)`.
-
-The existing repository function:
-
-```text
-getFlashcardsByLessonId(client, lesson.id)
-```
-
-already returns lesson-scoped flashcards in deterministic order.
-
-No new repository abstraction is required for the first flashcard integration slice.
-
-### Flashcard access boundary
-
-Row Level Security permits published flashcards to be read by both anonymous and authenticated clients only through a fully published course → chapter → lesson tree.
-
-Therefore authentication is not required merely to read/use the first published flashcard activity. Authentication remains required later for learner-related progress persistence.
-
-### Current flashcard UI ownership
-
-Repository inspection found no current dedicated `/flashcards` route and no implemented flashcard activity component owning authoritative flashcard interaction.
-
-The smallest correct ownership point is therefore the existing authoritative lesson route itself:
+Implemented file:
 
 ```text
 app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
 ```
 
-### Quiz comparison
-
-The database schema correctly attaches `quiz_questions.lesson_id` to lessons, but `lib/repositories/quizQuestions.ts` is currently empty.
-
-The existing `/quiz/[slug]` route is a client-side legacy implementation that reads hardcoded `data/quiz.ts` and resolves questions by a legacy topic slug.
-
-Integrating quiz first would therefore require establishing additional repository/data authority before the activity can be attached to authoritative `lesson.id`.
-
-Flashcards are consequently the smaller dependency-correct first activity slice.
-
----
-
-## Bounded Implementation Plan
-
-### Exact product-code change
-
-**Modify only:**
+Implementation commit:
 
 ```text
-app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
+731c9d4c9b87322848b9845c952e7f8dde904ac8
+Integrate authoritative lesson flashcards
 ```
 
-No CSS, repository, schema, quiz, progress, legacy-route, or new component file is authorized in this slice.
+The route now:
 
-### Implementation contract
+- preserves authoritative course → chapter → lesson resolution;
+- queries flashcards only after lesson resolution;
+- uses `getFlashcardsByLessonId(client, lesson.id)`;
+- renders only published flashcards;
+- uses authoritative `front_text` and `back_text`;
+- provides retrieval-before-reveal interaction with native `<details>` / `<summary>`;
+- remains a Server Component;
+- introduces no client state, scheduler, repetition interval, score, mastery, adaptive sequencing, progress persistence, authentication write, new CSS, or new activity route.
 
-Extend the existing authoritative lesson Server Component so that it:
+GitHub Actions workflow `Verify`, run 79, completed with `success` for `731c9d4c9b87322848b9845c952e7f8dde904ac8`.
 
-1. imports `getFlashcardsByLessonId` from the existing flashcard repository;
-2. resolves the lesson exactly as it does now before querying activities;
-3. loads flashcards with `getFlashcardsByLessonId(client, lesson.id)`;
-4. renders only published flashcards;
-5. renders flashcards within the already-resolved lesson context rather than on a standalone activity route;
-6. preserves retrieval-before-reveal behavior using native semantic HTML so the learner can attempt the prompt before exposing the answer;
-7. uses authoritative `front_text` as the retrieval prompt and `back_text` as the revealed answer;
-8. handles a lesson with zero published flashcards without inventing fallback content;
-9. remains a Server Component with no `"use client"` directive;
-10. adds no scheduler, repetition interval, score, mastery, adaptive sequencing, progress persistence, or authentication write behavior.
-
-### Interaction decision
-
-Use native `<details>` / `<summary>` for this first bounded activity seam.
-
-This provides an actual retrieval-before-reveal interaction without introducing client state or a new component boundary. The activity should instruct the learner to attempt an answer before revealing the stored answer.
-
-This mechanism is consistent with the Active Retrieval Principle when durable retention is the relevant aim, but this slice must not claim that the entire Active Retrieval Principle, Informative Correction, Distributed Practice, or another certified principle is universally or completely implemented by the existence of these flashcards.
-
-### Styling boundary
-
-Do not create or modify CSS in this slice. Use semantic classless markup compatible with the existing minimally styled authoritative lesson surface.
+**Authoritative Flashcard Integration first slice: VERIFIED AND CLOSED.**
 
 ---
 
-## Verification Contract
+## Current Verified Learning-Activity State
 
-The slice is complete only when verification demonstrates:
+The authoritative learning path now reaches a real lesson-scoped retrieval activity:
 
-1. only `app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx` changed as product code;
-2. the page remains a Server Component;
-3. course → chapter → lesson resolution and `notFound()` behavior remain intact;
-4. flashcards are queried only after authoritative lesson resolution;
-5. the query uses `lesson.id` through `getFlashcardsByLessonId`;
-6. only published flashcards are rendered;
-7. prompt and answer come from authoritative `front_text` and `back_text` fields;
-8. the answer is not exposed until the learner chooses to reveal it through the native interaction;
-9. zero flashcards does not create hardcoded fallback learning content;
-10. no quiz, progress, scheduler, mastery, adaptive-learning, new CSS, or legacy-route migration code is introduced;
-11. TypeScript passes;
-12. Next.js build passes;
-13. documentation structure verification remains passing;
-14. GitHub Actions passes for the resulting branch head.
+```text
+/pensum
+  ↓
+published curriculum hierarchy
+  ↓
+authoritative lesson
+  ↓
+lesson.id
+  ↓
+published flashcards
+  ↓
+retrieval-before-reveal interaction
+```
 
-Runtime proof that specific published flashcard rows exist remains a separate remote data-state verification if code-level verification cannot establish it.
+This establishes the first learning-activity seam. It does not establish distributed scheduling, learner-specific adaptation, mastery, or progress persistence.
+
+---
+
+## Verified Quiz Evidence
+
+The database schema already defines `public.quiz_questions` with a required `lesson_id` foreign key to `public.lessons(id)` and fields for question, options, correct answer, explanation, publication state, and ordering.
+
+RLS permits published quiz questions to be read by anonymous and authenticated clients only through a fully published course → chapter → lesson tree.
+
+`lib/repositories/types.ts` already exposes typed `QuizQuestion`, `QuizQuestionInsert`, and `QuizQuestionUpdate` aliases from generated database types.
+
+However:
+
+```text
+lib/repositories/quizQuestions.ts
+```
+
+is currently empty.
+
+The existing:
+
+```text
+app/quiz/[slug]/page.tsx
+```
+
+is a client-side legacy quiz implementation that reads hardcoded:
+
+```text
+data/quiz.ts
+```
+
+and selects questions using a legacy topic `slug` rather than authoritative `lesson.id`.
+
+Therefore the next dependency-correct step is not to connect the legacy quiz UI to lessons. The missing repository contract must be established first.
 
 ---
 
 ## Current Risks
 
-### R1 – Remote flashcard availability
+### R1 – Quiz data authority gap
 
-**Status: OPEN.**
+**Status: ACTIVE.**
 
-The schema and repository contract are established, but current remote published flashcard rows have not yet been certified.
+The database owns authoritative lesson-scoped quiz questions, but the repository access layer is absent and the current UI still reads hardcoded legacy data.
 
 ### R2 – Learning-principle overclaim
 
 **Status: ACTIVE.**
 
-Retrieval-before-reveal is a valid flashcard mechanism, but this slice does not establish spacing, learner-specific scheduling, objective-aligned demonstration, or universal pedagogical sufficiency.
+Flashcards and future quiz interactions are mechanisms. Their existence alone does not certify all requirements of Active Retrieval, Informative Correction, Distributed Practice, Adaptive Guidance, or Objective-Aligned Demonstration.
 
-### R3 – Quiz legacy identity
+### R3 – Remote activity availability
 
-**Status: ACTIVE but deferred.**
+**Status: OPEN.**
 
-The existing quiz UI still uses hardcoded legacy topic slugs and cannot yet be treated as authoritative lesson-integrated quiz behavior.
+Current remote published flashcard and quiz-question rows have not yet been certified. Code-level contracts are separate from runtime content availability.
 
 ### R4 – Parallel legacy surfaces
 
 **Status: ACTIVE but bounded.**
 
-Legacy pensum/quiz surfaces remain repository evidence. This slice does not migrate or delete them.
+Legacy pensum and quiz routes remain repository evidence and are not yet migrated or deleted.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: OPEN ONLY for the bounded Authoritative Flashcard Integration first slice.**
+**Product implementation: CLOSED pending bounded quiz repository inspection and file-level plan.**
 
-Authorized product-code change:
+No product UI change is authorized.
 
-```text
-MODIFY app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
-```
-
-No other product-code file change is authorized unless verification proves this exact slice cannot compile without one; if so, stop and synchronize control before expanding scope.
+Repository inspection and control synchronization are allowed.
 
 ---
 
 ## Current Task
 
-Integrate authoritative lesson-scoped flashcards into the authoritative lesson route exactly as specified above.
+Derive the smallest repository-layer slice required to expose authoritative published quiz questions by `lesson.id` using the established repository conventions.
 
 ---
 
 ## Next Allowed Action
 
-Modify only:
+Inspect:
 
-```text
-app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx
-```
+- `lib/repositories/flashcards.ts` as the nearest established sibling repository pattern;
+- `lib/repositories/quizQuestions.ts`;
+- `lib/repositories/types.ts`;
+- generated `quiz_questions` database types as needed;
+- the schema ordering and publication fields for quiz questions;
+- repository error-handling conventions.
 
-Load published flashcards through `getFlashcardsByLessonId(client, lesson.id)` and render them as a retrieval-before-reveal activity inside the authoritative lesson context using native semantic HTML.
+Then synchronize `PROJECT_CONTROL.md` with one bounded file-level implementation plan for the quiz repository before opening the code gate.
 
-Then verify the resulting file and project verification. After verification, synchronize `PROJECT_CONTROL.md` before selecting the next implementation slice.
-
-Do not implement quiz integration, progress persistence, authentication writes, spaced repetition, adaptive sequencing, mastery logic, new CSS, new activity routes, or legacy-route deletion in this slice.
+Do not yet modify the legacy quiz UI, authoritative lesson route, CSS, schema, progress persistence, authentication behavior, adaptive logic, mastery logic, or activity scheduling.
 
 ---
 
