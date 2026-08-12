@@ -36,9 +36,9 @@ Domain-specific knowledge belongs under `docs/`.
 
 The historical reconstruction and the authoritative project-control kernel are established.
 
-The current task is to repair domain documentation, remove documentation drift, and ensure that permanent knowledge is placed in its intended authoritative home.
+The architecture-domain repair/audit has reached a verified checkpoint. The current task now moves to determining the permanent documentation home for the certified Foundation/method material below the root control layer.
 
-This is not a new architecture-design phase. Existing certified principles are being consolidated and checked against the current repository and implementation.
+This is not a new architecture-design phase. Existing certified principles are being consolidated and checked against current repository authority without redefining them.
 
 ---
 
@@ -48,7 +48,7 @@ This is not a new architecture-design phase. Existing certified principles are b
 migration-next16-to-root
 ```
 
-This branch contains the current reconstructed and verified development state plus the new authoritative control documents.
+This branch contains the current reconstructed and verified development state plus the authoritative control and repaired architecture documents.
 
 `main` has not yet been updated with this development history.
 
@@ -61,7 +61,7 @@ This branch contains the current reconstructed and verified development state pl
 - Next.js 16.2.12 is in use.
 - TypeScript compilation passes.
 - Production build passes.
-- 21 application routes/pages are generated or server-rendered by the verified build.
+- 21 application routes/pages are generated or server-rendered by the most recent complete verification.
 - A non-blocking `metadataBase` warning remains registered for future resolution.
 
 ### Supabase
@@ -77,7 +77,7 @@ A repository-layer foundation exists under `lib/repositories/`.
 
 Verified implemented areas include courses, chapters, lessons, flashcards, shared repository types, and shared repository error handling.
 
-`lib/repositories/quizQuestions.ts` currently exists as an empty placeholder and must not be treated as a completed repository implementation.
+`lib/repositories/quizQuestions.ts` is an empty placeholder and must not be treated as completed repository functionality.
 
 ### Frontend Transitional State
 
@@ -86,6 +86,13 @@ Verified implemented areas include courses, chapters, lessons, flashcards, share
 - Reusable UI components exist, but `components/PensumCard.tsx` is an empty placeholder.
 - Browser-local quiz progress persists through `lib/progress.ts` and `lib/storage.ts` using `window.localStorage`.
 - Supabase/repository persistence exists separately and broad frontend repository adoption is not yet verified.
+
+### CI Verification
+
+- `.github/workflows/verify.yml` runs on push and pull request.
+- CI uses Ubuntu, the Node version from `.nvmrc`, `npm ci`, and `./scripts/dev verify`.
+- Public Supabase configuration used during verification is supplied through GitHub Secrets.
+- This is verified CI behavior and is not by itself evidence of a deployment architecture.
 
 ### Developer Toolkit
 
@@ -162,7 +169,7 @@ These gaps are currently archival/revision gaps rather than blockers. Historical
 
 **Status: Established**
 
-The project now has three explicit control documents:
+The project has three explicit root control documents:
 
 - `PROJECT_HANDBOOK.md` — governance, authority map, workflow entry point, information lifecycle, and context-recovery procedure;
 - `PROJECT_OVERVIEW.md` — stable project identity and permanent high-level principles;
@@ -186,9 +193,64 @@ Historical chats are no longer the default context-recovery mechanism.
 
 ---
 
+## Architecture Documentation Status
+
+**Status: Core architecture repaired; remaining topics classified**
+
+### Repaired and verified architecture documents
+
+- `docs/architecture/README.md`;
+- `docs/architecture/system-overview.md`;
+- `docs/architecture/database.md`;
+- `docs/architecture/authentication.md`;
+- `docs/architecture/backend-architecture.md`;
+- `docs/architecture/frontend-architecture.md`.
+
+### Remaining topic classification
+
+#### `api.md`
+
+**Classification: topic not currently represented by a distinct implemented architecture boundary.**
+
+A specific authentication route handler exists, but no general REST, GraphQL, RPC, or application API architecture has been verified. The file remains empty rather than inventing a general API layer.
+
+#### `integrations.md`
+
+**Classification: topic not currently represented by a distinct implemented architecture boundary.**
+
+Supabase is a verified platform dependency, but its persistence and authentication boundaries already have permanent homes in `database.md` and `authentication.md`. No separate integration architecture has been established that would justify duplicating those definitions.
+
+#### `security.md`
+
+**Classification: empty placeholder without enough current evidence for a responsible standalone document.**
+
+Verified security-relevant mechanisms include authentication/session behavior and database RLS, but those are already documented in their authoritative domains. A broader security architecture has not yet been established from inspected evidence.
+
+#### `deployment.md`
+
+**Classification: empty placeholder without enough current evidence for a responsible standalone document.**
+
+GitHub Actions CI verification is implemented and verified. However, no `vercel.json` exists on the branch, `next.config.ts` contains no deployment-specific configuration, and repository search did not establish a deployment pipeline/configuration that could support an authoritative deployment architecture document.
+
+CI verification must not be mislabeled as deployment architecture.
+
+#### `scalability.md`
+
+**Classification: empty placeholder without enough current evidence for a responsible standalone document.**
+
+No distinct caching, queueing, horizontal-scaling, CDN, load-distribution, or other scalability architecture has been established from the current repository evidence.
+
+### Architecture completion rule
+
+The architecture domain is considered repaired to the level supported by current verified evidence.
+
+Empty topic files are not treated as defects merely because they are empty. They remain non-authoritative placeholders until a distinct verified architecture boundary exists and the workflow authorizes documentation of it.
+
+---
+
 ## Documentation Audit Findings
 
-The repository has an extensive documentation directory structure, but significant documentation drift has been verified.
+The repository still contains significant non-architecture documentation drift.
 
 ### Important empty domain files identified
 
@@ -198,15 +260,11 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
-The architecture domain still contains additional topic documents whose content/completeness has not yet been audited after the core architecture repair sequence.
-
 ### Damaged or stale documentation identified
 
 - Root `README.md` remains the default Create Next App README and does not describe TheraLearn.
 - `docs/development/IMPROVEMENT_BACKLOG.md` contains items marked Planned that have already been implemented.
 - `docs/development/DOCUMENTATION_TOOL_ROADMAP.md` understates the current Developer Toolkit implementation state.
-
-`docs/README.md` was previously corrupted and contained repeated text, stale structure claims, and historical shell material. It has now been repaired and verified on the target branch.
 
 ### Repository anomalies/placeholders identified
 
@@ -222,7 +280,7 @@ No such artifact should be deleted or implemented merely because it has been ide
 
 ### Completed
 
-- Historical project context reconstructed.
+- Historical project context reconstructed to the level required for continuation.
 - Current local codebase identified.
 - Previously uncommitted Developer Toolkit work reviewed and committed.
 - Repository-layer foundation reviewed and committed.
@@ -233,21 +291,17 @@ No such artifact should be deleted or implemented merely because it has been ide
 - `PROJECT_OVERVIEW.md` established.
 - `PROJECT_CONTROL.md` established.
 - `PROJECT_HANDBOOK.md` established.
-- Authority model, information-placement rule, working-session lifecycle, workflow gate, and new-chat context recovery are now permanently documented.
-- `docs/README.md` repaired as the domain-documentation entry point and verified after commit.
-- `docs/architecture/README.md` repaired as the architecture-domain entry point and verified after commit.
-- `docs/architecture/system-overview.md` established from inspected repository and implementation evidence and verified after commit.
-- `docs/architecture/database.md` established from the complete MVP migration, generated database contract, and persistence boundary evidence and verified after commit.
-- `docs/architecture/authentication.md` established from inspected signup, login, confirmation, client/server, proxy, profile, and RLS evidence and verified after commit.
-- `docs/architecture/backend-architecture.md` established from the implemented repository layer and verified after commit.
-- `docs/architecture/frontend-architecture.md` established from inspected App Router, component, styling, local-storage, and runtime-boundary evidence and verified after commit.
+- Authority model, information-placement rule, working-session lifecycle, workflow gate, and new-chat context recovery permanently documented.
+- `docs/README.md` repaired and verified.
+- Core architecture documentation repaired and verified.
+- Remaining architecture topics classified against current evidence without inventing missing architecture.
 
 ### Not yet completed
 
-- Audit remaining architecture topic documents and classify them as verified content, empty placeholders, stale content, or not-yet-supported topics.
 - Establish authoritative Foundation/method documentation placement below the control layer.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
+- Audit development-domain entry/structure documentation.
 - Verify the root README role and replace the default template when appropriate.
 - Verify the anomalous `-name package-lock.json` file.
 - Determine the correct long-term branch integration strategy for `main`.
@@ -258,21 +312,21 @@ No such artifact should be deleted or implemented merely because it has been ide
 
 ### R1 – Domain documentation drift
 
-Implementation and historical decisions are ahead of several domain documentation files.
+Implementation and historical decisions are ahead of several non-architecture domain documentation files.
 
-**Mitigation:** complete domain documentation repair before resuming ordinary feature development.
+**Mitigation:** continue documentation repair before resuming ordinary feature development.
 
 ### R2 – Duplicate authority during reconstruction
 
-Repair work can accidentally duplicate the same rule across Overview, Handbook, Control, and domain documents.
+Repair work can accidentally duplicate the same rule across Overview, Handbook, Control, Foundation/method documentation, and domain documents.
 
-**Mitigation:** enforce one permanent home per piece of information and use references elsewhere.
+**Mitigation:** establish the permanent Foundation/method documentation home before transferring detailed certified methodology below the root control layer.
 
 ### R3 – Stale roadmap/backlog state
 
 Tooling documentation no longer fully reflects implemented capabilities.
 
-**Mitigation:** synchronize roadmap/backlog against verified implementation after the highest-authority domain entry points are repaired.
+**Mitigation:** synchronize roadmap/backlog against verified implementation after authority placement is stable.
 
 ### R4 – Unverified repository artifact
 
@@ -285,12 +339,6 @@ Tooling documentation no longer fully reflects implemented capabilities.
 The authoritative repaired project state currently lives on `migration-next16-to-root`, while `main` remains behind.
 
 **Mitigation:** do not merge or rewrite `main` until documentation consolidation reaches a verified checkpoint and integration strategy is reviewed.
-
-### R6 – Remaining architecture documentation uncertainty
-
-The core architecture documents are now repaired, but additional topic files such as API, integrations, security, deployment, and scalability have not yet been classified against current implementation evidence.
-
-**Mitigation:** audit the remaining architecture directory before deciding whether each topic should be populated, retained as an explicit placeholder, or treated as unsupported by the current system.
 
 ---
 
@@ -306,42 +354,29 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Complete the architecture-domain documentation audit before leaving the architecture repair phase.
+Determine the permanent authoritative placement for detailed certified Foundation/method documentation below the root control kernel.
 
-The core architecture chain is now documented:
+The root control documents intentionally contain only governance, stable high-level project principles, and current state. The historical reconstruction contains more detailed certified methodology that should not be copied indiscriminately into architecture, development, or product documentation.
 
-```text
-System Overview
-    ↓
-Database
-    ↓
-Authentication
-    ↓
-Backend / Data Access
-    ↓
-Frontend
-```
-
-Remaining architecture topic files must now be inspected and classified rather than automatically populated from their filenames.
+Before creating or populating any Foundation/method document, the existing `docs/` structure must be inspected for an appropriate current home and for any existing files that already claim this authority.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the remaining files in `docs/architecture/` — especially `api.md`, `integrations.md`, `security.md`, `deployment.md`, and `scalability.md` — and compare each topic with current repository/configuration evidence.
+Inspect the current documentation tree for Foundation/methodology-related files, including relevant files under `docs/decisions/`, `docs/references/`, `docs/development/`, and any other existing location whose name/content suggests methodological authority.
 
-For each remaining topic, classify it as one of:
+Then determine whether:
 
-1. **verified content exists and needs repair/synchronization**;
-2. **empty placeholder with enough current evidence to document**;
-3. **empty placeholder without enough current evidence to document responsibly**;
-4. **topic not currently represented by a distinct implemented architecture boundary**.
+1. an existing document/location already owns the detailed certified Foundation/method material and should be repaired;
+2. an existing domain should own it but lacks the necessary entry/document;
+3. a new authoritative location is genuinely required.
 
-Do not populate a document merely because the filename exists.
+Do not create a new document before this placement inspection is complete.
 
-Do not implement missing architecture or MVP functionality to make a document easier to fill.
+Do not reload historical chats unless the placement decision or a later specific Foundation claim cannot be resolved from current authoritative files and repository evidence.
 
-After classification, update `PROJECT_CONTROL.md` with the architecture-domain completion status and the next documentation target.
+After placement is determined, update `PROJECT_CONTROL.md` before transferring detailed Foundation/method content.
 
 ---
 
