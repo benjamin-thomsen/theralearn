@@ -24,13 +24,11 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 The architecture repair checkpoint and root control kernel are established.
 
-Foundation repair has reached a verified consolidation checkpoint. `docs/foundation/FOUNDATION_MODEL.md` now owns the certified upstream Foundation core together with the bounded permanent certification scope/conclusion, and `docs/foundation/RESPONSIBILITY_MODEL.md` owns the six-responsibility model.
+Foundation authority is consolidated in `docs/foundation/`. Core architecture documentation is repaired. Developer Toolkit roadmap/backlog documentation is synchronized. The root `README.md` is repaired and verified.
 
-The targeted Foundation certification evidence gap is closed. No further historical recovery is currently authorized.
+The product documentation domain is now the highest-priority remaining authority gap before ordinary MVP development can resume.
 
-Development/tooling roadmap and backlog documentation have been synchronized against verified implementation, and the root `README.md` repair is complete and verified.
-
-The latest bounded reprioritization identifies the product documentation domain as the highest remaining authority risk before ordinary MVP development can resume. The entire current `docs/product/` placeholder set is empty, so product-document ownership must be assessed before any individual product document is populated.
+A bounded product authority/placement assessment has now been completed. It established a minimal ownership model without populating or deleting any product placeholder.
 
 ---
 
@@ -55,23 +53,19 @@ Documentation structure: PASS
 Overall verification: PASS
 ```
 
-Verified Foundation/control checkpoints include:
+Recent verified documentation/control checkpoints include:
 
-- Responsibility Model transfer: `4e2d7ebcfca75166e583a379a1153bbd701b59c8`;
-- targeted certification recovery gate: `150ed012696d2ddf7bff926b39a9e6230d246fe3`;
-- certification transfer authorization: `fb8a332b307234a1e2b684e0acf6389444b1cc06`;
-- Foundation certification conclusion/scope transfer: `36ce8c495cf39e5478c172dae45d05e9f642100d`;
 - Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
 - Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`;
-- control synchronization after backlog repair: `7bd97546b3207a27ed7875bb8b49e1e3710ae5dc`;
 - root README repair target selection: `920c7a36edaeef943a2519f50732cc5103ab3b6f`;
 - README write authorization: `5a17a63df0d2fa2840d5173fbcb8e349eebba791`;
 - root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`;
-- control synchronization after README repair: `2e1a32da30fb4b2c7e978eeaf0448b0d5d4eefac`.
+- control synchronization after README repair: `2e1a32da30fb4b2c7e978eeaf0448b0d5d4eefac`;
+- product documentation authority target selection: `47b1df40fce16e56dacdd57ac2760b3e8184b228`.
 
 The repaired root `README.md` was re-read from the authoritative branch after its transfer commit, and its branch-ref was verified.
 
-The subsequent bounded reprioritization inspected the product directory, development documentation candidates, meetings decisions log, and anomalous root artifact without modifying those candidates.
+The product authority/placement assessment inspected current product placeholders and existing project authority without mutating product files.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -81,16 +75,11 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 **Status: Methodically complete for current continuation; no historical retrieval currently authorized**
 
-Historical evidence has served the bounded recovery tasks required to restore permanent Foundation authority.
-
-Completed bounded historical recoveries:
-
-- all six Implementation Responsibility Model contracts plus horizontal/minimality evidence;
-- Foundation certification conclusion and certification scope.
+Historical evidence has already served the bounded Foundation recovery tasks required for current continuation.
 
 Historical material remains evidence, not automatic authority.
 
-No product-history retrieval is currently authorized. A product authority assessment must first determine whether current repository authority and implementation evidence are sufficient or whether a concrete bounded evidence gap exists.
+No product-history retrieval is currently authorized. The ownership model can be established from current authority without historical reconstruction. Historical recovery may only be authorized later for a concrete product fact that cannot be established from current authority or implementation evidence.
 
 ---
 
@@ -100,11 +89,11 @@ No product-history retrieval is currently authorized. A product authority assess
 
 Established ownership units:
 
-- `docs/foundation/README.md` — Foundation authority boundary, placement, transfer rule, and ownership routing;
-- `docs/foundation/FOUNDATION_MODEL.md` — certified upstream methodological core, derivation rules, certification method, permanent certification scope/conclusion, closure/reopening meaning, and downstream authority consequence;
-- `docs/foundation/RESPONSIBILITY_MODEL.md` — authoritative Implementation Responsibility Model v1.0 with all six locked responsibility contracts plus bounded horizontal and minimality analyses.
+- `docs/foundation/README.md`;
+- `docs/foundation/FOUNDATION_MODEL.md`;
+- `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
-No current evidence demonstrates another concrete Foundation ownership gap that requires historical retrieval.
+No current evidence demonstrates another concrete Foundation ownership gap requiring historical retrieval.
 
 **Transfer – do not re-derive.**
 
@@ -127,33 +116,68 @@ Remaining empty architecture topics must not be populated merely to eliminate em
 
 ---
 
-## Documentation Audit Findings
+## Product Documentation Ownership Model
 
-The current `docs/product/` directory is an empty placeholder set. Verified empty files include:
+**Status: Bounded ownership model derived; product files not yet populated**
 
-- `docs/product/README.md`;
-- `docs/product/PRODUCT_VISION.md`;
-- `docs/product/LEARNING_MODEL.md`;
+The current `docs/product/` directory is an empty placeholder set. Empty files alone do not establish separate authority needs.
+
+The minimal product-document model is:
+
+### `docs/product/README.md`
+
+Owns product-domain navigation, authority boundaries, placement rules, and routing between product documents.
+
+It must not duplicate detailed product content.
+
+### `docs/product/PRODUCT_VISION.md`
+
+Intended owner of detailed permanent product vision that is more specific than the stable high-level identity already owned by `PROJECT_OVERVIEW.md`.
+
+`docs/product/vision.md` is currently a duplicate/overlap candidate and must not be independently populated unless a distinct responsibility is later demonstrated.
+
+### `docs/product/LEARNING_MODEL.md`
+
+Intended owner of the permanent learning model: how TheraLearn is expected to support learning, including learning mechanisms and their relationships when those facts are verified.
+
+`docs/product/learning-philosophy.md` is currently an overlap candidate and must not be independently populated unless a separate responsibility is demonstrated.
+
+### `docs/product/mvp.md`
+
+Intended owner of durable MVP scope and product acceptance boundary once verified.
+
+Current workflow state, current implementation task, and Next Allowed Action remain owned by `PROJECT_CONTROL.md` and must not be copied here.
+
+### Deferred / not yet justified as separate authorities
+
+The following placeholders do not currently have enough evidence to justify independent authority documents:
+
 - `docs/product/feature-catalog.md`;
-- `docs/product/learning-philosophy.md`;
-- `docs/product/mvp.md`;
 - `docs/product/release-plan.md`;
 - `docs/product/roadmap.md`;
 - `docs/product/target-users.md`;
-- `docs/product/vision.md`.
+- `docs/product/vision.md`;
+- `docs/product/learning-philosophy.md`.
 
-This does not authorize population of all placeholders. Their intended ownership boundaries, necessity, and possible overlap must be determined first.
+Their concepts may later be placed in one of the three substantive product owners above or promoted to separate documents only if a distinct durable responsibility is demonstrated.
 
-Other unresolved findings include:
+This classification is a placement decision, not a deletion authorization.
 
+---
+
+## Documentation Audit Findings
+
+Current unresolved documentation/repository findings include:
+
+- the product-domain authority files remain empty pending bounded transfer;
 - empty `docs/meetings/decisions-log.md`;
 - empty development placeholders including `docs/development/project-structure.md` and `docs/development/git-workflow.md`;
 - anomalous root artifact `-name package-lock.json`, verified to contain pager/`less` help text rather than package-lock data;
 - empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
 
-Development documentation is not wholly empty: substantive Developer Toolkit architecture documents plus the synchronized roadmap/backlog already exist. This lowers its immediate authority risk relative to the product domain.
+Development documentation is not wholly empty: substantive Developer Toolkit architecture documents plus synchronized roadmap/backlog already exist.
 
-The anomalous root artifact is classified but not currently a product/architecture authority blocker. No deletion is authorized.
+No empty or anomalous artifact is authorized for deletion, population, or implementation merely because it exists.
 
 ---
 
@@ -161,24 +185,23 @@ The anomalous root artifact is classified but not currently a product/architectu
 
 ### Completed
 
-- Historical context reconstructed to the level required for continuation.
 - Root control kernel established.
-- `docs/README.md` repaired and verified.
 - Core architecture documentation repaired and verified.
-- Foundation domain placement and entry point established.
-- Foundation model and responsibility model established and verified.
-- Required Foundation certification conclusion/scope transferred and verified.
-- Development Documentation Tool roadmap and Improvement Backlog synchronized and verified.
+- Foundation authority consolidated and verified.
+- Developer Toolkit roadmap and Improvement Backlog synchronized.
 - Root `README.md` repaired, re-read, and branch-ref verified.
-- Post-README bounded reprioritization completed without candidate mutation.
-- Product documentation selected as the next highest-risk authority domain.
-- `docs/product/README.md` selected as the exact next bounded target for authority/placement assessment.
-- Anomalous `-name package-lock.json` classified as non-package-lock pager/help output; valid `package-lock.json` separately verified to exist.
+- Post-README reprioritization completed.
+- Product documentation selected as highest-priority remaining authority domain.
+- Bounded product authority/placement assessment completed.
+- Minimal product-document ownership model derived.
 
 ### Not yet completed
 
-- Product authority/placement assessment.
-- Product documentation repair based on that assessment.
+- Establish `docs/product/README.md` as the product-domain authority/navigation entry point.
+- Transfer verified product vision into its authoritative owner.
+- Transfer verified learning-model knowledge into its authoritative owner.
+- Establish verified MVP scope authority.
+- Decide later whether deferred product placeholders should be retained or removed.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Retention/deletion decision for `-name package-lock.json`.
 - Decisions-log placement/need assessment.
@@ -189,13 +212,13 @@ The anomalous root artifact is classified but not currently a product/architectu
 
 ## Current Risks
 
-### R1 – Domain documentation drift
+### R1 – Product domain authority gap
 
-**Status: ACTIVE — product domain now highest priority.**
+**Status: ACTIVE — highest current documentation risk.**
 
-Stable high-level product direction exists in `PROJECT_OVERVIEW.md`, but the intended product-domain authority layer is currently empty. Resuming ordinary MVP development before product ownership is clarified would risk deriving product decisions from implementation or chat rather than authoritative product documentation.
+The ownership model is now defined, but product-domain authority files remain empty. Ordinary MVP development before product authority is established could allow implementation or chat to become de facto product authority.
 
-**Mitigation:** establish product authority/placement boundaries before product-document population or ordinary MVP development.
+**Mitigation:** establish the product-domain entry point first, then transfer product knowledge one bounded owner at a time.
 
 ### R2 – Responsibility-model transfer fidelity
 
@@ -235,33 +258,32 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Perform a bounded product authority/placement assessment centered on `docs/product/README.md`.
+Establish `docs/product/README.md` as the product-domain authority and navigation entry point using the derived minimal ownership model.
 
-The purpose is to determine the minimal authoritative structure required for permanent product knowledge before any product placeholder is populated.
-
-The assessment must distinguish at minimum:
-
-- stable high-level product identity already owned by `PROJECT_OVERVIEW.md`;
-- detailed product vision;
-- learning-model knowledge;
-- MVP scope/state;
-- target-user knowledge;
-- feature catalog/roadmap/release-plan concepts;
-- product-domain navigation/ownership role of `docs/product/README.md`.
-
-It must explicitly test for overlap among `PRODUCT_VISION.md`, `vision.md`, `LEARNING_MODEL.md`, `learning-philosophy.md`, and other placeholders rather than assuming each file should survive.
+This is a bounded documentation transfer. It must define placement and routing only; it must not invent detailed product vision, learning-model content, MVP scope, target-user detail, roadmap, feature catalog, or release plan.
 
 ---
 
 ## Next Allowed Action
 
-Inspect current repository authority and implementation evidence relevant to product information placement, centered on `docs/product/README.md`, and derive the minimal product-document ownership model.
+Perform a bounded write of only `docs/product/README.md`.
 
-Do not populate or delete any product placeholder during this assessment.
+The document must:
 
-Do not reconstruct product history by default. If current repository authority and implementation evidence cannot establish a required permanent product fact, record the exact bounded evidence gap before authorizing any historical recovery.
+- define the product-domain purpose and authority boundary;
+- route stable high-level identity to `PROJECT_OVERVIEW.md`;
+- route detailed product vision to `PRODUCT_VISION.md`;
+- route learning-model knowledge to `LEARNING_MODEL.md`;
+- route durable MVP scope to `mvp.md`;
+- route current workflow/state to `PROJECT_CONTROL.md`;
+- classify the remaining product placeholders as unassigned/deferred overlap candidates rather than active authorities;
+- state that empty placeholders must not be populated merely because they exist.
 
-After the assessment, synchronize `PROJECT_CONTROL.md` with the resulting ownership decision and select exactly one subsequent bounded product action.
+Do not modify any other product file in the same bounded action.
+
+After the write, re-read `docs/product/README.md`, verify authority consistency, then synchronize `PROJECT_CONTROL.md` and select exactly one subsequent bounded product transfer.
+
+No historical retrieval is authorized unless a new concrete bounded evidence gap is identified and recorded first.
 
 ---
 
