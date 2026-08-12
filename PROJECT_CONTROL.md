@@ -20,13 +20,11 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 ## Current Phase
 
-**Learning Science Evidence Review — Authority Transfer Complete; MVP Boundary Alignment in Progress**
+**MVP Learning Loop Implementation — Task Selection Complete**
 
-The bounded external learning-science synthesis, all five individual principle certifications, the final minimum-set coherence test, and the permanent Learning Model authority transfer are complete.
+The Learning Science Evidence Review is complete. The five certified principles are permanent authority in `docs/product/LEARNING_MODEL.md`, and the existing MVP boundary has been explicitly retained.
 
-The certified science-derived learning principles now live in `docs/product/LEARNING_MODEL.md` as permanent product authority.
-
-Product implementation remains paused until the MVP boundary is explicitly aligned with the certified Learning Model and the next implementation task is reselected from the verified implementation gap.
+A bounded read-only implementation-gap reselection has now been completed against the authoritative Learning Model and MVP acceptance boundary.
 
 ---
 
@@ -51,20 +49,11 @@ Documentation structure: PASS
 Overall verification: PASS
 ```
 
-Recent verified product/control checkpoints include:
+Recent verified control/product checkpoints include:
 
-- Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
-- Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
-- MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`;
-- Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`;
-- initial learning-science evidence synthesis recorded: `3376c32820c0e023cc0a876df74a250afa90791a`;
-- bounded Active Retrieval certification: `2d9e817b95dfa911eacb886f94e4131ae8af8222`;
-- bounded Distributed Relearning certification: `5948d31137414b8b697e9b7e674fb4e76f012325`;
-- bounded Informative Correction certification: `8b81b73ee1f10dd7b8e07ac3b0264ba33b764e43`;
-- bounded Adaptive Guidance certification: `b31c28559bf489f2b6c9400d727a27cce3f0dc2e`;
-- bounded Objective-Aligned Demonstration certification: `d62d4c950150ab0dbb569d5f0b7dc90d16387550`;
 - final minimum learning-principle set certified: `3ed50ed6a7bd236f18958193cd2b4fd103776565`;
-- certified learning principles transferred into permanent Learning Model authority: `8a79c7a819bb9c96c513086053415d7b0a1f8f40`.
+- certified learning principles transferred: `8a79c7a819bb9c96c513086053415d7b0a1f8f40`;
+- MVP boundary aligned with certified Learning Model: `d352c0fa4e48556a2dc65f5d00a10f0f77bed900`.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after the documentation-only repair sequence.
 
@@ -72,105 +61,153 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 ## Product Authority Status
 
-**Status: SCIENCE-DERIVED LEARNING PRINCIPLES TRANSFERRED TO PERMANENT PRODUCT AUTHORITY**
+**Status: ESTABLISHED FOR CURRENT MVP IMPLEMENTATION**
 
-Established authorities:
+Permanent authorities:
 
-- `docs/product/README.md`;
-- `docs/product/PRODUCT_VISION.md`;
-- `docs/product/LEARNING_MODEL.md`;
-- `docs/product/mvp.md`.
+- `docs/product/PRODUCT_VISION.md` — product intent;
+- `docs/product/LEARNING_MODEL.md` — structural learning model and certified learning principles;
+- `docs/product/mvp.md` — initial MVP acceptance boundary.
 
-`docs/product/LEARNING_MODEL.md` now owns both the structural learning hierarchy and the final certified learning-principle set:
+The certified Learning Model principles are:
 
-1. Active Retrieval Principle;
-2. Distributed Practice Principle;
-3. Informative Correction Principle;
-4. Adaptive Guidance Principle;
-5. Objective-Aligned Demonstration Principle.
-
-Mechanisms such as flashcards, quizzes, self-explanation, interleaving, worked examples, successive relearning, and specific spaced-repetition schedules remain mechanisms rather than principles.
+1. Active Retrieval;
+2. Distributed Practice;
+3. Informative Correction;
+4. Adaptive Guidance;
+5. Objective-Aligned Demonstration.
 
 ---
 
-## MVP Boundary Alignment Result
+## MVP Boundary Status
 
-**Status: INITIAL SCIENCE-ALIGNMENT TEST COMPLETE — NO MVP SCOPE EXPANSION REQUIRED AT THIS CHECKPOINT**
+**Status: RETAINED — NO SCIENCE-DRIVEN SCOPE EXPANSION REQUIRED**
 
-The existing MVP defines one coherent core learning loop within structured curriculum context. It does not claim to prove durable retention across an extended retention horizon, generalized mastery, or far transfer.
+The MVP remains one coherent authenticated learning loop within structured curriculum context. It does not require a spaced-repetition algorithm, adaptive-learning system, universal mastery threshold, or longitudinal proof of durable retention.
 
-Therefore the certified principles constrain MVP quality where applicable but do not automatically add new named capabilities.
-
-### Principle-by-principle MVP effect
-
-- **Active Retrieval:** existing flashcard and quiz capabilities can satisfy this principle only if their design actually requires active recall where durable retention is intended. No new named capability is required.
-- **Informative Correction:** existing learning activities should provide sufficient correction when learner attempts reveal learning-relevant errors or gaps. This is a quality constraint on existing activities, not a new feature class.
-- **Adaptive Guidance:** lesson/activity design should avoid both under-guidance and unnecessary persistent support where task complexity and learner knowledge make this relevant. The MVP does not require adaptive-learning software or an AI tutor.
-- **Objective-Aligned Demonstration:** basic results/progress must not be interpreted as generalized mastery beyond the performance actually observed. The MVP does not require a comprehensive mastery or competence system.
-- **Distributed Practice:** the permanent Learning Model requires repeated learning opportunities to be distributed across time when durable retention itself requires repetition. However, the current MVP acceptance boundary does not require demonstrating durable retention across time. Therefore spaced repetition, a scheduler, or prescribed intervals do not become MVP requirements by implication.
-
-### Distributed Practice decision
-
-**Decision: RETAIN CURRENT MVP BOUNDARY.**
-
-The current MVP statement that it does not require spaced repetition or prescribed repetition intervals remains compatible with the Learning Model because:
-
-1. Distributed Practice is a conditional requirement triggered when durable retention requires repeated opportunities;
-2. the MVP currently validates one coherent learning loop, not longitudinal durable-retention performance;
-3. the principle does not prescribe spaced-repetition software, one algorithm, or one interval schedule;
-4. a later post-MVP or explicit MVP scope decision may introduce repeated cross-session learning when longitudinal durability becomes part of the acceptance target.
-
-No edit to `docs/product/mvp.md` is required solely because the science-derived principles were transferred.
+The certified principles constrain implementation quality without silently adding advanced capabilities.
 
 ---
 
-## Implementation Gap Baseline
+## Bounded Implementation-Gap Reselection
 
-The verified implementation gap remains:
+### Verified implementation evidence
 
-- authentication/user identity — **Partial**;
-- curriculum/pensum — **Partial**;
-- lesson/content — **Partial / substantial**;
-- flashcards — **Missing at product-flow level**;
-- quiz — **Partial / substantial**;
-- results/progress — **Partial, currently local-browser based rather than authenticated learner/lesson authority**;
-- complete end-to-end learning loop — **Missing / not integrated**.
+#### Curriculum / lesson context
 
-The Learning Science Evidence Review did not erase this baseline. It changes the quality constraints under which missing or partial capabilities must be completed.
+The current `app/pensum/[slug]/page.tsx` is a substantial hardcoded content surface with learning objectives, but it does not use the established repository/data authority for courses, chapters, or lessons and does not connect the lesson context to required learning activities.
+
+Classification: **Partial / disconnected**.
+
+#### Flashcards
+
+A typed Supabase repository already exists at `lib/repositories/flashcards.ts`, including `getFlashcardsByLessonId`. The repository therefore has a data-access foundation for lesson-linked flashcards.
+
+No flashcard product route/flow exists in the current `app/` tree, and no current lesson surface exposes a learner flashcard interaction.
+
+Classification: **Missing at product-flow level, with repository foundation present**.
+
+#### Quiz
+
+The current quiz flow is substantial and interactive. `app/quiz/[slug]/page.tsx` supports answer selection, checking, score calculation, explanatory feedback, restart, and completion state.
+
+It currently imports hardcoded `data/quiz.ts` rather than the Supabase `quiz_questions` authority. The `lib/repositories/quizQuestions.ts` repository file exists but is empty. Quiz routing is slug-based and not yet integrated with authoritative lesson/user data.
+
+The current quiz interaction already provides explanatory feedback after answers, which is compatible with Informative Correction at the interaction level, but this does not solve lesson/user integration or persistence.
+
+Classification: **Partial / substantial but disconnected from lesson/user authority**.
+
+#### Learner progress
+
+`app/hooks/useQuizProgress.ts` delegates progress to `lib/progress.ts`, which stores quiz results in browser storage under `quiz-progress` and keys them by slug.
+
+This is not authenticated learner authority and is not authoritative lesson-level progress. It cannot satisfy the MVP's authenticated user-related progress requirement as the permanent implementation.
+
+Classification: **Partial / non-authoritative**.
+
+#### End-to-end loop
+
+The current application has separate pensum, quiz, result/progress, authentication, and repository foundations, but no verified path currently composes them into:
+
+```text
+Authenticated learner
+        ↓
+Authoritative lesson context
+        ↓
+Required learning activity
+        ↓
+Learner-related result/progress
+```
+
+Classification: **Missing / not integrated**.
+
+---
+
+## Task Selection Decision
+
+**Selected next implementation responsibility: establish the authoritative lesson learning-context seam before adding or migrating activity flows.**
+
+The smallest dependency-correct task is to make a lesson-level product context resolve through the established repository layer and become the stable integration point for lesson-linked learning activities.
+
+### Why this precedes flashcard UI
+
+Flashcards are the only required MVP activity currently missing at product-flow level, but implementing a standalone flashcard route first would reproduce the current architectural problem: another disconnected learning utility. The Learning Model explicitly requires activities to live in shared curriculum/lesson context.
+
+The flashcard repository already supports lesson IDs. The missing prerequisite is a product-level lesson context that can supply the authoritative lesson identity to that repository.
+
+### Why this precedes quiz migration
+
+The quiz flow already has substantial learner interaction and informative correction. Migrating its data source before establishing the lesson integration seam would still leave quiz as a separate slug-based utility rather than part of the coherent lesson loop.
+
+### Why this precedes progress persistence
+
+Authenticated progress must attach to an authoritative learning context. Persisting the current slug-based quiz progress first would risk cementing the wrong identity model. Lesson context must be authoritative before learner progress can be correctly keyed and interpreted.
+
+### Why this is smaller than end-to-end integration
+
+Full loop integration spans several responsibilities and would violate the project's one-bounded-change workflow. Establishing the lesson seam is the smallest prerequisite shared by flashcards, quiz integration, and learner progress.
+
+---
+
+## Selected Implementation Task
+
+**Authoritative Lesson Context Integration — first bounded implementation slice**
+
+The first implementation slice must establish a repository-backed lesson context without yet implementing flashcards, migrating quiz data, or persisting progress.
+
+Required outcome:
+
+1. a lesson product surface resolves an authoritative lesson through the existing repository layer;
+2. the surface preserves curriculum context rather than becoming a standalone utility;
+3. the lesson identity is available as the future integration key for flashcards, quiz questions, and learner progress;
+4. existing hardcoded content is not silently treated as authoritative database content;
+5. no advanced learning mechanism is introduced.
+
+Before code is changed, inspect the exact current lesson repository API, course/chapter relationships, current pensum routing, Supabase server-client boundary, and available database fields to derive the smallest file-level implementation plan.
 
 ---
 
 ## Current Risks
 
-### R1 – Product domain authority gap
-
-**Status: CLOSED for the current MVP and Learning Model.**
-
-### R2 – Learning-science authority gap
-
-**Status: CLOSED for the certified minimum principle set.**
-
-The five science-derived principles are now permanent Learning Model authority.
-
-### R3 – MVP implementation integration gap
+### R1 – Learning-principle implementation drift
 
 **Status: ACTIVE.**
 
-The application still lacks one integrated authenticated learning loop across curriculum, lesson context, required learning activities, and learner-related results/progress.
+Feature presence must not be treated as proof that a Learning Model principle is satisfied.
 
-### R4 – Learning-principle implementation drift
+### R2 – Parallel identity models
+
+**Status: ACTIVE / immediate.**
+
+The application currently mixes hardcoded slugs/content with database IDs and repository-backed entities. Adding new flows before establishing the authoritative lesson seam could deepen this split.
+
+### R3 – Progress authority mismatch
 
 **Status: ACTIVE.**
 
-Future implementation could superficially include flashcards, quizzes, feedback, or progress while failing the underlying certified principles.
+Browser-local slug-based quiz progress must not become the basis for authenticated learner progress.
 
-**Mitigation:** implementation tasks must be derived from both MVP acceptance criteria and `LEARNING_MODEL.md`; feature presence alone is not sufficient verification.
-
-### R5 – Anomalous repository artifact
-
-**Status: OPEN but not currently blocking.**
-
-### R6 – Branch divergence
+### R4 – Branch divergence
 
 **Status: OPEN.**
 
@@ -180,62 +217,47 @@ No integration with `main` until a later verified decision.
 
 ## Code Change Gate
 
-**Product implementation: PAUSED pending implementation-task reselection.**
+**Product implementation: NOT YET OPEN — implementation planning authorized.**
 
-The science review no longer blocks implementation in principle, but no product code change is authorized until the next implementation task is reselected against the now-authoritative Learning Model and existing MVP gap.
+The next responsibility has been selected, but code changes remain blocked until the exact repository APIs, routing seam, server/client boundary, and file-level change set have been inspected and recorded.
 
-Documentation/read-only repository inspection required for task reselection is authorized.
+Read-only repository inspection and `PROJECT_CONTROL.md` synchronization are authorized.
 
 ---
 
 ## Current Task
 
-Re-evaluate the verified MVP implementation gap against the now-authoritative Learning Model and select the smallest next implementation task that advances the integrated MVP learning loop without violating the certified principles.
+Derive the bounded implementation plan for **Authoritative Lesson Context Integration**.
 
-Task selection must consider both:
+Inspect only what is necessary to answer:
 
-- product necessity for the end-to-end MVP acceptance boundary;
-- learning-quality constraints derived from the certified principles.
-
-Do not choose work merely because a route, component, or database table already exists.
+- which current route should own the authoritative lesson context;
+- how a lesson is resolved from the current URL/routing model;
+- which repository functions and Supabase client are appropriate on that route;
+- what course/chapter context is required to preserve curriculum hierarchy;
+- which exact files must change in the first slice;
+- how the slice will be verified without pulling flashcards, quiz migration, or progress persistence into scope.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded read-only implementation-gap reselection focused on the integrated learning loop:
+Read the current implementations of:
 
-```text
-Authenticated learner
-        ↓
-Structured curriculum
-        ↓
-Lesson context
-        ↓
-Learning activity
-        ↓
-Learning-relevant result/progress
-```
+- `lib/repositories/lessons.ts`;
+- relevant course/chapter repository functions;
+- the Supabase server client boundary;
+- `app/pensum/page.tsx` and `app/pensum/[slug]/page.tsx`;
+- any existing route or component that already consumes repository-backed course/chapter/lesson data.
 
-Determine which missing or partial responsibility is the smallest dependency-correct next implementation task.
+Then define the smallest exact file-level implementation plan and synchronize `PROJECT_CONTROL.md` with the plan and explicit code-change permission.
 
-Specifically compare at minimum:
+Do not implement flashcards, migrate quiz data, or change progress persistence during this planning step.
 
-- flashcard product flow;
-- quiz integration with lesson/user authority;
-- learner-progress persistence/authority;
-- end-to-end lesson learning-loop integration.
-
-Use the certified Learning Model as a constraint, not as a reason to introduce advanced learning systems beyond the current MVP.
-
-After selecting the task, synchronize `PROJECT_CONTROL.md` again and explicitly set the code-change gate before implementation begins.
-
-No historical chat recovery is authorized for this task.
+No historical chat recovery is authorized.
 
 ---
 
 ## Update Rule
 
-`PROJECT_CONTROL.md` must be updated whenever a verified change materially alters current phase, current task, Next Allowed Action, implementation baseline, verification state, known risks, documentation-repair progress, or code-change permission.
-
-Historical detail should not accumulate here unless required to understand current state.
+`PROJECT_CONTROL.md` must be updated whenever a verified change materially alters current phase, current task, Next Allowed Action, implementation baseline, verification state, known risks, or code-change permission.
