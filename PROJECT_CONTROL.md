@@ -34,13 +34,11 @@ Domain-specific knowledge belongs under `docs/`.
 
 **Domain Documentation Repair and Synchronization**
 
-The historical reconstruction and the authoritative project-control kernel are established.
+The historical reconstruction and authoritative project-control kernel are established.
 
-The architecture-domain repair/audit has reached a verified checkpoint. Foundation/method documentation placement has now also been determined.
+The architecture domain has reached a verified repair checkpoint, and the Foundation documentation domain and its entry point are now established.
 
-The current task is to establish the Foundation documentation entry point before transferring any detailed certified methodology.
-
-This is not a new methodology-design phase. Existing certified material is being given an authoritative permanent home without redefining it.
+The current task is to determine the first detailed Foundation content transfer without re-deriving or duplicating certified methodology.
 
 ---
 
@@ -50,7 +48,7 @@ This is not a new methodology-design phase. Existing certified material is being
 migration-next16-to-root
 ```
 
-This branch contains the current reconstructed and verified development state plus the authoritative control and repaired architecture documents.
+This branch contains the current reconstructed and verified development state plus the authoritative control, Foundation entry point, and repaired architecture documents.
 
 `main` has not yet been updated with this development history.
 
@@ -119,7 +117,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-The repaired core architecture/control documents have been re-read from the target GitHub branch after commit.
+The repaired core architecture/control documents and `docs/foundation/README.md` have been re-read from the target GitHub branch after commit.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -155,7 +153,7 @@ The review recovered the permanent methodological principles needed to continue 
 
 Known gaps in the reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
 
-These gaps are currently archival/revision gaps rather than blockers. Historical material should only be reloaded again if a specific unresolved Foundation claim requires it.
+These gaps are currently archival/revision gaps rather than blockers. Historical material should only be reloaded when a specific unresolved Foundation claim requires it.
 
 ---
 
@@ -173,86 +171,20 @@ The control kernel remains above domain documentation and does not become the de
 
 ---
 
-## Foundation Documentation Placement
+## Foundation Documentation Status
 
-**Status: Placement determined; content transfer not yet started**
+**Status: Domain and entry point established; detailed transfer not yet started**
 
-The documentation tree was inspected for an existing permanent home for detailed certified Foundation/method material.
+`docs/foundation/README.md` now establishes:
 
-### `docs/decisions/`
+- the Foundation domain as the permanent home for detailed certified methodology;
+- its authority position below the root control kernel and above downstream domain interpretation;
+- separation from decisions, references, architecture, product, and development documentation;
+- the rule that certified methodology is transferred, not re-derived;
+- historical material as targeted evidence rather than default authority;
+- a conceptual future ownership map without prematurely creating child files.
 
-Not selected as the Foundation home.
-
-The directory currently contains an empty README and empty ADR template. Its intended role is durable decision records and traceability for discrete decisions, not ownership of the complete certified methodological foundation.
-
-### `docs/references/`
-
-Not selected as the Foundation home.
-
-Its existing structure is for supporting reference material such as dependencies, external resources, glossary, and terminology. Reference material may support the methodology but must not become the normative authority for it.
-
-### `docs/development/`
-
-Not selected as the Foundation home.
-
-This domain owns engineering workflow, Developer Toolkit architecture, implementation conventions, roadmaps, and related development documentation. Development and Tooling implement/support the established methodology; they must not become the authority that defines it.
-
-### Existing other domains
-
-Architecture, product, design, guides, meetings, company, changelog, and templates each have narrower domain purposes and would create either duplication or an incorrect authority direction if they owned the complete Foundation/method model.
-
-### Placement decision
-
-A new dedicated domain is required:
-
-```text
-docs/foundation/
-```
-
-This domain will own detailed permanent certified methodology below the root control kernel and above implementation-specific domain interpretation.
-
-The intended authority relationship is:
-
-```text
-PROJECT_HANDBOOK.md
-PROJECT_OVERVIEW.md
-PROJECT_CONTROL.md
-        ↓
-docs/foundation/
-        ↓
-docs/architecture/
-docs/product/
-docs/development/
-other domain documentation
-        ↓
-implementation
-```
-
-This is an information-placement decision, not a new methodological principle.
-
----
-
-## Foundation Domain Boundary
-
-The future `docs/foundation/` domain may own detailed certified material such as:
-
-- Foundation definitions and invariants;
-- certified methodological dependency chain;
-- derived responsibility model;
-- certification status and scope where permanent;
-- detailed methodological boundaries required to interpret downstream architecture correctly.
-
-It must not own:
-
-- current project state — `PROJECT_CONTROL.md`;
-- project governance/workflow — `PROJECT_HANDBOOK.md`;
-- stable high-level project identity — `PROJECT_OVERVIEW.md`;
-- detailed implementation architecture — `docs/architecture/`;
-- product/learning-domain definitions — `docs/product/`;
-- Developer Toolkit implementation — `docs/development/`;
-- historical chat transcripts or raw reconstruction evidence.
-
-Historical evidence may support Foundation repair when needed, but evidence and permanent authority remain distinct.
+No detailed Foundation child document exists yet.
 
 ---
 
@@ -269,7 +201,7 @@ Repaired and verified:
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`.
 
-Remaining empty architecture topics have been classified against current evidence. They are not to be populated merely to eliminate empty files.
+Remaining empty architecture topics have been classified against current evidence and are not to be populated merely to eliminate empty files.
 
 ---
 
@@ -318,12 +250,13 @@ No such artifact should be deleted or implemented merely because it has been ide
 - Core architecture documentation repaired and verified.
 - Remaining architecture topics classified against current evidence.
 - Existing documentation domains inspected for Foundation/method authority.
-- `docs/foundation/` selected as the required permanent home for detailed certified methodology.
+- `docs/foundation/` selected as the permanent home for detailed certified methodology.
+- `docs/foundation/README.md` created and verified as the Foundation authority boundary and ownership entry point.
 
 ### Not yet completed
 
-- Establish the `docs/foundation/` entry point and minimal document structure.
-- Transfer and verify detailed certified Foundation/method content into its authoritative home.
+- Determine and transfer the first detailed Foundation document.
+- Transfer and verify the remaining detailed certified Foundation/method content into authoritative homes.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -341,11 +274,11 @@ Implementation and historical decisions are ahead of several non-architecture do
 
 **Mitigation:** continue documentation repair before resuming ordinary feature development.
 
-### R2 – Foundation duplication during transfer
+### R2 – Foundation duplication or reinterpretation during transfer
 
-Detailed certified methodology could be copied into multiple documents or reinterpreted during transfer.
+Detailed certified methodology could be copied into multiple documents, mixed with historical process narrative, or unintentionally re-derived.
 
-**Mitigation:** establish the Foundation entry point and document ownership map before transferring detailed content; move permanent information to one home and reference it elsewhere.
+**Mitigation:** transfer one ownership unit at a time, identify source evidence before writing, and verify semantic preservation after each transfer.
 
 ### R3 – Stale roadmap/backlog state
 
@@ -379,35 +312,33 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Establish the `docs/foundation/` domain entry point and define a minimal ownership structure before transferring detailed certified methodology.
+Determine the first detailed Foundation ownership unit and its exact evidence requirements before creating any Foundation child document.
 
-The structure must be derived from the already reconstructed methodological chain and authority boundaries, but must not duplicate detailed content yet.
+The first transfer should begin with the most upstream permanent Foundation model, not with downstream implementation responsibilities or certification history.
 
 ---
 
 ## Next Allowed Action
 
-Create and verify only:
+Inspect current authoritative root documents for the permanent Foundation v1.0 concepts already preserved there, especially:
 
-```text
-docs/foundation/README.md
-```
+- the core problem statement;
+- Single Source of Truth / one authoritative home;
+- information lifecycle and placement;
+- state-transition principles;
+- responsibility/authority separation at the high level;
+- Runtime/Tooling separation where it is a Foundation-level invariant rather than implementation detail;
+- the dependency relationship from Foundation toward derivation and implementation.
 
-Creating this file will establish the `docs/foundation/` directory in Git.
+Then determine the exact ownership boundary and proposed filename for the first Foundation child document.
 
-The Foundation README must:
+Do not create the child document during this inspection step.
 
-- define the purpose and authority boundary of the domain;
-- place the domain below the root control kernel and above downstream domain interpretation;
-- define how Foundation differs from decisions, references, architecture, product, and development documentation;
-- establish the rule that certified methodology is transferred, not re-derived;
-- define a minimal future ownership map based on the verified methodological chain without yet creating all child documents;
-- state that historical chats/reconstruction material are evidence sources only when a specific unresolved claim requires them;
-- avoid copying detailed Foundation content before its exact source and destination are verified.
+Do not reload historical chats unless a specific required permanent claim cannot be established from `PROJECT_HANDBOOK.md`, `PROJECT_OVERVIEW.md`, `PROJECT_CONTROL.md`, and `docs/foundation/README.md`.
 
-Do not create additional Foundation files in the same step.
+If current authority is sufficient, update `PROJECT_CONTROL.md` with the authorized first Foundation child document and its transfer scope before writing it.
 
-After `docs/foundation/README.md` is created and verified, update `PROJECT_CONTROL.md` before transferring any detailed methodological content.
+If current authority is insufficient, identify the exact missing claims before requesting targeted historical evidence.
 
 ---
 
