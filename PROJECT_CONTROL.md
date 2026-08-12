@@ -79,6 +79,14 @@ Verified implemented areas include courses, chapters, lessons, flashcards, share
 
 `lib/repositories/quizQuestions.ts` currently exists as an empty placeholder and must not be treated as a completed repository implementation.
 
+### Frontend Transitional State
+
+- Next.js App Router routing/presentation structure is established.
+- Global CSS and colocated CSS Modules are in use.
+- Reusable UI components exist, but `components/PensumCard.tsx` is an empty placeholder.
+- Browser-local quiz progress persists through `lib/progress.ts` and `lib/storage.ts` using `window.localStorage`.
+- Supabase/repository persistence exists separately and broad frontend repository adoption is not yet verified.
+
 ### Developer Toolkit
 
 The Developer Toolkit includes verified workflows for help, documentation check, project verification, project/Git status, file output, edit preparation, replace preparation, clipboard copy, and project search.
@@ -102,7 +110,17 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-`docs/README.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, `docs/architecture/database.md`, `docs/architecture/authentication.md`, and `docs/architecture/backend-architecture.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
+The following repaired architecture/control entry documents have been re-read from the target GitHub branch after commit:
+
+- `docs/README.md`;
+- `docs/architecture/README.md`;
+- `docs/architecture/system-overview.md`;
+- `docs/architecture/database.md`;
+- `docs/architecture/authentication.md`;
+- `docs/architecture/backend-architecture.md`;
+- `docs/architecture/frontend-architecture.md`.
+
+A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
 ---
 
@@ -177,13 +195,10 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/product/PRODUCT_VISION.md`;
 - `docs/product/LEARNING_MODEL.md`;
 - `docs/meetings/decisions-log.md`;
-- `docs/architecture/frontend-architecture.md`;
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
-The architecture directory still contains incomplete or empty topic documents. Their existence must not be interpreted as completed architecture documentation.
-
-`PROJECT_HANDBOOK.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, `docs/architecture/database.md`, `docs/architecture/authentication.md`, and `docs/architecture/backend-architecture.md` were empty at audit start but have now been repaired where applicable.
+The architecture domain still contains additional topic documents whose content/completeness has not yet been audited after the core architecture repair sequence.
 
 ### Damaged or stale documentation identified
 
@@ -193,11 +208,13 @@ The architecture directory still contains incomplete or empty topic documents. T
 
 `docs/README.md` was previously corrupted and contained repeated text, stale structure claims, and historical shell material. It has now been repaired and verified on the target branch.
 
-### Repository anomaly identified
+### Repository anomalies/placeholders identified
 
-A root-level file named `-name package-lock.json` exists alongside the normal `package-lock.json`.
+- A root-level file named `-name package-lock.json` exists alongside the normal `package-lock.json`; its origin and relevance remain unverified.
+- `lib/repositories/quizQuestions.ts` is an empty placeholder.
+- `components/PensumCard.tsx` is an empty placeholder while its CSS Module exists.
 
-Its origin and relevance have not yet been verified. It must not be deleted until verified.
+No such artifact should be deleted or implemented merely because it has been identified during documentation repair.
 
 ---
 
@@ -223,11 +240,12 @@ Its origin and relevance have not yet been verified. It must not be deleted unti
 - `docs/architecture/database.md` established from the complete MVP migration, generated database contract, and persistence boundary evidence and verified after commit.
 - `docs/architecture/authentication.md` established from inspected signup, login, confirmation, client/server, proxy, profile, and RLS evidence and verified after commit.
 - `docs/architecture/backend-architecture.md` established from the implemented repository layer and verified after commit.
+- `docs/architecture/frontend-architecture.md` established from inspected App Router, component, styling, local-storage, and runtime-boundary evidence and verified after commit.
 
 ### Not yet completed
 
+- Audit remaining architecture topic documents and classify them as verified content, empty placeholders, stale content, or not-yet-supported topics.
 - Establish authoritative Foundation/method documentation placement below the control layer.
-- Populate or validate remaining architecture topic documents based on verified architecture and implementation evidence.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Verify the root README role and replace the default template when appropriate.
@@ -268,11 +286,11 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 **Mitigation:** do not merge or rewrite `main` until documentation consolidation reaches a verified checkpoint and integration strategy is reviewed.
 
-### R6 – Incomplete architecture topic documentation
+### R6 – Remaining architecture documentation uncertainty
 
-System, database, authentication, and backend architecture are now documented, while frontend and other narrower topic files still require validation or repair.
+The core architecture documents are now repaired, but additional topic files such as API, integrations, security, deployment, and scalability have not yet been classified against current implementation evidence.
 
-**Mitigation:** continue one topic at a time from direct repository evidence and preserve cross-document authority boundaries.
+**Mitigation:** audit the remaining architecture directory before deciding whether each topic should be populated, retained as an explicit placeholder, or treated as unsupported by the current system.
 
 ---
 
@@ -288,30 +306,42 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Establish the frontend architecture from the current Next.js App Router implementation without treating existing placeholder/static UI as completed product architecture.
+Complete the architecture-domain documentation audit before leaving the architecture repair phase.
 
-The next target is `docs/architecture/frontend-architecture.md`, currently a zero-byte placeholder.
+The core architecture chain is now documented:
 
-This target follows backend architecture so the frontend document can clearly separate presentation/routing concerns from persistence, repository, and authentication authority already documented elsewhere.
+```text
+System Overview
+    ↓
+Database
+    ↓
+Authentication
+    ↓
+Backend / Data Access
+    ↓
+Frontend
+```
+
+Remaining architecture topic files must now be inspected and classified rather than automatically populated from their filenames.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the current `app/` and `components/` structure plus representative shared layout, route, component, styling, static-data, progress/storage, and client/server boundaries; then repair and verify `docs/architecture/frontend-architecture.md`.
+Inspect the remaining files in `docs/architecture/` — especially `api.md`, `integrations.md`, `security.md`, `deployment.md`, and `scalability.md` — and compare each topic with current repository/configuration evidence.
 
-The frontend architecture document must:
+For each remaining topic, classify it as one of:
 
-- describe the verified Next.js App Router structure and presentation/component organization;
-- distinguish Server Components, Client Components, route handlers, and server actions only where verified by implementation;
-- identify CSS Modules/global styling placement where verified;
-- document static/local data and browser-storage usage where it materially affects the current frontend boundary;
-- distinguish UI availability from persistence/repository adoption;
-- route authentication implementation details to `authentication.md` and repository/database details to their authoritative documents;
-- avoid claiming a formal design system, state-management framework, protected-route model, or completed data-fetching architecture unless verified;
-- avoid turning current route/file placement into methodological responsibilities.
+1. **verified content exists and needs repair/synchronization**;
+2. **empty placeholder with enough current evidence to document**;
+3. **empty placeholder without enough current evidence to document responsibly**;
+4. **topic not currently represented by a distinct implemented architecture boundary**.
 
-After `frontend-architecture.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next documentation target.
+Do not populate a document merely because the filename exists.
+
+Do not implement missing architecture or MVP functionality to make a document easier to fill.
+
+After classification, update `PROJECT_CONTROL.md` with the architecture-domain completion status and the next documentation target.
 
 ---
 
