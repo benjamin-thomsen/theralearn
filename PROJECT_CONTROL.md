@@ -12,13 +12,13 @@
 
 ## Current Phase
 
-**MVP Learning Loop Implementation — Quiz Authority Integration**
+**MVP Learning Loop Implementation — Authoritative Quiz Activity Integration**
 
 The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged.
 
-The Authoritative Lesson Context, Authoritative Curriculum Entry, and first Authoritative Flashcard Integration slices are verified and closed.
+The Authoritative Lesson Context, Authoritative Curriculum Entry, Authoritative Flashcard Integration, and Quiz Repository first slices are now verified and closed.
 
-Repository inspection has now derived the first bounded Quiz Authority slice: establish the missing typed repository contract for authoritative quiz questions before changing any quiz UI.
+The next dependency-correct responsibility is to derive the smallest quiz activity UI that uses authoritative lesson-scoped quiz questions without reusing legacy topic-slug identity.
 
 ---
 
@@ -28,14 +28,14 @@ Repository inspection has now derived the first bounded Quiz Authority slice: es
 migration-next16-to-root
 ```
 
-Verified flashcard implementation commit:
+Verified quiz repository implementation commit:
 
 ```text
-731c9d4c9b87322848b9845c952e7f8dde904ac8
-Integrate authoritative lesson flashcards
+25bafe7513f1796790f3c7cb357495fd55822eb3
+Add authoritative quiz question repository
 ```
 
-GitHub Actions workflow `Verify`, run 79, completed successfully for that exact commit.
+GitHub Actions workflow `Verify`, run 82, completed successfully for that exact commit.
 
 ---
 
@@ -61,99 +61,26 @@ Learning activities
 Learner-related result/progress
 ```
 
-Quiz questions are a learning-activity mechanism attached to lessons. Repository access must preserve that ownership before UI integration is attempted.
+Flashcards are already integrated as the first authoritative lesson-scoped activity. Quiz data access is now authoritative at the repository layer and is ready for bounded UI derivation.
 
 ---
 
-## Closed Slice — Authoritative Flashcard Integration
+## Closed Slice — Quiz Repository First Slice
+
+Implemented file:
+
+```text
+lib/repositories/quizQuestions.ts
+```
 
 Implementation commit:
 
 ```text
-731c9d4c9b87322848b9845c952e7f8dde904ac8
-Integrate authoritative lesson flashcards
+25bafe7513f1796790f3c7cb357495fd55822eb3
+Add authoritative quiz question repository
 ```
 
-GitHub Actions workflow `Verify`, run 79, completed with `success`.
-
-**Authoritative Flashcard Integration first slice: VERIFIED AND CLOSED.**
-
----
-
-## Verified Quiz Repository Evidence
-
-### Database contract
-
-Generated database types establish `quiz_questions` rows with:
-
-- `id: string`;
-- `lesson_id: string`;
-- `question: string`;
-- `options: string[]`;
-- `correct_answer: number`;
-- `explanation: string | null`;
-- `is_published: boolean`;
-- `sort_order: number`;
-- timestamps.
-
-`lesson_id` has a generated foreign-key relationship to `lessons.id`.
-
-The database schema requires `lesson_id` and defines deterministic `sort_order` plus publication state.
-
-### Existing typed aliases
-
-`lib/repositories/types.ts` already exposes:
-
-```text
-QuizQuestion
-QuizQuestionInsert
-QuizQuestionUpdate
-Lesson
-RepositoryClient
-```
-
-No generated-type change is required.
-
-### Established sibling repository pattern
-
-`lib/repositories/flashcards.ts` establishes the nearest matching repository convention:
-
-- typed imports from `lib/repositories/types`;
-- `throwRepositoryError` for collection/create/update operations;
-- full-list query ordered first by `lesson_id`, then `sort_order`, then a stable content field;
-- lesson-scoped query constrained with `.eq("lesson_id", lessonId)`;
-- single-record lookup with `.maybeSingle()`;
-- typed create/update/delete functions.
-
-Quiz questions have the same lesson-owned CRUD shape and can follow this convention without introducing a new abstraction.
-
-### Current gap
-
-```text
-lib/repositories/quizQuestions.ts
-```
-
-is empty.
-
-Therefore the repository layer cannot yet expose authoritative lesson-scoped quiz questions even though the schema and generated types already support them.
-
----
-
-## Bounded Implementation Plan — Quiz Repository First Slice
-
-### Exact code change
-
-**Modify only:**
-
-```text
-lib/repositories/quizQuestions.ts
-```
-
-No UI, CSS, schema, generated type, progress, authentication, or legacy data file change is authorized in this slice.
-
-### Required repository contract
-
-Implement the quiz-question sibling of the established flashcard repository with exactly these responsibilities:
+The repository now provides:
 
 ```text
 getQuizQuestions(client)
@@ -164,143 +91,106 @@ updateQuizQuestion(client, id, updates)
 deleteQuizQuestion(client, id)
 ```
 
-Use existing types:
+The implementation:
 
-```text
-QuizQuestion
-QuizQuestionInsert
-QuizQuestionUpdate
-Lesson
-RepositoryClient
-```
+- uses generated `QuizQuestion`, `QuizQuestionInsert`, and `QuizQuestionUpdate` types;
+- uses `Lesson["id"]` for lesson-scoped lookup;
+- introduces no slug-based quiz identity;
+- follows the established flashcard repository error-handling convention;
+- orders full collections by `lesson_id`, `sort_order`, then `question`;
+- orders lesson-scoped collections by `sort_order`, then `question`;
+- changes no schema, generated types, UI, progress behavior, authentication behavior, or legacy quiz data.
 
-Use existing:
+GitHub Actions workflow `Verify`, run 82, completed with `success` for `25bafe7513f1796790f3c7cb357495fd55822eb3`.
 
-```text
-throwRepositoryError
-```
-
-for the same operation classes as the flashcard repository.
-
-### Ordering contract
-
-`getQuizQuestions` must order by:
-
-```text
-lesson_id ASC
-sort_order ASC
-question ASC
-```
-
-`getQuizQuestionsByLessonId` must constrain by authoritative `lesson_id` and order by:
-
-```text
-sort_order ASC
-question ASC
-```
-
-The repository must not add a second identity such as topic slug.
-
-### Publication boundary
-
-Do not add explicit `is_published` filtering inside the repository in this slice. Preserve the existing repository convention and database RLS responsibility. UI-level publication handling can be derived during the later lesson-integration slice.
-
-### Explicit non-goals
-
-Do not:
-
-- modify `app/quiz/[slug]/page.tsx`;
-- modify `data/quiz.ts`;
-- modify the authoritative lesson route;
-- create a new quiz route or component;
-- add scoring or progress persistence;
-- add authentication writes;
-- add mastery, adaptive testing, scheduling, or spaced repetition;
-- change schema or generated database types.
+**Quiz Repository first slice: VERIFIED AND CLOSED.**
 
 ---
 
-## Verification Contract
+## Current Verified Quiz State
 
-The repository slice is complete only when verification demonstrates:
+The authoritative data path now exists:
 
-1. only `lib/repositories/quizQuestions.ts` changed as product code;
-2. all six repository functions are present;
-3. lesson-scoped lookup accepts `Lesson["id"]`;
-4. no slug-based quiz identity is introduced;
-5. collection ordering is deterministic and follows the plan;
-6. CRUD operations use generated repository types;
-7. error handling follows the existing flashcard repository convention;
-8. TypeScript passes;
-9. Next.js build passes;
-10. documentation structure verification remains passing;
-11. GitHub Actions passes for the resulting branch head.
+```text
+authoritative lesson
+  ↓
+lesson.id
+  ↓
+getQuizQuestionsByLessonId(client, lesson.id)
+  ↓
+public.quiz_questions
+```
 
-No claim about remote quiz-question row availability is implied by code-level repository verification.
+The UI path does not yet exist.
+
+The existing `app/quiz/[slug]/page.tsx` remains a client-side legacy activity using hardcoded `data/quiz.ts` and topic-slug identity. It must not be treated as the authoritative integration target without explicit derivation.
 
 ---
 
 ## Current Risks
 
-### R1 – Quiz data authority gap
-
-**Status: ACTIVE but bounded.**
-
-This slice establishes repository authority. UI remains legacy until a later verified integration slice.
-
-### R2 – Legacy quiz identity
+### R1 – Quiz UI ownership
 
 **Status: ACTIVE.**
 
-The existing quiz route still resolves hardcoded questions by topic slug. It must not be treated as authoritative lesson-scoped quiz behavior.
+Authoritative quiz data access now exists, but the smallest correct UI ownership boundary has not yet been selected.
 
-### R3 – Remote quiz availability
+### R2 – Client/server responsibility boundary
+
+**Status: ACTIVE.**
+
+Quiz interaction requires learner selection/reveal behavior, while authoritative data access should remain server-owned. The integration must preserve this responsibility split rather than moving Supabase data authority into an unnecessary client fetch.
+
+### R3 – Legacy quiz identity
+
+**Status: ACTIVE.**
+
+The existing `/quiz/[slug]` route uses hardcoded topic slugs. It must not silently become a second authoritative identity model.
+
+### R4 – Remote quiz availability
 
 **Status: OPEN.**
 
 Published remote quiz-question rows have not yet been certified.
 
-### R4 – Learning-principle overclaim
+### R5 – Learning-principle overclaim
 
 **Status: ACTIVE.**
 
-Repository access is infrastructure for a learning mechanism; it implements no learning principle by itself.
+A multiple-choice quiz can support retrieval and informative correction depending on interaction design, but its existence alone does not certify objective-aligned demonstration, mastery, adaptation, or durable learning.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: OPEN ONLY for the bounded Quiz Repository first slice.**
+**Product implementation: CLOSED pending bounded authoritative quiz UI inspection and file-level plan.**
 
-Authorized code change:
+No product-code change is currently authorized.
 
-```text
-MODIFY lib/repositories/quizQuestions.ts
-```
-
-No other code file change is authorized unless verification proves this exact repository cannot compile without one; if so, stop and synchronize control before expanding scope.
+Repository inspection and control synchronization are allowed.
 
 ---
 
 ## Current Task
 
-Implement the authoritative typed quiz-question repository exactly as specified above.
+Derive the smallest dependency-correct UI slice that lets a learner answer authoritative quiz questions inside an authoritative lesson context while preserving server-owned data resolution and bounded client-owned interaction state.
 
 ---
 
 ## Next Allowed Action
 
-Modify only:
+Inspect:
 
-```text
-lib/repositories/quizQuestions.ts
-```
+- `app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx` as the authoritative lesson ownership point;
+- `app/quiz/[slug]/page.tsx` only as interaction-pattern evidence, not authority;
+- `app/quiz/[slug]/page.module.css` only if needed to understand whether any existing presentation can be reused without importing legacy identity;
+- `lib/repositories/quizQuestions.ts` as authoritative data access;
+- relevant existing component boundaries under `components/` to determine whether a client interaction component already owns quiz behavior;
+- whether a new narrowly scoped client component is required to preserve the Server Component lesson route while enabling answer selection and correction reveal.
 
-Implement the six typed repository functions using authoritative `lesson_id`, existing generated types, established ordering, and existing repository error-handling conventions.
+Then synchronize `PROJECT_CONTROL.md` with exactly one bounded file-level quiz UI implementation plan before reopening the code gate.
 
-Then verify the resulting file and project verification. After verification, synchronize `PROJECT_CONTROL.md` before deriving quiz UI integration.
-
-Do not modify quiz UI, lesson UI, schema, generated types, progress, authentication behavior, adaptive logic, mastery logic, scheduling, or legacy data in this slice.
+Do not modify legacy quiz data or route, progress persistence, authentication writes, schema, adaptive testing, mastery logic, scheduling, or broad styling during inspection.
 
 ---
 
