@@ -26,7 +26,7 @@ Foundation authority is consolidated, core architecture documentation is repaire
 
 The product documentation domain is the highest-priority remaining authority gap before ordinary MVP development can resume.
 
-The product ownership model is now established, and `docs/product/README.md` has been transferred as the verified product-domain navigation and placement authority.
+The product ownership model and product-domain authority map are established. The bounded pre-write evidence analysis for detailed Product Vision is now complete.
 
 ---
 
@@ -56,12 +56,14 @@ Recent verified documentation/control checkpoints include:
 - Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
 - Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`;
 - root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`;
-- control synchronization after README repair: `2e1a32da30fb4b2c7e978eeaf0448b0d5d4eefac`;
 - product documentation authority target selection: `47b1df40fce16e56dacdd57ac2760b3e8184b228`;
 - product documentation ownership model: `7e1cfe948695fa15244cf4cb0d8ef897503e798f`;
-- product documentation authority map: `1763274933383b818de1092897c6dc669a52edaa`.
+- product documentation authority map: `1763274933383b818de1092897c6dc669a52edaa`;
+- product vision target selection/control sync: `57b954aa542a18ba8d8bda2ba5c554baad778d36`.
 
 `docs/product/README.md` was re-read from the authoritative branch after its transfer commit and verified to preserve the intended authority boundaries.
+
+The Product Vision pre-write analysis found sufficient current authority for a minimal permanent Product Vision without historical reconstruction.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -73,7 +75,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 Historical material remains evidence, not automatic authority.
 
-No product-history retrieval is currently authorized. The next task is first to determine the bounded product-vision content that can be transferred from current authority and verified implementation evidence. If a required permanent product-vision fact cannot be established, the exact evidence gap must be recorded before historical recovery is considered.
+No historical recovery is required for the bounded Product Vision transfer. Current authority supports the minimal vision scope. More detailed product strategy must not be reconstructed or invented merely to make the Product Vision more comprehensive.
 
 ---
 
@@ -112,38 +114,39 @@ Remaining empty architecture topics must not be populated merely to eliminate em
 
 **Status: Established**
 
-### `docs/product/README.md`
+- `docs/product/README.md` — established and verified product-domain navigation, authority boundaries, and placement rules;
+- `docs/product/PRODUCT_VISION.md` — detailed permanent product vision;
+- `docs/product/LEARNING_MODEL.md` — permanent learning model and verified learning mechanisms;
+- `docs/product/mvp.md` — durable MVP scope and product acceptance boundary.
 
-**Status: ESTABLISHED AND VERIFIED**
+Deferred/overlap placeholders remain non-authoritative and are not authorized for population or deletion.
 
-Owns product-domain navigation, authority boundaries, placement rules, and routing between product documents.
+---
 
-### `docs/product/PRODUCT_VISION.md`
+## Product Vision Pre-Write Result
 
-Intended owner of detailed permanent product vision that is more specific than the stable high-level identity and product direction already owned by `PROJECT_OVERVIEW.md`.
+**Status: COMPLETE — bounded write can proceed without historical recovery**
 
-### `docs/product/LEARNING_MODEL.md`
+The current evidence supports the following minimal permanent Product Vision:
 
-Intended owner of the permanent learning model and verified learning mechanisms.
+- TheraLearn is a structured learning platform, with psychotherapy education as the initial content domain;
+- the platform identity is broader than the initial psychotherapy domain;
+- the intended product experience integrates structured curriculum content with multiple learning activities around the same learning context rather than treating those activities as unrelated standalone tools;
+- currently verified high-level learning/product capabilities include curriculum/syllabus content, flashcards, quizzes, learning progress, reading support, and multilingual support initially in Danish and English;
+- detailed learning mechanisms and pedagogical relationships belong in `LEARNING_MODEL.md`, not Product Vision;
+- durable MVP inclusion/acceptance boundaries belong in `mvp.md`, not Product Vision.
 
-### `docs/product/mvp.md`
+The current evidence does not justify adding:
 
-Intended owner of durable MVP scope and product acceptance boundary.
+- detailed target-user personas;
+- pricing or business model;
+- commercial positioning;
+- detailed success metrics;
+- release strategy;
+- a prioritized feature roadmap;
+- unsupported future feature commitments.
 
-Current workflow state remains owned by `PROJECT_CONTROL.md`.
-
-### Deferred / overlap candidates
-
-The following placeholders are not active independent authorities:
-
-- `docs/product/feature-catalog.md`;
-- `docs/product/release-plan.md`;
-- `docs/product/roadmap.md`;
-- `docs/product/target-users.md`;
-- `docs/product/vision.md`;
-- `docs/product/learning-philosophy.md`.
-
-Their existence does not authorize population or deletion.
+These omissions are deliberate authority boundaries, not evidence gaps requiring historical recovery for the current bounded transfer.
 
 ---
 
@@ -170,14 +173,14 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - Foundation authority consolidated and verified.
 - Developer Toolkit roadmap and Improvement Backlog synchronized.
 - Root `README.md` repaired and verified.
-- Product documentation selected as highest-priority remaining authority domain.
 - Product authority/placement assessment completed.
 - Minimal product-document ownership model derived.
-- `docs/product/README.md` established, re-read, and verified as product-domain authority/navigation entry point.
+- `docs/product/README.md` established and verified.
+- Product Vision pre-write evidence analysis completed.
 
 ### Not yet completed
 
-- Transfer verified detailed product vision into `docs/product/PRODUCT_VISION.md`.
+- Transfer the bounded verified Product Vision into `docs/product/PRODUCT_VISION.md`.
 - Transfer verified learning-model knowledge into `docs/product/LEARNING_MODEL.md`.
 - Establish verified MVP scope authority in `docs/product/mvp.md`.
 - Decide later whether deferred product placeholders should be retained or removed.
@@ -195,9 +198,9 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 
 **Status: ACTIVE, reduced.**
 
-Product placement authority is now established, but the three substantive product owners remain empty. Ordinary MVP development before the required product authority is transferred could still allow implementation or chat to become de facto product authority.
+Product placement authority is established and the Product Vision transfer scope is now verified, but the substantive product owners are not yet fully established.
 
-**Mitigation:** transfer one substantive product owner at a time using current verified evidence, beginning with detailed product vision.
+**Mitigation:** transfer the bounded Product Vision, then proceed one substantive owner at a time.
 
 ### R2 – Responsibility-model transfer fidelity
 
@@ -237,28 +240,24 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Perform a bounded pre-write evidence analysis for `docs/product/PRODUCT_VISION.md`.
+Transfer the bounded verified Product Vision into `docs/product/PRODUCT_VISION.md`.
 
-The analysis must determine which detailed permanent product-vision facts can be transferred from current repository authority and verified implementation evidence without inventing missing product strategy.
-
-It must preserve the boundary with:
-
-- `PROJECT_OVERVIEW.md`, which owns stable project identity and high-level product direction;
-- `LEARNING_MODEL.md`, which owns how learning is supported;
-- `mvp.md`, which owns durable MVP scope and acceptance boundary;
-- `PROJECT_CONTROL.md`, which owns current workflow state.
+The document must remain a permanent product-intent authority and must not absorb learning-model mechanics, MVP scope, current workflow state, commercial strategy, roadmap commitments, or unsupported product claims.
 
 ---
 
 ## Next Allowed Action
 
-Inspect current repository authority and implementation evidence relevant to detailed product vision and derive the minimal evidence-backed scope for `docs/product/PRODUCT_VISION.md`.
+Perform a bounded write of only `docs/product/PRODUCT_VISION.md` using the verified Product Vision scope recorded above.
 
-Do not write `PRODUCT_VISION.md` during this analysis.
+After the write:
 
-Do not use historical chat material by default. If a necessary detailed product-vision fact cannot be established from current authority or implementation evidence, record the exact bounded evidence gap before any historical recovery is authorized.
+1. re-read `PRODUCT_VISION.md` from the authoritative branch;
+2. verify its boundary against `PROJECT_OVERVIEW.md`, `LEARNING_MODEL.md`, `mvp.md`, and `PROJECT_CONTROL.md`;
+3. synchronize `PROJECT_CONTROL.md`;
+4. stop before modifying another product authority.
 
-After the analysis, synchronize `PROJECT_CONTROL.md` with the result before any product-vision write.
+No historical retrieval is authorized for this transfer.
 
 ---
 
