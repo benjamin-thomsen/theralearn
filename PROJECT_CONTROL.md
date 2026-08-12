@@ -20,13 +20,18 @@ Stable project identity and permanent principles belong in `PROJECT_OVERVIEW.md`
 
 ## Current Phase
 
-**Domain Documentation Repair and Synchronization**
+**MVP Implementation Gap Assessment**
 
-Foundation authority is consolidated, core architecture documentation is repaired, Developer Toolkit roadmap/backlog documentation is synchronized, and the root repository `README.md` is repaired.
+The bounded product-authority repair is complete for the minimal product model required to evaluate MVP implementation.
 
-The product documentation domain remains the highest-priority authority repair area before ordinary MVP development can resume.
+Established and verified product authorities:
 
-The product ownership model, product-domain authority map, Product Vision, and Learning Model are established and verified. The bounded MVP scope analysis is now complete and a minimal durable MVP acceptance boundary has been derived.
+- `docs/product/README.md` — product-domain navigation and placement;
+- `docs/product/PRODUCT_VISION.md` — permanent product intent;
+- `docs/product/LEARNING_MODEL.md` — evidence-backed learning structure;
+- `docs/product/mvp.md` — durable initial MVP scope and acceptance boundary.
+
+Ordinary MVP feature coding remains paused until the current implementation has been assessed against the authoritative MVP boundary and the first exact implementation gap has been selected.
 
 ---
 
@@ -51,173 +56,95 @@ Documentation structure: PASS
 Overall verification: PASS
 ```
 
-Recent verified documentation/control checkpoints include:
+Recent verified product/control checkpoints include:
 
-- Documentation Tool roadmap synchronization: `a6568a35012c9704bc63221baeaa46553876fbff`;
-- Improvement Backlog synchronization: `7288e5d53019b644f9a7c47f654afd2bdcbb5972`;
-- root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`;
 - product documentation ownership model: `7e1cfe948695fa15244cf4cb0d8ef897503e798f`;
 - product documentation authority map: `1763274933383b818de1092897c6dc669a52edaa`;
 - Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
 - Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`;
-- MVP scope analysis target selection: `d0ddb1e8cdf0fe5e5275a33b8797e6bb25818cb4`.
+- MVP scope transfer authorization: `9f0fb1f6ccc2223e4116f9fbb04ef592a46fdd7e`;
+- MVP scope transfer: `790b68a8c68c23046b6613407bf2db8c17d803e7`.
 
-The MVP scope analysis inspected the established Product Vision and Learning Model together with current repository implementation. The repository contains concrete product surfaces for curriculum/pensum, quiz, results/progress, dashboard, and authentication, plus the data structures that relate flashcards, quiz questions, and learner progress to lesson context.
+`docs/product/mvp.md` was re-read from the authoritative branch after transfer and verified to define product scope rather than implementation status.
 
-A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
+A new complete local build/TypeScript/documentation verification has not yet been run after the documentation-only repair sequence.
 
 ---
 
 ## Historical Reconstruction Status
 
-**Status: Methodically complete for current continuation; no historical retrieval currently authorized**
+**Status: No historical retrieval currently authorized**
 
 Historical material remains evidence, not automatic authority.
 
-No historical recovery is required for the bounded minimal MVP scope transfer. Current Product Vision, Learning Model, repository implementation, and verified project authority are sufficient to define a minimal durable MVP boundary.
+The MVP implementation gap assessment must use current product authority and current repository implementation. Historical recovery is not required unless a concrete bounded evidence gap appears that cannot be resolved from those sources.
 
 ---
 
-## Foundation Documentation Status
+## Product Authority Status
 
-**Status: Consolidated Foundation authority established for current known permanent needs**
+**Status: MINIMAL PRODUCT AUTHORITY LAYER ESTABLISHED**
 
-Established ownership units:
+### Product Vision
 
-- `docs/foundation/README.md`;
-- `docs/foundation/FOUNDATION_MODEL.md`;
-- `docs/foundation/RESPONSIBILITY_MODEL.md`.
+TheraLearn is an integrated structured learning platform, initially applied to psychotherapy education, with curriculum content and supported learning activities organized as a coherent learning experience.
 
-**Transfer – do not re-derive.**
+### Learning Model
 
----
+The current evidence-backed learning structure is:
 
-## Architecture Documentation Status
+```text
+Structured curriculum context
+        ↓
+Course
+        ↓
+Chapter
+        ↓
+Lesson
+        ↓
+Learning objectives
+        ↓
+Supporting learning activities
+        ↓
+Learner progress in relation to the lesson
+```
 
-**Status: Core architecture repaired; remaining topics classified**
-
-Repaired and verified:
-
-- `docs/architecture/README.md`;
-- `docs/architecture/system-overview.md`;
-- `docs/architecture/database.md`;
-- `docs/architecture/authentication.md`;
-- `docs/architecture/backend-architecture.md`;
-- `docs/architecture/frontend-architecture.md`.
-
-Remaining empty architecture topics must not be populated merely to eliminate empty files.
-
----
-
-## Product Documentation Ownership Model
-
-**Status: Established**
-
-- `docs/product/README.md` — **ESTABLISHED AND VERIFIED**;
-- `docs/product/PRODUCT_VISION.md` — **ESTABLISHED AND VERIFIED**;
-- `docs/product/LEARNING_MODEL.md` — **ESTABLISHED AND VERIFIED**;
-- `docs/product/mvp.md` — durable MVP scope and product acceptance boundary; bounded transfer now authorized.
-
-Deferred/overlap placeholders remain non-authoritative and are not authorized for population or deletion.
-
----
-
-## MVP Scope Pre-Write Result
-
-**Status: COMPLETE — bounded minimal write can proceed without historical recovery**
-
-### Required MVP capabilities
-
-The minimal MVP requires:
-
-- structured curriculum/pensum navigation;
-- lesson/content context within the structured curriculum;
-- flashcards operating within lesson context;
-- quiz capability operating within lesson context;
-- basic learner progress/result visibility tied to learning context;
-- authentication/user identity sufficient to support user-related progress.
-
-### Supporting but not defining the MVP
-
-- dashboard/navigation surfaces may support the user experience but are not themselves part of the durable MVP definition;
-- general informational/about surfaces are not MVP-defining capabilities.
-
-### Product Vision capabilities not required for the initial MVP boundary
-
-Current evidence does not require these for the initial MVP acceptance boundary:
-
-- reading support;
-- Danish/English multilingual support.
-
-They remain valid Product Vision capabilities and may be implemented after the initial MVP without changing Product Vision.
-
-### Not established as MVP requirements
-
-- notes;
-- detailed target-user features;
-- advanced/adaptive learning;
-- spaced repetition;
-- mastery learning;
-- commercial/pricing capabilities;
-- release/roadmap functionality.
-
-### Durable MVP acceptance boundary
+### Initial MVP acceptance boundary
 
 The MVP is product-complete when an authenticated learner can:
 
 1. enter the structured curriculum;
 2. navigate into a lesson/content context;
-3. work with the required learning activities in that context, including flashcards and quiz;
+3. work with required learning activities in that context, including flashcards and quiz;
 4. receive or view basic result/progress information tied to the learning context;
-5. complete this core learning loop without relying on unsupported or out-of-scope Product Vision capabilities.
+5. complete the core learning loop without depending on capabilities outside the initial MVP boundary.
 
-This is a durable product acceptance boundary, not a statement that the current implementation already satisfies every step.
+Required MVP capabilities are therefore:
 
-Current implementation progress and the next implementation action remain owned by `PROJECT_CONTROL.md`.
+- structured curriculum/pensum;
+- lesson/content context;
+- flashcards in lesson context;
+- quiz in lesson context;
+- basic learner progress/results tied to learning context;
+- authentication/user identity sufficient for learner-related progress.
+
+Reading support and multilingual support remain Product Vision capabilities but are outside the initial MVP acceptance boundary.
 
 ---
 
-## Documentation Audit Findings
+## Documentation Audit Status
 
-Current unresolved findings include:
+Product authority repair is sufficient for MVP gap assessment.
 
-- `docs/product/mvp.md` remains empty pending the now-authorized bounded transfer;
-- empty/deferred product placeholders remain classified but unresolved for eventual retention/deletion;
+Remaining documentation/repository findings are not currently authorized to block the bounded MVP assessment merely because they remain unresolved:
+
+- deferred product placeholders;
 - empty `docs/meetings/decisions-log.md`;
-- empty development placeholders including `docs/development/project-structure.md` and `docs/development/git-workflow.md`;
-- anomalous root artifact `-name package-lock.json`, verified to contain pager/`less` help text rather than package-lock data;
-- empty implementation placeholders `lib/repositories/quizQuestions.ts` and `components/PensumCard.tsx`.
+- empty development placeholders beyond the already repaired roadmap/backlog;
+- anomalous root artifact `-name package-lock.json`;
+- empty implementation placeholders whose MVP relevance has not yet been established.
 
-No empty or anomalous artifact is authorized for deletion, population, or implementation merely because it exists.
-
----
-
-## Documentation Repair Progress
-
-### Completed
-
-- Root control kernel established.
-- Core architecture documentation repaired and verified.
-- Foundation authority consolidated and verified.
-- Developer Toolkit roadmap and Improvement Backlog synchronized.
-- Root `README.md` repaired and verified.
-- Product authority/placement assessment completed.
-- Minimal product-document ownership model derived.
-- `docs/product/README.md` established and verified.
-- `docs/product/PRODUCT_VISION.md` established and verified.
-- `docs/product/LEARNING_MODEL.md` established and verified.
-- MVP scope pre-write evidence analysis completed.
-
-### Not yet completed
-
-- Transfer the bounded MVP scope into `docs/product/mvp.md`.
-- Verify current implementation against the newly established MVP acceptance boundary.
-- Decide later whether deferred product placeholders should be retained or removed.
-- Development-domain documentation audit beyond roadmap/backlog.
-- Retention/deletion decision for `-name package-lock.json`.
-- Decisions-log placement/need assessment.
-- Long-term integration decision for `main`.
-- New complete local verification after documentation-only repair commits.
+These remain future bounded targets unless the MVP gap assessment demonstrates that one directly blocks the core learning loop.
 
 ---
 
@@ -225,11 +152,9 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 
 ### R1 – Product domain authority gap
 
-**Status: ACTIVE, near closure.**
+**Status: CLOSED for the minimal initial MVP assessment.**
 
-Product placement authority, Product Vision, and Learning Model are established. MVP scope is derived but not yet transferred to its permanent owner.
-
-**Mitigation:** transfer the bounded MVP scope, then verify the implementation against the resulting acceptance boundary.
+The product-domain authority layer now contains the required navigation, Product Vision, Learning Model, and durable MVP boundary.
 
 ### R2 – Responsibility-model transfer fidelity
 
@@ -241,53 +166,78 @@ Product placement authority, Product Vision, and Learning Model are established.
 
 ### R4 – Anomalous repository artifact
 
-`-name package-lock.json` contains pager/`less` command help, not package-lock data, while a separate valid `package-lock.json` exists.
+**Status: OPEN but not currently MVP-blocking.**
 
-**Mitigation:** preserve until a separate bounded retention/deletion decision is authorized.
+Preserve until separately authorized.
 
 ### R5 – Branch divergence
 
 The authoritative repaired state is on `migration-next16-to-root`; `main` is behind.
 
-**Mitigation:** no integration until documentation consolidation reaches a verified checkpoint and an integration strategy is explicitly reviewed.
+**Mitigation:** no integration until a later verified integration decision.
 
 ### R6 – Foundation certification evidence incompleteness
 
 **Status: CLOSED for current permanent Foundation ownership needs.**
 
+### R7 – Unknown MVP implementation completeness
+
+**Status: ACTIVE — current primary risk.**
+
+The repository contains many relevant routes, components, database structures, and auth flows, but existence has not yet been verified against the end-to-end MVP acceptance boundary.
+
+**Mitigation:** perform a bounded implementation-vs-MVP gap assessment before authorizing product code changes.
+
 ---
 
 ## Code Change Gate
 
-**Ordinary product feature development: PAUSED**
+**Ordinary product feature development: PAUSED pending MVP gap assessment**
 
-Code changes remain allowed only when necessary for documentation/control repair, repository verification, demonstrated workflow/system repair, or alignment of documentation tooling with the established workflow.
+No product feature code change is authorized yet.
 
-No product feature implementation is currently authorized.
+Read-only repository inspection and verification are authorized for the gap assessment.
+
+After the gap assessment selects one exact implementation gap, `PROJECT_CONTROL.md` must be synchronized before implementation is authorized.
 
 ---
 
 ## Current Task
 
-Transfer the bounded minimal MVP scope and durable acceptance boundary into `docs/product/mvp.md`.
+Perform a bounded implementation-vs-MVP gap assessment against the authoritative acceptance boundary in `docs/product/mvp.md`.
 
-The document must define product scope, not current implementation progress. It must not claim that an MVP requirement is already complete merely because related files or code exist.
+For each required MVP capability, classify current implementation as:
+
+- **Verified Complete** — evidence supports the capability as part of the required end-to-end learning loop;
+- **Partial** — relevant implementation exists but the MVP capability or integration is incomplete/unverified;
+- **Missing** — required capability has no sufficient implementation evidence;
+- **Blocked/Unknown** — current evidence is insufficient to classify without a narrower verification step.
+
+Assessment scope:
+
+1. authentication/user identity;
+2. structured curriculum/pensum navigation;
+3. lesson/content context;
+4. flashcards in lesson context;
+5. quiz in lesson context;
+6. basic results/progress tied to learning context;
+7. end-to-end connectivity of the complete core learning loop.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded write of only `docs/product/mvp.md` using the verified MVP scope recorded above.
+Inspect the current repository implementation read-only against the seven assessment areas above.
 
-After the write:
+Do not modify product code during the assessment.
 
-1. re-read `mvp.md` from the authoritative branch;
-2. verify its boundary against Product Vision, Learning Model, architecture, and Project Control;
-3. synchronize `PROJECT_CONTROL.md`;
-4. stop before implementation changes;
-5. the subsequent methodological task should be a bounded implementation-vs-MVP gap assessment, not immediate feature coding.
+Do not treat file/route existence as proof of MVP completion. Verify actual data flow, navigation/integration, and user-related behavior where repository evidence permits.
 
-No historical retrieval is authorized for this transfer.
+Produce a bounded gap classification and select exactly one highest-priority implementation gap or narrower verification target.
+
+Then synchronize `PROJECT_CONTROL.md` before any product implementation change is authorized.
+
+A complete local build/TypeScript/documentation verification may be required as part of or immediately after this assessment, but it does not replace functional MVP-gap verification.
 
 ---
 
