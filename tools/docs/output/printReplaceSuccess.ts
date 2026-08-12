@@ -1,6 +1,8 @@
+import { renderOutput } from "./renderOutput";
+
 export function printReplaceSuccess(filePath: string): void {
-  console.log("");
-  console.log(`✅ Successfully prepared: ${filePath}`);
-  console.log("The file has been cleared and is ready for replacement.");
-  console.log("");
+  renderOutput({
+    status: "success",
+    message: `Successfully prepared: ${filePath}\nThe file has been cleared and is ready for replacement.`,
+  });
 }

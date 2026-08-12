@@ -1,10 +1,21 @@
+import { pathExists } from "../filesystem/exists";
 import { openFileInEditor } from "../editor/openFileInEditor";
+import { truncateFile } from "../filesystem/truncateFile";
+import { writeFile } from "../filesystem/writeFile";
 import { printEditError } from "../output/printEditError";
 import { printEditSuccess } from "../output/printEditSuccess";
-import { validateFilePath } from "../validation/validateFilePath";
 
 export function runEdit(filePath: string): boolean {
-  if (!validateFilePath(filePath)) {
+  if (filePath.trim() === "") {
+    printEditError(filePath);
+    return false;
+  }
+
+  const filePrepared = pathExists(filePath)
+    ? truncateFile(filePath)
+    : writeFile(filePath, "");
+
+  if (!filePrepared) {
     printEditError(filePath);
     return false;
   }

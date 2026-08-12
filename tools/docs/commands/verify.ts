@@ -1,9 +1,6 @@
+import { runCommand } from "../core/runCommand";
 import { runVerification } from "../core/runVerification";
 
 export function verify(): void {
-  const success = runVerification();
-
-  if (!success) {
-    process.exitCode = 1;
-  }
+  runCommand(runVerification);
 }

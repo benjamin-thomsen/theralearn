@@ -1,6 +1,8 @@
+import { renderOutput } from "./renderOutput";
+
 export function printReplaceError(filePath: string): void {
-  console.log("");
-  console.log(`❌ Failed to prepare: ${filePath}`);
-  console.log("The file could not be cleared and opened for replacement.");
-  console.log("");
+  renderOutput({
+    status: "error",
+    message: `Failed to prepare: ${filePath}\nThe file could not be cleared and opened for replacement.`,
+  });
 }

@@ -1,6 +1,10 @@
+import { renderOutput } from "./renderOutput";
+
 export function printEditSuccess(filePath: string): void {
-  console.log("");
-  console.log(`✅ Successfully opened: ${filePath}`);
-  console.log("The file is ready for editing.");
-  console.log("");
+  renderOutput({
+    title: "EDIT READY",
+    activeFile: filePath,
+    status: "success",
+    message: "The file is open in VS Code and ready for editing.",
+  });
 }

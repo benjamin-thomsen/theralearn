@@ -19,6 +19,10 @@ export function help(): void {
   console.log("      Run the complete project verification.");
   console.log("");
 
+  console.log("  status");
+  console.log("      Show the current project and Git status.");
+  console.log("");
+
   console.log("  file <file-path>");
   console.log("      Print the complete contents of a file.");
   console.log("");
@@ -33,5 +37,9 @@ export function help(): void {
 
   console.log("  copy <file-path>");
   console.log("      Copy the complete contents of a file to the clipboard.");
+  console.log("");
+
+  console.log("  search <query>");
+  console.log("      Search the project and show matching files with line numbers.");
   console.log("");
 }

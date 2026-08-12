@@ -4,28 +4,38 @@ import { edit } from "./commands/edit";
 import { file } from "./commands/file";
 import { help } from "./commands/help";
 import { replace } from "./commands/replace";
+import { search } from "./commands/search";
+import { status } from "./commands/status";
 import { verify } from "./commands/verify";
+import { documentationConfig } from "./config/documentation-config";
 
 function header(): void {
-  console.log("TheraLearn Documentation Tool");
-  console.log("Version: 0.1");
-  console.log("Status : Foundation");
+  const { name, version, status: toolStatus } =
+    documentationConfig.tool;
+
+  console.log(name);
+  console.log(`Version: ${version}`);
+  console.log(`Status : ${toolStatus}`);
   console.log("==================================");
   console.log("");
 }
 
-function requireFilePath(command: string): string | null {
-  const filePath = process.argv[3];
+function requireArgument(
+  command: string,
+  argumentName: string,
+  usageValue: string,
+): string | null {
+  const value = process.argv[3];
 
-  if (!filePath) {
-    console.error(`Missing file path for command: ${command}`);
-    console.error(`Usage: ./scripts/dev ${command} <file-path>`);
+  if (!value) {
+    console.error(`Missing ${argumentName} for command: ${command}`);
+    console.error(`Usage: ./scripts/dev ${command} ${usageValue}`);
     process.exitCode = 1;
 
     return null;
   }
 
-  return filePath;
+  return value;
 }
 
 function main(): void {
@@ -47,8 +57,16 @@ function main(): void {
       verify();
       break;
 
+    case "status":
+      status();
+      break;
+
     case "file": {
-      const filePath = requireFilePath(command);
+      const filePath = requireArgument(
+        command,
+        "file path",
+        "<file-path>",
+      );
 
       if (filePath) {
         file(filePath);
@@ -58,7 +76,11 @@ function main(): void {
     }
 
     case "edit": {
-      const filePath = requireFilePath(command);
+      const filePath = requireArgument(
+        command,
+        "file path",
+        "<file-path>",
+      );
 
       if (filePath) {
         edit(filePath);
@@ -68,7 +90,11 @@ function main(): void {
     }
 
     case "replace": {
-      const filePath = requireFilePath(command);
+      const filePath = requireArgument(
+        command,
+        "file path",
+        "<file-path>",
+      );
 
       if (filePath) {
         replace(filePath);
@@ -78,10 +104,28 @@ function main(): void {
     }
 
     case "copy": {
-      const filePath = requireFilePath(command);
+      const filePath = requireArgument(
+        command,
+        "file path",
+        "<file-path>",
+      );
 
       if (filePath) {
         copy(filePath);
+      }
+
+      break;
+    }
+
+    case "search": {
+      const query = requireArgument(
+        command,
+        "search query",
+        "<query>",
+      );
+
+      if (query) {
+        search(query);
       }
 
       break;

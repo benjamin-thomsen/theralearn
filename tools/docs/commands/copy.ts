@@ -1,9 +1,6 @@
 import { runCopy } from "../core/runCopy";
+import { runCommand } from "../core/runCommand";
 
 export function copy(filePath: string): void {
-  const success = runCopy(filePath);
-
-  if (!success) {
-    process.exitCode = 1;
-  }
+  runCommand(() => runCopy(filePath));
 }

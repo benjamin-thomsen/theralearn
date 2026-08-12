@@ -1,6 +1,10 @@
+import { renderOutput } from "./renderOutput";
+
 export function printEditError(filePath: string): void {
-  console.log("");
-  console.log(`❌ Failed to open: ${filePath}`);
-  console.log("The file could not be prepared for editing.");
-  console.log("");
+  renderOutput({
+    title: "EDIT FAILED",
+    activeFile: filePath,
+    status: "error",
+    message: "The file could not be prepared or opened for editing.",
+  });
 }

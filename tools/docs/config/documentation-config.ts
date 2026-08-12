@@ -13,6 +13,7 @@ export const documentationConfig = {
   tool: {
     name: "TheraLearn Documentation Tool",
     version: "0.1.0",
+    status: "Foundation",
   },
 
   paths: {

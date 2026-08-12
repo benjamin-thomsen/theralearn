@@ -3,7 +3,10 @@ export interface PrintFileOptions {
   content: string;
 }
 
-export function printFile(options: PrintFileOptions): void {
-  console.log(`===== ${options.filePath} =====`);
-  console.log(options.content);
+export function printFile(options: PrintFileOptions): string {
+  const output = `===== ${options.filePath} =====\n${options.content}`;
+
+  console.log(output);
+
+  return output;
 }

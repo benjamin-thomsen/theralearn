@@ -7,7 +7,24 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_ROOT"
 
 if [[ $# -eq 0 ]]; then
-  exec npm run docs -- help
+  set -- help
 fi
 
-exec npm run docs -- "$@"
+COMMAND="$1"
+OUTPUT_FILE="$(mktemp)"
+
+trap 'rm -f "$OUTPUT_FILE"' EXIT
+
+set +e
+
+npm run docs -- "$@" 2>&1 | tee "$OUTPUT_FILE"
+EXIT_CODE=${PIPESTATUS[0]}
+
+set -e
+
+if [[ "$COMMAND" != "copy" ]]; then
+  printf '\n✅ Hele Terminal-outputtet er kopieret.\n' | tee -a "$OUTPUT_FILE"
+  pbcopy < "$OUTPUT_FILE"
+fi
+
+exit "$EXIT_CODE"
