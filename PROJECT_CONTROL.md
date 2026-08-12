@@ -57,7 +57,8 @@ Recent verified product/control checkpoints include:
 - MVP implementation gap assessment opened: `b9fe63161865fe4c7f06fb16567f23376cc222ce`;
 - Learning Science Evidence Review opened: `2bb3b9e90914c0e29ed10c6a4fd4be81639b2fd6`;
 - initial learning-science evidence synthesis recorded: `3376c32820c0e023cc0a876df74a250afa90791a`;
-- bounded Active Retrieval certification recorded: `2d9e817b95dfa911eacb886f94e4131ae8af8222`.
+- bounded Active Retrieval certification recorded: `2d9e817b95dfa911eacb886f94e4131ae8af8222`;
+- bounded Distributed Relearning certification recorded: `5948d31137414b8b697e9b7e674fb4e76f012325`.
 
 The implementation gap assessment remains:
 
@@ -108,7 +109,7 @@ The review prioritized systematic reviews, meta-analyses, major peer-reviewed re
 
 1. **Active Retrieval Principle — NARROWED; individual certification complete**
 2. **Distributed Relearning Principle — NARROWED; individual certification complete**
-3. **Informative Correction Principle — certification pending**
+3. **Informative Correction Principle — NARROWED; individual certification complete**
 4. **Adaptive Guidance Principle — certification pending**
 5. **Demonstrated Understanding Principle — certification pending**
 
@@ -130,39 +131,42 @@ The bounded formulation that survives certification is:
 
 > **Active Retrieval Principle:** When durable retention of previously acquired knowledge is an intended learning outcome, learners should be required to actively retrieve relevant knowledge from memory at appropriate points in the learning process, rather than relying primarily on passive re-exposure.
 
-This formulation:
-
-- expresses a learning requirement rather than a feature convention;
-- preserves the strongest evidence scope;
-- leaves retrieval format implementation-independent;
-- does not equate quizzes or flashcards with the principle;
-- preserves room for acquisition, guidance, explanation, inference, and transfer mechanisms where retrieval alone is insufficient;
-- does not by itself change the current MVP acceptance boundary.
-
 **Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
 
 ### Distributed Relearning Principle certification result
 
 **Decision: NARROW**
 
-High-quality quantitative synthesis strongly supports distributed over massed practice for durable retention. The evidence is broad enough for a platform-level temporal learning principle, including a large laboratory literature and a newer applied classroom meta-analysis showing a moderate average advantage for distributed practice. However, spacing effects are heterogeneous and the evidence does not support a universal interval, a monotonic rule that more spacing is always better, or one fixed spaced-repetition schedule.
-
-The strongest boundary condition is the interaction between the interstudy interval and the intended retention interval: the spacing associated with better later retention changes as the target retention horizon changes. Material, task complexity, learner population/state, number and form of re-exposures, and applied learning context can also influence observed effects and implementation quality.
-
-The principle should therefore govern the temporal distribution of repeated learning opportunities, not require retrieval inside its own definition. Retrieval and spacing can be combined powerfully through successive relearning, but they remain conceptually and evidentially separable: Active Retrieval governs the learner's memory action; Distributed Relearning governs when repeated learning opportunities occur.
+High-quality quantitative synthesis strongly supports distributed over massed practice for durable retention. The evidence is broad enough for a platform-level temporal learning principle, but spacing effects are heterogeneous and do not support a universal interval, a monotonic rule that more spacing is always better, or one fixed spaced-repetition schedule.
 
 The bounded formulation that survives certification is:
 
 > **Distributed Relearning Principle:** When durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
 
+**Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
+
+### Informative Correction Principle certification result
+
+**Decision: NARROW**
+
+Large-scale meta-analytic evidence supports feedback as beneficial to learning on average, but with substantial heterogeneity. A major meta-analysis covering 435 studies, 994 effects, and more than 61,000 learners reported a medium average effect while showing that feedback cannot be treated as one uniform intervention; information content materially moderates its effect. Major formative-feedback review evidence likewise shows that effectiveness depends on timing, specificity, task characteristics, learner characteristics and knowledge, and the form of information provided.
+
+The evidence therefore does not support a universal rule that every learner action must receive immediate feedback, nor that simple praise, scores, correctness signals, or one feedback format are sufficient. The foundational requirement is narrower: when learner performance reveals an error, misconception, or material gap that matters to the learning objective, the learning process should provide information sufficient to support correction when correction is pedagogically appropriate.
+
+The bounded formulation that survives certification is:
+
+> **Informative Correction Principle:** When a learner attempt reveals an error, misconception, or material gap relevant to the learning objective, the learning process should provide sufficient information and opportunity to support correction, with the form and timing of that information determined by the task, learner state, and learning conditions.
+
 This formulation:
 
-- captures the robust distributed-practice effect without claiming that one schedule is universally optimal;
-- preserves retention interval, learner/material/task, and schedule conditions as implementation variables;
-- remains independent of any specific flashcard system, scheduler, algorithm, interval sequence, or UI;
-- does not require retrieval as part of the spacing principle itself, preserving conceptual independence from Active Retrieval;
-- permits, but does not mandate, successive relearning as a combined mechanism where both retrieval and distributed practice are appropriate;
-- does not by itself change the current MVP acceptance boundary.
+- preserves the robust evidence that informative feedback can improve learning without treating all feedback as equally effective;
+- does not require feedback after every attempt or prescribe immediate feedback universally;
+- distinguishes learning-relevant corrective information from generic praise, grades, scores, or correctness indicators;
+- leaves content, timing, modality, elaboration, hints, explanations, examples, and other feedback mechanisms implementation-dependent;
+- remains conceptually distinct from Active Retrieval: retrieval generates or exposes learner performance, while Informative Correction governs what happens when that performance reveals a learning-relevant error or gap;
+- remains distinct from Adaptive Guidance: correction responds to evidence from learner performance, whereas guidance governs instructional support during acquisition and changing expertise;
+- does not require a specific feedback UI, automated feedback system, AI mechanism, or teacher-mediated implementation;
+- does not by itself add a new MVP capability, but may later constrain the quality of existing flashcard/quiz interactions so that learning-relevant errors are not represented only by scores or unexplained correctness signals.
 
 **Certification status:** `NARROW` with the narrowed formulation retained as the current certified candidate for the final minimum-set test.
 
@@ -174,11 +178,11 @@ The current working set is:
 
 1. **Active Retrieval Principle** — when durable retention of previously acquired knowledge is an intended learning outcome, learners should actively retrieve relevant knowledge from memory at appropriate points rather than rely primarily on passive re-exposure.
 2. **Distributed Relearning Principle** — when durable retention requires repeated learning opportunities, those opportunities should be distributed across time rather than unnecessarily massed, with spacing determined in relation to the intended retention horizon and relevant learning conditions.
-3. **Informative Correction Principle** — learner attempts should produce sufficient corrective information to repair errors and strengthen accurate understanding.
+3. **Informative Correction Principle** — when a learner attempt reveals an error, misconception, or material gap relevant to the learning objective, the learning process should provide sufficient information and opportunity to support correction, with the form and timing determined by the task, learner state, and learning conditions.
 4. **Adaptive Guidance Principle** — instructional support should reduce unnecessary cognitive burden during acquisition and be reduced or changed as learner knowledge makes greater independence appropriate.
 5. **Demonstrated Understanding Principle** — where objectives extend beyond recall, mastery should be demonstrated through explanation, discrimination, inference, or application appropriate to the objective.
 
-The first two candidates have completed individual certification with status `NARROW`. All candidates remain non-authoritative until the complete set survives individual certification and final minimum-set coherence testing.
+The first three candidates have completed individual certification with status `NARROW`. All candidates remain non-authoritative until the complete set survives individual certification and final minimum-set coherence testing.
 
 ---
 
@@ -214,7 +218,7 @@ A permanent principle must additionally pass a derivation test:
 
 **Status: ACTIVE — candidate-principle certification in progress.**
 
-Two candidates have now been narrowed against evidence. The remaining risk is premature promotion before all candidates and the final minimum set have passed the same test.
+Three candidates have now been narrowed against evidence. The remaining risk is premature promotion before all candidates and the final minimum set have passed the same test.
 
 ### R3 – MVP implementation integration gap
 
@@ -251,7 +255,8 @@ Continue **Candidate Learning Principle Certification** on the smallest coherent
 Completed individual certification passes:
 
 - Active Retrieval Principle — `NARROW`;
-- Distributed Relearning Principle — `NARROW`.
+- Distributed Relearning Principle — `NARROW`;
+- Informative Correction Principle — `NARROW`.
 
 For each remaining candidate, determine:
 
@@ -267,15 +272,15 @@ For each remaining candidate, determine:
 
 ## Next Allowed Action
 
-Certify the **Informative Correction Principle**.
+Certify the **Adaptive Guidance Principle**.
 
 Specifically determine whether:
 
-- corrective/informative feedback has sufficiently strong and generalizable evidence for permanent principle status;
-- the principle should require feedback after every attempt or instead require sufficient information for error correction under appropriate conditions;
-- feedback timing, content, task type, learner knowledge, correctness, and complexity require narrowing;
-- the principle remains implementation-independent and does not imply one feedback format or UI;
-- it is independent enough from Active Retrieval and Adaptive Guidance to remain a separate principle rather than being merged;
+- cognitive-load-sensitive guidance and worked-example evidence are sufficiently strong and generalizable for permanent principle status;
+- the principle should concern unnecessary cognitive burden, explicit guidance, worked examples, or a broader expertise-sensitive support requirement;
+- prior knowledge/expertise, task complexity, element interactivity, learner state, and fading of support require narrowing;
+- the principle remains implementation-independent and does not imply one instructional format or UI;
+- it is independent enough from Informative Correction and Demonstrated Understanding to remain a separate principle rather than being merged;
 - it changes the current MVP boundary.
 
 Classify it as **CERTIFY**, **NARROW**, **MERGE**, **DEFER**, or **REJECT**.
