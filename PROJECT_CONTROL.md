@@ -12,11 +12,13 @@
 
 ## Current Phase
 
-**MVP Learning Loop Implementation — Curriculum-to-Lesson Integration**
+**MVP Learning Loop Implementation — Learning Activity Integration**
 
 The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged.
 
-The Authoritative Lesson Context first slice is verified and closed. Repository inspection has now derived the next bounded integration slice: replace the placeholder `/pensum` entry surface with authoritative published curriculum navigation that leads to the established hierarchical lesson route.
+The Authoritative Lesson Context first slice and the Authoritative Curriculum Entry slice are now verified and closed. The dependency-correct path from structured curriculum into authoritative lesson context is established.
+
+The next responsibility is to derive the first bounded learning-activity integration into authoritative lesson context. No learning-activity implementation is authorized until repository evidence determines the correct existing ownership and smallest file-level slice.
 
 ---
 
@@ -26,12 +28,14 @@ The Authoritative Lesson Context first slice is verified and closed. Repository 
 migration-next16-to-root
 ```
 
-Latest control synchronization commit before this plan:
+Verified implementation commit:
 
 ```text
-7a3ca9169ceec3e057c9af95cf4d9847bd29d49a
-Close authoritative lesson context first slice
+10330e672ffb108c37a9fff1aa3531fa79ce208f
+Add authoritative curriculum entry
 ```
+
+GitHub Actions workflow `Verify`, run 76, completed successfully for that exact commit.
 
 ---
 
@@ -57,11 +61,23 @@ Learning activities
 Learner-related result/progress
 ```
 
-This slice owns only the `Structured curriculum → Authoritative lesson context` seam.
+The first two product seams below learner identity are now established:
+
+```text
+Structured curriculum → Authoritative lesson context
+```
+
+The next seam to derive is:
+
+```text
+Authoritative lesson context → Learning activities
+```
+
+Learning Principles remain authority; existing features are implementation evidence and candidate mechanisms only.
 
 ---
 
-## Closed Slice — Authoritative Lesson Context First Slice
+## Closed Slice — Authoritative Lesson Context
 
 Implemented route:
 
@@ -83,113 +99,64 @@ Tooling repair commit:
 Make dev output copy portable in CI
 ```
 
-GitHub Actions workflow `Verify`, run 73, completed successfully for `58aafb825a35748a8b8739a214d325767132c3e9`.
+GitHub Actions passed after the bounded tooling repair.
 
 **Authoritative Lesson Context first slice: VERIFIED AND CLOSED.**
 
 ---
 
-## Verified Curriculum-to-Lesson Evidence
+## Closed Slice — Authoritative Curriculum Entry
 
-### Current `/pensum` entry
-
-`app/pensum/page.tsx` is a static placeholder. It does not query authoritative curriculum data and its `Start læring` button does not establish a curriculum-to-lesson path.
-
-Its current copy also mentions notes, completion marking, and search, none of which define the current bounded integration responsibility.
-
-### Existing repository support
-
-No new repository function is required for the first curriculum-entry slice.
-
-Existing functions already provide ordered hierarchy traversal:
-
-- `getCourses(client)` returns courses ordered by `sort_order`, then title;
-- `getChaptersByCourseId(client, course.id)` returns chapters within a course ordered by `sort_order`, then title;
-- `getLessonsByChapterId(client, chapter.id)` returns lessons within a chapter ordered by `sort_order`, then title.
-
-The established lesson route consumes:
-
-```text
-/pensum/{course.slug}/{chapter.slug}/{lesson.slug}
-```
-
-Therefore the curriculum entry can derive authoritative links entirely from existing database entities without introducing a second identity model.
-
-### Existing navigation/component ownership
-
-Repository inspection found no existing component or route already owning authoritative course → chapter → lesson curriculum navigation.
-
-The smallest ownership point is therefore the existing `app/pensum/page.tsx` entry surface itself.
-
-### Remote data availability
-
-Current repository evidence does not certify that the remote database contains published course/chapter/lesson rows.
-
-That does not block compilation or establishment of the navigation seam, but runtime end-to-end content traversal cannot be certified until published remote data exists and is verified.
-
-The page must therefore handle an empty published curriculum state without inventing content.
-
----
-
-## Bounded Implementation Plan
-
-### Exact product-code change
-
-**Modify only:**
+Implemented file:
 
 ```text
 app/pensum/page.tsx
 ```
 
-No repository, schema, styling, lesson-route, flashcard, quiz, progress, or legacy-route file is authorized in this slice.
+Implementation commit:
 
-### Implementation contract
+```text
+10330e672ffb108c37a9fff1aa3531fa79ce208f
+Add authoritative curriculum entry
+```
 
-Convert `app/pensum/page.tsx` into an async Server Component that:
+The page is an async Server Component that:
 
-1. uses the existing typed Supabase server `createClient()`;
-2. loads courses with `getCourses(client)`;
-3. includes only published courses in the rendered curriculum;
-4. for each published course, loads chapters with `getChaptersByCourseId(client, course.id)` and renders only published chapters;
-5. for each published chapter, loads lessons with `getLessonsByChapterId(client, chapter.id)` and renders only published lessons;
-6. renders authoritative course, chapter, and lesson titles from database records;
-7. links each published lesson to the existing hierarchical authoritative route using `course.slug`, `chapter.slug`, and `lesson.slug`;
-8. handles an empty published curriculum state explicitly without hardcoded curriculum fallback;
-9. remains a Server Component and introduces no client state;
-10. does not claim or implement learning activities, progress, advanced algorithms, or legacy-route migration.
+- uses the typed Supabase server client;
+- loads courses, chapters, and lessons through existing repository functions;
+- renders only published curriculum entities;
+- derives lesson links from authoritative course/chapter/lesson slugs;
+- links directly to the established hierarchical lesson route;
+- handles an empty published curriculum state without hardcoded fallback;
+- introduces no flashcard, quiz, progress, scheduler, mastery, adaptive-learning, or legacy-route migration behavior.
 
-### Styling boundary
+GitHub Actions workflow `Verify`, run 76, completed with `success` for `10330e672ffb108c37a9fff1aa3531fa79ce208f`.
 
-The existing `app/pensum/page.module.css` may remain imported and existing compatible classes may be reused, but it must not be modified in this slice.
-
-If the current CSS cannot support valid minimal markup without modification, stop and synchronize control rather than expanding scope automatically.
-
-### Data-query boundary
-
-The initial implementation may use the existing repository calls even though this produces multiple bounded server queries. Query optimization is not part of this seam-establishment slice.
-
-Do not introduce a new aggregate curriculum repository abstraction unless verification proves the existing contracts cannot implement the authorized behavior.
+**Authoritative Curriculum Entry slice: VERIFIED AND CLOSED.**
 
 ---
 
-## Verification Contract
+## Current Verified Integration State
 
-The slice is complete only when verification demonstrates:
+The repository now contains a dependency-correct authoritative curriculum path:
 
-1. only `app/pensum/page.tsx` changed as product code;
-2. the page contains no `"use client"` directive;
-3. it uses the typed server Supabase client;
-4. it uses existing course/chapter/lesson repository functions;
-5. unpublished entities are not rendered;
-6. lesson links use the authoritative hierarchical slug path;
-7. no hardcoded curriculum fallback is introduced;
-8. no flashcard, quiz, progress, scheduler, mastery, adaptive-learning, or legacy migration code is introduced;
-9. TypeScript passes;
-10. Next.js build passes;
-11. documentation structure verification remains passing;
-12. GitHub Actions passes for the resulting branch head.
+```text
+/pensum
+  ↓
+published course
+  ↓
+published chapter
+  ↓
+published lesson link
+  ↓
+/pensum/{course.slug}/{chapter.slug}/{lesson.slug}
+  ↓
+authoritative lesson content
+```
 
-Runtime proof that a learner can traverse actual published content remains dependent on remote data availability and must be verified separately if repository verification cannot establish it.
+This establishes curriculum and lesson context ownership but does not yet establish learning-activity integration.
+
+The MVP requires flashcards and quiz to be usable in relation to lesson context. Their existing repository/routes/components must therefore be inspected before selecting the next implementation slice.
 
 ---
 
@@ -197,67 +164,65 @@ Runtime proof that a learner can traverse actual published content remains depen
 
 ### R1 – Parallel identity models
 
-**Status: ACTIVE but reduced by this slice.**
+**Status: ACTIVE but reduced.**
 
-The `/pensum` entry will point to authoritative hierarchical lesson URLs, while the old hardcoded `app/pensum/[slug]/page.tsx` remains present but is not promoted as authority.
+The authoritative `/pensum` entry now points to hierarchical lesson URLs. The legacy hardcoded `app/pensum/[slug]/page.tsx` remains repository evidence but is not authoritative navigation.
 
 ### R2 – Database content availability
 
 **Status: OPEN.**
 
-An empty authoritative curriculum must be handled honestly. Runtime content traversal cannot be certified from code structure alone.
+Code-level curriculum traversal is verified. Actual end-to-end traversal through published remote curriculum rows remains a runtime data-state question.
 
-### R3 – Learning-principle implementation drift
+### R3 – Learning-activity identity drift
 
 **Status: ACTIVE.**
 
-This slice establishes curriculum navigation only and does not claim implementation of the certified learning mechanisms.
+Existing flashcard and quiz surfaces may use topic slugs or other legacy identity. They must not be connected to authoritative lessons until their data and routing contracts are inspected.
 
-### R4 – Query efficiency
+### R4 – Learning-principle overclaim
 
-**Status: ACCEPTED for first seam.**
+**Status: ACTIVE.**
 
-Existing repository calls may create multiple server queries. Optimization is deferred because it is not required to establish correct ownership or identity.
+Integrating an existing flashcard or quiz mechanism does not automatically certify Active Retrieval, Informative Correction, Distributed Practice, Adaptive Guidance, or Objective-Aligned Demonstration.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: OPEN ONLY for the bounded Authoritative Curriculum Entry slice.**
+**Product implementation: CLOSED pending bounded Learning Activity Integration inspection and file-level plan.**
 
-Authorized product-code change:
+No product-code file change is currently authorized.
 
-```text
-MODIFY app/pensum/page.tsx
-```
-
-No other product-code file change is authorized unless verification proves this exact slice cannot compile without one; if so, stop and synchronize control before expanding scope.
+Repository inspection and control synchronization are allowed.
 
 ---
 
 ## Current Task
 
-Implement the authoritative curriculum entry in `app/pensum/page.tsx` exactly as specified above.
+Derive the smallest dependency-correct learning-activity integration slice from the authoritative lesson context.
+
+The derivation must determine which existing learning activity should be integrated first based on current repository architecture and data ownership, not feature preference or historical implementation order.
 
 ---
 
 ## Next Allowed Action
 
-Modify only:
+Inspect the current flashcard and quiz implementation surfaces and their data contracts in relation to authoritative `lesson.id`.
 
-```text
-app/pensum/page.tsx
-```
+At minimum verify:
 
-so that `/pensum` resolves and renders the published course → chapter → lesson hierarchy from existing repository functions and links published lessons to:
+- existing flashcard routes/components/data sources;
+- existing quiz routes/components/data sources;
+- repository functions for flashcards and quiz questions;
+- whether those records are already keyed by `lesson_id`;
+- whether existing activity routes use authoritative lesson identity or legacy topic identity;
+- the authoritative lesson route as the candidate integration ownership point;
+- whether authentication is required for activity use itself or only for later learner-related progress persistence.
 
-```text
-/pensum/{course.slug}/{chapter.slug}/{lesson.slug}
-```
+Then select exactly one smallest dependency-correct first activity integration slice and synchronize `PROJECT_CONTROL.md` with a bounded file-level plan before reopening the product-code gate.
 
-Then verify the file and run project verification. After verification, synchronize `PROJECT_CONTROL.md` before selecting the next implementation slice.
-
-Do not modify CSS, repository functions, schema, flashcards, quiz, progress, the authoritative lesson route, or the legacy hardcoded `[slug]` route in this slice.
+Do not implement both activity families at once. Do not add progress persistence, adaptive sequencing, spaced repetition, mastery logic, broad UI redesign, or legacy-route deletion during this inspection.
 
 ---
 
