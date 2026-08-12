@@ -102,7 +102,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-`docs/README.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, `docs/architecture/database.md`, and `docs/architecture/authentication.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
+`docs/README.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, `docs/architecture/database.md`, `docs/architecture/authentication.md`, and `docs/architecture/backend-architecture.md` have now been repaired and re-read from the target GitHub branch to verify their committed content. A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
 ---
 
@@ -177,14 +177,13 @@ The repository has an extensive documentation directory structure, but significa
 - `docs/product/PRODUCT_VISION.md`;
 - `docs/product/LEARNING_MODEL.md`;
 - `docs/meetings/decisions-log.md`;
-- `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`;
 - `docs/development/project-structure.md`;
 - `docs/development/git-workflow.md`.
 
-The architecture directory still contains multiple zero-byte placeholder documents. Their existence must not be interpreted as completed architecture documentation.
+The architecture directory still contains incomplete or empty topic documents. Their existence must not be interpreted as completed architecture documentation.
 
-`PROJECT_HANDBOOK.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, `docs/architecture/database.md`, and `docs/architecture/authentication.md` were empty at audit start but have now been repaired where applicable.
+`PROJECT_HANDBOOK.md`, `docs/architecture/README.md`, `docs/architecture/system-overview.md`, `docs/architecture/database.md`, `docs/architecture/authentication.md`, and `docs/architecture/backend-architecture.md` were empty at audit start but have now been repaired where applicable.
 
 ### Damaged or stale documentation identified
 
@@ -223,6 +222,7 @@ Its origin and relevance have not yet been verified. It must not be deleted unti
 - `docs/architecture/system-overview.md` established from inspected repository and implementation evidence and verified after commit.
 - `docs/architecture/database.md` established from the complete MVP migration, generated database contract, and persistence boundary evidence and verified after commit.
 - `docs/architecture/authentication.md` established from inspected signup, login, confirmation, client/server, proxy, profile, and RLS evidence and verified after commit.
+- `docs/architecture/backend-architecture.md` established from the implemented repository layer and verified after commit.
 
 ### Not yet completed
 
@@ -270,9 +270,9 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 ### R6 – Incomplete architecture topic documentation
 
-The architecture entry point, system overview, database architecture, and authentication architecture are now established, but narrower backend/frontend and other topic files remain incomplete or empty.
+System, database, authentication, and backend architecture are now documented, while frontend and other narrower topic files still require validation or repair.
 
-**Mitigation:** repair remaining architecture topics one at a time from direct implementation evidence, cross-referencing already established authority instead of duplicating it.
+**Mitigation:** continue one topic at a time from direct repository evidence and preserve cross-document authority boundaries.
 
 ---
 
@@ -288,41 +288,30 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Establish the backend/data-access architecture from the now-documented persistence and authentication foundations.
+Establish the frontend architecture from the current Next.js App Router implementation without treating existing placeholder/static UI as completed product architecture.
 
-The next target is `docs/architecture/backend-architecture.md`, currently a zero-byte placeholder.
+The next target is `docs/architecture/frontend-architecture.md`, currently a zero-byte placeholder.
 
-This target is selected because the repository contains direct implementation evidence for typed Supabase clients, repository contracts, implemented repository modules, shared repository types/error handling, and a known incomplete `quizQuestions.ts` placeholder.
+This target follows backend architecture so the frontend document can clearly separate presentation/routing concerns from persistence, repository, and authentication authority already documented elsewhere.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the complete repository-layer implementation and relevant server/client boundaries; then repair and verify `docs/architecture/backend-architecture.md`.
+Inspect the current `app/` and `components/` structure plus representative shared layout, route, component, styling, static-data, progress/storage, and client/server boundaries; then repair and verify `docs/architecture/frontend-architecture.md`.
 
-The inspection must include, where relevant:
+The frontend architecture document must:
 
-- `lib/repositories/types.ts`;
-- shared repository error handling;
-- courses repository;
-- chapters repository;
-- lessons repository;
-- flashcards repository;
-- `quizQuestions.ts` placeholder state;
-- typed Supabase browser/server clients only as needed to establish dependency boundaries;
-- current runtime usage of repository modules where verifiable.
+- describe the verified Next.js App Router structure and presentation/component organization;
+- distinguish Server Components, Client Components, route handlers, and server actions only where verified by implementation;
+- identify CSS Modules/global styling placement where verified;
+- document static/local data and browser-storage usage where it materially affects the current frontend boundary;
+- distinguish UI availability from persistence/repository adoption;
+- route authentication implementation details to `authentication.md` and repository/database details to their authoritative documents;
+- avoid claiming a formal design system, state-management framework, protected-route model, or completed data-fetching architecture unless verified;
+- avoid turning current route/file placement into methodological responsibilities.
 
-The backend architecture document must:
-
-- describe the repository layer as an implementation/data-access boundary, not as a redefinition of the methodological responsibility model;
-- distinguish database schema authority from repository access behavior;
-- document only actually implemented repository operations;
-- identify `quizQuestions.ts` as incomplete rather than implied functionality;
-- distinguish repository availability from runtime adoption by pages/routes;
-- avoid inventing service layers, APIs, domain services, admin backends, or server-only boundaries not present in the repository;
-- route database details to `database.md` and authentication/session details to `authentication.md` rather than duplicating them.
-
-After `backend-architecture.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next architecture topic.
+After `frontend-architecture.md` is repaired and verified, update `PROJECT_CONTROL.md` before selecting the next documentation target.
 
 ---
 
