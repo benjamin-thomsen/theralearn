@@ -36,9 +36,11 @@ Domain-specific knowledge belongs under `docs/`.
 
 The historical reconstruction and authoritative project-control kernel are established.
 
-The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, the upstream `FOUNDATION_MODEL.md`, and the authoritative `RESPONSIBILITY_MODEL.md` are now established.
+The architecture domain has reached a verified repair checkpoint. The Foundation domain, its entry point, the upstream `FOUNDATION_MODEL.md`, and the authoritative `RESPONSIBILITY_MODEL.md` are established.
 
-The bounded authoritative transfer of Implementation Responsibility Model v1.0 is complete and verified. The current task is to determine the next bounded Foundation ownership/documentation unit from existing repository authority without guessing or automatically converting historical phase chronology into documents.
+The bounded Responsibility Model transfer is complete and verified. The subsequent bounded ownership assessment has now identified one concrete remaining Foundation evidence gap: the permanent Foundation certification conclusion and certification scope. Derivation rules and the certification method are already owned by `docs/foundation/FOUNDATION_MODEL.md` and must not be re-derived or duplicated.
+
+Targeted historical recovery is authorized only for the missing Foundation certification conclusion and certification scope evidence defined below.
 
 ---
 
@@ -121,13 +123,15 @@ The repaired core architecture/control documents, `docs/foundation/README.md`, `
 
 The Responsibility Model transfer checkpoint was verified on branch `migration-next16-to-root` at commit `4e2d7ebcfca75166e583a379a1153bbd701b59c8`, parent `00aa95a90b801379b243196a60f91c2714c97960`. The transfer commit adds only `docs/foundation/RESPONSIBILITY_MODEL.md`.
 
+The project-control synchronization checkpoint was verified at commit `7010f9c3d56d57b0be01cc8e210d038ef2b0607f`, parent `4e2d7ebcfca75166e583a379a1153bbd701b59c8`.
+
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
 ---
 
 ## Historical Reconstruction Status
 
-**Status: Methodically complete for current continuation; targeted Responsibility Model recovery transferred and verified**
+**Status: Methodically complete for current continuation; targeted Foundation certification conclusion/scope recovery authorized**
 
 The historical review re-established the development chain:
 
@@ -153,22 +157,15 @@ Historical Certification Review
 
 The review recovered the permanent methodological principles needed to continue the project.
 
-Targeted Historical Recovery recovered the original full contracts for all six responsibilities in Implementation Responsibility Model v1.0:
+Targeted Historical Recovery recovered the original full contracts for all six responsibilities in Implementation Responsibility Model v1.0, and that bounded evidence has been transferred into `docs/foundation/RESPONSIBILITY_MODEL.md` and verified from the authoritative branch.
 
-- interpretation responsibility;
-- authority responsibility;
-- state responsibility;
-- placement responsibility;
-- execution responsibility;
-- verification responsibility.
+Known gaps in the wider reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. Current evidence reports a historical certification conclusion of 120 passed falsification attempts and methodological saturation.
 
-Each recovered responsibility uses the locked contract fields: purpose, responsibility, authority, input, output, allowed dependencies, forbidden dependencies, preserved architectural properties, verifiable boundaries, and certification criteria. Historical evidence for the horizontal analysis and minimality analysis was also recovered.
+Those detailed sequence gaps remain archival/revision gaps. They are not authorization to recover all individual falsification attempts.
 
-That bounded evidence has now been transferred into `docs/foundation/RESPONSIBILITY_MODEL.md` and verified from the authoritative branch. Historical material remains evidence rather than automatic authority. No further broad historical recovery is authorized.
+The only newly authorized historical retrieval scope is evidence required to establish the permanent Foundation certification conclusion and certification scope: what was certified, the scope of that certification, the permanent conclusion, the methodological basis necessary to understand that conclusion, and its consequence for downstream authority.
 
-Known gaps in the wider reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
-
-These remaining gaps are archival/revision gaps unless a later specific Foundation transfer requires evidence not preserved in current authority.
+Historical material remains evidence rather than automatic authority.
 
 ---
 
@@ -188,23 +185,36 @@ The control kernel remains above domain documentation and does not become the de
 
 ## Foundation Documentation Status
 
-**Status: Foundation entry point, upstream model, and Responsibility Model established; next bounded ownership assessment authorized**
+**Status: Core Foundation ownership established; certification conclusion/scope evidence gap explicitly bounded**
 
 ### Established
 
 - `docs/foundation/README.md` — Foundation authority boundary, placement, transfer rule, and ownership routing;
-- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core governing derivation, authority/placement, information lifecycle/state transition, phase separation, implementation dependency, and refutation posture;
+- `docs/foundation/FOUNDATION_MODEL.md` — upstream methodological core governing derivation, authority/placement, information lifecycle/state transition, phase separation, implementation dependency, certification through refutation, semantic preservation, and refutation posture;
 - `docs/foundation/RESPONSIBILITY_MODEL.md` — authoritative Implementation Responsibility Model v1.0 containing all six locked responsibility contracts plus the bounded horizontal and minimality analyses.
 
 `RESPONSIBILITY_MODEL.md` was transferred without reconstruction or re-derivation and verified from the authoritative branch after commit.
 
-### Next ownership assessment
+### Bounded ownership result
 
-The Foundation routing map identifies later potential ownership in derivation/certification material where permanent downstream interpretation requires it, but the routing map is conceptual and does not authorize a child-document name by itself.
+The existing Foundation authority establishes that historical phase names do not automatically become permanent ownership units.
 
-The next bounded action is therefore to inspect current repository authority and determine the exact next permanent Foundation concept, whether it already has an authoritative home, and whether current evidence is sufficient for transfer.
+The bounded ownership assessment therefore concludes:
 
-If a concrete evidence gap is found, it must be identified explicitly and bounded before any targeted historical retrieval is authorized.
+- derivation rules already have permanent authority in `docs/foundation/FOUNDATION_MODEL.md`;
+- the certification method already has permanent authority in `docs/foundation/FOUNDATION_MODEL.md`, including Certification Through Refutation and the Open for Refutation posture;
+- no separate derivation document is justified merely by the historical Architecture Derivation or Implementation Architecture Derivation phase names;
+- the concrete remaining Foundation evidence gap is the permanent certification conclusion and certification scope.
+
+The missing bounded evidence concerns:
+
+- what Foundation material was actually certified;
+- the scope and boundary of the certification;
+- the permanent certification conclusion;
+- the methodological basis necessary to interpret that conclusion without reproducing historical chronology;
+- what the certification means for downstream derivation and authority.
+
+This gap does not itself establish a new child-document name or permanent ownership unit. Permanent ownership must be verified after sufficient evidence is recovered and before any new Foundation document is created.
 
 Transfer rule:
 
@@ -282,12 +292,17 @@ No such artifact should be deleted or implemented merely because it has been ide
 - The concrete Responsibility Model evidence gap closed.
 - `docs/foundation/RESPONSIBILITY_MODEL.md` transferred through the verified Git-object procedure and re-read from the authoritative branch.
 - Responsibility Model horizontal analysis and minimality analysis transferred within the bounded ownership scope.
-- Responsibility Model transfer fidelity verified; no further recovery is required for that ownership unit.
+- Responsibility Model transfer fidelity verified; R2 closed.
+- The next bounded Foundation ownership assessment completed against current repository authority.
+- Derivation rules verified as already owned by `FOUNDATION_MODEL.md`.
+- Certification method verified as already owned by `FOUNDATION_MODEL.md`.
+- Foundation certification conclusion/scope identified as the concrete remaining bounded Foundation evidence gap.
 
 ### Not yet completed
 
-- Determine the next bounded Foundation ownership/documentation unit from current authority and transfer it only where supported.
-- Transfer later Foundation certification/derivation material only if a permanent ownership need and sufficient evidence are verified.
+- Perform targeted historical recovery only for Foundation certification conclusion and certification scope.
+- Determine permanent ownership for recovered certification conclusion/scope only after sufficient evidence is verified.
+- Transfer certification conclusion/scope only if one authoritative home is established and the evidence supports transfer.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -331,6 +346,12 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 **Mitigation:** do not merge or rewrite `main` until documentation consolidation reaches a verified checkpoint and integration strategy is reviewed.
 
+### R6 – Foundation certification evidence incompleteness
+
+Current authority preserves the certification method and reports the historical conclusion, but the permanent certification conclusion and certification scope are not yet sufficiently evidenced for authoritative transfer.
+
+**Mitigation:** perform only the explicitly bounded targeted historical recovery authorized by this control state. Do not expand retrieval to the complete falsification chronology unless a specific required certification claim cannot otherwise be established and `PROJECT_CONTROL.md` is updated again to authorize that narrower need.
+
 ---
 
 ## Code Change Gate
@@ -339,50 +360,49 @@ The authoritative repaired project state currently lives on `migration-next16-to
 
 Code changes are currently allowed only when necessary to repair documentation/control infrastructure, verify repository state, correct a demonstrated workflow/system defect, or keep documentation tooling aligned with the established workflow.
 
+The currently authorized next action is historical evidence retrieval and analysis only. It does not authorize product code changes or creation of a new Foundation document.
+
 New product features should not be started until documentation authority and domain synchronization reach a stable checkpoint.
 
 ---
 
 ## Current Task
 
-Perform the bounded ownership assessment for the next Foundation documentation unit using current repository authority.
+Perform targeted historical recovery exclusively for the bounded Foundation certification conclusion and certification scope evidence gap.
 
-The assessment must determine:
+Recover only evidence necessary to determine:
 
-- the exact permanent concept that still requires a Foundation home;
-- whether that concept already has an authoritative home;
-- whether current repository/control evidence is sufficient to transfer it;
-- whether derivation/certification material is required for downstream interpretation rather than merely present in historical chronology;
-- whether any missing evidence is concrete enough to justify a separately authorized, targeted historical retrieval.
+- what was actually certified as Foundation v1.0;
+- the certification scope and its explicit boundaries;
+- the permanent certification conclusion;
+- the methodological basis necessary to interpret the conclusion, without re-deriving the already-owned certification method;
+- the downstream authority consequence of the certification.
 
-Do not create a new Foundation child document, invent a document name, or reload historical material merely because a historical phase exists.
+The task must not become a reconstruction of the complete Foundation Certification phase or the full falsification chronology.
+
+Historical evidence is evidence, not automatic authority.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the existing Foundation authority and current repository documentation to identify the next bounded permanent Foundation ownership need, with derivation/certification material as the already documented candidate area.
+Begin targeted historical recovery only for **Foundation certification conclusion + certification scope**.
 
-Use the ownership rules in `docs/foundation/README.md`:
+The retrieval boundary is strict:
 
-1. identify the exact permanent concept;
-2. identify current authoritative evidence;
-3. determine whether historical evidence is actually required;
-4. keep permanent meaning separate from historical process narrative;
-5. establish one authoritative home before transfer.
+1. seek primary historical evidence that states or directly supports the certification conclusion and scope;
+2. recover only enough surrounding context to preserve the meaning of those claims;
+3. compare recovered claims against current `FOUNDATION_MODEL.md` authority and do not re-derive rules already owned there;
+4. stop when the certification conclusion, scope, methodological basis required for interpretation, and downstream authority consequence are sufficiently evidenced;
+5. after recovery, determine the single permanent ownership location before any Foundation document is created or changed.
 
-If current authority is sufficient, establish the exact bounded transfer target before writing it.
+Explicitly forbidden under this authorization:
 
-If current authority is insufficient, stop at an explicit bounded evidence-gap statement before any targeted historical retrieval.
+- broad historical recovery;
+- automatic recovery of all 120 falsification attempts;
+- recovery of missing individual attempts merely to complete chronology;
+- re-derivation of Foundation, derivation rules, or certification method;
+- creation of a new Foundation document before permanent ownership and sufficient evidence are verified;
+- MVP feature development.
 
-**Transfer – do not re-derive.**
-
-Do not resume MVP feature development and do not perform broad historical recovery.
-
----
-
-## Update Rule
-
-`PROJECT_CONTROL.md` must be updated whenever a verified change materially alters current phase, current task, next allowed action, implementation baseline, verification state, known risks, documentation-repair progress, or code-change permission.
-
-Historical detail should not accumulate here unless it is required to understand the current state.
+If the bounded recovery reveals that a specific missing individual falsification attempt is necessary to establish one of the required permanent certification claims,
