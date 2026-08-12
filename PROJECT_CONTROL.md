@@ -36,9 +36,11 @@ Domain-specific knowledge belongs under `docs/`.
 
 The historical reconstruction and the authoritative project-control kernel are established.
 
-The architecture-domain repair/audit has reached a verified checkpoint. The current task now moves to determining the permanent documentation home for the certified Foundation/method material below the root control layer.
+The architecture-domain repair/audit has reached a verified checkpoint. Foundation/method documentation placement has now also been determined.
 
-This is not a new architecture-design phase. Existing certified principles are being consolidated and checked against current repository authority without redefining them.
+The current task is to establish the Foundation documentation entry point before transferring any detailed certified methodology.
+
+This is not a new methodology-design phase. Existing certified material is being given an authoritative permanent home without redefining it.
 
 ---
 
@@ -117,15 +119,7 @@ Overall verification: PASS
 
 The documentation structure check confirms directory existence. It does not prove that documentation content is complete, current, or authoritative.
 
-The following repaired architecture/control entry documents have been re-read from the target GitHub branch after commit:
-
-- `docs/README.md`;
-- `docs/architecture/README.md`;
-- `docs/architecture/system-overview.md`;
-- `docs/architecture/database.md`;
-- `docs/architecture/authentication.md`;
-- `docs/architecture/backend-architecture.md`;
-- `docs/architecture/frontend-architecture.md`.
+The repaired core architecture/control documents have been re-read from the target GitHub branch after commit.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -161,7 +155,7 @@ The review recovered the permanent methodological principles needed to continue 
 
 Known gaps in the reloaded historical evidence include parts of the detailed falsification sequence, including falsification attempt 12 and the full individual history between attempts 20 and 119. The historical certification conclusion reports 120 passed falsification attempts and methodological saturation.
 
-These gaps are currently archival/revision gaps rather than blockers. Historical material should only be reloaded again if a specific unresolved documentation claim requires it.
+These gaps are currently archival/revision gaps rather than blockers. Historical material should only be reloaded again if a specific unresolved Foundation claim requires it.
 
 ---
 
@@ -175,21 +169,90 @@ The project has three explicit root control documents:
 - `PROJECT_OVERVIEW.md` — stable project identity and permanent high-level principles;
 - `PROJECT_CONTROL.md` — current verified state, workflow gate, risks, and next allowed action.
 
-A new working session should recover context by reading:
+The control kernel remains above domain documentation and does not become the detailed methodology archive.
+
+---
+
+## Foundation Documentation Placement
+
+**Status: Placement determined; content transfer not yet started**
+
+The documentation tree was inspected for an existing permanent home for detailed certified Foundation/method material.
+
+### `docs/decisions/`
+
+Not selected as the Foundation home.
+
+The directory currently contains an empty README and empty ADR template. Its intended role is durable decision records and traceability for discrete decisions, not ownership of the complete certified methodological foundation.
+
+### `docs/references/`
+
+Not selected as the Foundation home.
+
+Its existing structure is for supporting reference material such as dependencies, external resources, glossary, and terminology. Reference material may support the methodology but must not become the normative authority for it.
+
+### `docs/development/`
+
+Not selected as the Foundation home.
+
+This domain owns engineering workflow, Developer Toolkit architecture, implementation conventions, roadmaps, and related development documentation. Development and Tooling implement/support the established methodology; they must not become the authority that defines it.
+
+### Existing other domains
+
+Architecture, product, design, guides, meetings, company, changelog, and templates each have narrower domain purposes and would create either duplication or an incorrect authority direction if they owned the complete Foundation/method model.
+
+### Placement decision
+
+A new dedicated domain is required:
+
+```text
+docs/foundation/
+```
+
+This domain will own detailed permanent certified methodology below the root control kernel and above implementation-specific domain interpretation.
+
+The intended authority relationship is:
 
 ```text
 PROJECT_HANDBOOK.md
-        ↓
 PROJECT_OVERVIEW.md
-        ↓
 PROJECT_CONTROL.md
         ↓
-Relevant domain documentation
+docs/foundation/
         ↓
-Relevant implementation
+docs/architecture/
+docs/product/
+docs/development/
+other domain documentation
+        ↓
+implementation
 ```
 
-Historical chats are no longer the default context-recovery mechanism.
+This is an information-placement decision, not a new methodological principle.
+
+---
+
+## Foundation Domain Boundary
+
+The future `docs/foundation/` domain may own detailed certified material such as:
+
+- Foundation definitions and invariants;
+- certified methodological dependency chain;
+- derived responsibility model;
+- certification status and scope where permanent;
+- detailed methodological boundaries required to interpret downstream architecture correctly.
+
+It must not own:
+
+- current project state — `PROJECT_CONTROL.md`;
+- project governance/workflow — `PROJECT_HANDBOOK.md`;
+- stable high-level project identity — `PROJECT_OVERVIEW.md`;
+- detailed implementation architecture — `docs/architecture/`;
+- product/learning-domain definitions — `docs/product/`;
+- Developer Toolkit implementation — `docs/development/`;
+- historical chat transcripts or raw reconstruction evidence.
+
+Historical evidence may support Foundation repair when needed, but evidence and permanent authority remain distinct.
 
 ---
 
@@ -197,7 +260,7 @@ Historical chats are no longer the default context-recovery mechanism.
 
 **Status: Core architecture repaired; remaining topics classified**
 
-### Repaired and verified architecture documents
+Repaired and verified:
 
 - `docs/architecture/README.md`;
 - `docs/architecture/system-overview.md`;
@@ -206,45 +269,7 @@ Historical chats are no longer the default context-recovery mechanism.
 - `docs/architecture/backend-architecture.md`;
 - `docs/architecture/frontend-architecture.md`.
 
-### Remaining topic classification
-
-#### `api.md`
-
-**Classification: topic not currently represented by a distinct implemented architecture boundary.**
-
-A specific authentication route handler exists, but no general REST, GraphQL, RPC, or application API architecture has been verified. The file remains empty rather than inventing a general API layer.
-
-#### `integrations.md`
-
-**Classification: topic not currently represented by a distinct implemented architecture boundary.**
-
-Supabase is a verified platform dependency, but its persistence and authentication boundaries already have permanent homes in `database.md` and `authentication.md`. No separate integration architecture has been established that would justify duplicating those definitions.
-
-#### `security.md`
-
-**Classification: empty placeholder without enough current evidence for a responsible standalone document.**
-
-Verified security-relevant mechanisms include authentication/session behavior and database RLS, but those are already documented in their authoritative domains. A broader security architecture has not yet been established from inspected evidence.
-
-#### `deployment.md`
-
-**Classification: empty placeholder without enough current evidence for a responsible standalone document.**
-
-GitHub Actions CI verification is implemented and verified. However, no `vercel.json` exists on the branch, `next.config.ts` contains no deployment-specific configuration, and repository search did not establish a deployment pipeline/configuration that could support an authoritative deployment architecture document.
-
-CI verification must not be mislabeled as deployment architecture.
-
-#### `scalability.md`
-
-**Classification: empty placeholder without enough current evidence for a responsible standalone document.**
-
-No distinct caching, queueing, horizontal-scaling, CDN, load-distribution, or other scalability architecture has been established from the current repository evidence.
-
-### Architecture completion rule
-
-The architecture domain is considered repaired to the level supported by current verified evidence.
-
-Empty topic files are not treated as defects merely because they are empty. They remain non-authoritative placeholders until a distinct verified architecture boundary exists and the workflow authorizes documentation of it.
+Remaining empty architecture topics have been classified against current evidence. They are not to be populated merely to eliminate empty files.
 
 ---
 
@@ -288,17 +313,17 @@ No such artifact should be deleted or implemented merely because it has been ide
 - Current development branch pushed to GitHub.
 - GitHub repository access verified.
 - Documentation structure audited at the control level.
-- `PROJECT_OVERVIEW.md` established.
-- `PROJECT_CONTROL.md` established.
-- `PROJECT_HANDBOOK.md` established.
-- Authority model, information-placement rule, working-session lifecycle, workflow gate, and new-chat context recovery permanently documented.
+- Root control kernel established.
 - `docs/README.md` repaired and verified.
 - Core architecture documentation repaired and verified.
-- Remaining architecture topics classified against current evidence without inventing missing architecture.
+- Remaining architecture topics classified against current evidence.
+- Existing documentation domains inspected for Foundation/method authority.
+- `docs/foundation/` selected as the required permanent home for detailed certified methodology.
 
 ### Not yet completed
 
-- Establish authoritative Foundation/method documentation placement below the control layer.
+- Establish the `docs/foundation/` entry point and minimal document structure.
+- Transfer and verify detailed certified Foundation/method content into its authoritative home.
 - Populate or validate product documentation.
 - Update stale Developer Toolkit roadmap/backlog documentation.
 - Audit development-domain entry/structure documentation.
@@ -316,11 +341,11 @@ Implementation and historical decisions are ahead of several non-architecture do
 
 **Mitigation:** continue documentation repair before resuming ordinary feature development.
 
-### R2 – Duplicate authority during reconstruction
+### R2 – Foundation duplication during transfer
 
-Repair work can accidentally duplicate the same rule across Overview, Handbook, Control, Foundation/method documentation, and domain documents.
+Detailed certified methodology could be copied into multiple documents or reinterpreted during transfer.
 
-**Mitigation:** establish the permanent Foundation/method documentation home before transferring detailed certified methodology below the root control layer.
+**Mitigation:** establish the Foundation entry point and document ownership map before transferring detailed content; move permanent information to one home and reference it elsewhere.
 
 ### R3 – Stale roadmap/backlog state
 
@@ -354,29 +379,35 @@ New product features should not be started until documentation authority and dom
 
 ## Current Task
 
-Determine the permanent authoritative placement for detailed certified Foundation/method documentation below the root control kernel.
+Establish the `docs/foundation/` domain entry point and define a minimal ownership structure before transferring detailed certified methodology.
 
-The root control documents intentionally contain only governance, stable high-level project principles, and current state. The historical reconstruction contains more detailed certified methodology that should not be copied indiscriminately into architecture, development, or product documentation.
-
-Before creating or populating any Foundation/method document, the existing `docs/` structure must be inspected for an appropriate current home and for any existing files that already claim this authority.
+The structure must be derived from the already reconstructed methodological chain and authority boundaries, but must not duplicate detailed content yet.
 
 ---
 
 ## Next Allowed Action
 
-Inspect the current documentation tree for Foundation/methodology-related files, including relevant files under `docs/decisions/`, `docs/references/`, `docs/development/`, and any other existing location whose name/content suggests methodological authority.
+Create and verify only:
 
-Then determine whether:
+```text
+docs/foundation/README.md
+```
 
-1. an existing document/location already owns the detailed certified Foundation/method material and should be repaired;
-2. an existing domain should own it but lacks the necessary entry/document;
-3. a new authoritative location is genuinely required.
+Creating this file will establish the `docs/foundation/` directory in Git.
 
-Do not create a new document before this placement inspection is complete.
+The Foundation README must:
 
-Do not reload historical chats unless the placement decision or a later specific Foundation claim cannot be resolved from current authoritative files and repository evidence.
+- define the purpose and authority boundary of the domain;
+- place the domain below the root control kernel and above downstream domain interpretation;
+- define how Foundation differs from decisions, references, architecture, product, and development documentation;
+- establish the rule that certified methodology is transferred, not re-derived;
+- define a minimal future ownership map based on the verified methodological chain without yet creating all child documents;
+- state that historical chats/reconstruction material are evidence sources only when a specific unresolved claim requires them;
+- avoid copying detailed Foundation content before its exact source and destination are verified.
 
-After placement is determined, update `PROJECT_CONTROL.md` before transferring detailed Foundation/method content.
+Do not create additional Foundation files in the same step.
+
+After `docs/foundation/README.md` is created and verified, update `PROJECT_CONTROL.md` before transferring any detailed methodological content.
 
 ---
 
