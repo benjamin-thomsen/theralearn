@@ -26,7 +26,7 @@ Foundation authority is consolidated, core architecture documentation is repaire
 
 The product documentation domain remains the highest-priority authority repair area before ordinary MVP development can resume.
 
-The product ownership model, product-domain authority map, and Product Vision are established. The bounded Learning Model pre-write evidence analysis is now complete.
+The product ownership model, product-domain authority map, Product Vision, and Learning Model are now established and verified. Durable MVP scope is the remaining substantive product authority gap.
 
 ---
 
@@ -58,13 +58,11 @@ Recent verified documentation/control checkpoints include:
 - root README repair: `0284b31788a27c71231b14018e2ce5df16f6b46b`;
 - product documentation ownership model: `7e1cfe948695fa15244cf4cb0d8ef897503e798f`;
 - product documentation authority map: `1763274933383b818de1092897c6dc669a52edaa`;
-- Product Vision transfer authorization: `663853df330eedc64df7b5454671f39214a30950`;
 - Product Vision transfer: `f1d7c814da26aeec1ac5cbc19bc4ae13011122af`;
-- Learning Model analysis target selection: `7eebad3d2258b1f032c647d50f96c6994cf386eb`.
+- Learning Model transfer authorization: `5b0bf61ae7e6ddaa012dc344f52914e924bc2d1c`;
+- Learning Model transfer: `38760eb66974217c9d966f6b0617f4049be76d69`.
 
-`docs/product/PRODUCT_VISION.md` was re-read and verified after transfer.
-
-The Learning Model pre-write analysis inspected current product authority and generated database types. Current implementation verifies a Course → Chapter → Lesson content hierarchy; lessons contain learning objectives; flashcards and quiz questions are attached to lessons; and lesson progress is tracked per user and lesson. These facts establish structural learning context but do not by themselves prove a broader pedagogical theory.
+`docs/product/LEARNING_MODEL.md` was re-read from the authoritative branch after transfer. It establishes the evidence-backed structural learning model while explicitly leaving unsupported pedagogical mechanisms unestablished.
 
 A new complete local build/TypeScript/documentation verification has not yet been run after these documentation-only changes.
 
@@ -76,7 +74,7 @@ A new complete local build/TypeScript/documentation verification has not yet bee
 
 Historical material remains evidence, not automatic authority.
 
-No historical recovery is required for the bounded minimal Learning Model transfer. Current authority and implementation evidence are sufficient to establish the structural learning model while leaving unsupported pedagogical mechanisms explicitly open.
+No MVP historical recovery is authorized by default. The durable MVP boundary must first be derived from current Product Vision, Learning Model, current repository implementation, and existing verified project authority. If a required MVP inclusion or acceptance criterion cannot be established, the exact bounded evidence gap must be recorded before historical recovery is considered.
 
 ---
 
@@ -117,18 +115,18 @@ Remaining empty architecture topics must not be populated merely to eliminate em
 
 - `docs/product/README.md` — **ESTABLISHED AND VERIFIED**;
 - `docs/product/PRODUCT_VISION.md` — **ESTABLISHED AND VERIFIED**;
-- `docs/product/LEARNING_MODEL.md` — permanent learning model and verified learning mechanisms;
-- `docs/product/mvp.md` — durable MVP scope and product acceptance boundary.
+- `docs/product/LEARNING_MODEL.md` — **ESTABLISHED AND VERIFIED**;
+- `docs/product/mvp.md` — intended owner of durable MVP scope and product acceptance boundary.
 
 Deferred/overlap placeholders remain non-authoritative and are not authorized for population or deletion.
 
 ---
 
-## Learning Model Pre-Write Result
+## Learning Model Status
 
-**Status: COMPLETE — bounded minimal write can proceed without historical recovery**
+**Status: ESTABLISHED AND VERIFIED**
 
-The verified minimal learning model is:
+The authoritative Learning Model establishes:
 
 ```text
 Structured curriculum context
@@ -146,27 +144,7 @@ Supporting learning activities
 Learner progress in relation to the lesson
 ```
 
-The evidence supports these permanent conclusions:
-
-- learning is organized in a structured curriculum hierarchy of courses, chapters, and lessons;
-- the lesson is the central learning-context unit currently evidenced by the implementation;
-- lessons can define learning objectives;
-- flashcards are attached to lessons and therefore operate within lesson context;
-- quiz questions are attached to lessons and therefore operate within lesson context;
-- learner progress is tracked in relation to lessons;
-- these mechanisms support the Product Vision principle of an integrated learning environment around shared curriculum context rather than unrelated standalone tools.
-
-The current evidence does **not** authorize claims that TheraLearn uses or requires:
-
-- spaced repetition;
-- a specific retrieval-practice methodology;
-- mastery learning;
-- adaptive learning;
-- prescribed repetition intervals;
-- a fixed pedagogical progression algorithm;
-- a specific pedagogical role for reading support or multilingual support beyond their established product capability status.
-
-Implementation demonstrates available structures and relationships; it does not independently create pedagogical intent.
+It establishes lesson as the current central learning-context unit and relates lesson content/objectives to flashcards, quiz questions, and learner progress without inventing unsupported pedagogical mechanisms.
 
 ---
 
@@ -174,7 +152,7 @@ Implementation demonstrates available structures and relationships; it does not 
 
 Current unresolved findings include:
 
-- `LEARNING_MODEL.md` and `mvp.md` remain empty pending bounded transfer;
+- `docs/product/mvp.md` remains empty pending bounded evidence-based scope analysis and transfer;
 - empty/deferred product placeholders remain classified but unresolved for eventual retention/deletion;
 - empty `docs/meetings/decisions-log.md`;
 - empty development placeholders including `docs/development/project-structure.md` and `docs/development/git-workflow.md`;
@@ -198,12 +176,11 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 - Minimal product-document ownership model derived.
 - `docs/product/README.md` established and verified.
 - `docs/product/PRODUCT_VISION.md` established and verified.
-- Learning Model pre-write evidence analysis completed.
+- `docs/product/LEARNING_MODEL.md` established and verified.
 
 ### Not yet completed
 
-- Transfer the bounded minimal Learning Model into `docs/product/LEARNING_MODEL.md`.
-- Establish verified MVP scope authority in `docs/product/mvp.md`.
+- Analyze and establish verified MVP scope authority in `docs/product/mvp.md`.
 - Decide later whether deferred product placeholders should be retained or removed.
 - Development-domain documentation audit beyond roadmap/backlog.
 - Retention/deletion decision for `-name package-lock.json`.
@@ -217,11 +194,11 @@ No empty or anomalous artifact is authorized for deletion, population, or implem
 
 ### R1 – Product domain authority gap
 
-**Status: ACTIVE, materially reduced.**
+**Status: ACTIVE, narrowly bounded.**
 
-Product placement authority and Product Vision are established. The Learning Model transfer scope is verified, and durable MVP scope remains unresolved.
+Product placement authority, Product Vision, and Learning Model are established. Durable MVP scope is now the only remaining substantive product-authority gap identified by the current product ownership model.
 
-**Mitigation:** transfer the bounded Learning Model, then establish MVP scope.
+**Mitigation:** derive and establish the bounded MVP scope before ordinary product development resumes.
 
 ### R2 – Responsibility-model transfer fidelity
 
@@ -261,24 +238,31 @@ No product feature implementation is currently authorized.
 
 ## Current Task
 
-Transfer the bounded minimal Learning Model into `docs/product/LEARNING_MODEL.md`.
+Perform a bounded pre-write evidence analysis for `docs/product/mvp.md`.
 
-The document must establish only the verified structural learning context and evidence-backed relationships. It must not invent unsupported pedagogical mechanisms or turn current implementation details into universal learning principles.
+The analysis must determine the durable minimum product scope and acceptance boundary that can be established from current authority and verified implementation evidence.
+
+It must distinguish:
+
+- Product Vision capabilities from actual MVP requirements;
+- Learning Model structures from MVP completion criteria;
+- already implemented capabilities from required-but-incomplete MVP capabilities;
+- durable MVP scope from current implementation progress;
+- MVP acceptance boundary from current project workflow state.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded write of only `docs/product/LEARNING_MODEL.md` using the verified Learning Model scope recorded above.
+Inspect current Product Vision, Learning Model, repository implementation, and existing verified project authority to derive the minimal evidence-backed MVP scope and acceptance boundary.
 
-After the write:
+Do not write `docs/product/mvp.md` during this analysis.
 
-1. re-read `LEARNING_MODEL.md` from the authoritative branch;
-2. verify its boundary against Product Vision, MVP scope, architecture, and Project Control;
-3. synchronize `PROJECT_CONTROL.md`;
-4. stop before modifying `mvp.md` or another target.
+Do not assume every existing feature is required for MVP, and do not assume every Product Vision capability must be complete in the MVP unless evidence supports that inclusion.
 
-No historical retrieval is authorized for this transfer.
+Do not use historical chat material by default. If a necessary MVP inclusion or acceptance criterion cannot be established from current authority or implementation evidence, record the exact bounded evidence gap before any historical recovery is authorized.
+
+After the analysis, synchronize `PROJECT_CONTROL.md` with the result before any MVP document write.
 
 ---
 
