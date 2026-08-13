@@ -423,35 +423,41 @@ The existence of empty remote tables is not by itself authorization to invent or
 
 ## Current Task
 
-Resolve the verified authoritative curriculum data prerequisite without changing product code, schema, or database data.
+Establish the missing permanent authority for authoritative curriculum content before any curriculum data is transferred to Supabase.
 
-The immediate task is to identify the legitimate source of truth for the first bounded authoritative curriculum data slice.
+The bounded authority inspection is complete and established that no existing repository source has sufficient authority to serve as the source of truth for the first course → chapter → lesson data slice.
 
-The inspection must determine:
+Verified findings:
 
-1. whether an existing permanent product/content authority already defines the first course → chapter → lesson content;
-2. whether current static curriculum content is authoritative, transitional, legacy, or presentation-only;
-3. whether existing repository content can legitimately serve as the source for remote authoritative curriculum data;
-4. the smallest bounded course → chapter → lesson slice that could be transferred if authority is established;
-5. whether any additional product/content authority decision is required before a database-data write can be authorized.
+1. permanent product authority defines the curriculum model and MVP boundary, but not concrete course, chapter, or lesson content;
+2. `data/pensum.ts` and `app/pensum/[slug]/page.tsx` contain competing legacy/static versions of the same curriculum identity;
+3. neither legacy/static source may be promoted automatically;
+4. presentation-layer placement or current UI usage does not create content authority;
+5. Supabase storage does not create content authority;
+6. no third concrete curriculum-content source was identified;
+7. the repository therefore has a verified governance gap: no permanent ownership unit currently owns authoritative curriculum content.
 
-No remote curriculum row is to be created during this inspection.
+The immediate task is to establish that missing permanent curriculum-content authority and its correct information placement.
+
+No curriculum content is to be invented, selected between competing legacy sources, combined from those sources, transferred to Supabase, or written remotely during this authority-establishment step.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded read-only authority inspection before any database-data write:
+Perform a bounded governance and information-placement resolution for authoritative curriculum content:
 
-1. inspect permanent product authority relevant to curriculum ownership and content;
-2. inspect repository sources that currently provide curriculum content;
-3. classify those sources as authoritative, transitional, legacy, or presentation-only based on existing project authority;
-4. identify whether one existing course → chapter → lesson slice has a verified authoritative content basis;
-5. do not infer authority merely from current UI usage or file existence;
-6. make no product-code, schema, or database-data change during this inspection;
-7. synchronize `PROJECT_CONTROL.md` with the verified authority result before authorizing any remote curriculum-data write.
+1. determine the permanent ownership unit that must own concrete authoritative curriculum content;
+2. place that ownership within the existing product-authority structure without duplicating authority;
+3. define the boundary between permanent curriculum-content authority and runtime Supabase representation;
+4. define how a future bounded course → chapter → lesson slice becomes authorized for transfer;
+5. preserve the rule that legacy/static files cannot acquire authority from technical placement, UI usage, or convenience;
+6. make no product-code, schema, or database-data change during this resolution;
+7. synchronize the resulting permanent authority decision before authorizing any remote curriculum-data write.
 
-If no existing source has sufficient authority, stop and establish the missing product/content authority before populating the database.
+Do not choose between `data/pensum.ts` and `app/pensum/[slug]/page.tsx` merely because one is easier to migrate.
+
+Do not combine the competing legacy/static sources into a new curriculum version.
 
 Do not invent curriculum content.
 
@@ -459,7 +465,7 @@ Do not populate remote tables merely to satisfy runtime rendering.
 
 Do not expand legacy quiz scope.
 
-Do not authorize scoring, progress persistence, mastery, adaptive logic, scheduling, or multi-question orchestration as part of resolving this prerequisite.
+Do not authorize scoring, progress persistence, mastery, adaptive logic, scheduling, or multi-question orchestration as part of resolving this authority gap.
 
 ---
 
