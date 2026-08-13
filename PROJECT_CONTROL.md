@@ -43,8 +43,8 @@ migration-next16-to-root
 Latest verified repository checkpoint:
 
 ```text
-2d57fb6
-Certify authoritative quiz runtime data state
+cde4534
+Enforce repository index completeness
 ```
 
 Verified Authoritative Quiz Activity implementation commit:
@@ -297,6 +297,35 @@ existing authoritative curriculum chain target: none
 The runtime-data problem is therefore broader than missing quiz-question rows.
 
 The current blocker is authoritative curriculum data availability.
+
+
+### Repository Index Completeness Verification
+
+**CLOSED**
+
+Verified checkpoint:
+
+```text
+cde4534
+Enforce repository index completeness
+```
+
+Verified clean-checkpoint result:
+
+```text
+TypeScript Check: PASS
+Build: PASS
+Documentation Check: PASS
+Repository Index: PASS
+Git Status: PASS
+Overall: PASS
+
+Tracked files: 231
+Indexed files: 231
+```
+
+The repository index is now protected by a permanent completeness gate.
+
 
 ---
 
