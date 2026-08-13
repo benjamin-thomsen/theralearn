@@ -12,19 +12,22 @@
 
 ## Current Phase
 
-**MVP Learning Loop Implementation — Authoritative Quiz Runtime Data Verification**
+**MVP Learning Loop Implementation — Authoritative Quiz Data Prerequisite Resolution**
 
 The Learning Science Evidence Review and permanent authority transfer are complete. The MVP boundary remains unchanged.
 
 The following bounded slices are verified and closed:
 
-- Authoritative Lesson Context;
-- Authoritative Curriculum Entry;
-- Authoritative Flashcard Integration;
-- Quiz Repository first slice;
-- Authoritative Quiz Activity first slice.
+* Authoritative Lesson Context;
+* Authoritative Curriculum Entry;
+* Authoritative Flashcard Integration;
+* Quiz Repository first slice;
+* Authoritative Quiz Activity first slice;
+* Authoritative Quiz Runtime Data Verification.
 
-The next unresolved dependency is runtime data availability: whether published authoritative quiz-question rows actually exist remotely for lesson-scoped rendering.
+The runtime verification established that the authoritative quiz UI has no remote quiz-question data available to render.
+
+The next unresolved dependency is therefore not product-code behavior. It is the absence of authoritative quiz-question data.
 
 ---
 
@@ -34,6 +37,13 @@ The next unresolved dependency is runtime data availability: whether published a
 migration-next16-to-root
 ```
 
+Latest verified repository checkpoint before this control synchronization:
+
+```text
+044381c
+Complete documentation index governance
+```
+
 Verified Authoritative Quiz Activity implementation commit:
 
 ```text
@@ -41,7 +51,9 @@ Verified Authoritative Quiz Activity implementation commit:
 Integrate authoritative lesson quiz activity
 ```
 
-GitHub Actions workflow `Verify`, run 86, completed successfully for that exact commit.
+GitHub Actions workflow `Verify`, run 86, completed successfully for that implementation commit.
+
+Working tree was verified clean immediately before this control synchronization.
 
 ---
 
@@ -49,9 +61,9 @@ GitHub Actions workflow `Verify`, run 86, completed successfully for that exact 
 
 Permanent product authority remains:
 
-- `docs/product/PRODUCT_VISION.md`;
-- `docs/product/LEARNING_MODEL.md`;
-- `docs/product/mvp.md`.
+* `docs/product/PRODUCT_VISION.md`;
+* `docs/product/LEARNING_MODEL.md`;
+* `docs/product/mvp.md`.
 
 The dependency-correct MVP integration direction remains:
 
@@ -68,6 +80,8 @@ Learner-related result/progress
 ```
 
 Features are mechanisms; Learning Principles are authority. No single feature may overclaim realization of a Learning Principle.
+
+Authoritative quiz content must remain lesson-scoped and must derive from authoritative curriculum content rather than from legacy quiz data or invented fallback content.
 
 ---
 
@@ -89,11 +103,11 @@ components/AuthoritativeQuizQuestion.tsx
 
 The client component owns only bounded per-question interaction:
 
-- answer selection;
-- check/reveal state;
-- correctness reveal;
-- stored explanation reveal;
-- local reset/retry.
+* answer selection;
+* check/reveal state;
+* correctness reveal;
+* stored explanation reveal;
+* local reset/retry.
 
 It performs no Supabase/network access and introduces no score, progress persistence, mastery, adaptive logic, scheduling, new route, or legacy quiz dependency.
 
@@ -101,30 +115,99 @@ The implementation can support Active Retrieval through an active response befor
 
 ---
 
-## Governance Checkpoint — Documentation Index Automation
+## Verified Authoritative Quiz Runtime Data State
 
-The bounded **Project Governance — Documentation Index Automation** task is **CLOSED**.
+The bounded runtime-data verification is complete.
 
-Verified governance outcomes:
+The linked Supabase project is:
 
-- `INDHOLDSFORTEGNELSE.md` is generated deterministically from Git-tracked repository files through the Developer Toolkit;
-- the generated index is explicitly a repository navigation map and does not replace project, domain, or implementation authority;
-- `PROJECT_HANDBOOK.md` routes working sessions through `INDHOLDSFORTEGNELSE.md` after `PROJECT_CONTROL.md` and before the relevant domain authority;
-- Developer Toolkit verification now includes an explicit TypeScript Check PASS/FAIL result;
-- `edit` preserves existing file contents, while `replace` remains the explicit destructive replacement command;
-- obsolete Git-tracked repository artifacts `-name package-lock.json` and `projektstruktur.txt` were identified through the generated index and removed from the bounded governance change;
-- the index is generated from 234 Git-tracked repository files, excluding `INDHOLDSFORTEGNELSE.md` itself from the generator input;
-- complete Developer Toolkit verification passed: TypeScript Check PASS, Build PASS, Documentation Check PASS, Git Status PASS, Overall PASS.
+```text
+TheraLearn
+reference: upjlofediaqhtdcipiau
+region: eu-west-1
+```
 
-The governance task introduced no product-code or schema change and did not change the MVP boundary.
+During inspection the remote project was found paused:
 
-The temporary governance detour is complete. Work therefore resumes at the already-authorized product phase: **MVP Learning Loop Implementation — Authoritative Quiz Runtime Data Verification**.
+```text
+status: INACTIVE
+```
+
+Supabase Dashboard independently confirmed:
+
+```text
+Project "TheraLearn" is paused
+```
+
+The existing project was resumed without creating a new project or changing schema or product code.
+
+Supabase Dashboard subsequently verified:
+
+```text
+STATUS
+Healthy
+```
+
+The restored project URL remained:
+
+```text
+https://upjlofediaqhtdcipiau.supabase.co
+```
+
+Runtime REST inspection using the project's configured public Supabase credentials returned:
+
+```json
+[]
+```
+
+for published `quiz_questions`.
+
+A second runtime REST inspection without the published filter also returned:
+
+```json
+[]
+```
+
+Because runtime access is subject to RLS, those results alone were not treated as proof that the physical table contained zero rows.
+
+The linked remote database was therefore queried directly through the Supabase Management API using the installed CLI:
+
+```text
+supabase db query --linked
+```
+
+The definitive read-only database query was:
+
+```sql
+select count(*) as quiz_question_count
+from public.quiz_questions;
+```
+
+Verified result:
+
+```text
+quiz_question_count
+-------------------
+0
+```
+
+Therefore:
+
+**`public.quiz_questions` contains exactly zero remote rows.**
+
+No published quiz-question rows exist.
+
+No `lesson_id` relationships exist to verify because there are no quiz-question rows.
+
+The absence of the authoritative quiz section at runtime is therefore a verified data-state result and not a product-code or UI defect.
 
 ---
 
 ## Verification State
 
-Authoritative Quiz Activity first slice is **CLOSED**.
+### Authoritative Quiz Activity first slice
+
+**CLOSED**
 
 Verified implementation commit:
 
@@ -140,7 +223,22 @@ status: completed
 conclusion: success
 ```
 
-The successful workflow certifies the repository verification gate for the implementation commit.
+### Authoritative Quiz Runtime Data Verification
+
+**CLOSED**
+
+Verified findings:
+
+```text
+Supabase project: restored and Healthy
+public.quiz_questions row count: 0
+published quiz rows: 0
+verified quiz → lesson relationships: none exist
+```
+
+The verification establishes that the next quiz dependency is authoritative data availability.
+
+No product-code defect has been established by this inspection.
 
 ---
 
@@ -148,9 +246,21 @@ The successful workflow certifies the repository verification gate for the imple
 
 ### R1 – Remote quiz availability
 
-**Status: OPEN and now blocking the next quiz integration decision.**
+**Status: VERIFIED DATA PREREQUISITE — BLOCKING QUIZ RUNTIME CONTENT.**
 
-Published remote quiz-question rows have not yet been certified. The authoritative UI correctly renders no quiz section when zero published questions are available, so runtime data state must be verified before deciding whether any further product-code change is necessary.
+The remote authoritative table:
+
+```text
+public.quiz_questions
+```
+
+contains zero rows.
+
+The authoritative quiz UI therefore has no authoritative question data to render.
+
+This is not evidence of a UI defect.
+
+The next response must address the missing authoritative data prerequisite without introducing fallback content, legacy quiz coupling, or unnecessary product-code changes.
 
 ### R2 – Informative correction quality
 
@@ -158,11 +268,15 @@ Published remote quiz-question rows have not yet been certified. The authoritati
 
 The schema and UI support stored explanations, but whether a particular explanation provides sufficient correction depends on actual question content and learner error.
 
+This risk cannot be evaluated against runtime quiz content until authoritative quiz-question data exists.
+
 ### R3 – Legacy quiz identity
 
 **Status: ACTIVE but isolated.**
 
 Legacy `/quiz/[slug]`, `data/quiz.ts`, and legacy quiz orchestration remain outside the authoritative integration.
+
+Legacy quiz content must not be reused merely to fill the authoritative data gap unless separately established as valid product authority.
 
 ### R4 – Multi-question orchestration
 
@@ -170,37 +284,75 @@ Legacy `/quiz/[slug]`, `data/quiz.ts`, and legacy quiz orchestration remain outs
 
 No score, sequence, result state, or progression across questions has been authorized.
 
+The absence of quiz data does not authorize expansion into orchestration.
+
+### R5 – Supabase project pausing
+
+**Status: OBSERVED OPERATIONAL CONDITION.**
+
+The linked Supabase project was found paused during runtime verification and was manually resumed.
+
+The project returned to Healthy state with the existing project reference and data model intact.
+
+This operational condition does not currently authorize infrastructure redesign.
+
 ---
 
 ## Code Change Gate
 
-**Product implementation: PAUSED pending bounded runtime data verification.**
+**Product implementation: PAUSED pending authoritative quiz data prerequisite resolution.**
 
 No product-code change is currently authorized.
 
-Runtime/data inspection may proceed. If inspection identifies a verified data-state defect or missing prerequisite, synchronize this control file before authorizing any implementation response.
+No schema change is currently authorized.
+
+No legacy quiz integration is authorized.
+
+Read-only curriculum/data inspection may proceed.
+
+The next bounded inspection must identify a valid authoritative course → chapter → lesson target and the lesson content from which an initial authoritative quiz-question data slice could be derived.
+
+Any data insertion must remain unauthorized until that target and content basis have been verified and this control gate explicitly permits the write.
 
 ---
 
 ## Current Task
 
-Verify remote authoritative quiz-question availability and its lesson relationship without changing product code.
+Resolve the verified authoritative quiz data prerequisite without changing product code or schema.
 
-The inspection must determine whether published quiz-question rows exist remotely and whether they are correctly associated with authoritative lesson IDs that can be reached through the structured curriculum.
+The immediate task is to identify a bounded authoritative lesson target suitable for the first quiz-question data slice.
+
+The inspection must establish:
+
+1. an existing published authoritative course;
+2. an existing published chapter belonging to that course;
+3. an existing published lesson belonging to that chapter;
+4. the authoritative lesson content and learning objectives that can ground quiz-question content;
+5. that no legacy quiz source is required for the bounded first data slice.
+
+No quiz-question row is to be created during this inspection.
 
 ---
 
 ## Next Allowed Action
 
-Perform a bounded read-only verification of remote authoritative quiz data:
+Perform a bounded read-only inspection of the remote authoritative curriculum to select the first quiz-data target:
 
-1. inspect whether published `quiz_questions` rows exist;
-2. verify their `lesson_id` relationships;
-3. verify that at least one related lesson belongs to the authoritative course → chapter → lesson curriculum chain;
-4. make no product-code or schema change during inspection;
-5. synchronize `PROJECT_CONTROL.md` with the verified result before selecting the next implementation slice.
+1. inspect published `courses`;
+2. inspect their published `chapters`;
+3. inspect published `lessons` belonging to those chapters;
+4. select one existing authoritative lesson;
+5. inspect that lesson's title, summary, learning objectives, and content;
+6. make no product-code, schema, or database-data change during this inspection;
+7. synchronize `PROJECT_CONTROL.md` again if the verified curriculum state materially changes the intended data slice.
 
-If no published rows exist, treat that as a data-state finding rather than a UI defect. Do not invent fallback quiz content or expand legacy quiz scope.
+After a lesson target and authoritative content basis are verified, the next gate may decide whether a minimal authoritative quiz-question data write is permitted.
+
+Do not invent fallback quiz content.
+
+Do not expand legacy quiz scope.
+
+Do not authorize scoring, progress persistence, mastery, adaptive logic, scheduling, or multi-question orchestration as part of resolving this prerequisite.
 
 ---
 
