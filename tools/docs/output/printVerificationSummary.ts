@@ -2,6 +2,7 @@ export interface VerificationSummary {
   typeScriptValid: boolean;
   buildValid: boolean;
   documentationValid: boolean;
+  repositoryIndexValid: boolean;
   gitStatusValid: boolean;
 }
 
@@ -16,6 +17,7 @@ export function printVerificationSummary(
     summary.typeScriptValid &&
     summary.buildValid &&
     summary.documentationValid &&
+    summary.repositoryIndexValid &&
     summary.gitStatusValid;
 
   console.log("");
@@ -27,6 +29,9 @@ export function printVerificationSummary(
   console.log(`Build               ${formatStatus(summary.buildValid)}`);
   console.log(
     `Documentation Check ${formatStatus(summary.documentationValid)}`,
+  );
+  console.log(
+    `Repository Index    ${formatStatus(summary.repositoryIndexValid)}`,
   );
   console.log(`Git Status          ${formatStatus(summary.gitStatusValid)}`);
   console.log("--------------------");

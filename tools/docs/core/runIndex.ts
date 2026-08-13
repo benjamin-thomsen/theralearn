@@ -22,6 +22,16 @@ function getTrackedFiles(): string[] {
     .sort((a, b) => a.localeCompare(b));
 }
 
+function getTopLevelDirectory(file: string): string | null {
+  const separatorIndex = file.indexOf("/");
+
+  if (separatorIndex === -1) {
+    return null;
+  }
+
+  return file.slice(0, separatorIndex);
+}
+
 function getFilesByPrefix(files: string[], prefix: string): string[] {
   return files.filter((file) => file.startsWith(prefix));
 }
@@ -57,6 +67,67 @@ function buildIndex(files: string[]): string {
     "CLAUDE.md",
   ];
 
+  const knownDirectorySections = [
+    {
+      title: "Dokumentation",
+      directory: "docs",
+    },
+    {
+      title: "Application",
+      directory: "app",
+    },
+    {
+      title: "Components",
+      directory: "components",
+    },
+    {
+      title: "Data",
+      directory: "data",
+    },
+    {
+      title: "Libraries og repositories",
+      directory: "lib",
+    },
+    {
+      title: "Database og Supabase",
+      directory: "supabase",
+    },
+    {
+      title: "Developer Toolkit",
+      directory: "tools",
+    },
+    {
+      title: "Scripts",
+      directory: "scripts",
+    },
+    {
+      title: "GitHub og CI",
+      directory: ".github",
+    },
+    {
+      title: "Types",
+      directory: "types",
+    },
+    {
+      title: "Public assets",
+      directory: "public",
+    },
+  ];
+
+  const knownDirectories = new Set(
+    knownDirectorySections.map((section) => section.directory),
+  );
+
+  const discoveredDirectories = Array.from(
+    new Set(
+      files
+        .map(getTopLevelDirectory)
+        .filter((directory): directory is string => directory !== null),
+    ),
+  )
+    .filter((directory) => !knownDirectories.has(directory))
+    .sort((a, b) => a.localeCompare(b));
+
   const authorityRootFiles = authorityFiles.filter(
     (file) => file === INDEX_FILE || files.includes(file),
   );
@@ -65,55 +136,27 @@ function buildIndex(files: string[]): string {
     (file) => !authorityFiles.includes(file),
   );
 
+  const knownSections: IndexSection[] = knownDirectorySections.map(
+    ({ title, directory }) => ({
+      title,
+      files: getFilesByPrefix(files, `${directory}/`),
+    }),
+  );
+
+  const discoveredSections: IndexSection[] = discoveredDirectories.map(
+    (directory) => ({
+      title: `Øvrigt: ${directory}`,
+      files: getFilesByPrefix(files, `${directory}/`),
+    }),
+  );
+
   const sections: IndexSection[] = [
     {
       title: "Projektstyring og autoritet",
       files: authorityRootFiles,
     },
-    {
-      title: "Dokumentation",
-      files: getFilesByPrefix(files, "docs/"),
-    },
-    {
-      title: "Application",
-      files: getFilesByPrefix(files, "app/"),
-    },
-    {
-      title: "Components",
-      files: getFilesByPrefix(files, "components/"),
-    },
-    {
-      title: "Data",
-      files: getFilesByPrefix(files, "data/"),
-    },
-    {
-      title: "Libraries og repositories",
-      files: getFilesByPrefix(files, "lib/"),
-    },
-    {
-      title: "Database og Supabase",
-      files: getFilesByPrefix(files, "supabase/"),
-    },
-    {
-      title: "Developer Toolkit",
-      files: getFilesByPrefix(files, "tools/"),
-    },
-    {
-      title: "Scripts",
-      files: getFilesByPrefix(files, "scripts/"),
-    },
-    {
-      title: "GitHub og CI",
-      files: getFilesByPrefix(files, ".github/"),
-    },
-    {
-      title: "Types",
-      files: getFilesByPrefix(files, "types/"),
-    },
-    {
-      title: "Public assets",
-      files: getFilesByPrefix(files, "public/"),
-    },
+    ...knownSections,
+    ...discoveredSections,
     {
       title: "Root configuration og øvrige root-filer",
       files: otherRootFiles,
@@ -136,9 +179,13 @@ function buildIndex(files: string[]): string {
 
 ## Start her
 
-1. [\`PROJECT_HANDBOOK.md\`](./PROJECT_HANDBOOK.md) — governance og workflow.
-2. [\`PROJECT_OVERVIEW.md\`](./PROJECT_OVERVIEW.md) — stabil projektidentitet og principper.
-3. [\`PROJECT_CONTROL.md\`](./PROJECT_CONTROL.md) — aktuel verificeret status og næste tilladte handling.
+Læs disse authority-filer i denne rækkefølge:
+
+1. \`PROJECT_HANDBOOK.md\` — governance og workflow.
+2. \`PROJECT_OVERVIEW.md\` — stabil projektidentitet og principper.
+3. \`PROJECT_CONTROL.md\` — aktuel verificeret status og næste tilladte handling.
+
+De canonical repository-links findes én gang under **Projektstyring og autoritet** nedenfor.
 
 ---
 

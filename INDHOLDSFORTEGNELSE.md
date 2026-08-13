@@ -10,9 +10,13 @@
 
 ## Start her
 
-1. [`PROJECT_HANDBOOK.md`](./PROJECT_HANDBOOK.md) — governance og workflow.
-2. [`PROJECT_OVERVIEW.md`](./PROJECT_OVERVIEW.md) — stabil projektidentitet og principper.
-3. [`PROJECT_CONTROL.md`](./PROJECT_CONTROL.md) — aktuel verificeret status og næste tilladte handling.
+Læs disse authority-filer i denne rækkefølge:
+
+1. `PROJECT_HANDBOOK.md` — governance og workflow.
+2. `PROJECT_OVERVIEW.md` — stabil projektidentitet og principper.
+3. `PROJECT_CONTROL.md` — aktuel verificeret status og næste tilladte handling.
+
+De canonical repository-links findes én gang under **Projektstyring og autoritet** nedenfor.
 
 ---
 
@@ -50,7 +54,6 @@
 - [`docs/company/REVENUE_STRATEGY.md`](./docs/company/REVENUE_STRATEGY.md)
 - [`docs/company/VALUES.md`](./docs/company/VALUES.md)
 - [`docs/company/VISION.md`](./docs/company/VISION.md)
-- [`docs/decisions/adr-template.md`](./docs/decisions/adr-template.md)
 - [`docs/decisions/README.md`](./docs/decisions/README.md)
 - [`docs/design/accessibility.md`](./docs/design/accessibility.md)
 - [`docs/design/colors.md`](./docs/design/colors.md)
@@ -69,7 +72,6 @@
 - [`docs/development/DOCUMENTATION_TOOL_ROADMAP.md`](./docs/development/DOCUMENTATION_TOOL_ROADMAP.md)
 - [`docs/development/git-workflow.md`](./docs/development/git-workflow.md)
 - [`docs/development/IMPROVEMENT_BACKLOG.md`](./docs/development/IMPROVEMENT_BACKLOG.md)
-- [`docs/development/improvement-backlog.md`](./docs/development/improvement-backlog.md)
 - [`docs/development/project-structure.md`](./docs/development/project-structure.md)
 - [`docs/development/README.md`](./docs/development/README.md)
 - [`docs/development/state-management.md`](./docs/development/state-management.md)
@@ -87,14 +89,12 @@
 - [`docs/meetings/README.md`](./docs/meetings/README.md)
 - [`docs/product/feature-catalog.md`](./docs/product/feature-catalog.md)
 - [`docs/product/LEARNING_MODEL.md`](./docs/product/LEARNING_MODEL.md)
-- [`docs/product/learning-philosophy.md`](./docs/product/learning-philosophy.md)
 - [`docs/product/mvp.md`](./docs/product/mvp.md)
 - [`docs/product/PRODUCT_VISION.md`](./docs/product/PRODUCT_VISION.md)
 - [`docs/product/README.md`](./docs/product/README.md)
 - [`docs/product/release-plan.md`](./docs/product/release-plan.md)
 - [`docs/product/roadmap.md`](./docs/product/roadmap.md)
 - [`docs/product/target-users.md`](./docs/product/target-users.md)
-- [`docs/product/vision.md`](./docs/product/vision.md)
 - [`docs/README.md`](./docs/README.md)
 - [`docs/references/dependencies.md`](./docs/references/dependencies.md)
 - [`docs/references/external-resources.md`](./docs/references/external-resources.md)
@@ -219,6 +219,7 @@
 - [`tools/docs/checks/runBuild.ts`](./tools/docs/checks/runBuild.ts)
 - [`tools/docs/checks/runDocumentationCheck.ts`](./tools/docs/checks/runDocumentationCheck.ts)
 - [`tools/docs/checks/runGitStatus.ts`](./tools/docs/checks/runGitStatus.ts)
+- [`tools/docs/checks/runRepositoryIndexCheck.ts`](./tools/docs/checks/runRepositoryIndexCheck.ts)
 - [`tools/docs/checks/runTypeScriptCheck.ts`](./tools/docs/checks/runTypeScriptCheck.ts)
 - [`tools/docs/cli.ts`](./tools/docs/cli.ts)
 - [`tools/docs/clipboard/copyToClipboard.ts`](./tools/docs/clipboard/copyToClipboard.ts)
@@ -259,12 +260,14 @@
 - [`tools/docs/output/printFile.ts`](./tools/docs/output/printFile.ts)
 - [`tools/docs/output/printReplaceError.ts`](./tools/docs/output/printReplaceError.ts)
 - [`tools/docs/output/printReplaceSuccess.ts`](./tools/docs/output/printReplaceSuccess.ts)
+- [`tools/docs/output/printRepositoryIndexResult.ts`](./tools/docs/output/printRepositoryIndexResult.ts)
 - [`tools/docs/output/printVerificationSummary.ts`](./tools/docs/output/printVerificationSummary.ts)
 - [`tools/docs/output/renderOutput.ts`](./tools/docs/output/renderOutput.ts)
 - [`tools/docs/README.md`](./tools/docs/README.md)
 - [`tools/docs/validation/checkDocumentationStructureResult.ts`](./tools/docs/validation/checkDocumentationStructureResult.ts)
 - [`tools/docs/validation/validateDocumentationStructure.ts`](./tools/docs/validation/validateDocumentationStructure.ts)
 - [`tools/docs/validation/validateFilePath.ts`](./tools/docs/validation/validateFilePath.ts)
+- [`tools/docs/validation/validateRepositoryIndexCompleteness.ts`](./tools/docs/validation/validateRepositoryIndexCompleteness.ts)
 
 ---
 
@@ -302,16 +305,13 @@
 ## Root configuration og øvrige root-filer
 
 - [`.gitignore`](./.gitignore)
-- [`.gitignore.next15.backup`](./.gitignore.next15.backup)
 - [`.nvmrc`](./.nvmrc)
 - [`eslint.config.mjs`](./eslint.config.mjs)
 - [`next.config.ts`](./next.config.ts)
 - [`package-lock.json`](./package-lock.json)
 - [`package.json`](./package.json)
-- [`package.next15.backup.json`](./package.next15.backup.json)
 - [`postcss.config.mjs`](./postcss.config.mjs)
 - [`proxy.ts`](./proxy.ts)
-- [`README.next15.backup.md`](./README.next15.backup.md)
 - [`tsconfig.json`](./tsconfig.json)
 
 ---
