@@ -1,4 +1,5 @@
 export interface VerificationSummary {
+  typeScriptValid: boolean;
   buildValid: boolean;
   documentationValid: boolean;
   gitStatusValid: boolean;
@@ -12,6 +13,7 @@ export function printVerificationSummary(
   summary: VerificationSummary,
 ): void {
   const verificationValid =
+    summary.typeScriptValid &&
     summary.buildValid &&
     summary.documentationValid &&
     summary.gitStatusValid;
@@ -19,6 +21,9 @@ export function printVerificationSummary(
   console.log("");
   console.log("Verification Summary");
   console.log("====================");
+  console.log(
+    `TypeScript Check    ${formatStatus(summary.typeScriptValid)}`,
+  );
   console.log(`Build               ${formatStatus(summary.buildValid)}`);
   console.log(
     `Documentation Check ${formatStatus(summary.documentationValid)}`,

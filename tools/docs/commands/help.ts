@@ -23,6 +23,10 @@ export function help(): void {
   console.log("      Show the current project and Git status.");
   console.log("");
 
+  console.log("  index");
+  console.log("      Generate the repository documentation index.");
+  console.log("");
+
   console.log("  file <file-path>");
   console.log("      Print the complete contents of a file.");
   console.log("");

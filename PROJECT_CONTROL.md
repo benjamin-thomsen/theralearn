@@ -101,6 +101,27 @@ The implementation can support Active Retrieval through an active response befor
 
 ---
 
+## Governance Checkpoint — Documentation Index Automation
+
+The bounded **Project Governance — Documentation Index Automation** task is **CLOSED**.
+
+Verified governance outcomes:
+
+- `INDHOLDSFORTEGNELSE.md` is generated deterministically from Git-tracked repository files through the Developer Toolkit;
+- the generated index is explicitly a repository navigation map and does not replace project, domain, or implementation authority;
+- `PROJECT_HANDBOOK.md` routes working sessions through `INDHOLDSFORTEGNELSE.md` after `PROJECT_CONTROL.md` and before the relevant domain authority;
+- Developer Toolkit verification now includes an explicit TypeScript Check PASS/FAIL result;
+- `edit` preserves existing file contents, while `replace` remains the explicit destructive replacement command;
+- obsolete Git-tracked repository artifacts `-name package-lock.json` and `projektstruktur.txt` were identified through the generated index and removed from the bounded governance change;
+- the index is generated from 234 Git-tracked repository files, excluding `INDHOLDSFORTEGNELSE.md` itself from the generator input;
+- complete Developer Toolkit verification passed: TypeScript Check PASS, Build PASS, Documentation Check PASS, Git Status PASS, Overall PASS.
+
+The governance task introduced no product-code or schema change and did not change the MVP boundary.
+
+The temporary governance detour is complete. Work therefore resumes at the already-authorized product phase: **MVP Learning Loop Implementation — Authoritative Quiz Runtime Data Verification**.
+
+---
+
 ## Verification State
 
 Authoritative Quiz Activity first slice is **CLOSED**.

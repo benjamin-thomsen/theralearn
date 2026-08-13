@@ -34,8 +34,11 @@ Before substantial project work, read these documents in this order:
 1. `PROJECT_HANDBOOK.md` — governance and workflow rules;
 2. `PROJECT_OVERVIEW.md` — stable identity and permanent high-level principles;
 3. `PROJECT_CONTROL.md` — current verified state and next allowed action;
-4. the relevant authoritative domain document under `docs/`;
-5. the actual implementation files relevant to the task.
+4. `INDHOLDSFORTEGNELSE.md` — generated repository navigation map; not project authority;
+5. the relevant authoritative domain document under `docs/`;
+6. the actual implementation files relevant to the task.
+
+`INDHOLDSFORTEGNELSE.md` is a generated navigation aid derived from Git-tracked repository files. It helps locate relevant repository material but does not replace or override `PROJECT_CONTROL.md`, authoritative domain documentation, or implementation authority.
 
 Do not infer current project state from old chats when `PROJECT_CONTROL.md` provides a newer verified state.
 

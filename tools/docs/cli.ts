@@ -3,6 +3,7 @@ import { copy } from "./commands/copy";
 import { edit } from "./commands/edit";
 import { file } from "./commands/file";
 import { help } from "./commands/help";
+import { index } from "./commands/index";
 import { replace } from "./commands/replace";
 import { search } from "./commands/search";
 import { status } from "./commands/status";
@@ -59,6 +60,10 @@ function main(): void {
 
     case "status":
       status();
+      break;
+
+    case "index":
+      index();
       break;
 
     case "file": {
