@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 
-import AuthoritativeQuizQuestion from "@/components/AuthoritativeQuizQuestion";
+import BoundedLearningDesignSlice from "@/components/BoundedLearningDesignSlice";
 import { getChapterBySlug } from "@/lib/repositories/chapters";
 import { getCourseBySlug } from "@/lib/repositories/courses";
-import { getFlashcardsByLessonId } from "@/lib/repositories/flashcards";
 import { getLessonBySlug } from "@/lib/repositories/lessons";
 import { getQuizQuestionsByLessonId } from "@/lib/repositories/quizQuestions";
 import { createClient } from "@/lib/supabase/server";
@@ -38,12 +37,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
     notFound();
   }
 
-  const flashcards = (await getFlashcardsByLessonId(client, lesson.id)).filter(
-    (flashcard) => flashcard.is_published,
-  );
   const quizQuestions = (
     await getQuizQuestionsByLessonId(client, lesson.id)
   ).filter((quizQuestion) => quizQuestion.is_published);
+
+  const learningObjective = lesson.learning_objectives[0] ?? null;
+  const retrievalQuestion = quizQuestions[0] ?? null;
 
   return (
     <main>
@@ -74,36 +73,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
           <p style={{ whiteSpace: "pre-wrap" }}>{lesson.content}</p>
         </section>
 
-        {flashcards.length > 0 && (
-          <section aria-labelledby="flashcards-heading">
-            <h2 id="flashcards-heading">Flashcards</h2>
-            <p>Prøv at svare fra hukommelsen, før du viser svaret.</p>
-
-            {flashcards.map((flashcard) => (
-              <details key={flashcard.id}>
-                <summary>{flashcard.front_text}</summary>
-                <p>{flashcard.back_text}</p>
-              </details>
-            ))}
-          </section>
-        )}
-
-        {quizQuestions.length > 0 && (
-          <section aria-labelledby="quiz-heading">
-            <h2 id="quiz-heading">Quiz</h2>
-            <p>Vælg et svar, før du tjekker facit og forklaring.</p>
-
-            {quizQuestions.map((quizQuestion) => (
-              <AuthoritativeQuizQuestion
-                key={quizQuestion.id}
-                id={quizQuestion.id}
-                question={quizQuestion.question}
-                options={quizQuestion.options}
-                correct_answer={quizQuestion.correct_answer}
-                explanation={quizQuestion.explanation}
-              />
-            ))}
-          </section>
+        {learningObjective && retrievalQuestion && (
+          <BoundedLearningDesignSlice
+            initialLearningObjective={learningObjective}
+            initialRelevantContext={lesson.content}
+            id={retrievalQuestion.id}
+            question={retrievalQuestion.question}
+            options={retrievalQuestion.options}
+            correct_answer={retrievalQuestion.correct_answer}
+            explanation={retrievalQuestion.explanation}
+          />
         )}
       </article>
     </main>
