@@ -12,53 +12,76 @@
 
 ## Current Phase
 
-**Learning Science Engine — Minimum Implementation Slice Derivation**
+**Developer Toolkit — Checkpoint Automation**
 
-The new Product Vision, Learning Model, and MVP boundary are the governing Product Authority for TheraLearn.
+The bounded **Learning Science Engine — Minimum Implementation Slice Derivation** remains **CLOSED — VERIFIED**.
 
-The bounded **Existing Implementation Compatibility Assessment** has been completed.
+The bounded **Learning Science Engine — Minimum Implementation Slice** remains the next authorized product implementation responsibility, but product implementation is temporarily **PAUSED** while one bounded Developer Toolkit prerequisite is implemented.
 
-The assessment established that the repository already contains useful technical and learner-side foundations, but the core product layer required to connect learning objectives, certified Learning Principles, learning mechanisms, Creator approval, and learner execution does not yet exist in meaningful implementation form.
+The prerequisite exists to remove a recurring manual governance risk:
 
-The minimum Learning Science Engine architecture has now been derived, verified, and committed. The next project responsibility is to derive the smallest safe implementation slice from that architecture before any product implementation is authorized.
+> Repository checkpoints must not depend on ChatGPT or the user remembering to regenerate the repository index and run the complete verification sequence.
 
-The new product core remains:
-
-> **You bring what needs to be learned. TheraLearn helps you determine how it can be learned effectively.**
-
-The differentiating product responsibility remains:
-
-> **Learning design based on learning science.**
-
-The governing end-to-end product chain is:
+The required permanent workflow command is:
 
 ```text
-SUBJECT-MATTER CONTENT
-        ↓
-LEARNING OBJECTIVE
-        ↓
-LEARNING SCIENCE
-        ↓
-LEARNING DESIGN
-        ↓
-CREATOR REVIEW + APPROVAL
-        ↓
-LEARNING EXPERIENCE
-        ↓
-LEARNER PERFORMANCE
-        ↓
-FEEDBACK / RESULT
+./scripts/dev checkpoint
 ```
 
-The product must prove both sides of the core:
+Its minimum responsibility is:
 
 ```text
-BUILD / DESIGN
-      ↓
-    LEARN
+CHECKPOINT
+    ↓
+REGENERATE INDHOLDSFORTEGNELSE.md
+    ↓
+RUN COMPLETE VERIFICATION
+    ↓
+REPORT CHECKPOINT PASS / FAIL
 ```
 
-Product implementation remains **PAUSED** while the smallest safe implementation slice is derived from the verified Learning Science Engine architecture.
+The existing separation must remain intact:
+
+```text
+./scripts/dev index
+    → writes / regenerates repository index
+
+./scripts/dev verify
+    → verifies without intentionally changing repository content
+
+./scripts/dev checkpoint
+    → orchestrates index + verify for checkpoint preparation
+```
+
+The automation must not commit, push, modify Product Authority, infer Current Task, or silently edit `PROJECT_CONTROL.md`.
+
+The repository remains the project memory.
+
+The intended permanent checkpoint discipline is:
+
+```text
+AUTHORITATIVE CHANGE
+        ↓
+UPDATE AUTHORITY / GOVERNANCE FILES AS REQUIRED
+        ↓
+TRACK NEW FILES
+        ↓
+./scripts/dev checkpoint
+        ↓
+CHECKPOINT PASS
+        ↓
+COMMIT
+        ↓
+PUSH
+        ↓
+REMOTE VERIFICATION
+```
+
+After this bounded tooling prerequisite is implemented, verified, committed, and synchronized, the project returns directly to:
+
+**Learning Science Engine — Minimum Implementation Slice Implementation**
+
+No Product Authority or Learning Science Engine architecture decision is reopened by this tooling task.
 
 ---
 
@@ -68,29 +91,49 @@ Product implementation remains **PAUSED** while the smallest safe implementation
 migration-next16-to-root
 ```
 
-Latest verified remote branch checkpoint before local architecture work:
+Latest verified remote governance checkpoint before this local transition:
 
 ```text
-5e0da244ced2821f1d1ee9dd5bc6a5655df08948
-Open Learning Science Engine architecture derivation
+a8c1c09ee52f928a300ee402d767df9184807dc6
+Synchronize Learning Science Engine architecture governance
 ```
 
-Verified local architecture checkpoint:
+Direct architecture parent:
 
 ```text
-8c34b3d
+8c34b3dc0c7e31c5b76619c8ff61cccf0aabd591
 Establish Learning Science Engine architecture
 ```
 
-The architecture checkpoint adds:
+The architecture authority remains:
 
 ```text
 docs/architecture/learning-science-engine.md
 ```
 
-The architecture file was verified as a complete 594-line document, and the repository verification pipeline completed with Overall PASS before commit.
+Before this governance change, the local repository was verified as:
 
-No product implementation file, schema file, database migration, or runtime data was changed while establishing the architecture authority.
+```text
+Branch: migration-next16-to-root
+Latest commit: a8c1c09 Synchronize Learning Science Engine architecture governance
+Working tree: Clean
+```
+
+The complete verification pipeline then completed with:
+
+```text
+Tracked files: 232
+Indexed files: 232
+
+TypeScript Check    PASS
+Build               PASS
+Documentation Check PASS
+Repository Index    PASS
+Git Status          PASS
+Overall             PASS
+```
+
+No product implementation file, schema file, database migration, or runtime data had been changed at that verification checkpoint.
 
 ---
 
@@ -664,7 +707,7 @@ The previously identified empty curriculum-data state therefore does not authori
 
 **VERIFIED — COMMITTED**
 
-`docs/product/PRODUCT_VISION.md` is part of the current verified Product Authority checkpoint.
+`docs/product/PRODUCT_VISION.md` remains part of the governing Product Authority.
 
 ### Learning Model
 
@@ -678,54 +721,96 @@ The five certified Learning Principles remain unchanged.
 
 **VERIFIED — COMMITTED**
 
-`docs/product/mvp.md` is part of the current verified Product Authority checkpoint.
-
-It requires both Creator and Learner sides of the learning-design chain.
+`docs/product/mvp.md` remains the durable MVP acceptance boundary.
 
 ### Existing Implementation Compatibility
 
 **VERIFIED — CLOSED**
 
-The bounded repository compatibility assessment has been completed.
-
-The verified result is recorded in the `REUSE / ADAPT / LEGACY / MISSING` matrix in this file.
+The bounded repository compatibility assessment remains closed.
 
 ### Minimum Implementation Architecture
 
 **VERIFIED — COMMITTED**
 
-The permanent architecture owner is:
+The permanent architecture owner remains:
 
 ```text
 docs/architecture/learning-science-engine.md
 ```
 
-Verified local architecture checkpoint:
+Verified architecture checkpoint:
 
 ```text
 8c34b3d
 Establish Learning Science Engine architecture
 ```
 
-The architecture establishes, among other boundaries:
+### Minimum Implementation Slice Derivation
 
-* NEW MVP architecture independence from legacy implementation;
-* Learning Objective + Relevant Context as minimum derivation input;
-* certified Learning Principle references without duplicated scientific authority;
-* Learning Requirements as the mandatory bridge between science and mechanism;
-* the minimum Proposed Learning Design representation;
-* Creator review, change, rejection, and approval;
-* re-derivation when upstream scientific premises change;
-* at least `PROPOSED` and `APPROVED` design states;
-* the prohibition on learner execution from an unapproved design;
-* Approved Learning Design as learner-execution authority;
-* learner performance and feedback/result requirements;
-* scientific traceability;
-* explicit non-requirements and deferrals.
+**VERIFIED — CLOSED**
 
-The architecture was read-back verified as a complete 594-line document.
+The first bounded Learning Science Engine implementation slice and its acceptance contract remain verified.
 
-Before the architecture commit, `./scripts/dev verify` completed with:
+The implementation slice does not require persistence, schema change, migration, or Supabase population.
+
+### Minimum Implementation Slice Authorization
+
+**VERIFIED — RECORDED**
+
+The first bounded Learning Science Engine implementation slice has been explicitly authorized in this file.
+
+Its implementation is temporarily paused only while the checkpoint automation prerequisite is completed.
+
+### Checkpoint Automation Prerequisite
+
+**OPEN — BOUNDED TOOLING TASK**
+
+Repository inspection established that:
+
+* `tools/docs/core/runIndex.ts` already owns deterministic repository-index generation from Git-tracked files;
+* `tools/docs/core/runVerification.ts` already owns the complete verification pipeline;
+* `tools/docs/cli.ts` already owns command dispatch;
+* `tools/docs/commands/help.ts` already owns command discoverability.
+
+Therefore the smallest safe automation is a new orchestration command:
+
+```text
+./scripts/dev checkpoint
+```
+
+with responsibility:
+
+```text
+runIndex()
+    ↓
+runVerification()
+    ↓
+CHECKPOINT PASS / FAIL
+```
+
+`verify` must remain a verification-only command.
+
+`checkpoint` must not perform commit or push.
+
+Because `runIndex()` derives `INDHOLDSFORTEGNELSE.md` from `git ls-files`, newly created repository files must be Git-tracked before the checkpoint command can include them in the generated index.
+
+### Pre-Tooling Verification
+
+Immediately before this tooling governance transition:
+
+```text
+Branch: migration-next16-to-root
+Latest commit: a8c1c09 Synchronize Learning Science Engine architecture governance
+```
+
+The working tree contained exactly one change:
+
+```text
+M PROJECT_CONTROL.md
+```
+
+The previous complete verification pipeline completed with:
 
 ```text
 TypeScript Check    PASS
@@ -736,9 +821,7 @@ Git Status          PASS
 Overall             PASS
 ```
 
-Architecture derivation is therefore closed.
-
-The next task is implementation-slice derivation, not product implementation.
+The tooling prerequisite may therefore proceed within the bounded Code Change Gate below.
 
 ---
 
@@ -746,323 +829,379 @@ The next task is implementation-slice derivation, not product implementation.
 
 ### R1 – Learning Science Engine could become cosmetic
 
-**Status: CORE PRODUCT RISK**
+**Status: CONTROLLED BY VERIFIED SLICE CONTRACT**
 
-The Learning Science Engine must materially affect learning design and product behavior.
-
-If the same product behavior would exist after removing it, the MVP would fail its differentiating requirement.
+The first product implementation slice remains governed by the verified acceptance contract.
 
 ### R2 – Implementation could silently redefine Product Authority
 
 **Status: CONTROLLED**
 
-Existing code must remain downstream of:
+Product Authority and Learning Science Engine architecture are unchanged by the tooling prerequisite.
 
-```text
-PRODUCT_VISION.md
-LEARNING_MODEL.md
-mvp.md
-```
+### R3 – Manual checkpoint steps could be forgotten
 
-Existing implementation cannot become authoritative merely because it already exists.
+**Status: ACTIVE — CURRENT TOOLING RISK**
 
-### R3 – Learning activities could be mistaken for learning design
+Repository index regeneration and full verification currently require separate manual commands.
 
-**Status: ACTIVE**
+The bounded `checkpoint` command must remove this mechanical memory dependency.
 
-Quiz, flashcards, explanations, progress UI, and other mechanisms may support certified Learning Principles.
+### R4 – `verify` could accidentally become a write command
 
-Their existence alone does not prove:
+**Status: CONTROLLED BY TOOLING BOUNDARY**
 
-* Learning Science Engine behavior;
-* learning-design derivation;
-* objective alignment;
-* Creator approval.
+`verify` must retain its current verification-only responsibility.
 
-### R4 – Creator authority could be bypassed
+Index generation remains explicit through `runIndex()` and the new checkpoint orchestrator.
 
-**Status: ACTIVE**
+### R5 – New untracked files could be omitted from the generated index
 
-TheraLearn must preserve Content Owner authority over subject-matter truth.
+**Status: KNOWN BOUNDARY**
 
-Learning-system transformation must not silently become subject-matter modification.
+`runIndex()` derives the index from `git ls-files`.
 
-Creator review and approval boundaries must therefore be explicit in the minimum architecture.
+New files must therefore be tracked before `checkpoint` is expected to include them.
 
-### R5 – Learning Principle authority could be duplicated
+The command must not silently stage files.
 
-**Status: CONTROLLED BY VERIFIED ARCHITECTURE**
+### R6 – Checkpoint automation could expand into source-control automation
 
-The verified architecture requires implementation to reference applicable certified Learning Principles without recreating, modifying, or duplicating scientific authority.
+**Status: PROHIBITED**
 
-`LEARNING_MODEL.md` remains the owner of certified Learning Principles.
+The first checkpoint command must not:
 
-### R6 – Premature architecture expansion
+* stage files;
+* create commits;
+* push;
+* change branches;
+* infer commit messages;
+* modify governance content automatically.
 
-**Status: CONTROLLED BY VERIFIED ARCHITECTURE**
+### R7 – Tooling prerequisite could delay or contaminate product implementation
 
-The verified minimum architecture explicitly defers a general-purpose authoring platform, recommendation engine, mastery engine, marketplace, certification system, commercial platform, and other non-required capabilities.
+**Status: CONTROLLED BY BOUNDED TASK**
 
-Implementation-slice derivation must preserve those deferrals.
+Only the minimum Developer Toolkit changes required for `checkpoint` are authorized.
 
-### R7 – Premature implementation
-
-**Status: CONTROLLED BY CODE CHANGE GATE**
-
-Architecture derivation is complete, but product implementation remains paused until the smallest safe implementation slice is derived, verified, and explicitly authorized in this file.
+After the prerequisite is closed, work returns directly to the already verified Learning Science Engine implementation slice.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: PAUSED**
+**Product implementation: TEMPORARILY PAUSED**
 
-No product-code change is currently authorized.
+The previously authorized **Learning Science Engine Minimum Implementation Slice** remains valid but must not be implemented until the bounded checkpoint automation prerequisite is closed.
 
-No schema change is currently authorized.
+**Bounded Developer Toolkit change: AUTHORIZED**
 
-No database migration is currently authorized.
+Only the following tooling responsibilities are authorized:
 
-No database-data write is currently authorized.
+```text
+NEW
 
-No Supabase population is currently authorized.
+tools/docs/commands/checkpoint.ts
+tools/docs/core/runCheckpoint.ts
+```
 
-No legacy curriculum migration is currently authorized.
+```text
+MODIFY
 
-No scoring implementation is currently authorized.
+tools/docs/cli.ts
+tools/docs/commands/help.ts
+PROJECT_CONTROL.md
+```
 
-No mastery implementation is currently authorized.
+The permanent workflow documentation may be updated only as necessary to record the new checkpoint command:
 
-No adaptive scheduling implementation is currently authorized.
+```text
+PROJECT_HANDBOOK.md
+```
 
-No certification implementation is currently authorized.
+After the new files are Git-tracked, the repository index must be regenerated through the Toolkit:
 
-No commercial implementation is currently authorized.
+```text
+INDHOLDSFORTEGNELSE.md
+```
 
-No organization-administration implementation is currently authorized.
+The checkpoint implementation must:
 
-No marketplace implementation is currently authorized.
+1. call the existing repository-index generation responsibility;
+2. stop or report failure if index generation fails;
+3. run the existing complete verification responsibility after successful index generation;
+4. return failure when either phase fails;
+5. print a clear final checkpoint PASS / FAIL result;
+6. preserve `verify` as a non-index-generating verification command;
+7. avoid staging, committing, pushing, or changing branches.
 
-No multi-question orchestration is currently authorized.
+The following remain **NOT AUTHORIZED** during this tooling prerequisite:
 
-Read-only architecture and implementation inspection is authorized for implementation-slice derivation.
+* Learning Science Engine product-code implementation;
+* Creator UI implementation;
+* learner-execution changes;
+* database schema changes;
+* database migrations;
+* database-data writes;
+* Supabase population;
+* persistent Learning Design storage;
+* Product Authority changes;
+* Learning Model changes;
+* Learning Science Engine architecture changes;
+* generalized tooling refactors unrelated to checkpoint automation;
+* automatic Git staging;
+* automatic commit;
+* automatic push.
 
-Documentation changes required solely to derive, record, or synchronize the implementation-slice decision are authorized and must be verified before commit.
+If implementation requires files or responsibilities outside the bounded tooling scope, stop and update governance before proceeding.
 
 ---
 
 ## Current Task
 
-Perform the bounded:
+Implement, document, and verify the bounded:
 
-**Learning Science Engine — Minimum Implementation Slice Derivation**
+**Developer Toolkit — Checkpoint Automation**
 
-The task is to derive the smallest safe implementation slice that proves a real vertical portion of the verified architecture without reinterpreting Product Authority.
-
-The derivation must start from:
+The required user-facing command is:
 
 ```text
-docs/product/PRODUCT_VISION.md
-        +
-docs/product/LEARNING_MODEL.md
-        +
-docs/product/mvp.md
-        ↓
-docs/architecture/learning-science-engine.md
+./scripts/dev checkpoint
 ```
 
-It must then determine the minimum implementation responsibilities needed for the first coherent slice.
+The minimum execution flow is:
 
-The derivation must remain architecture-first and legacy-independent.
+```text
+runIndex()
+    ↓
+IF PASS
+    ↓
+runVerification()
+    ↓
+CHECKPOINT PASS / FAIL
+```
 
-Legacy implementation may only be evaluated after the slice requirements have been derived.
+The task must reuse the existing index and verification responsibilities rather than duplicate their logic.
 
-The derivation must not implement the slice.
+The task must preserve:
+
+```text
+index
+    = repository-index generation
+
+verify
+    = complete verification without intentional repository-content mutation
+
+checkpoint
+    = checkpoint orchestration
+```
+
+The command is a workflow safeguard, not a source-control automation system.
+
+After implementation:
+
+1. new Toolkit files must be Git-tracked;
+2. `./scripts/dev checkpoint` must regenerate `INDHOLDSFORTEGNELSE.md`;
+3. the complete verification pipeline must PASS;
+4. `./scripts/dev status` must show the exact bounded changed-file set;
+5. the tooling checkpoint must be committed and pushed;
+6. remote branch-head must be verified;
+7. `PROJECT_CONTROL.md` must then return Current Phase and Current Task to the already-authorized Learning Science Engine Minimum Implementation Slice.
 
 ---
 
 ## Implementation Slice Derivation Requirements
 
-The bounded derivation must determine at least:
+The bounded implementation must satisfy the following acceptance requirements.
 
-### 1. Slice proof target
+### 1. Explicit input
 
-Define exactly which smallest end-to-end architectural behavior the first implementation slice must prove.
+One Learning Objective and one bounded Relevant Context must be represented explicitly.
 
-The slice must materially involve the Learning Science Engine architecture.
+### 2. Certified scientific authority
 
-A slice that merely renders an existing quiz, flashcard, lesson, dashboard, or progress feature is insufficient.
+The derivation must reference the existing Active Retrieval Principle from `docs/product/LEARNING_MODEL.md`.
 
-### 2. Minimum domain representation
+No duplicate scientific authority may be introduced.
 
-Determine the smallest implementation representation required for the selected slice, including only the concepts necessary to preserve the verified architecture boundaries.
+### 3. Applicability reasoning
 
-Do not derive a generalized authoring or learning-management domain model.
+The implementation must produce or preserve a bounded rationale explaining why Active Retrieval applies to the selected objective and context.
 
-### 3. Derivation owner
+### 4. Learning Requirements before mechanism
 
-Identify the explicit implementation responsibility that will own the bounded transformation from:
+At least one Learning Requirement must exist before mechanism proposal.
 
-```text
-Learning Objective + Relevant Context
-        ↓
-Applicable certified Learning Principle reference(s)
-        ↓
-Learning Requirements
-        ↓
-Proposed Learning Mechanism
-        ↓
-Proposed Learning Design
-```
+For the first slice, the required learner behavior is:
 
-This responsibility must not be hidden across UI components, repositories, route handlers, or database tables.
+> The Learner must actively retrieve the relevant information before reveal.
 
-### 4. Creator approval gate
+### 5. Proposed Learning Design
 
-Determine the smallest implementation responsibility required to preserve:
+The derivation output must be an explicit Proposed Learning Design rather than an unstructured mechanism choice.
 
-```text
-PROPOSED
-        ↓
-CREATOR REVIEW
-        ↓
-APPROVED
-        ↓
-LEARNER EXECUTION
-```
+### 6. Creator approval gate
 
-No implementation slice may bypass this gate.
+The Creator must be able to review the proposal and explicitly approve it.
 
-### 5. Re-derivation boundary
+A Proposed design must not execute for the Learner.
 
-Determine how the first slice will prevent stale scientific derivation from remaining valid after an upstream premise changes.
+### 7. Re-derivation boundary
 
-Only the minimum behavior necessary for the slice should be derived.
+A change to the Learning Objective or derivation-relevant Context must invalidate affected downstream derivation and approval.
 
-### 6. Learner execution boundary
+A new proposal must be derived before renewed approval.
 
-Determine the smallest learner-side execution needed to prove that an Approved Learning Design controls the mechanism presented to the Learner.
+### 8. Learner execution
 
-The mechanism must not be shown merely because the feature exists.
+Only an Approved Learning Design may authorize the bounded learner interaction.
 
-### 7. Feedback / result boundary
+The learner-side layer must not independently select the scientific mechanism.
 
-Determine the minimum learner performance and feedback/result behavior required by the selected design.
+### 9. Learner performance
 
-Do not default to percentage score, completion, mastery, or progress unless the derived slice specifically requires it.
+The Learner must actively produce one response before correctness or the correct information is revealed.
 
-### 8. Legacy compatibility
+### 10. Feedback / result
 
-Only after requirements 1–7 are derived, classify relevant existing implementation as:
+The learner attempt must produce the bounded feedback/result required by the Approved Learning Design.
+
+Where an error or relevant gap is revealed, the feedback may apply the certified Informative Correction Principle within its existing scientific boundary.
+
+### 11. Scientific traceability
+
+The implemented learner experience must remain traceable through:
 
 ```text
-REUSE
-ADAPT
-DISCARD
+LEARNER EXPERIENCE
+        ↑
+APPROVED LEARNING DESIGN
+        ↑
+PROPOSED MECHANISM
+        ↑
+LEARNING REQUIREMENTS
+        ↑
+APPLICABLE CERTIFIED PRINCIPLE
+        ↑
+LEARNING OBJECTIVE + RELEVANT CONTEXT
 ```
 
-The classification must be against the NEW MVP slice requirements, never the reverse.
+### 12. Removal test
 
-### 9. Persistence decision
+If the Learning Science Engine derivation is removed, the bounded mechanism selection and learner behavior must no longer be valid in the same form.
 
-Determine whether the first slice requires persistence.
+### 13. Legacy independence
 
-If persistence is not necessary to prove the architectural behavior, do not introduce schema or migration work.
+Existing quiz, flashcard, progress, dashboard, schema, and repository implementation may satisfy a derived technical need.
 
-If persistence is proven necessary, the exact need must be recorded before any schema change is authorized.
+None may create the requirement.
 
-### 10. Explicit implementation boundary
+### 14. Persistence boundary
 
-Produce a precise list of files/responsibilities that a later implementation step may change and a precise list of deferred capabilities.
+The first slice must not introduce persistence unless implementation proves that the verified acceptance contract cannot be satisfied without it and governance is updated first.
 
-The result must be small enough that implementation can proceed without reopening Product Authority or architecture derivation.
+### 15. Explicit minimum
+
+No capability outside the Code Change Gate may be added as part of this implementation.
 
 ---
 
 ## Implementation Slice Decision Standard
 
-The implementation-slice derivation must satisfy all of the following.
+The first implementation slice is accepted only when all of the following are true.
 
 ### Product Authority
 
-The slice must derive from:
+The implementation remains downstream of:
 
 ```text
-PRODUCT_VISION.md
-        +
-LEARNING_MODEL.md
-        +
-mvp.md
+docs/product/PRODUCT_VISION.md
+docs/product/LEARNING_MODEL.md
+docs/product/mvp.md
+docs/architecture/learning-science-engine.md
 ```
-
-and from `docs/architecture/learning-science-engine.md`, not from existing implementation convenience.
 
 ### Minimum sufficiency
 
-The slice must include every responsibility required to prove its bounded architectural behavior and no more.
+Every responsibility required by the Implementation Acceptance Contract is demonstrably present.
 
 ### No premature expansion
 
-The slice must exclude responsibilities that are not required for the first coherent proof.
+No deferred capability has been introduced.
 
 ### Explicit ownership
 
-Critical slice responsibilities must have explicit technical ownership.
+Learning Design representation, derivation, lifecycle/approval, and learner execution have identifiable implementation owners.
 
 ### Scientific authority preservation
 
-Certified Learning Principles must be referenced without duplicating or weakening scientific authority.
+Certified Learning Principles are referenced without duplication, expansion, or silent modification.
 
 ### Subject-matter authority preservation
 
-TheraLearn learning-design behavior must not override Content Owner authority over subject-matter truth.
+The bounded slice does not silently alter subject-matter truth.
 
-### Downstream implementation clarity
+### Approval enforcement
 
-When slice derivation is complete, implementation should be possible without reinterpreting Product Authority or the verified Learning Science Engine architecture.
+A Proposed Learning Design cannot become learner execution.
+
+### Re-derivation enforcement
+
+A derivation-relevant upstream change cannot retain stale scientific traceability or approval.
+
+### Learner-performance proof
+
+The Learner performs an active response before reveal and receives the relevant feedback/result.
+
+### Learning Science Engine Removal Test
+
+Removing the derivation would fundamentally change how the mechanism is selected, justified, approved, and executed.
+
+### Verification
+
+Before commit, the Developer Toolkit verification pipeline must complete with Overall PASS.
 
 ---
 
 ## Next Allowed Action
 
-Perform the bounded **Learning Science Engine — Minimum Implementation Slice Derivation**.
+Implement the bounded **Developer Toolkit — Checkpoint Automation**.
 
 The next work may:
 
-1. read the current Product Authority;
-2. read `docs/architecture/learning-science-engine.md`;
-3. inspect existing implementation read-only;
-4. select the smallest coherent architecture proof target;
-5. derive the minimum domain and application responsibilities for that target;
-6. derive the Creator approval and re-derivation behavior required by that target;
-7. derive the approved-design-to-learner-execution boundary;
-8. derive the minimum learner performance and feedback/result behavior;
-9. classify relevant legacy implementation as `REUSE`, `ADAPT`, or `DISCARD` only after requirements are established;
-10. determine whether persistence is actually required;
-11. define the exact bounded implementation file/responsibility scope;
-12. record and verify the implementation-slice decision.
+1. create `tools/docs/core/runCheckpoint.ts`;
+2. create `tools/docs/commands/checkpoint.ts`;
+3. add `checkpoint` dispatch to `tools/docs/cli.ts`;
+4. add `checkpoint` help text to `tools/docs/commands/help.ts`;
+5. update `PROJECT_HANDBOOK.md` only as needed to make the permanent checkpoint workflow discoverable;
+6. Git-track the new Toolkit files before generating the repository index;
+7. run `./scripts/dev checkpoint`;
+8. verify that `INDHOLDSFORTEGNELSE.md` includes all tracked new files exactly once;
+9. run `./scripts/dev status`;
+10. read back the changed Toolkit/governance files as necessary;
+11. commit the bounded tooling checkpoint after verification;
+12. push and verify the remote branch-head;
+13. synchronize `PROJECT_CONTROL.md` back to the already-authorized Learning Science Engine implementation phase.
 
 The next work must **not**:
 
-1. change product code;
-2. change schema;
-3. create migrations;
-4. write database data;
-5. populate Supabase;
-6. migrate legacy curriculum;
-7. implement Creator UI;
-8. implement the Learning Science Engine;
-9. implement the derived slice;
-10. implement scoring;
-11. implement mastery;
-12. implement adaptive scheduling;
-13. implement certification;
-14. implement payments;
-15. implement marketplace capabilities;
-16. implement organization administration;
-17. implement multi-question orchestration unless the slice derivation proves it necessary.
+1. implement Learning Science Engine product code;
+2. modify Creator or Learner product surfaces;
+3. change schema;
+4. create migrations;
+5. write database data;
+6. populate Supabase;
+7. introduce Learning Design persistence;
+8. modify Product Authority;
+9. modify certified Learning Principles;
+10. modify Learning Science Engine architecture;
+11. refactor unrelated Developer Toolkit responsibilities;
+12. make `verify` regenerate the index;
+13. automatically stage files;
+14. automatically commit;
+15. automatically push.
 
-After the minimum implementation slice has been derived and read-back verified, `PROJECT_CONTROL.md` must be synchronized again before product-code changes are authorized.
+The checkpoint prerequisite is complete only when the command is verified, repository navigation is synchronized, the tooling checkpoint is committed and pushed, and remote state is verified.
 
 ---
 

@@ -19,6 +19,10 @@ export function help(): void {
   console.log("      Run the complete project verification.");
   console.log("");
 
+  console.log("  checkpoint");
+  console.log("      Regenerate the repository index and run complete verification.");
+  console.log("");
+
   console.log("  status");
   console.log("      Show the current project and Git status.");
   console.log("");

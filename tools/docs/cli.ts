@@ -1,4 +1,5 @@
 import { check } from "./commands/check";
+import { checkpoint } from "./commands/checkpoint";
 import { copy } from "./commands/copy";
 import { edit } from "./commands/edit";
 import { file } from "./commands/file";
@@ -56,6 +57,10 @@ function main(): void {
 
     case "verify":
       verify();
+      break;
+
+    case "checkpoint":
+      checkpoint();
       break;
 
     case "status":
