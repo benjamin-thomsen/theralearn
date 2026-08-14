@@ -189,6 +189,8 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 ## Libraries og repositories
 
 - [`lib/constants.ts`](./lib/constants.ts)
+- [`lib/learning-science/deriveLearningDesign.ts`](./lib/learning-science/deriveLearningDesign.ts)
+- [`lib/learning-science/types.ts`](./lib/learning-science/types.ts)
 - [`lib/progress.ts`](./lib/progress.ts)
 - [`lib/repositories/chapters.ts`](./lib/repositories/chapters.ts)
 - [`lib/repositories/courses.ts`](./lib/repositories/courses.ts)
