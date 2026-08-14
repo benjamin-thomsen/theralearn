@@ -12,76 +12,52 @@
 
 ## Current Phase
 
-**Developer Toolkit — Checkpoint Automation**
+**Learning Science Engine — Minimum Implementation Slice Implementation**
+
+The bounded **Developer Toolkit — Checkpoint Automation** prerequisite is now **CLOSED — VERIFIED — COMMITTED — PUSHED**.
+
+The permanent checkpoint command is:
+
+```text
+./scripts/dev checkpoint
+```
+
+It now provides the mechanical repository-memory safeguard:
+
+```text
+TRACK NEW FILES
+        ↓
+CHECKPOINT
+        ↓
+REGENERATE INDHOLDSFORTEGNELSE.md
+        ↓
+RUN COMPLETE VERIFICATION
+        ↓
+CHECKPOINT PASS / FAIL
+```
+
+The checkpoint command does not stage, commit, push, change branches, infer governance state, or modify Product Authority.
+
+The verified remote tooling checkpoint is:
+
+```text
+a009bfe68ebe466b5a3cbb3eaed09aa8b7dbdf84
+Add automated repository checkpoint workflow
+```
+
+Remote branch-head was verified directly on GitHub as that exact commit.
+
+The working tree was verified **Clean** after the commit and push.
+
+The project therefore returns directly to the already-derived and already-authorized:
+
+**Learning Science Engine — Minimum Implementation Slice**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice Derivation** remains **CLOSED — VERIFIED**.
 
-The bounded **Learning Science Engine — Minimum Implementation Slice** remains the next authorized product implementation responsibility, but product implementation is temporarily **PAUSED** while one bounded Developer Toolkit prerequisite is implemented.
+The first implementation slice must prove that Learning Science materially determines mechanism selection, Creator approval authority, learner execution, and feedback/result behavior.
 
-The prerequisite exists to remove a recurring manual governance risk:
-
-> Repository checkpoints must not depend on ChatGPT or the user remembering to regenerate the repository index and run the complete verification sequence.
-
-The required permanent workflow command is:
-
-```text
-./scripts/dev checkpoint
-```
-
-Its minimum responsibility is:
-
-```text
-CHECKPOINT
-    ↓
-REGENERATE INDHOLDSFORTEGNELSE.md
-    ↓
-RUN COMPLETE VERIFICATION
-    ↓
-REPORT CHECKPOINT PASS / FAIL
-```
-
-The existing separation must remain intact:
-
-```text
-./scripts/dev index
-    → writes / regenerates repository index
-
-./scripts/dev verify
-    → verifies without intentionally changing repository content
-
-./scripts/dev checkpoint
-    → orchestrates index + verify for checkpoint preparation
-```
-
-The automation must not commit, push, modify Product Authority, infer Current Task, or silently edit `PROJECT_CONTROL.md`.
-
-The repository remains the project memory.
-
-The intended permanent checkpoint discipline is:
-
-```text
-AUTHORITATIVE CHANGE
-        ↓
-UPDATE AUTHORITY / GOVERNANCE FILES AS REQUIRED
-        ↓
-TRACK NEW FILES
-        ↓
-./scripts/dev checkpoint
-        ↓
-CHECKPOINT PASS
-        ↓
-COMMIT
-        ↓
-PUSH
-        ↓
-REMOTE VERIFICATION
-```
-
-After this bounded tooling prerequisite is implemented, verified, committed, and synchronized, the project returns directly to:
-
-**Learning Science Engine — Minimum Implementation Slice Implementation**
-
-No Product Authority or Learning Science Engine architecture decision is reopened by this tooling task.
+Product implementation is authorized only inside the bounded Code Change Gate below.
 
 ---
 
@@ -91,18 +67,28 @@ No Product Authority or Learning Science Engine architecture decision is reopene
 migration-next16-to-root
 ```
 
-Latest verified remote governance checkpoint before this local transition:
+Current verified remote branch-head:
+
+```text
+a009bfe68ebe466b5a3cbb3eaed09aa8b7dbdf84
+Add automated repository checkpoint workflow
+```
+
+Direct parent:
 
 ```text
 a8c1c09ee52f928a300ee402d767df9184807dc6
 Synchronize Learning Science Engine architecture governance
 ```
 
-Direct architecture parent:
+The remote branch-head was verified directly on GitHub after push.
+
+Local state after push was verified as:
 
 ```text
-8c34b3dc0c7e31c5b76619c8ff61cccf0aabd591
-Establish Learning Science Engine architecture
+Branch: migration-next16-to-root
+Latest commit: a009bfe Add automated repository checkpoint workflow
+Working tree: Clean
 ```
 
 The architecture authority remains:
@@ -111,29 +97,7 @@ The architecture authority remains:
 docs/architecture/learning-science-engine.md
 ```
 
-Before this governance change, the local repository was verified as:
-
-```text
-Branch: migration-next16-to-root
-Latest commit: a8c1c09 Synchronize Learning Science Engine architecture governance
-Working tree: Clean
-```
-
-The complete verification pipeline then completed with:
-
-```text
-Tracked files: 232
-Indexed files: 232
-
-TypeScript Check    PASS
-Build               PASS
-Documentation Check PASS
-Repository Index    PASS
-Git Status          PASS
-Overall             PASS
-```
-
-No product implementation file, schema file, database migration, or runtime data had been changed at that verification checkpoint.
+No Product Authority, Learning Model, schema, migration, database data, Creator product surface, or Learner product surface was changed by the tooling prerequisite.
 
 ---
 
@@ -756,61 +720,40 @@ The implementation slice does not require persistence, schema change, migration,
 
 ### Minimum Implementation Slice Authorization
 
-**VERIFIED — RECORDED**
+**VERIFIED — ACTIVE**
 
-The first bounded Learning Science Engine implementation slice has been explicitly authorized in this file.
-
-Its implementation is temporarily paused only while the checkpoint automation prerequisite is completed.
+The first bounded Learning Science Engine implementation slice is authorized by the Code Change Gate below.
 
 ### Checkpoint Automation Prerequisite
 
-**OPEN — BOUNDED TOOLING TASK**
+**VERIFIED — CLOSED — COMMITTED — PUSHED**
 
-Repository inspection established that:
-
-* `tools/docs/core/runIndex.ts` already owns deterministic repository-index generation from Git-tracked files;
-* `tools/docs/core/runVerification.ts` already owns the complete verification pipeline;
-* `tools/docs/cli.ts` already owns command dispatch;
-* `tools/docs/commands/help.ts` already owns command discoverability.
-
-Therefore the smallest safe automation is a new orchestration command:
+Implemented command:
 
 ```text
 ./scripts/dev checkpoint
 ```
 
-with responsibility:
+Verified implementation responsibilities:
 
 ```text
-runIndex()
-    ↓
-runVerification()
-    ↓
-CHECKPOINT PASS / FAIL
+tools/docs/commands/checkpoint.ts
+tools/docs/core/runCheckpoint.ts
+tools/docs/cli.ts
+tools/docs/commands/help.ts
+INDHOLDSFORTEGNELSE.md
 ```
 
-`verify` must remain a verification-only command.
+The command:
 
-`checkpoint` must not perform commit or push.
+1. invokes the existing deterministic repository-index generation;
+2. runs the existing complete verification pipeline after successful index generation;
+3. returns failure when checkpoint preparation or verification fails;
+4. prints a clear final `CHECKPOINT PASS` / `CHECKPOINT FAIL`;
+5. leaves `verify` as a separate verification command;
+6. does not stage, commit, push, or change branches.
 
-Because `runIndex()` derives `INDHOLDSFORTEGNELSE.md` from `git ls-files`, newly created repository files must be Git-tracked before the checkpoint command can include them in the generated index.
-
-### Pre-Tooling Verification
-
-Immediately before this tooling governance transition:
-
-```text
-Branch: migration-next16-to-root
-Latest commit: a8c1c09 Synchronize Learning Science Engine architecture governance
-```
-
-The working tree contained exactly one change:
-
-```text
-M PROJECT_CONTROL.md
-```
-
-The previous complete verification pipeline completed with:
+The command was executed successfully and produced:
 
 ```text
 TypeScript Check    PASS
@@ -819,9 +762,45 @@ Documentation Check PASS
 Repository Index    PASS
 Git Status          PASS
 Overall             PASS
+
+CHECKPOINT PASS
 ```
 
-The tooling prerequisite may therefore proceed within the bounded Code Change Gate below.
+At verification time:
+
+```text
+Tracked files: 234
+Indexed files: 234
+```
+
+The bounded tooling commit is:
+
+```text
+a009bfe68ebe466b5a3cbb3eaed09aa8b7dbdf84
+Add automated repository checkpoint workflow
+```
+
+The commit was pushed to:
+
+```text
+origin/migration-next16-to-root
+```
+
+Remote branch-head was then verified directly on GitHub as exactly:
+
+```text
+a009bfe68ebe466b5a3cbb3eaed09aa8b7dbdf84
+```
+
+Local working tree after push:
+
+```text
+Clean
+```
+
+The manual checkpoint-memory risk is therefore resolved for the bounded workflow.
+
+New repository files must still be Git-tracked before `checkpoint` can include them in the generated index because index authority is derived from `git ls-files`.
 
 ---
 
@@ -829,184 +808,260 @@ The tooling prerequisite may therefore proceed within the bounded Code Change Ga
 
 ### R1 – Learning Science Engine could become cosmetic
 
-**Status: CONTROLLED BY VERIFIED SLICE CONTRACT**
+**Status: ACTIVE — PRIMARY PRODUCT ACCEPTANCE RISK**
 
-The first product implementation slice remains governed by the verified acceptance contract.
+The first implementation slice must materially determine Learning Requirements, mechanism proposal, Creator review basis, and learner execution.
+
+If the same mechanism and learner behavior would remain after removing the derivation, the slice fails.
 
 ### R2 – Implementation could silently redefine Product Authority
 
 **Status: CONTROLLED**
 
-Product Authority and Learning Science Engine architecture are unchanged by the tooling prerequisite.
+Product Authority and Learning Science Engine architecture remain upstream of implementation.
 
 ### R3 – Manual checkpoint steps could be forgotten
 
-**Status: ACTIVE — CURRENT TOOLING RISK**
+**Status: CONTROLLED BY VERIFIED TOOLING**
 
-Repository index regeneration and full verification currently require separate manual commands.
+`./scripts/dev checkpoint` now regenerates the repository index and runs complete verification as one workflow command.
 
-The bounded `checkpoint` command must remove this mechanical memory dependency.
+### R4 – New untracked files could be omitted from the generated index
 
-### R4 – `verify` could accidentally become a write command
+**Status: KNOWN WORKFLOW BOUNDARY**
 
-**Status: CONTROLLED BY TOOLING BOUNDARY**
+New files must be Git-tracked before `checkpoint` is expected to include them.
 
-`verify` must retain its current verification-only responsibility.
+The checkpoint command intentionally does not stage files automatically.
 
-Index generation remains explicit through `runIndex()` and the new checkpoint orchestrator.
+### R5 – Learning activities could be mistaken for learning design
 
-### R5 – New untracked files could be omitted from the generated index
+**Status: ACTIVE**
 
-**Status: KNOWN BOUNDARY**
+Existing quiz, flashcard, progress, and learner UI cannot create the first-slice requirements.
 
-`runIndex()` derives the index from `git ls-files`.
+Mechanism selection must remain downstream of Learning Requirements.
 
-New files must therefore be tracked before `checkpoint` is expected to include them.
+### R6 – Creator authority could be bypassed
 
-The command must not silently stage files.
+**Status: ACTIVE — HARD GATE**
 
-### R6 – Checkpoint automation could expand into source-control automation
+A Proposed Learning Design must never directly become learner execution.
 
-**Status: PROHIBITED**
+Only an Approved Learning Design may authorize learner execution.
 
-The first checkpoint command must not:
+### R7 – Database schema could prematurely define the NEW MVP domain
 
-* stage files;
-* create commits;
-* push;
-* change branches;
-* infer commit messages;
-* modify governance content automatically.
+**Status: CONTROLLED**
 
-### R7 – Tooling prerequisite could delay or contaminate product implementation
+The first Learning Design domain representation must remain persistence-independent.
 
-**Status: CONTROLLED BY BOUNDED TASK**
+No schema or migration change is authorized for this slice.
 
-Only the minimum Developer Toolkit changes required for `checkpoint` are authorized.
+### R8 – Slice could grow beyond the minimum proof
 
-After the prerequisite is closed, work returns directly to the already verified Learning Science Engine implementation slice.
+**Status: ACTIVE**
+
+Only behavior required by the verified Implementation Acceptance Contract is authorized.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: TEMPORARILY PAUSED**
+**Bounded product implementation: AUTHORIZED**
 
-The previously authorized **Learning Science Engine Minimum Implementation Slice** remains valid but must not be implemented until the bounded checkpoint automation prerequisite is closed.
+The Code Change Gate is open only for the verified **Learning Science Engine Minimum Implementation Slice**.
 
-**Bounded Developer Toolkit change: AUTHORIZED**
-
-Only the following tooling responsibilities are authorized:
+The authorized implementation responsibilities are:
 
 ```text
-NEW
+1. PERSISTENCE-INDEPENDENT LEARNING DESIGN DOMAIN REPRESENTATION
 
-tools/docs/commands/checkpoint.ts
-tools/docs/core/runCheckpoint.ts
+Learning Objective
+Relevant Context
+Applicable Principle Reference(s)
+Learning-Science Rationale
+Learning Requirements
+Proposed Learning Mechanism
+Learner Performance Requirement
+Feedback / Result Requirement
+Creator-Controlled Decisions
+Design State
 ```
 
 ```text
-MODIFY
+2. BOUNDED LEARNING DESIGN DERIVATION OWNER
 
-tools/docs/cli.ts
-tools/docs/commands/help.ts
-PROJECT_CONTROL.md
+Learning Objective + Relevant Context
+        ↓
+Active Retrieval Principle reference
+        ↓
+Applicability rationale
+        ↓
+Learning Requirements
+        ↓
+One bounded retrieval mechanism proposal
+        ↓
+Proposed Learning Design
 ```
-
-The permanent workflow documentation may be updated only as necessary to record the new checkpoint command:
 
 ```text
-PROJECT_HANDBOOK.md
-```
+3. BOUNDED CREATOR LIFECYCLE OWNER
 
-After the new files are Git-tracked, the repository index must be regenerated through the Toolkit:
+PROPOSED
+    ↓
+REVIEW
+    ↓
+APPROVED
+
+and:
+
+UPSTREAM PREMISE CHANGE
+    ↓
+INVALIDATE DERIVATION + APPROVAL
+    ↓
+RE-DERIVE
+```
 
 ```text
-INDHOLDSFORTEGNELSE.md
+4. APPROVED-DESIGN EXECUTION GATE
+
+PROPOSED
+    ↓
+EXECUTION FORBIDDEN
+
+APPROVED
+    ↓
+BOUNDED LEARNER EXECUTION ALLOWED
 ```
 
-The checkpoint implementation must:
+```text
+5. ONE BOUNDED ACTIVE RETRIEVAL EXECUTION
 
-1. call the existing repository-index generation responsibility;
-2. stop or report failure if index generation fails;
-3. run the existing complete verification responsibility after successful index generation;
-4. return failure when either phase fails;
-5. print a clear final checkpoint PASS / FAIL result;
-6. preserve `verify` as a non-index-generating verification command;
-7. avoid staging, committing, pushing, or changing branches.
+Learner must actively answer before reveal
+        ↓
+relevant feedback / bounded correction
+```
 
-The following remain **NOT AUTHORIZED** during this tooling prerequisite:
+The implementation may create the smallest new persistence-independent TypeScript/domain files required to own these responsibilities.
 
-* Learning Science Engine product-code implementation;
-* Creator UI implementation;
-* learner-execution changes;
+The implementation may create the smallest bounded Creator review/approval surface required to prove the contract.
+
+The implementation may create the smallest bounded learner-execution surface required to prove that the Approved Learning Design controls the learner mechanism.
+
+The existing `components/AuthoritativeQuizQuestion.tsx` interaction may be reused or adapted only as the bounded retrieval execution mechanism and only if it remains downstream of the Approved Learning Design.
+
+The existing lesson route and lesson repositories may be reused or adapted only where needed to provide bounded context or connect the approved design to learner execution.
+
+The first slice may use fixed bounded subject-matter/example input when necessary to prove architecture behavior.
+
+It must not create a generalized content-ingestion or Creator-authoring system.
+
+The permanent repository checkpoint workflow is now:
+
+```text
+TRACK NEW FILES
+        ↓
+./scripts/dev checkpoint
+        ↓
+CHECKPOINT PASS
+        ↓
+COMMIT
+        ↓
+PUSH
+        ↓
+REMOTE VERIFICATION
+```
+
+The following remain **NOT AUTHORIZED**:
+
 * database schema changes;
 * database migrations;
-* database-data writes;
+* database-data writes required solely to support the slice;
 * Supabase population;
 * persistent Learning Design storage;
+* generalized Creator platform;
+* generalized mechanism catalogue;
+* autonomous course generation;
+* multi-question orchestration;
+* progress redesign;
+* dashboard redesign;
+* percentage-scoring architecture;
+* mastery;
+* adaptive scheduling;
+* certification;
+* payments;
+* organization administration;
+* marketplace capabilities;
+* analytics infrastructure;
+* generalized personalization;
+* Learning Principle changes;
 * Product Authority changes;
-* Learning Model changes;
-* Learning Science Engine architecture changes;
-* generalized tooling refactors unrelated to checkpoint automation;
-* automatic Git staging;
-* automatic commit;
-* automatic push.
+* architecture changes.
 
-If implementation requires files or responsibilities outside the bounded tooling scope, stop and update governance before proceeding.
+If implementation reveals that persistence, schema change, architecture expansion, a second mechanism, or another currently deferred capability is necessary, implementation must stop and `PROJECT_CONTROL.md` must be updated before that boundary may change.
 
 ---
 
 ## Current Task
 
-Implement, document, and verify the bounded:
+Implement and verify the bounded:
 
-**Developer Toolkit — Checkpoint Automation**
+**Learning Science Engine — Minimum Implementation Slice**
 
-The required user-facing command is:
+The implementation must prove the verified acceptance contract through one coherent vertical slice.
+
+The bounded target is:
+
+```text
+ONE LEARNING OBJECTIVE
+        +
+ONE RELEVANT CONTEXT
+        ↓
+ACTIVE RETRIEVAL APPLICABILITY
+        ↓
+LEARNING REQUIREMENT
+        ↓
+ONE RETRIEVAL MECHANISM PROPOSAL
+        ↓
+PROPOSED LEARNING DESIGN
+        ↓
+CREATOR REVIEW + APPROVAL
+        ↓
+APPROVED LEARNING DESIGN
+        ↓
+ACTIVE LEARNER RESPONSE BEFORE REVEAL
+        ↓
+RELEVANT FEEDBACK / RESULT
+```
+
+The implementation must additionally prove:
+
+```text
+PROPOSED
+    ↓
+LEARNER EXECUTION FORBIDDEN
+```
+
+and:
+
+```text
+DERIVATION-RELEVANT UPSTREAM CHANGE
+        ↓
+DERIVATION + APPROVAL INVALID
+        ↓
+RE-DERIVATION REQUIRED
+```
+
+Implementation must remain persistence-independent unless a separately verified governance change authorizes otherwise.
+
+The implementation must not reinterpret Product Authority, Learning Model authority, or the verified Learning Science Engine architecture.
+
+Every implementation checkpoint must use:
 
 ```text
 ./scripts/dev checkpoint
 ```
-
-The minimum execution flow is:
-
-```text
-runIndex()
-    ↓
-IF PASS
-    ↓
-runVerification()
-    ↓
-CHECKPOINT PASS / FAIL
-```
-
-The task must reuse the existing index and verification responsibilities rather than duplicate their logic.
-
-The task must preserve:
-
-```text
-index
-    = repository-index generation
-
-verify
-    = complete verification without intentional repository-content mutation
-
-checkpoint
-    = checkpoint orchestration
-```
-
-The command is a workflow safeguard, not a source-control automation system.
-
-After implementation:
-
-1. new Toolkit files must be Git-tracked;
-2. `./scripts/dev checkpoint` must regenerate `INDHOLDSFORTEGNELSE.md`;
-3. the complete verification pipeline must PASS;
-4. `./scripts/dev status` must show the exact bounded changed-file set;
-5. the tooling checkpoint must be committed and pushed;
-6. remote branch-head must be verified;
-7. `PROJECT_CONTROL.md` must then return Current Phase and Current Task to the already-authorized Learning Science Engine Minimum Implementation Slice.
 
 ---
 
@@ -1165,43 +1220,53 @@ Before commit, the Developer Toolkit verification pipeline must complete with Ov
 
 ## Next Allowed Action
 
-Implement the bounded **Developer Toolkit — Checkpoint Automation**.
+Implement the bounded **Learning Science Engine — Minimum Implementation Slice** authorized by the Code Change Gate.
 
 The next work may:
 
-1. create `tools/docs/core/runCheckpoint.ts`;
-2. create `tools/docs/commands/checkpoint.ts`;
-3. add `checkpoint` dispatch to `tools/docs/cli.ts`;
-4. add `checkpoint` help text to `tools/docs/commands/help.ts`;
-5. update `PROJECT_HANDBOOK.md` only as needed to make the permanent checkpoint workflow discoverable;
-6. Git-track the new Toolkit files before generating the repository index;
-7. run `./scripts/dev checkpoint`;
-8. verify that `INDHOLDSFORTEGNELSE.md` includes all tracked new files exactly once;
-9. run `./scripts/dev status`;
-10. read back the changed Toolkit/governance files as necessary;
-11. commit the bounded tooling checkpoint after verification;
-12. push and verify the remote branch-head;
-13. synchronize `PROJECT_CONTROL.md` back to the already-authorized Learning Science Engine implementation phase.
+1. create the minimum persistence-independent Learning Design domain representation;
+2. create the bounded Learning Design derivation owner;
+3. reference the certified Active Retrieval Principle without duplicating scientific authority;
+4. derive the bounded Learning Requirement before mechanism selection;
+5. produce one Proposed Learning Design;
+6. create the minimum Creator review and explicit approval behavior;
+7. enforce `PROPOSED ≠ learner executable`;
+8. enforce invalidation and re-derivation when objective or derivation-relevant context changes;
+9. connect one Approved Learning Design to one bounded active retrieval learner interaction;
+10. reuse or adapt `components/AuthoritativeQuizQuestion.tsx` only if it satisfies the approved-design execution responsibility;
+11. produce the bounded feedback/result required by the design;
+12. add the minimum verification coverage needed to prove the acceptance contract;
+13. Git-track any new repository files;
+14. run `./scripts/dev checkpoint`;
+15. inspect `./scripts/dev status`;
+16. record the verified implementation checkpoint in `PROJECT_CONTROL.md` before expanding the implementation boundary.
 
 The next work must **not**:
 
-1. implement Learning Science Engine product code;
-2. modify Creator or Learner product surfaces;
-3. change schema;
-4. create migrations;
-5. write database data;
-6. populate Supabase;
-7. introduce Learning Design persistence;
-8. modify Product Authority;
-9. modify certified Learning Principles;
-10. modify Learning Science Engine architecture;
-11. refactor unrelated Developer Toolkit responsibilities;
-12. make `verify` regenerate the index;
-13. automatically stage files;
-14. automatically commit;
-15. automatically push.
+1. change database schema;
+2. create migrations;
+3. populate Supabase;
+4. introduce persistent Learning Design storage;
+5. migrate legacy curriculum;
+6. build a generalized Creator platform;
+7. build a generalized authoring system;
+8. build a generalized mechanism catalogue;
+9. implement multi-question orchestration;
+10. redesign progress;
+11. redesign dashboard;
+12. implement percentage scoring as learning authority;
+13. implement mastery;
+14. implement adaptive scheduling;
+15. implement certification;
+16. implement payments;
+17. implement organization administration;
+18. implement marketplace capabilities;
+19. implement analytics infrastructure;
+20. modify certified Learning Principles;
+21. modify Product Authority;
+22. expand the verified Learning Science Engine architecture.
 
-The checkpoint prerequisite is complete only when the command is verified, repository navigation is synchronized, the tooling checkpoint is committed and pushed, and remote state is verified.
+If a currently prohibited capability becomes necessary, stop implementation and update governance before making that change.
 
 ---
 
