@@ -41,6 +41,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`docs/architecture/deployment.md`](./docs/architecture/deployment.md)
 - [`docs/architecture/frontend-architecture.md`](./docs/architecture/frontend-architecture.md)
 - [`docs/architecture/integrations.md`](./docs/architecture/integrations.md)
+- [`docs/architecture/learning-science-engine.md`](./docs/architecture/learning-science-engine.md)
 - [`docs/architecture/README.md`](./docs/architecture/README.md)
 - [`docs/architecture/security.md`](./docs/architecture/security.md)
 - [`docs/architecture/system-overview.md`](./docs/architecture/system-overview.md)

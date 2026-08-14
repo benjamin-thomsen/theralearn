@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Learning Science Engine — Minimum Implementation Architecture Derivation**
+**Learning Science Engine — Minimum Implementation Slice Derivation**
 
 The new Product Vision, Learning Model, and MVP boundary are the governing Product Authority for TheraLearn.
 
@@ -20,7 +20,7 @@ The bounded **Existing Implementation Compatibility Assessment** has been comple
 
 The assessment established that the repository already contains useful technical and learner-side foundations, but the core product layer required to connect learning objectives, certified Learning Principles, learning mechanisms, Creator approval, and learner execution does not yet exist in meaningful implementation form.
 
-The next project responsibility is therefore architecture derivation rather than product implementation.
+The minimum Learning Science Engine architecture has now been derived, verified, and committed. The next project responsibility is to derive the smallest safe implementation slice from that architecture before any product implementation is authorized.
 
 The new product core remains:
 
@@ -58,7 +58,7 @@ BUILD / DESIGN
     LEARN
 ```
 
-Product implementation remains **PAUSED** while the minimum implementation architecture for the Learning Science Engine and learning-design derivation is established.
+Product implementation remains **PAUSED** while the smallest safe implementation slice is derived from the verified Learning Science Engine architecture.
 
 ---
 
@@ -68,20 +68,29 @@ Product implementation remains **PAUSED** while the minimum implementation archi
 migration-next16-to-root
 ```
 
-Latest verified remote branch checkpoint:
+Latest verified remote branch checkpoint before local architecture work:
 
 ```text
-2e2464768e5422b39af0f94893e19be881488686
-Synchronize product authority with new MVP direction
+5e0da244ced2821f1d1ee9dd5bc6a5655df08948
+Open Learning Science Engine architecture derivation
 ```
 
-Immediately before the current `PROJECT_CONTROL.md` synchronization, the local working tree was verified:
+Verified local architecture checkpoint:
 
 ```text
-Clean
+8c34b3d
+Establish Learning Science Engine architecture
 ```
 
-No product implementation file, schema file, database migration, or runtime data was changed during the Existing Implementation Compatibility Assessment.
+The architecture checkpoint adds:
+
+```text
+docs/architecture/learning-science-engine.md
+```
+
+The architecture file was verified as a complete 594-line document, and the repository verification pipeline completed with Overall PASS before commit.
+
+No product implementation file, schema file, database migration, or runtime data was changed while establishing the architecture authority.
 
 ---
 
@@ -96,6 +105,26 @@ docs/product/mvp.md
 ```
 
 Implementation is downstream of these authorities.
+
+The permanent architecture authority for the Learning Science Engine is:
+
+```text
+docs/architecture/learning-science-engine.md
+```
+
+The authority direction is:
+
+```text
+PRODUCT AUTHORITY
+        ↓
+LEARNING SCIENCE ENGINE ARCHITECTURE
+        ↓
+IMPLEMENTATION DERIVATION
+        ↓
+IMPLEMENTATION
+```
+
+Legacy implementation remains downstream of the NEW MVP architecture and may only be assessed against requirements derived from that architecture.
 
 The responsibilities of the three authority documents remain distinct.
 
@@ -246,13 +275,15 @@ Its conceptual direction is:
 ```text
 Learning objective
         +
-Learning context
+Relevant context
         ↓
-Applicable certified Learning Principle
+Applicable certified Learning Principle(s)
         ↓
-Relevant learning mechanism
+Learning Requirements
         ↓
-Learning design
+Proposed Learning Mechanism
+        ↓
+Proposed Learning Design
 ```
 
 The Learning Science Engine must materially affect product behavior.
@@ -563,7 +594,7 @@ WHAT DOES LEARNING SCIENCE SUPPORT?
 HOW SHOULD THIS LEARNING EXPERIENCE BE DESIGNED?
 ```
 
-Architecture must be derived before implementation of that layer begins.
+The minimum architecture for that layer has now been derived. Implementation still requires a separately derived and authorized minimum implementation slice.
 
 ---
 
@@ -661,11 +692,53 @@ The verified result is recorded in the `REUSE / ADAPT / LEGACY / MISSING` matrix
 
 ### Minimum Implementation Architecture
 
-**OPEN — NOT YET DERIVED**
+**VERIFIED — COMMITTED**
 
-The repository currently has no verified architecture owner for the Learning Science Engine or learning-design derivation.
+The permanent architecture owner is:
 
-Architecture derivation is therefore the Current Task.
+```text
+docs/architecture/learning-science-engine.md
+```
+
+Verified local architecture checkpoint:
+
+```text
+8c34b3d
+Establish Learning Science Engine architecture
+```
+
+The architecture establishes, among other boundaries:
+
+* NEW MVP architecture independence from legacy implementation;
+* Learning Objective + Relevant Context as minimum derivation input;
+* certified Learning Principle references without duplicated scientific authority;
+* Learning Requirements as the mandatory bridge between science and mechanism;
+* the minimum Proposed Learning Design representation;
+* Creator review, change, rejection, and approval;
+* re-derivation when upstream scientific premises change;
+* at least `PROPOSED` and `APPROVED` design states;
+* the prohibition on learner execution from an unapproved design;
+* Approved Learning Design as learner-execution authority;
+* learner performance and feedback/result requirements;
+* scientific traceability;
+* explicit non-requirements and deferrals.
+
+The architecture was read-back verified as a complete 594-line document.
+
+Before the architecture commit, `./scripts/dev verify` completed with:
+
+```text
+TypeScript Check    PASS
+Build               PASS
+Documentation Check PASS
+Repository Index    PASS
+Git Status          PASS
+Overall             PASS
+```
+
+Architecture derivation is therefore closed.
+
+The next task is implementation-slice derivation, not product implementation.
 
 ---
 
@@ -718,25 +791,25 @@ Creator review and approval boundaries must therefore be explicit in the minimum
 
 ### R5 – Learning Principle authority could be duplicated
 
-**Status: ACTIVE ARCHITECTURE RISK**
+**Status: CONTROLLED BY VERIFIED ARCHITECTURE**
 
-Implementation architecture must reference applicable certified Learning Principles without recreating, modifying, or duplicating scientific authority.
+The verified architecture requires implementation to reference applicable certified Learning Principles without recreating, modifying, or duplicating scientific authority.
 
 `LEARNING_MODEL.md` remains the owner of certified Learning Principles.
 
 ### R6 – Premature architecture expansion
 
-**Status: CONTROLLED BY BOUNDED DERIVATION**
+**Status: CONTROLLED BY VERIFIED ARCHITECTURE**
 
-The minimum architecture must not expand into a general-purpose authoring platform, recommendation engine, mastery engine, marketplace, certification system, or commercial platform.
+The verified minimum architecture explicitly defers a general-purpose authoring platform, recommendation engine, mastery engine, marketplace, certification system, commercial platform, and other non-required capabilities.
 
-Only the architecture necessary to support the bounded MVP chain may be derived.
+Implementation-slice derivation must preserve those deferrals.
 
 ### R7 – Premature implementation
 
 **Status: CONTROLLED BY CODE CHANGE GATE**
 
-Architecture derivation must complete before product implementation resumes.
+Architecture derivation is complete, but product implementation remains paused until the smallest safe implementation slice is derived, verified, and explicitly authorized in this file.
 
 ---
 
@@ -772,9 +845,9 @@ No marketplace implementation is currently authorized.
 
 No multi-question orchestration is currently authorized.
 
-Read-only architecture inspection is authorized.
+Read-only architecture and implementation inspection is authorized for implementation-slice derivation.
 
-Documentation changes required solely to derive, record, or synchronize verified architecture authority are authorized and must be verified before commit.
+Documentation changes required solely to derive, record, or synchronize the implementation-slice decision are authorized and must be verified before commit.
 
 ---
 
@@ -782,181 +855,137 @@ Documentation changes required solely to derive, record, or synchronize verified
 
 Perform the bounded:
 
-**Learning Science Engine — Minimum Implementation Architecture Derivation**
+**Learning Science Engine — Minimum Implementation Slice Derivation**
 
-The architecture derivation must determine the smallest technical responsibility model capable of supporting:
+The task is to derive the smallest safe implementation slice that proves a real vertical portion of the verified architecture without reinterpreting Product Authority.
+
+The derivation must start from:
 
 ```text
-SUBJECT-MATTER CONTENT
+docs/product/PRODUCT_VISION.md
+        +
+docs/product/LEARNING_MODEL.md
+        +
+docs/product/mvp.md
         ↓
-LEARNING OBJECTIVE + CONTEXT
-        ↓
-APPLICABLE CERTIFIED LEARNING PRINCIPLE
-        ↓
-RELEVANT LEARNING MECHANISM
-        ↓
-PROPOSED LEARNING DESIGN
-        ↓
-CREATOR REVIEW + APPROVAL
-        ↓
-APPROVED LEARNING DESIGN
-        ↓
-LEARNER EXECUTION
-        ↓
-LEARNER ATTEMPT
-        ↓
-RELEVANT FEEDBACK / RESULT
+docs/architecture/learning-science-engine.md
 ```
 
-The derivation must remain bounded.
+It must then determine the minimum implementation responsibilities needed for the first coherent slice.
 
-It must define architecture.
+The derivation must remain architecture-first and legacy-independent.
 
-It must not implement the architecture.
+Legacy implementation may only be evaluated after the slice requirements have been derived.
+
+The derivation must not implement the slice.
 
 ---
 
-## Architecture Derivation Requirements
+## Implementation Slice Derivation Requirements
 
-The minimum architecture derivation must determine at least the following.
+The bounded derivation must determine at least:
 
-### 1. Learning-design input
+### 1. Slice proof target
 
-Define the minimum input needed to derive a proposed Learning Design.
+Define exactly which smallest end-to-end architectural behavior the first implementation slice must prove.
 
-At minimum the architecture must determine what is required from:
+The slice must materially involve the Learning Science Engine architecture.
 
-```text
-Learning objective
-        +
-Relevant learning context
-```
+A slice that merely renders an existing quiz, flashcard, lesson, dashboard, or progress feature is insufficient.
 
-It must not prematurely introduce a broad content-authoring model.
+### 2. Minimum domain representation
 
-### 2. Learning Principle reference
+Determine the smallest implementation representation required for the selected slice, including only the concepts necessary to preserve the verified architecture boundaries.
 
-Define how an applicable certified Learning Principle is referenced from implementation without duplicating scientific authority.
+Do not derive a generalized authoring or learning-management domain model.
 
-The architecture must preserve:
+### 3. Derivation owner
+
+Identify the explicit implementation responsibility that will own the bounded transformation from:
 
 ```text
-LEARNING_MODEL.md
+Learning Objective + Relevant Context
         ↓
-Certified Learning Principle
+Applicable certified Learning Principle reference(s)
         ↓
-Implementation reference
+Learning Requirements
+        ↓
+Proposed Learning Mechanism
+        ↓
+Proposed Learning Design
 ```
 
-Implementation must not become a second scientific authority.
+This responsibility must not be hidden across UI components, repositories, route handlers, or database tables.
 
-### 3. Derivation responsibility
+### 4. Creator approval gate
 
-Define the technical responsibility that owns:
-
-```text
-objective + context
-        ↓
-principle
-        ↓
-mechanism
-```
-
-That responsibility must have a clear boundary.
-
-It must not be implicitly distributed across UI components, repositories, route handlers, or database tables without an explicit owner.
-
-### 4. Proposed Learning Design representation
-
-Define the minimum representation required for a proposed Learning Design.
-
-The representation must be sufficient to express the bounded relationship between:
-
-* learning objective;
-* relevant context;
-* applicable principle;
-* selected mechanism;
-* creator-controlled design decisions.
-
-It must not become a broad course-authoring schema unless the MVP requires it.
-
-### 5. Creator control boundary
-
-Define which parts of the proposed Learning Design the Creator can:
-
-* review;
-* change;
-* reject;
-* approve.
-
-Creator authority over subject-matter truth must remain explicit.
-
-### 6. Approval-state boundary
-
-Define the smallest required state distinction between at least:
+Determine the smallest implementation responsibility required to preserve:
 
 ```text
 PROPOSED
+        ↓
+CREATOR REVIEW
+        ↓
+APPROVED
+        ↓
+LEARNER EXECUTION
 ```
 
-and:
+No implementation slice may bypass this gate.
+
+### 5. Re-derivation boundary
+
+Determine how the first slice will prevent stale scientific derivation from remaining valid after an upstream premise changes.
+
+Only the minimum behavior necessary for the slice should be derived.
+
+### 6. Learner execution boundary
+
+Determine the smallest learner-side execution needed to prove that an Approved Learning Design controls the mechanism presented to the Learner.
+
+The mechanism must not be shown merely because the feature exists.
+
+### 7. Feedback / result boundary
+
+Determine the minimum learner performance and feedback/result behavior required by the selected design.
+
+Do not default to percentage score, completion, mastery, or progress unless the derived slice specifically requires it.
+
+### 8. Legacy compatibility
+
+Only after requirements 1–7 are derived, classify relevant existing implementation as:
 
 ```text
-APPROVED
+REUSE
+ADAPT
+DISCARD
 ```
 
-No learner execution may silently treat an unapproved Learning Design as approved.
+The classification must be against the NEW MVP slice requirements, never the reverse.
 
-### 7. Learner execution boundary
+### 9. Persistence decision
 
-Define how the approved Learning Design becomes downstream input to learner execution.
+Determine whether the first slice requires persistence.
 
-The learner-side mechanism must be selected because the Learning Design calls for it, not merely because the feature exists.
+If persistence is not necessary to prove the architectural behavior, do not introduce schema or migration work.
 
-### 8. Existing REUSE foundations
+If persistence is proven necessary, the exact need must be recorded before any schema change is authorized.
 
-Determine which existing reusable foundations can remain unchanged, including where appropriate:
+### 10. Explicit implementation boundary
 
-* Auth;
-* repositories;
-* Course → Chapter → Lesson structure;
-* lesson content;
-* existing learning-objective storage;
-* quiz repository;
-* flashcard repository;
-* bounded active quiz interaction.
+Produce a precise list of files/responsibilities that a later implementation step may change and a precise list of deferred capabilities.
 
-### 9. Existing ADAPT foundations
-
-Determine which existing foundations require changed responsibility or behavior before participating in the new MVP.
-
-### 10. Explicit deferrals
-
-Explicitly identify what remains outside the minimum architecture.
-
-At minimum the derivation must avoid prematurely designing:
-
-* scoring systems;
-* generalized mastery models;
-* broad adaptive scheduling;
-* recommendation engines;
-* certification infrastructure;
-* payments;
-* marketplace behavior;
-* organization administration;
-* large-scale authoring;
-* unrestricted AI course generation;
-* multi-question orchestration unless proven necessary for the bounded MVP.
+The result must be small enough that implementation can proceed without reopening Product Authority or architecture derivation.
 
 ---
 
-## Architecture Decision Standard
+## Implementation Slice Decision Standard
 
-The architecture derivation must satisfy all of the following.
+The implementation-slice derivation must satisfy all of the following.
 
 ### Product Authority
 
-Architecture must derive from:
+The slice must derive from:
 
 ```text
 PRODUCT_VISION.md
@@ -966,19 +995,19 @@ LEARNING_MODEL.md
 mvp.md
 ```
 
-not from existing implementation convenience.
+and from `docs/architecture/learning-science-engine.md`, not from existing implementation convenience.
 
 ### Minimum sufficiency
 
-The architecture must include every responsibility required to prove the bounded MVP chain.
+The slice must include every responsibility required to prove its bounded architectural behavior and no more.
 
 ### No premature expansion
 
-The architecture must exclude responsibilities that are not required to prove the bounded MVP.
+The slice must exclude responsibilities that are not required for the first coherent proof.
 
 ### Explicit ownership
 
-Critical product responsibilities must have explicit technical ownership.
+Critical slice responsibilities must have explicit technical ownership.
 
 ### Scientific authority preservation
 
@@ -990,26 +1019,28 @@ TheraLearn learning-design behavior must not override Content Owner authority ov
 
 ### Downstream implementation clarity
 
-When architecture derivation is complete, the smallest safe implementation slice should be derivable without needing to reinterpret Product Authority.
+When slice derivation is complete, implementation should be possible without reinterpreting Product Authority or the verified Learning Science Engine architecture.
 
 ---
 
 ## Next Allowed Action
 
-Perform the bounded **Learning Science Engine — Minimum Implementation Architecture Derivation**.
+Perform the bounded **Learning Science Engine — Minimum Implementation Slice Derivation**.
 
 The next work may:
 
 1. read the current Product Authority;
-2. inspect relevant architecture and implementation read-only;
-3. identify existing responsibility owners that may be reused;
-4. derive the minimum Learning Science Engine responsibility;
-5. derive the minimum Learning Design representation;
-6. derive the Creator review and approval boundary;
+2. read `docs/architecture/learning-science-engine.md`;
+3. inspect existing implementation read-only;
+4. select the smallest coherent architecture proof target;
+5. derive the minimum domain and application responsibilities for that target;
+6. derive the Creator approval and re-derivation behavior required by that target;
 7. derive the approved-design-to-learner-execution boundary;
-8. classify architecture responsibilities as existing, adapted, or new;
-9. identify explicit deferred responsibilities;
-10. record the bounded architecture result in the appropriate authority documentation.
+8. derive the minimum learner performance and feedback/result behavior;
+9. classify relevant legacy implementation as `REUSE`, `ADAPT`, or `DISCARD` only after requirements are established;
+10. determine whether persistence is actually required;
+11. define the exact bounded implementation file/responsibility scope;
+12. record and verify the implementation-slice decision.
 
 The next work must **not**:
 
@@ -1021,16 +1052,17 @@ The next work must **not**:
 6. migrate legacy curriculum;
 7. implement Creator UI;
 8. implement the Learning Science Engine;
-9. implement scoring;
-10. implement mastery;
-11. implement adaptive scheduling;
-12. implement certification;
-13. implement payments;
-14. implement marketplace capabilities;
-15. implement organization administration;
-16. implement multi-question orchestration.
+9. implement the derived slice;
+10. implement scoring;
+11. implement mastery;
+12. implement adaptive scheduling;
+13. implement certification;
+14. implement payments;
+15. implement marketplace capabilities;
+16. implement organization administration;
+17. implement multi-question orchestration unless the slice derivation proves it necessary.
 
-After the minimum architecture has been derived and read-back verified, `PROJECT_CONTROL.md` must be synchronized again before any implementation slice is authorized.
+After the minimum implementation slice has been derived and read-back verified, `PROJECT_CONTROL.md` must be synchronized again before product-code changes are authorized.
 
 ---
 
