@@ -157,6 +157,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 ## Components
 
+- [`components/ApprovedRetrievalExperience.tsx`](./components/ApprovedRetrievalExperience.tsx)
 - [`components/AuthoritativeQuizQuestion.tsx`](./components/AuthoritativeQuizQuestion.tsx)
 - [`components/Button.module.css`](./components/Button.module.css)
 - [`components/Button.tsx`](./components/Button.tsx)
