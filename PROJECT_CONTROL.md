@@ -12,27 +12,25 @@
 
 ## Current Phase
 
-**Product Authority Synchronization — Existing Implementation Compatibility Assessment**
+**Learning Science Engine — Minimum Implementation Architecture Derivation**
 
-A new Product Vision and a new MVP boundary have been established locally as the governing product direction for TheraLearn.
+The new Product Vision, Learning Model, and MVP boundary are the governing Product Authority for TheraLearn.
 
-The previous learner-only MVP direction and the previous implementation-driving curriculum-data prerequisite are no longer sufficient to define the product or determine the next implementation action.
+The bounded **Existing Implementation Compatibility Assessment** has been completed.
 
-The new product core is:
+The assessment established that the repository already contains useful technical and learner-side foundations, but the core product layer required to connect learning objectives, certified Learning Principles, learning mechanisms, Creator approval, and learner execution does not yet exist in meaningful implementation form.
+
+The next project responsibility is therefore architecture derivation rather than product implementation.
+
+The new product core remains:
 
 > **You bring what needs to be learned. TheraLearn helps you determine how it can be learned effectively.**
 
-The differentiating product responsibility is:
+The differentiating product responsibility remains:
 
 > **Learning design based on learning science.**
 
-TheraLearn does not own subject-matter truth.
-
-The Content Owner owns the correctness and legitimacy of the subject matter.
-
-TheraLearn owns the learning system and the learning-design responsibility around that subject matter.
-
-The governing end-to-end product chain is now:
+The governing end-to-end product chain is:
 
 ```text
 SUBJECT-MATTER CONTENT
@@ -60,7 +58,7 @@ BUILD / DESIGN
     LEARN
 ```
 
-Product implementation remains **PAUSED** while existing implementation is assessed against the new permanent product authority.
+Product implementation remains **PAUSED** while the minimum implementation architecture for the Learning Science Engine and learning-design derivation is established.
 
 ---
 
@@ -70,31 +68,26 @@ Product implementation remains **PAUSED** while existing implementation is asses
 migration-next16-to-root
 ```
 
-Latest verified remote branch checkpoint before the current local Product Authority changes:
+Latest verified remote branch checkpoint:
 
 ```text
-509c38b6e7649fd1b6d3dfa4f3ae62cc3d236575
-Record curriculum content authority gap
+2e2464768e5422b39af0f94893e19be881488686
+Synchronize product authority with new MVP direction
 ```
 
-The working tree was verified on 2026-08-14 with exactly two local changes before this `PROJECT_CONTROL.md` synchronization:
+Immediately before the current `PROJECT_CONTROL.md` synchronization, the local working tree was verified:
 
 ```text
-M docs/product/PRODUCT_VISION.md
-M docs/product/mvp.md
+Clean
 ```
 
-Those local files contain the newly established Product Vision and MVP authority.
-
-This `PROJECT_CONTROL.md` synchronization is the third intended local authority change.
-
-No product implementation file, schema file, migration, or runtime data was changed as part of establishing the new Product Vision or MVP boundary.
+No product implementation file, schema file, database migration, or runtime data was changed during the Existing Implementation Compatibility Assessment.
 
 ---
 
 ## Permanent Product Authority
 
-The permanent product authority is:
+The permanent Product Authority is:
 
 ```text
 docs/product/PRODUCT_VISION.md
@@ -102,7 +95,9 @@ docs/product/LEARNING_MODEL.md
 docs/product/mvp.md
 ```
 
-Their responsibilities are distinct.
+Implementation is downstream of these authorities.
+
+The responsibilities of the three authority documents remain distinct.
 
 ### `PRODUCT_VISION.md`
 
@@ -121,17 +116,15 @@ Owns the durable product direction, including:
 * companies;
 * future course offering and certification direction;
 * downstream commercial capabilities;
-* personal preferences without pseudoscientific learning-style claims;
-* accessibility as distinct from claims about learning effectiveness;
+* legitimate personalization without pseudoscientific learning-style claims;
+* accessibility as distinct from claims about superior learning effectiveness;
 * existing implementation as subordinate to Product Authority.
 
 ### `LEARNING_MODEL.md`
 
 Owns the scientific learning authority.
 
-It remains valid and was consistency-verified against the new Product Vision and MVP.
-
-It is **not being rewritten** as part of this Product Authority synchronization.
+It remains valid and was consistency-verified against the current Product Vision and MVP.
 
 The five currently certified Learning Principles remain:
 
@@ -141,7 +134,7 @@ The five currently certified Learning Principles remain:
 4. Adaptive Guidance Principle
 5. Objective-Aligned Demonstration Principle
 
-The established scientific derivation direction remains:
+The scientific authority direction remains:
 
 ```text
 Scientific evidence
@@ -153,19 +146,19 @@ Product mechanisms and decisions
 Implementation
 ```
 
-The new Product Vision and MVP apply that authority through:
+The Product Vision and MVP apply that scientific authority through:
 
 ```text
 Learning objective + context
         ↓
-Applicable certified principle
+Applicable certified Learning Principle
         ↓
 Relevant learning mechanism
 ```
 
 This is product application of the Learning Model.
 
-It is not a new Learning Principle.
+It is not itself a new Learning Principle.
 
 No certified Learning Principle may be modified, expanded, or replaced without the appropriate evidence-review process.
 
@@ -205,9 +198,9 @@ and:
 Learner
 ```
 
-The MVP is no longer defined merely by learner access to structured curriculum, lessons, flashcards, quizzes, or progress.
+Structured curriculum, lessons, flashcards, quizzes, and progress may become mechanisms inside the MVP.
 
-Those may become mechanisms inside the MVP, but they do not themselves define the product.
+They do not themselves define the product.
 
 ---
 
@@ -240,7 +233,7 @@ feedback/result system
 
 TheraLearn must not silently change subject-matter truth in the name of learning design.
 
-The Creator / Content Owner must retain review and approval authority over the learning design produced around their material.
+The Creator / Content Owner retains review and approval authority over the learning design produced around their material.
 
 ---
 
@@ -271,13 +264,13 @@ It must not exist only as:
 * labels;
 * metadata;
 * documentation;
-* an invisible justification for features that would behave identically without it.
+* an invisible justification for mechanisms that would behave identically without it.
 
-The decisive MVP test is:
+The decisive MVP test remains:
 
 > **If the Learning Science Engine could be removed from the MVP without fundamentally changing how the product works, we have built the wrong MVP.**
 
-Therefore the following is insufficient as the defining MVP:
+Therefore this is insufficient:
 
 ```text
 UPLOAD CONTENT
@@ -287,7 +280,7 @@ AI GENERATES QUIZ
 DONE
 ```
 
-The following is also insufficient as the defining MVP:
+This is also insufficient:
 
 ```text
 CURRICULUM
@@ -299,7 +292,9 @@ FLASHCARDS / QUIZ
 PROGRESS
 ```
 
-Those capabilities may still be useful, but they are subordinate mechanisms rather than the Product Vision itself.
+Those capabilities may remain useful mechanisms.
+
+They are subordinate to learning-design derivation.
 
 ---
 
@@ -307,11 +302,11 @@ Those capabilities may still be useful, but they are subordinate mechanisms rath
 
 The MVP must contain a bounded Creator / Content Owner flow.
 
-For a bounded piece of legitimate subject-matter material, the Creator must be able to:
+For a bounded piece of legitimate subject-matter material, the Creator must ultimately be able to:
 
 1. provide or identify the content to be learned;
 2. work with or review the learning objective;
-3. receive a learning design informed by applicable certified Learning Principles;
+3. receive a proposed learning design informed by applicable certified Learning Principles;
 4. understand the relevant learning-science reasoning at an appropriate product level;
 5. review the proposed learning design;
 6. change relevant creator-controlled elements;
@@ -330,7 +325,7 @@ After Creator approval, the Learner must be able to engage with the approved lea
 
 The MVP must include at least one relevant active learning mechanism derived from the approved learning design.
 
-The Learner must perform an action rather than only consume passive content where the selected learning mechanism requires active performance.
+Where the selected learning mechanism requires active performance, the Learner must perform an action rather than only consume passive content.
 
 The resulting learner attempt must lead to a relevant:
 
@@ -339,7 +334,7 @@ The resulting learner attempt must lead to a relevant:
 * result;
 * or learner state.
 
-The precise future implementation of result, progress, mastery, adaptation, or scheduling is not predetermined by this statement.
+The precise future implementation of progress, scoring, mastery, adaptation, and scheduling is not predetermined by this requirement.
 
 Only the smallest mechanism required to prove the bounded MVP may later be authorized.
 
@@ -351,47 +346,49 @@ TheraLearn may support legitimate personal preferences and learner needs.
 
 It must not encode unsupported fixed learning-style claims such as assuming that a person is inherently a visual, auditory, or kinesthetic learner and should therefore always learn through one corresponding modality.
 
-Any future personalization affecting learning effectiveness must be grounded in:
+Future personalization affecting learning effectiveness must be grounded in relevant factors such as:
 
 * applicable evidence;
 * learner context;
 * task characteristics;
 * observed learner performance;
 * accessibility requirements;
-* or verified preference where preference itself is the relevant product concern.
+* verified preference where preference itself is the relevant product concern.
 
-Accessibility requirements must remain conceptually distinct from claims about superior learning effectiveness.
+Accessibility requirements remain conceptually distinct from claims about superior learning effectiveness.
 
-Examples such as dyslexia, ADHD-related needs, reading support, interface adaptation, pacing support, or modality accessibility may justify product adaptations without asserting unsupported learning-style theories.
+Needs associated with areas such as dyslexia, ADHD, reading support, interface adaptation, pacing support, or modality accessibility may justify product adaptations without asserting unsupported learning-style theories.
 
 ---
 
-## Existing Implementation Baseline
+## Existing Implementation Compatibility Assessment
 
-Existing implementation predates the newly established Product Vision and MVP boundary.
+**Status: CLOSED — VERIFIED**
 
-It must therefore not be assumed to represent the new product correctly merely because it already exists.
+A bounded read-only repository assessment was completed against:
 
-Verified bounded implementation from the previous direction includes:
+1. `docs/product/PRODUCT_VISION.md`
+2. `docs/product/LEARNING_MODEL.md`
+3. `docs/product/mvp.md`
 
-* authoritative course / chapter / lesson resolution;
-* structured curriculum routes;
-* repository-layer access;
-* Supabase-backed authoritative entities;
-* flashcard integration;
-* quiz repository access;
-* bounded authoritative quiz interaction;
-* server-side question loading;
-* answer selection;
-* correctness reveal;
-* stored explanation reveal;
-* local retry/reset.
+Relevant implementation and repository responsibilities were inspected, including:
 
-These implementation facts remain real.
+* repository navigation;
+* authoritative lesson routing;
+* quiz interaction;
+* quiz repositories;
+* flashcard repositories;
+* lesson repositories;
+* progress logic;
+* learner dashboard;
+* database schema;
+* learning-objective storage;
+* Creator-related implementation;
+* learning-design implementation.
 
-Their future status is not yet decided.
+No product-code, schema, migration, or database-data change was made during the assessment.
 
-Every relevant existing implementation element must now be classified as one of:
+The assessment classified existing capabilities using:
 
 ```text
 REUSE
@@ -400,25 +397,173 @@ LEGACY
 MISSING
 ```
 
-Definitions:
+---
 
-### REUSE
+## Compatibility Matrix — REUSE
 
-The implementation already supports the new Product Vision and end-to-end MVP without materially conflicting with the new authority.
+The following foundations are currently assessed as reusable:
 
-### ADAPT
+* Supabase/Auth foundation;
+* repository abstraction;
+* Course → Chapter → Lesson structure;
+* lesson content foundation;
+* quiz repository;
+* flashcard repository;
+* bounded active quiz interaction.
 
-The implementation contains useful foundations but requires modification, repositioning, extension, or changed responsibility to support the new Product Vision and MVP.
+The existing bounded quiz interaction requires an active learner response before correctness reveal.
 
-### LEGACY
+It can therefore remain a potentially useful learner-side mechanism when it is later selected on a legitimate learning-design basis.
 
-The implementation belongs primarily to the previous product direction and should not determine the new product architecture or MVP.
+Reuse does not mean that a mechanism automatically belongs in every future learning design.
 
-### MISSING
+---
 
-A capability required by the new Product Vision or MVP does not currently exist in meaningful implementation form.
+## Compatibility Matrix — ADAPT
 
-No classification may be inferred merely from file age, implementation effort, current UI visibility, or sunk development cost.
+The following existing capabilities contain useful foundations but require changed responsibility, connection, or behavior:
+
+* learning-objective storage and use;
+* authoritative lesson experience;
+* flashcard learner mechanism;
+* quiz learner mechanism;
+* feedback and explanation quality;
+* lesson progress;
+* learner dashboard;
+* activity-selection logic.
+
+`learning_objectives` already exists in the current data model and lesson context.
+
+Its current use is primarily storage and display.
+
+No verified implementation currently makes learning objectives drive selection of the learning mechanism.
+
+The current lesson flow can load flashcards and quiz questions when they exist.
+
+That behavior does not yet realize:
+
+```text
+LEARNING OBJECTIVE + CONTEXT
+        ↓
+CERTIFIED PRINCIPLE
+        ↓
+MECHANISM SELECTION
+```
+
+Therefore existing activities must not continue under the implicit rule:
+
+```text
+FEATURE EXISTS
+      ↓
+SHOW FEATURE
+```
+
+Mechanism selection must eventually become downstream of learning design.
+
+---
+
+## Compatibility Matrix — LEGACY
+
+The following existing assumptions must not determine the new MVP:
+
+* learner-only product framing;
+* `feature exists → show feature`;
+* quiz percentage as the primary learning result;
+* completion as a proxy for learning;
+* legacy or static curriculum as automatic subject-matter authority.
+
+The product must not regress to:
+
+```text
+EXISTING CURRICULUM
+        ↓
+LESSON
+        ↓
+FLASHCARDS / QUIZ
+        ↓
+PROGRESS
+```
+
+Existing implementation may contribute useful technical pieces without its previous product assumptions remaining authoritative.
+
+---
+
+## Compatibility Matrix — MISSING
+
+The assessment found no meaningful verified implementation of:
+
+* Creator / Content Owner product role;
+* Creator workflow;
+* Creator/Learner role distinction;
+* Learning Science Engine;
+* `objective + context → principle → mechanism` derivation;
+* explicit learning-design representation;
+* Creator review;
+* Creator change;
+* Creator rejection;
+* Creator approval;
+* approved-learning-design state;
+* persistent learner attempt/performance state;
+* objective-linked learner result;
+* approved-design-linked learner experience.
+
+Repository inspection did not identify an existing implementation owner for the Learning Science Engine or learning-design derivation.
+
+This missing layer is now the primary architectural dependency.
+
+---
+
+## Architecture Conclusion
+
+The compatibility assessment established the following structure:
+
+```text
+EXISTING REUSABLE FOUNDATION
+
+Auth
+Course → Chapter → Lesson
+Lesson content
+Learning objectives
+Repositories
+Quiz mechanism
+Flashcard mechanism
+Learner interaction
+
+        ↓
+
+MISSING CORE PRODUCT LAYER
+
+Learning Science Engine
+Learning-design derivation
+Learning-design representation
+Creator review + approval
+
+        ↓
+
+ADAPTED LEARNER EXECUTION
+
+Approved learning design
+        ↓
+Relevant learning mechanism
+        ↓
+Learner attempt
+        ↓
+Relevant feedback/result
+```
+
+The main gap is therefore not the entire learning-platform foundation.
+
+The main gap is the layer connecting:
+
+```text
+WHAT SHOULD BE LEARNED?
+        ↓
+WHAT DOES LEARNING SCIENCE SUPPORT?
+        ↓
+HOW SHOULD THIS LEARNING EXPERIENCE BE DESIGNED?
+```
+
+Architecture must be derived before implementation of that layer begins.
 
 ---
 
@@ -437,43 +582,28 @@ region:
 eu-west-1
 ```
 
-The project was previously found paused and was restored to Healthy state.
+The project was previously restored to Healthy state after being found paused.
 
-Direct database inspection established:
+Direct database inspection established at that checkpoint:
 
 ```text
 public.quiz_questions row count: 0
 public.courses row count: 0
 ```
 
-Therefore no remote authoritative course → chapter → lesson chain was available at that checkpoint, and no remote authoritative quiz-question rows existed.
+Therefore no remote authoritative course → chapter → lesson chain and no remote authoritative quiz-question rows existed at that checkpoint.
 
-These remain valid verified repository/runtime facts unless subsequently changed.
+These findings remain historical runtime facts unless subsequently changed.
 
-However:
+They do **not** define the current project task.
 
-**They no longer define the current project task.**
-
-The previous authoritative curriculum-data prerequisite must not independently drive implementation under the new Product Vision and MVP.
-
-No remote curriculum data should be populated merely to make the old implementation path render.
-
-Whether existing schema, repositories, curriculum entities, or runtime data structures should be reused or adapted must first be determined through the Existing Implementation Compatibility Assessment.
+No Supabase data should be populated merely to make the previous implementation path render.
 
 ---
 
 ## Superseded Implementation Direction
 
-The previous Current Phase was:
-
-```text
-MVP Learning Loop Implementation —
-Authoritative Curriculum Data Prerequisite Resolution
-```
-
-That phase is superseded as the active project direction.
-
-The previous dependency chain centered on:
+The former implementation direction centered on:
 
 ```text
 Authenticated learner
@@ -487,145 +617,132 @@ Learning activities
 Learner-related result/progress
 ```
 
-Parts of that chain may ultimately be reusable.
+Parts of this chain remain reusable.
 
-It is no longer sufficient as the authoritative definition of the MVP.
+It is not sufficient as the authoritative MVP definition.
 
-The new Product Authority requires the upstream Creator / learning-design side as well as the downstream Learner side.
+The Product Authority now requires the upstream Creator and learning-design responsibilities as well as downstream learner execution.
 
-Therefore missing remote curriculum data is not currently permission to resume the former implementation path.
+The previously identified empty curriculum-data state therefore does not authorize resumption of the former implementation path.
 
 ---
 
 ## Verification State
 
-### New Product Vision
+### Product Vision
 
-**ESTABLISHED LOCALLY — READ-BACK VERIFIED**
+**VERIFIED — COMMITTED**
 
-`docs/product/PRODUCT_VISION.md` has been replaced locally with the new Product Vision and read back through the Developer Toolkit.
+`docs/product/PRODUCT_VISION.md` is part of the current verified Product Authority checkpoint.
 
-It establishes the new product direction described in this control file.
-
-It is not yet committed at the current verified remote checkpoint.
-
-### New MVP Boundary
-
-**ESTABLISHED LOCALLY — READ-BACK VERIFIED**
-
-`docs/product/mvp.md` has been replaced locally with the new MVP authority and read back through the Developer Toolkit.
-
-It requires both Creator and Learner sides of the learning-design chain.
-
-It is not yet committed at the current verified remote checkpoint.
-
-### Learning Model Consistency
+### Learning Model
 
 **VERIFIED — PRESERVED**
 
-`docs/product/LEARNING_MODEL.md` was inspected against the new Product Vision and MVP.
+`docs/product/LEARNING_MODEL.md` remains the scientific learning authority.
 
-No rewrite is required.
+The five certified Learning Principles remain unchanged.
 
-The existing certified Learning Principles remain authoritative.
+### MVP Boundary
+
+**VERIFIED — COMMITTED**
+
+`docs/product/mvp.md` is part of the current verified Product Authority checkpoint.
+
+It requires both Creator and Learner sides of the learning-design chain.
 
 ### Existing Implementation Compatibility
 
-**NOT YET ASSESSED**
+**VERIFIED — CLOSED**
 
-Existing implementation has not yet been systematically classified against the new:
+The bounded repository compatibility assessment has been completed.
 
-1. `PRODUCT_VISION.md`;
-2. `LEARNING_MODEL.md`;
-3. `mvp.md`.
+The verified result is recorded in the `REUSE / ADAPT / LEGACY / MISSING` matrix in this file.
 
-No implementation-resumption decision may be made before that assessment.
+### Minimum Implementation Architecture
+
+**OPEN — NOT YET DERIVED**
+
+The repository currently has no verified architecture owner for the Learning Science Engine or learning-design derivation.
+
+Architecture derivation is therefore the Current Task.
 
 ---
 
 ## Current Risks
 
-### R1 – Existing implementation may encode the previous product direction
+### R1 – Learning Science Engine could become cosmetic
 
-**Status: OPEN — MUST BE ASSESSED.**
-
-Existing code was developed under an earlier MVP framing.
-
-Some implementation may remain useful, but its existence does not establish compatibility with the new Product Vision.
-
-The assessment must prevent implementation from silently redefining Product Authority.
-
-### R2 – Learning Science Engine could become cosmetic
-
-**Status: CORE PRODUCT RISK.**
+**Status: CORE PRODUCT RISK**
 
 The Learning Science Engine must materially affect learning design and product behavior.
 
-If the same product behavior would exist after removing the Learning Science Engine, the MVP would fail its core differentiating requirement.
+If the same product behavior would exist after removing it, the MVP would fail its differentiating requirement.
 
-### R3 – Creator side is not yet verified in implementation
+### R2 – Implementation could silently redefine Product Authority
 
-**Status: EXPECTED GAP — CLASSIFICATION PENDING.**
+**Status: CONTROLLED**
 
-The new MVP requires Creator / Content Owner participation, learning-objective work, learning-design review, and approval.
+Existing code must remain downstream of:
 
-Existing implementation was primarily learner-facing.
+```text
+PRODUCT_VISION.md
+LEARNING_MODEL.md
+mvp.md
+```
 
-The compatibility assessment must identify the precise `MISSING` and `ADAPT` scope without immediately implementing it.
+Existing implementation cannot become authoritative merely because it already exists.
 
-### R4 – Subject-matter authority could be conflated with platform authority
+### R3 – Learning activities could be mistaken for learning design
 
-**Status: ACTIVE GOVERNANCE RISK.**
+**Status: ACTIVE**
 
-TheraLearn must not claim ownership of subject-matter truth merely because content is stored, transformed, structured, or displayed by the platform.
+Quiz, flashcards, explanations, progress UI, and other mechanisms may support certified Learning Principles.
 
-Creator / Content Owner authority must remain explicit.
+Their existence alone does not prove:
 
-### R5 – Existing learning activities may be mistaken for the Learning Science Engine
+* Learning Science Engine behavior;
+* learning-design derivation;
+* objective alignment;
+* Creator approval.
 
-**Status: OPEN.**
+### R4 – Creator authority could be bypassed
 
-Flashcards, quizzes, explanations, progress UI, or other learning activities may support certified Learning Principles.
+**Status: ACTIVE**
 
-Their presence alone does not prove the Learning Science Engine or the new learning-design workflow.
+TheraLearn must preserve Content Owner authority over subject-matter truth.
 
-### R6 – Previous curriculum-data prerequisite could incorrectly resume implementation
+Learning-system transformation must not silently become subject-matter modification.
 
-**Status: SUPERSEDED AS CURRENT DRIVER.**
+Creator review and approval boundaries must therefore be explicit in the minimum architecture.
 
-The verified empty remote curriculum state remains factual.
+### R5 – Learning Principle authority could be duplicated
 
-It must not be treated as the current Next Allowed Action.
+**Status: ACTIVE ARCHITECTURE RISK**
 
-No curriculum population may occur until the new Product Authority and implementation compatibility assessment justify the relevant architecture and data path.
+Implementation architecture must reference applicable certified Learning Principles without recreating, modifying, or duplicating scientific authority.
 
-### R7 – Premature expansion
+`LEARNING_MODEL.md` remains the owner of certified Learning Principles.
 
-**Status: CONTROLLED BY CODE CHANGE GATE.**
+### R6 – Premature architecture expansion
 
-The new Product Vision introduces substantial future possibilities.
+**Status: CONTROLLED BY BOUNDED DERIVATION**
 
-This synchronization does not authorize broad implementation of:
+The minimum architecture must not expand into a general-purpose authoring platform, recommendation engine, mastery engine, marketplace, certification system, or commercial platform.
 
-* AI course generation;
-* scoring;
-* mastery;
-* adaptive scheduling;
-* recommendation systems;
-* multi-question orchestration;
-* certification infrastructure;
-* payments;
-* organization administration;
-* marketplace capabilities;
-* large-scale authoring systems.
+Only the architecture necessary to support the bounded MVP chain may be derived.
 
-The immediate objective is assessment, not expansion.
+### R7 – Premature implementation
+
+**Status: CONTROLLED BY CODE CHANGE GATE**
+
+Architecture derivation must complete before product implementation resumes.
 
 ---
 
 ## Code Change Gate
 
-**Product implementation: PAUSED.**
+**Product implementation: PAUSED**
 
 No product-code change is currently authorized.
 
@@ -643,139 +760,277 @@ No scoring implementation is currently authorized.
 
 No mastery implementation is currently authorized.
 
-No adaptive logic implementation is currently authorized.
-
-No scheduling implementation is currently authorized.
-
-No multi-question orchestration is currently authorized.
+No adaptive scheduling implementation is currently authorized.
 
 No certification implementation is currently authorized.
 
 No commercial implementation is currently authorized.
 
-Read-only repository inspection and authority comparison are authorized for the bounded Existing Implementation Compatibility Assessment.
+No organization-administration implementation is currently authorized.
 
-Documentation changes required solely to synchronize verified authority may be made and must be verified before commit.
+No marketplace implementation is currently authorized.
+
+No multi-question orchestration is currently authorized.
+
+Read-only architecture inspection is authorized.
+
+Documentation changes required solely to derive, record, or synchronize verified architecture authority are authorized and must be verified before commit.
 
 ---
 
 ## Current Task
 
-Perform a bounded **Existing Implementation Compatibility Assessment** against the newly established Product Authority.
+Perform the bounded:
 
-The assessment must answer:
+**Learning Science Engine — Minimum Implementation Architecture Derivation**
 
-> **Which existing implementation helps realize the new Product Vision and end-to-end MVP?**
-
-The authority order for the assessment is:
+The architecture derivation must determine the smallest technical responsibility model capable of supporting:
 
 ```text
-1. docs/product/PRODUCT_VISION.md
-2. docs/product/LEARNING_MODEL.md
-3. docs/product/mvp.md
+SUBJECT-MATTER CONTENT
         ↓
-Existing implementation
+LEARNING OBJECTIVE + CONTEXT
+        ↓
+APPLICABLE CERTIFIED LEARNING PRINCIPLE
+        ↓
+RELEVANT LEARNING MECHANISM
+        ↓
+PROPOSED LEARNING DESIGN
+        ↓
+CREATOR REVIEW + APPROVAL
+        ↓
+APPROVED LEARNING DESIGN
+        ↓
+LEARNER EXECUTION
+        ↓
+LEARNER ATTEMPT
+        ↓
+RELEVANT FEEDBACK / RESULT
 ```
 
-Implementation must be evaluated against authority.
+The derivation must remain bounded.
 
-Authority must not be reconstructed from implementation.
+It must define architecture.
 
-The assessment must identify relevant current implementation responsibilities and classify each as:
+It must not implement the architecture.
+
+---
+
+## Architecture Derivation Requirements
+
+The minimum architecture derivation must determine at least the following.
+
+### 1. Learning-design input
+
+Define the minimum input needed to derive a proposed Learning Design.
+
+At minimum the architecture must determine what is required from:
 
 ```text
-REUSE
-ADAPT
-LEGACY
-MISSING
+Learning objective
+        +
+Relevant learning context
 ```
 
-The assessment must cover enough of the existing implementation to determine the smallest credible path toward the new end-to-end MVP.
+It must not prematurely introduce a broad content-authoring model.
 
-It must specifically determine what currently exists for:
+### 2. Learning Principle reference
 
-* subject-matter content handling;
-* learning objectives;
-* Learning Science Engine behavior;
-* learning-design derivation;
-* Creator / Content Owner workflow;
-* creator review;
-* creator change/rejection;
-* creator approval;
-* learner-facing learning experience;
-* active learner performance;
-* feedback/correction/result;
-* curriculum structure;
-* existing flashcard mechanisms;
-* existing quiz mechanisms;
-* existing progress/result mechanisms;
-* current repository and Supabase responsibilities;
-* boundaries between reusable infrastructure and legacy product assumptions.
+Define how an applicable certified Learning Principle is referenced from implementation without duplicating scientific authority.
 
-The assessment must not implement the missing pieces.
+The architecture must preserve:
+
+```text
+LEARNING_MODEL.md
+        ↓
+Certified Learning Principle
+        ↓
+Implementation reference
+```
+
+Implementation must not become a second scientific authority.
+
+### 3. Derivation responsibility
+
+Define the technical responsibility that owns:
+
+```text
+objective + context
+        ↓
+principle
+        ↓
+mechanism
+```
+
+That responsibility must have a clear boundary.
+
+It must not be implicitly distributed across UI components, repositories, route handlers, or database tables without an explicit owner.
+
+### 4. Proposed Learning Design representation
+
+Define the minimum representation required for a proposed Learning Design.
+
+The representation must be sufficient to express the bounded relationship between:
+
+* learning objective;
+* relevant context;
+* applicable principle;
+* selected mechanism;
+* creator-controlled design decisions.
+
+It must not become a broad course-authoring schema unless the MVP requires it.
+
+### 5. Creator control boundary
+
+Define which parts of the proposed Learning Design the Creator can:
+
+* review;
+* change;
+* reject;
+* approve.
+
+Creator authority over subject-matter truth must remain explicit.
+
+### 6. Approval-state boundary
+
+Define the smallest required state distinction between at least:
+
+```text
+PROPOSED
+```
+
+and:
+
+```text
+APPROVED
+```
+
+No learner execution may silently treat an unapproved Learning Design as approved.
+
+### 7. Learner execution boundary
+
+Define how the approved Learning Design becomes downstream input to learner execution.
+
+The learner-side mechanism must be selected because the Learning Design calls for it, not merely because the feature exists.
+
+### 8. Existing REUSE foundations
+
+Determine which existing reusable foundations can remain unchanged, including where appropriate:
+
+* Auth;
+* repositories;
+* Course → Chapter → Lesson structure;
+* lesson content;
+* existing learning-objective storage;
+* quiz repository;
+* flashcard repository;
+* bounded active quiz interaction.
+
+### 9. Existing ADAPT foundations
+
+Determine which existing foundations require changed responsibility or behavior before participating in the new MVP.
+
+### 10. Explicit deferrals
+
+Explicitly identify what remains outside the minimum architecture.
+
+At minimum the derivation must avoid prematurely designing:
+
+* scoring systems;
+* generalized mastery models;
+* broad adaptive scheduling;
+* recommendation engines;
+* certification infrastructure;
+* payments;
+* marketplace behavior;
+* organization administration;
+* large-scale authoring;
+* unrestricted AI course generation;
+* multi-question orchestration unless proven necessary for the bounded MVP.
+
+---
+
+## Architecture Decision Standard
+
+The architecture derivation must satisfy all of the following.
+
+### Product Authority
+
+Architecture must derive from:
+
+```text
+PRODUCT_VISION.md
+        +
+LEARNING_MODEL.md
+        +
+mvp.md
+```
+
+not from existing implementation convenience.
+
+### Minimum sufficiency
+
+The architecture must include every responsibility required to prove the bounded MVP chain.
+
+### No premature expansion
+
+The architecture must exclude responsibilities that are not required to prove the bounded MVP.
+
+### Explicit ownership
+
+Critical product responsibilities must have explicit technical ownership.
+
+### Scientific authority preservation
+
+Certified Learning Principles must be referenced without duplicating or weakening scientific authority.
+
+### Subject-matter authority preservation
+
+TheraLearn learning-design behavior must not override Content Owner authority over subject-matter truth.
+
+### Downstream implementation clarity
+
+When architecture derivation is complete, the smallest safe implementation slice should be derivable without needing to reinterpret Product Authority.
 
 ---
 
 ## Next Allowed Action
 
-Perform the bounded **Existing Implementation Compatibility Assessment**.
+Perform the bounded **Learning Science Engine — Minimum Implementation Architecture Derivation**.
 
-The assessment must:
+The next work may:
 
-1. read the final synchronized `PRODUCT_VISION.md`;
-2. read the preserved `LEARNING_MODEL.md`;
-3. read the final synchronized `mvp.md`;
-4. inspect existing implementation relevant to the new end-to-end MVP;
-5. evaluate implementation against Product Authority rather than the reverse;
-6. classify relevant capabilities and responsibilities as:
+1. read the current Product Authority;
+2. inspect relevant architecture and implementation read-only;
+3. identify existing responsibility owners that may be reused;
+4. derive the minimum Learning Science Engine responsibility;
+5. derive the minimum Learning Design representation;
+6. derive the Creator review and approval boundary;
+7. derive the approved-design-to-learner-execution boundary;
+8. classify architecture responsibilities as existing, adapted, or new;
+9. identify explicit deferred responsibilities;
+10. record the bounded architecture result in the appropriate authority documentation.
 
-```text
-REUSE
-ADAPT
-LEGACY
-MISSING
-```
+The next work must **not**:
 
-7. identify the smallest credible implementation path that could later prove:
+1. change product code;
+2. change schema;
+3. create migrations;
+4. write database data;
+5. populate Supabase;
+6. migrate legacy curriculum;
+7. implement Creator UI;
+8. implement the Learning Science Engine;
+9. implement scoring;
+10. implement mastery;
+11. implement adaptive scheduling;
+12. implement certification;
+13. implement payments;
+14. implement marketplace capabilities;
+15. implement organization administration;
+16. implement multi-question orchestration.
 
-```text
-CONTENT
-   ↓
-LEARNING OBJECTIVE
-   ↓
-LEARNING SCIENCE
-   ↓
-LEARNING DESIGN
-   ↓
-CREATOR APPROVAL
-   ↓
-LEARNING EXPERIENCE
-   ↓
-LEARNER PERFORMANCE
-   ↓
-FEEDBACK / RESULT
-```
-
-8. identify which existing technical foundations can support that path;
-9. identify which existing product assumptions must be adapted or retired;
-10. make no product-code change during the assessment;
-11. make no schema change during the assessment;
-12. make no database-data write during the assessment;
-13. synchronize the verified assessment result before authorizing implementation.
-
-Do not populate Supabase merely because existing authoritative curriculum tables are empty.
-
-Do not migrate legacy/static curriculum merely because it is available.
-
-Do not assume existing curriculum, flashcard, quiz, or progress implementation automatically belongs in the new MVP.
-
-Do not build Creator functionality during the assessment.
-
-Do not build the Learning Science Engine during the assessment.
-
-Do not introduce scoring, mastery, adaptive logic, scheduling, certification, payment, or multi-question orchestration during the assessment.
-
-The compatibility assessment must finish before a new implementation slice is selected.
+After the minimum architecture has been derived and read-back verified, `PROJECT_CONTROL.md` must be synchronized again before any implementation slice is authorized.
 
 ---
 
@@ -787,6 +1042,7 @@ The compatibility assessment must finish before a new implementation slice is se
 * Current Task;
 * Next Allowed Action;
 * Product Authority;
+* architecture authority;
 * implementation compatibility classification;
 * implementation baseline;
 * verification state;
@@ -795,4 +1051,6 @@ The compatibility assessment must finish before a new implementation slice is se
 
 No implementation may become authoritative merely by existing in the repository.
 
-Product Authority remains upstream of implementation.
+Product Authority remains upstream of architecture.
+
+Architecture remains upstream of implementation.
