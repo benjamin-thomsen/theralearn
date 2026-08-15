@@ -9,22 +9,52 @@ export interface DeriveLearningDesignInput {
   relevantContext: RelevantContext;
 }
 
+function assertBoundedRetrievalApplicability({
+  learningObjective,
+  relevantContext,
+}: DeriveLearningDesignInput) {
+  if (!learningObjective.statement.trim()) {
+    throw new Error(
+      "Active Retrieval applicability requires an explicit Learning Objective.",
+    );
+  }
+
+  if (!relevantContext.description.trim()) {
+    throw new Error(
+      "Active Retrieval applicability requires explicit Relevant Context.",
+    );
+  }
+
+  if (!relevantContext.durableRetentionOfPreviouslyAcquiredKnowledgeIntended) {
+    throw new Error(
+      "Active Retrieval is not applicable unless durable retention of previously acquired knowledge is an intended learning outcome.",
+    );
+  }
+}
+
 export function deriveLearningDesign({
   learningObjective,
   relevantContext,
 }: DeriveLearningDesignInput): ProposedLearningDesign {
+  assertBoundedRetrievalApplicability({
+    learningObjective,
+    relevantContext,
+  });
+
+  const learningRequirements = [
+    {
+      description:
+        "The learner must actively retrieve the relevant information before reveal.",
+    },
+  ];
+
   return {
     learningObjective,
     relevantContext,
     applicablePrinciples: ["active-retrieval"],
     learningScienceRationale:
-      "Active retrieval applies because the objective requires durable recall of previously introduced knowledge.",
-    learningRequirements: [
-      {
-        description:
-          "The learner must actively retrieve the relevant information before reveal.",
-      },
-    ],
+      "Active Retrieval applies because durable retention of previously acquired knowledge is explicitly represented as an intended learning outcome in the Relevant Context.",
+    learningRequirements,
     proposedLearningMechanism: {
       kind: "bounded-retrieval",
       description:

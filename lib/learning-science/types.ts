@@ -10,6 +10,7 @@ export interface LearningObjective {
 
 export interface RelevantContext {
   description: string;
+  durableRetentionOfPreviouslyAcquiredKnowledgeIntended: boolean;
 }
 
 export interface LearningRequirement {
