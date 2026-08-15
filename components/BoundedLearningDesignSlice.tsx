@@ -7,6 +7,7 @@ import { deriveLearningDesign } from "../lib/learning-science/deriveLearningDesi
 import {
   approveLearningDesign,
   invalidateLearningDesign,
+  rejectLearningDesign,
 } from "../lib/learning-science/learningDesignLifecycle";
 import type { LearningDesign } from "../lib/learning-science/types";
 
@@ -86,6 +87,14 @@ export default function BoundedLearningDesignSlice({
     );
   }
 
+  function reject() {
+    setDesign((nextDesign) =>
+      nextDesign?.state === "PROPOSED"
+        ? rejectLearningDesign(nextDesign)
+        : nextDesign,
+    );
+  }
+
   const canDerive =
     learningObjective.trim().length > 0 &&
     relevantContext.trim().length > 0 &&
@@ -157,9 +166,18 @@ export default function BoundedLearningDesignSlice({
       )}
 
       {design?.state === "PROPOSED" && (
-        <button type="button" onClick={approve}>
-          Approve learning design
-        </button>
+        <>
+          <button type="button" onClick={approve}>
+            Approve learning design
+          </button>
+          <button type="button" onClick={reject}>
+            Reject learning design
+          </button>
+        </>
+      )}
+
+      {design?.state === "REJECTED" && (
+        <p>Learning design rejected. Learner execution is not authorized.</p>
       )}
 
       {design?.state === "INVALIDATED" && (

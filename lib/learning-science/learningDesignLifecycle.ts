@@ -2,6 +2,7 @@ import type {
   ApprovedLearningDesign,
   InvalidatedLearningDesign,
   ProposedLearningDesign,
+  RejectedLearningDesign,
 } from "./types";
 
 export function approveLearningDesign(
@@ -13,8 +14,20 @@ export function approveLearningDesign(
   };
 }
 
+export function rejectLearningDesign(
+  design: ProposedLearningDesign,
+): RejectedLearningDesign {
+  return {
+    ...design,
+    state: "REJECTED",
+  };
+}
+
 export function invalidateLearningDesign(
-  design: ProposedLearningDesign | ApprovedLearningDesign,
+  design:
+    | ProposedLearningDesign
+    | ApprovedLearningDesign
+    | RejectedLearningDesign,
 ): InvalidatedLearningDesign {
   return {
     ...design,

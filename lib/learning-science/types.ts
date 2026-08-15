@@ -1,4 +1,8 @@
-export type LearningDesignState = "PROPOSED" | "APPROVED" | "INVALIDATED";
+export type LearningDesignState =
+  | "PROPOSED"
+  | "APPROVED"
+  | "REJECTED"
+  | "INVALIDATED";
 
 export type CertifiedLearningPrincipleReference = "active-retrieval";
 
@@ -54,6 +58,10 @@ export interface ApprovedLearningDesign extends LearningDesignBase {
   state: "APPROVED";
 }
 
+export interface RejectedLearningDesign extends LearningDesignBase {
+  state: "REJECTED";
+}
+
 export interface InvalidatedLearningDesign extends LearningDesignBase {
   state: "INVALIDATED";
 }
@@ -61,4 +69,5 @@ export interface InvalidatedLearningDesign extends LearningDesignBase {
 export type LearningDesign =
   | ProposedLearningDesign
   | ApprovedLearningDesign
+  | RejectedLearningDesign
   | InvalidatedLearningDesign;
