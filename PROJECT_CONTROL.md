@@ -12,7 +12,23 @@
 
 ## Current Phase
 
-**Learning Science Engine — Minimum Implementation Slice Verification**
+**Learning Science Engine — Minimum Implementation Slice Governance Closure**
+
+The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
+
+Final verified implementation checkpoint:
+
+```text
+67a2a73c95bac82adf61cb426fa963ea5adb4ea9
+Add Creator rejection to learning design lifecycle
+```
+
+Direct parent:
+
+```text
+4a719a8593a1b5b5d4f2426cef52603723949d56
+Enforce bounded Active Retrieval applicability
+```
 
 The bounded **Developer Toolkit — Checkpoint Automation** prerequisite is now **CLOSED — VERIFIED — COMMITTED — PUSHED**.
 
@@ -720,9 +736,9 @@ The implementation slice does not require persistence, schema change, migration,
 
 ### Minimum Implementation Slice Authorization
 
-**VERIFIED — ACTIVE**
+**CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**
 
-The first bounded Learning Science Engine implementation slice is authorized by the Code Change Gate below.
+The bounded Learning Science Engine Minimum Implementation Slice authorization has been consumed and is closed. No further product implementation is authorized by this completed slice.
 
 ### Checkpoint Automation Prerequisite
 
@@ -868,200 +884,27 @@ Only behavior required by the verified Implementation Acceptance Contract is aut
 
 ## Code Change Gate
 
-**Bounded product implementation: AUTHORIZED**
+**Bounded product implementation: CLOSED**
 
-The Code Change Gate is open only for the verified **Learning Science Engine Minimum Implementation Slice**.
+The Code Change Gate for the verified **Learning Science Engine Minimum Implementation Slice** is closed. No further product implementation is authorized until a new bounded Code Change Gate is explicitly opened.
 
-The authorized implementation responsibilities are:
+The previously authorized implementation responsibilities are now CLOSED as part of the completed Minimum Implementation Slice.
 
-```text
-1. PERSISTENCE-INDEPENDENT LEARNING DESIGN DOMAIN REPRESENTATION
+No additional product implementation is authorized by this closed gate.
 
-Learning Objective
-Relevant Context
-Applicable Principle Reference(s)
-Learning-Science Rationale
-Learning Requirements
-Proposed Learning Mechanism
-Learner Performance Requirement
-Feedback / Result Requirement
-Creator-Controlled Decisions
-Design State
-```
-
-```text
-2. BOUNDED LEARNING DESIGN DERIVATION OWNER
-
-Learning Objective + Relevant Context
-        ↓
-Active Retrieval Principle reference
-        ↓
-Applicability rationale
-        ↓
-Learning Requirements
-        ↓
-One bounded retrieval mechanism proposal
-        ↓
-Proposed Learning Design
-```
-
-```text
-3. BOUNDED CREATOR LIFECYCLE OWNER
-
-PROPOSED
-    ↓
-REVIEW
-    ↓
-APPROVED
-
-and:
-
-UPSTREAM PREMISE CHANGE
-    ↓
-INVALIDATE DERIVATION + APPROVAL
-    ↓
-RE-DERIVE
-```
-
-```text
-4. APPROVED-DESIGN EXECUTION GATE
-
-PROPOSED
-    ↓
-EXECUTION FORBIDDEN
-
-APPROVED
-    ↓
-BOUNDED LEARNER EXECUTION ALLOWED
-```
-
-```text
-5. ONE BOUNDED ACTIVE RETRIEVAL EXECUTION
-
-Learner must actively answer before reveal
-        ↓
-relevant feedback / bounded correction
-```
-
-The implementation may create the smallest new persistence-independent TypeScript/domain files required to own these responsibilities.
-
-The implementation may create the smallest bounded Creator review/approval surface required to prove the contract.
-
-The implementation may create the smallest bounded learner-execution surface required to prove that the Approved Learning Design controls the learner mechanism.
-
-The existing `components/AuthoritativeQuizQuestion.tsx` interaction may be reused or adapted only as the bounded retrieval execution mechanism and only if it remains downstream of the Approved Learning Design.
-
-The existing lesson route and lesson repositories may be reused or adapted only where needed to provide bounded context or connect the approved design to learner execution.
-
-The first slice may use fixed bounded subject-matter/example input when necessary to prove architecture behavior.
-
-It must not create a generalized content-ingestion or Creator-authoring system.
-
-The permanent repository checkpoint workflow is now:
-
-```text
-TRACK NEW FILES
-        ↓
-./scripts/dev checkpoint
-        ↓
-CHECKPOINT PASS
-        ↓
-COMMIT
-        ↓
-PUSH
-        ↓
-REMOTE VERIFICATION
-```
-
-The following remain **NOT AUTHORIZED**:
-
-* database schema changes;
-* database migrations;
-* database-data writes required solely to support the slice;
-* Supabase population;
-* persistent Learning Design storage;
-* generalized Creator platform;
-* generalized mechanism catalogue;
-* autonomous course generation;
-* multi-question orchestration;
-* progress redesign;
-* dashboard redesign;
-* percentage-scoring architecture;
-* mastery;
-* adaptive scheduling;
-* certification;
-* payments;
-* organization administration;
-* marketplace capabilities;
-* analytics infrastructure;
-* generalized personalization;
-* Learning Principle changes;
-* Product Authority changes;
-* architecture changes.
-
-If implementation reveals that persistence, schema change, architecture expansion, a second mechanism, or another currently deferred capability is necessary, implementation must stop and `PROJECT_CONTROL.md` must be updated before that boundary may change.
+A future implementation requires a separately derived bounded responsibility and an explicitly opened new Code Change Gate.
 
 ---
 
 ## Current Task
 
-Implement and verify the bounded:
+Complete governance closure for the verified **Learning Science Engine — Minimum Implementation Slice**.
 
-**Learning Science Engine — Minimum Implementation Slice**
+No new product implementation is authorized during governance closure.
 
-The implementation must prove the verified acceptance contract through one coherent vertical slice.
+Closure requires: update governance, run checkpoint, verify status, commit, push, verify remote head, and verify a Clean working tree.
 
-The bounded target is:
-
-```text
-ONE LEARNING OBJECTIVE
-        +
-ONE RELEVANT CONTEXT
-        ↓
-ACTIVE RETRIEVAL APPLICABILITY
-        ↓
-LEARNING REQUIREMENT
-        ↓
-ONE RETRIEVAL MECHANISM PROPOSAL
-        ↓
-PROPOSED LEARNING DESIGN
-        ↓
-CREATOR REVIEW + APPROVAL
-        ↓
-APPROVED LEARNING DESIGN
-        ↓
-ACTIVE LEARNER RESPONSE BEFORE REVEAL
-        ↓
-RELEVANT FEEDBACK / RESULT
-```
-
-The implementation must additionally prove:
-
-```text
-PROPOSED
-    ↓
-LEARNER EXECUTION FORBIDDEN
-```
-
-and:
-
-```text
-DERIVATION-RELEVANT UPSTREAM CHANGE
-        ↓
-DERIVATION + APPROVAL INVALID
-        ↓
-RE-DERIVATION REQUIRED
-```
-
-Implementation must remain persistence-independent unless a separately verified governance change authorizes otherwise.
-
-The implementation must not reinterpret Product Authority, Learning Model authority, or the verified Learning Science Engine architecture.
-
-Every implementation checkpoint must use:
-
-```text
-./scripts/dev checkpoint
-```
+Only after closure is committed, pushed, remotely verified, and locally Clean may the Architect begin read-only derivation of the next bounded MVP responsibility.
 
 ---
 
@@ -1220,53 +1063,23 @@ Before commit, the Developer Toolkit verification pipeline must complete with Ov
 
 ## Next Allowed Action
 
-Implement the bounded **Learning Science Engine — Minimum Implementation Slice** authorized by the Code Change Gate.
+Complete **governance closure only**.
 
-The next work may:
+Required sequence:
 
-1. create the minimum persistence-independent Learning Design domain representation;
-2. create the bounded Learning Design derivation owner;
-3. reference the certified Active Retrieval Principle without duplicating scientific authority;
-4. derive the bounded Learning Requirement before mechanism selection;
-5. produce one Proposed Learning Design;
-6. create the minimum Creator review and explicit approval behavior;
-7. enforce `PROPOSED ≠ learner executable`;
-8. enforce invalidation and re-derivation when objective or derivation-relevant context changes;
-9. connect one Approved Learning Design to one bounded active retrieval learner interaction;
-10. reuse or adapt `components/AuthoritativeQuizQuestion.tsx` only if it satisfies the approved-design execution responsibility;
-11. produce the bounded feedback/result required by the design;
-12. add the minimum verification coverage needed to prove the acceptance contract;
-13. Git-track any new repository files;
-14. run `./scripts/dev checkpoint`;
-15. inspect `./scripts/dev status`;
-16. record the verified implementation checkpoint in `PROJECT_CONTROL.md` before expanding the implementation boundary.
+1. complete the `PROJECT_CONTROL.md` governance update;
+2. run `./scripts/dev checkpoint`;
+3. run `./scripts/dev status`;
+4. commit the governance closure;
+5. push to `origin/migration-next16-to-root`;
+6. verify the remote branch-head;
+7. verify the local working tree is Clean.
 
-The next work must **not**:
+No new product implementation is authorized during this sequence.
 
-1. change database schema;
-2. create migrations;
-3. populate Supabase;
-4. introduce persistent Learning Design storage;
-5. migrate legacy curriculum;
-6. build a generalized Creator platform;
-7. build a generalized authoring system;
-8. build a generalized mechanism catalogue;
-9. implement multi-question orchestration;
-10. redesign progress;
-11. redesign dashboard;
-12. implement percentage scoring as learning authority;
-13. implement mastery;
-14. implement adaptive scheduling;
-15. implement certification;
-16. implement payments;
-17. implement organization administration;
-18. implement marketplace capabilities;
-19. implement analytics infrastructure;
-20. modify certified Learning Principles;
-21. modify Product Authority;
-22. expand the verified Learning Science Engine architecture.
+Only after the governance closure is committed, pushed, remotely verified, and locally Clean may the Architect begin a read-only derivation of the next bounded MVP responsibility.
 
-If a currently prohibited capability becomes necessary, stop implementation and update governance before making that change.
+A new product implementation requires a separately derived and explicitly opened Code Change Gate.
 
 ---
 
