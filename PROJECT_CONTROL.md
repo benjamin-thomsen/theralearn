@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Minimum Implementation Authorization Governance Closure**
+**Subject-Matter Intake & Objective Formation — Minimum Implementation Execution**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -1128,36 +1128,36 @@ Before a new bounded Code Change Gate may be opened:
 
 ## Code Change Gate
 
-**Bounded product implementation: CLOSED**
+**Bounded product implementation: OPEN — SUBJECT-MATTER INTAKE MINIMUM SLICE ONLY**
 
-The Code Change Gate for the verified **Learning Science Engine Minimum Implementation Slice** is closed. No further product implementation is authorized until a new bounded Code Change Gate is explicitly opened.
+The Code Change Gate is OPEN only for the governance-verified **Subject-Matter Intake Minimum Implementation Slice**.
 
-The previously authorized implementation responsibilities are now CLOSED as part of the completed Minimum Implementation Slice.
+Authorized implementation is strictly limited to the responsibilities recorded under **Minimum Implementation Authorization Derivation — AUTHORIZED FOR MINIMUM SLICE** and must satisfy the verified Implementation Acceptance Contract.
 
-No additional product implementation is authorized by this closed gate.
+No persistence, schema, migration, database, generalized ingestion, PDF, DOCX, OCR, RAG, embeddings, vector database, autonomous course/curriculum generation, or provider-specific AI technology is authorized by this gate.
 
-A future implementation requires a separately derived bounded responsibility and an explicitly opened new Code Change Gate.
+Any implementation outside this explicit boundary requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
 
 ---
 
 ## Current Task
 
-Close the **governance-verified minimum bounded implementation authorization** for the **Subject-Matter Intake Minimum Implementation Slice** without opening product implementation.
+Implement the first authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice**: **bounded plain-text source input**, preserving the verified authorization and Acceptance Contract.
 
-The governance closure must preserve the verified authorization as the smallest coherent responsibility set required to prove the verified architecture without prematurely authorizing persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
+Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
-No product implementation is currently authorized.
+Only implementation within the explicitly bounded **Subject-Matter Intake Minimum Implementation Slice** is authorized by this gate.
 
-The Code Change Gate remains CLOSED.
+The Code Change Gate is OPEN only for that governance-verified bounded implementation responsibility.
 
 ---
 
 
 ## Next Allowed Action
 
-Complete **governance closure of the verified bounded implementation authorization** only.
+Implement **bounded plain-text source input** as the first authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice** only.
 
-The governance closure must remain downstream of:
+Implementation execution must remain downstream of:
 
 ```text
 docs/product/PRODUCT_VISION.md
