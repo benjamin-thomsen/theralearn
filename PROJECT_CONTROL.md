@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Learning Science Engine — Minimum Implementation Slice Governance Closure**
+**Subject-Matter Intake & Objective Formation — Architecture Governance Closure**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -725,6 +725,29 @@ Verified architecture checkpoint:
 8c34b3d
 Establish Learning Science Engine architecture
 ```
+### Subject-Matter Intake & Objective Formation Architecture
+
+**VERIFIED — GOVERNANCE CLOSURE IN PROGRESS**
+
+Architecture derivation is complete.
+
+The permanent architecture owner is:
+
+    docs/architecture/subject-matter-intake.md
+
+The verified architecture preserves these boundaries:
+
+- Creator / Content Owner remains the subject-matter authority;
+- AI-assisted output remains proposal rather than authority;
+- source traceability is preserved from bounded source material to proposed Learning Objective(s);
+- Creator review, change, rejection, and approval remain required before a Learning Objective becomes accepted;
+- the architecture hands off accepted Learning Objective + bounded Relevant Context + source traceability to the existing Learning Science Engine;
+- the architecture does not duplicate Learning Science Engine responsibilities.
+
+The Code Change Gate remains CLOSED.
+
+This architecture-governance closure has not yet been committed, pushed, or remotely verified.
+
 
 ### Minimum Implementation Slice Derivation
 
@@ -898,188 +921,48 @@ A future implementation requires a separately derived bounded responsibility and
 
 ## Current Task
 
-Complete governance closure for the verified **Learning Science Engine — Minimum Implementation Slice**.
+Close and verify the bounded architecture governance for:
 
-No new product implementation is authorized during governance closure.
+**Subject-Matter Intake & Objective Formation**
 
-Closure requires: update governance, run checkpoint, verify status, commit, push, verify remote head, and verify a Clean working tree.
+The architecture must define the minimum responsibility chain from Creator-provided subject matter to an accepted Learning Objective and bounded Relevant Context that can enter the existing verified Learning Science Engine.
 
-Only after closure is committed, pushed, remotely verified, and locally Clean may the Architect begin read-only derivation of the next bounded MVP responsibility.
+The derivation must preserve these boundaries:
 
----
+- Creator / Content Owner retains subject-matter authority;
+- the MVP supports one bounded document-input workflow;
+- TheraLearn may use AI-assisted analysis to propose Learning Objective(s);
+- AI proposals are not approved objectives and do not become subject-matter truth;
+- the Creator can review, change, reject, and approve objective proposals;
+- accepted objective + bounded Relevant Context form the handoff to the existing Learning Science Engine;
+- no generalized ingestion, autonomous course generation, or universal authoring platform is implied;
+- learner choice between multiple evidence-compatible methods remains outside the first-MVP acceptance boundary;
+- implementation technology, persistence, schema, provider, and concrete UI remain unselected until architecture derivation proves what is required.
 
-## Implementation Slice Derivation Requirements
-
-The bounded implementation must satisfy the following acceptance requirements.
-
-### 1. Explicit input
-
-One Learning Objective and one bounded Relevant Context must be represented explicitly.
-
-### 2. Certified scientific authority
-
-The derivation must reference the existing Active Retrieval Principle from `docs/product/LEARNING_MODEL.md`.
-
-No duplicate scientific authority may be introduced.
-
-### 3. Applicability reasoning
-
-The implementation must produce or preserve a bounded rationale explaining why Active Retrieval applies to the selected objective and context.
-
-### 4. Learning Requirements before mechanism
-
-At least one Learning Requirement must exist before mechanism proposal.
-
-For the first slice, the required learner behavior is:
-
-> The Learner must actively retrieve the relevant information before reveal.
-
-### 5. Proposed Learning Design
-
-The derivation output must be an explicit Proposed Learning Design rather than an unstructured mechanism choice.
-
-### 6. Creator approval gate
-
-The Creator must be able to review the proposal and explicitly approve it.
-
-A Proposed design must not execute for the Learner.
-
-### 7. Re-derivation boundary
-
-A change to the Learning Objective or derivation-relevant Context must invalidate affected downstream derivation and approval.
-
-A new proposal must be derived before renewed approval.
-
-### 8. Learner execution
-
-Only an Approved Learning Design may authorize the bounded learner interaction.
-
-The learner-side layer must not independently select the scientific mechanism.
-
-### 9. Learner performance
-
-The Learner must actively produce one response before correctness or the correct information is revealed.
-
-### 10. Feedback / result
-
-The learner attempt must produce the bounded feedback/result required by the Approved Learning Design.
-
-Where an error or relevant gap is revealed, the feedback may apply the certified Informative Correction Principle within its existing scientific boundary.
-
-### 11. Scientific traceability
-
-The implemented learner experience must remain traceable through:
-
-```text
-LEARNER EXPERIENCE
-        ↑
-APPROVED LEARNING DESIGN
-        ↑
-PROPOSED MECHANISM
-        ↑
-LEARNING REQUIREMENTS
-        ↑
-APPLICABLE CERTIFIED PRINCIPLE
-        ↑
-LEARNING OBJECTIVE + RELEVANT CONTEXT
-```
-
-### 12. Removal test
-
-If the Learning Science Engine derivation is removed, the bounded mechanism selection and learner behavior must no longer be valid in the same form.
-
-### 13. Legacy independence
-
-Existing quiz, flashcard, progress, dashboard, schema, and repository implementation may satisfy a derived technical need.
-
-None may create the requirement.
-
-### 14. Persistence boundary
-
-The first slice must not introduce persistence unless implementation proves that the verified acceptance contract cannot be satisfied without it and governance is updated first.
-
-### 15. Explicit minimum
-
-No capability outside the Code Change Gate may be added as part of this implementation.
+Product implementation remains prohibited. The Code Change Gate remains CLOSED.
 
 ---
 
-## Implementation Slice Decision Standard
-
-The first implementation slice is accepted only when all of the following are true.
-
-### Product Authority
-
-The implementation remains downstream of:
-
-```text
-docs/product/PRODUCT_VISION.md
-docs/product/LEARNING_MODEL.md
-docs/product/mvp.md
-docs/architecture/learning-science-engine.md
-```
-
-### Minimum sufficiency
-
-Every responsibility required by the Implementation Acceptance Contract is demonstrably present.
-
-### No premature expansion
-
-No deferred capability has been introduced.
-
-### Explicit ownership
-
-Learning Design representation, derivation, lifecycle/approval, and learner execution have identifiable implementation owners.
-
-### Scientific authority preservation
-
-Certified Learning Principles are referenced without duplication, expansion, or silent modification.
-
-### Subject-matter authority preservation
-
-The bounded slice does not silently alter subject-matter truth.
-
-### Approval enforcement
-
-A Proposed Learning Design cannot become learner execution.
-
-### Re-derivation enforcement
-
-A derivation-relevant upstream change cannot retain stale scientific traceability or approval.
-
-### Learner-performance proof
-
-The Learner performs an active response before reveal and receives the relevant feedback/result.
-
-### Learning Science Engine Removal Test
-
-Removing the derivation would fundamentally change how the mechanism is selected, justified, approved, and executed.
-
-### Verification
-
-Before commit, the Developer Toolkit verification pipeline must complete with Overall PASS.
-
----
 
 ## Next Allowed Action
 
-Complete **governance closure only**.
+Complete the bounded **Subject-Matter Intake & Objective Formation architecture-governance checkpoint** only.
 
 Required sequence:
 
-1. complete the `PROJECT_CONTROL.md` governance update;
+1. verify the complete `PROJECT_CONTROL.md` governance state;
 2. run `./scripts/dev checkpoint`;
 3. run `./scripts/dev status`;
-4. commit the governance closure;
+4. commit the architecture-governance checkpoint;
 5. push to `origin/migration-next16-to-root`;
 6. verify the remote branch-head;
 7. verify the local working tree is Clean.
 
-No new product implementation is authorized during this sequence.
+No product implementation is authorized during this sequence.
 
-Only after the governance closure is committed, pushed, remotely verified, and locally Clean may the Architect begin a read-only derivation of the next bounded MVP responsibility.
+The Code Change Gate remains CLOSED.
 
-A new product implementation requires a separately derived and explicitly opened Code Change Gate.
+Only after the architecture-governance checkpoint is verified, committed, pushed, remotely verified, and locally Clean may the Architect derive the minimum bounded implementation slice and decide whether a new Code Change Gate should be opened.
 
 ---
 

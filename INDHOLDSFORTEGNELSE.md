@@ -44,6 +44,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`docs/architecture/learning-science-engine.md`](./docs/architecture/learning-science-engine.md)
 - [`docs/architecture/README.md`](./docs/architecture/README.md)
 - [`docs/architecture/security.md`](./docs/architecture/security.md)
+- [`docs/architecture/subject-matter-intake.md`](./docs/architecture/subject-matter-intake.md)
 - [`docs/architecture/system-overview.md`](./docs/architecture/system-overview.md)
 - [`docs/changelog/CHANGELOG.md`](./docs/changelog/CHANGELOG.md)
 - [`docs/changelog/README.md`](./docs/changelog/README.md)
