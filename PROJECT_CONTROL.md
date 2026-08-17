@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Minimum Implementation Slice Derivation**
+**Subject-Matter Intake & Objective Formation — Minimum Implementation Authorization Governance Closure**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -1067,6 +1067,47 @@ No specific AI provider, model, SDK, dependency, prompt implementation, route ha
 
 A future bounded Code Change Gate may select the smallest technical provider realization only if that selection preserves this provider-neutral contract and does not expand the verified slice.
 
+### Minimum Implementation Authorization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED**
+
+The minimum bounded implementation authorization is derived from the verified Product Vision, MVP boundary, Subject-Matter Intake architecture, Learning Science Engine architecture, and Implementation Acceptance Contract.
+
+#### AUTHORIZED FOR MINIMUM SLICE
+
+- bounded plain-text source input;
+- deterministic source-material extraction;
+- persistence-independent source-material representation;
+- source traceability and supporting source boundary;
+- bounded server-side AI-assisted objective-analysis capability;
+- objective proposal representation and lifecycle;
+- structural validation and source-grounding evaluation;
+- Creator review, change, rejection, and acceptance;
+- bounded Relevant Context formation;
+- Accepted Learning Objective + bounded Relevant Context + source traceability handoff;
+- adaptation of BoundedLearningDesignSlice and lesson integration only where required to consume the accepted upstream handoff;
+- reuse of the existing deriveLearningDesign() boundary for downstream Learning Science reasoning.
+
+Subject-Matter Intake stops at the handoff to the existing Learning Science Engine. It must not perform applicability reasoning, select Learning Principles or mechanisms, derive Learning Requirements or Learning Design, or authorize learner execution.
+
+#### AI Realization Boundary
+
+AI-assisted objective analysis is authorized as a capability responsibility. The authorization remains provider-neutral. A specific provider, model, SDK, dependency, route handler, server action, prompt implementation, retry strategy, or cost-control mechanism is not selected by this derivation.
+
+Any credentialed or privileged AI execution must remain server-side. AI output remains an objective proposal and cannot establish Creator acceptance or downstream execution authority.
+
+#### OUTSIDE MINIMUM SLICE
+
+PDF, DOCX, OCR, scanned-document support, generalized ingestion, URL crawling, multiple-document workflows, RAG, embeddings, vector databases, knowledge graphs, persistent workflow state, new schema, migrations, database changes, Supabase storage changes, autonomous course or curriculum generation, payments, certification, analytics infrastructure, and provider-specific AI technology as a product requirement remain outside the minimum slice.
+
+#### Authorization Boundary
+
+This derivation does not authorize product implementation.
+
+The Code Change Gate remains CLOSED.
+
+Before implementation may begin, this authorization must be governance-verified and PROJECT_CONTROL.md must explicitly open a separately bounded Code Change Gate.
+
 ### Governance Conclusion
 
 The repository compatibility assessment and minimum implementation responsibility derivation are complete.
@@ -1101,9 +1142,9 @@ A future implementation requires a separately derived bounded responsibility and
 
 ## Current Task
 
-Perform **read-only derivation** of the minimum bounded implementation slice downstream of the verified **Subject-Matter Intake & Objective Formation Architecture**.
+Close the **governance-verified minimum bounded implementation authorization** for the **Subject-Matter Intake Minimum Implementation Slice** without opening product implementation.
 
-The derivation must determine the smallest implementation responsibility required to prove the verified architecture without prematurely selecting persistence, schema, migration, database, dependency, provider, or generalized ingestion responsibilities.
+The governance closure must preserve the verified authorization as the smallest coherent responsibility set required to prove the verified architecture without prematurely authorizing persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
 No product implementation is currently authorized.
 
@@ -1114,9 +1155,9 @@ The Code Change Gate remains CLOSED.
 
 ## Next Allowed Action
 
-Begin **read-only minimum bounded implementation-slice derivation** only.
+Complete **governance closure of the verified bounded implementation authorization** only.
 
-The derivation must remain downstream of:
+The governance closure must remain downstream of:
 
 ```text
 docs/product/PRODUCT_VISION.md
