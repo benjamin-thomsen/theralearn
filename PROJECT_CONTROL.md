@@ -6,13 +6,13 @@
 >
 > Role: Current verified project state and workflow gate
 >
-> Last updated: 2026-08-15
+> Last updated: 2026-08-17
 
 ---
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Architecture Governance Closure**
+**Subject-Matter Intake & Objective Formation — Minimum Implementation Slice Derivation**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -65,15 +65,15 @@ Remote branch-head was verified directly on GitHub as that exact commit.
 
 The working tree was verified **Clean** after the commit and push.
 
-The project therefore returns directly to the already-derived and already-authorized:
-
-**Learning Science Engine — Minimum Implementation Slice**
-
 The bounded **Learning Science Engine — Minimum Implementation Slice Derivation** remains **CLOSED — VERIFIED**.
 
-The first implementation slice must prove that Learning Science materially determines mechanism selection, Creator approval authority, learner execution, and feedback/result behavior.
+The bounded **Subject-Matter Intake & Objective Formation Architecture** is now **CLOSED — VERIFIED — COMMITTED — PUSHED — REMOTELY VERIFIED**.
 
-Product implementation is authorized only inside the bounded Code Change Gate below.
+The project is now in **read-only minimum bounded implementation-slice derivation** downstream of that verified architecture.
+
+No product implementation is currently authorized.
+
+The Code Change Gate remains CLOSED.
 
 ---
 
@@ -83,33 +83,34 @@ Product implementation is authorized only inside the bounded Code Change Gate be
 migration-next16-to-root
 ```
 
-Current verified remote branch-head:
+Verified Subject-Matter Intake architecture checkpoint:
 
 ```text
-a009bfe68ebe466b5a3cbb3eaed09aa8b7dbdf84
-Add automated repository checkpoint workflow
+fabfa1d07d575b10e831b18b2ddd2e8c86e3a78b
+Close Subject-Matter Intake architecture governance
 ```
 
 Direct parent:
 
 ```text
-7f1b1b654b7f7934327bfce756543d30b89bc22e
-Gate retrieval execution by approved learning design
+f0d44f66a95367614c4259e7d0c591cd3e83609d
+Close Learning Science minimum slice governance
 ```
 
-The remote branch-head was verified directly on GitHub after push.
+This architecture checkpoint was verified directly on GitHub after push.
 
-Local state after push was verified as:
+Local state at architecture-checkpoint verification was:
 
 ```text
 Branch: migration-next16-to-root
-Latest commit: 8d502fd Connect creator approval to learner execution
+Latest commit: fabfa1d Close Subject-Matter Intake architecture governance
 Working tree: Clean
 ```
 
-The architecture authority remains:
+The relevant architecture authorities are:
 
 ```text
+docs/architecture/subject-matter-intake.md
 docs/architecture/learning-science-engine.md
 ```
 
@@ -727,7 +728,7 @@ Establish Learning Science Engine architecture
 ```
 ### Subject-Matter Intake & Objective Formation Architecture
 
-**VERIFIED — GOVERNANCE CLOSURE IN PROGRESS**
+**VERIFIED — CLOSED — COMMITTED — PUSHED — REMOTELY VERIFIED**
 
 Architecture derivation is complete.
 
@@ -746,7 +747,7 @@ The verified architecture preserves these boundaries:
 
 The Code Change Gate remains CLOSED.
 
-This architecture-governance closure has not yet been committed, pushed, or remotely verified.
+The architecture-governance checkpoint was committed, pushed to `origin/migration-next16-to-root`, and remotely verified directly on GitHub as `fabfa1d07d575b10e831b18b2ddd2e8c86e3a78b`.
 
 
 ### Minimum Implementation Slice Derivation
@@ -921,48 +922,36 @@ A future implementation requires a separately derived bounded responsibility and
 
 ## Current Task
 
-Close and verify the bounded architecture governance for:
+Perform **read-only derivation** of the minimum bounded implementation slice downstream of the verified **Subject-Matter Intake & Objective Formation Architecture**.
 
-**Subject-Matter Intake & Objective Formation**
+The derivation must determine the smallest implementation responsibility required to prove the verified architecture without prematurely selecting persistence, schema, migration, database, dependency, provider, or generalized ingestion responsibilities.
 
-The architecture must define the minimum responsibility chain from Creator-provided subject matter to an accepted Learning Objective and bounded Relevant Context that can enter the existing verified Learning Science Engine.
+No product implementation is currently authorized.
 
-The derivation must preserve these boundaries:
-
-- Creator / Content Owner retains subject-matter authority;
-- the MVP supports one bounded document-input workflow;
-- TheraLearn may use AI-assisted analysis to propose Learning Objective(s);
-- AI proposals are not approved objectives and do not become subject-matter truth;
-- the Creator can review, change, reject, and approve objective proposals;
-- accepted objective + bounded Relevant Context form the handoff to the existing Learning Science Engine;
-- no generalized ingestion, autonomous course generation, or universal authoring platform is implied;
-- learner choice between multiple evidence-compatible methods remains outside the first-MVP acceptance boundary;
-- implementation technology, persistence, schema, provider, and concrete UI remain unselected until architecture derivation proves what is required.
-
-Product implementation remains prohibited. The Code Change Gate remains CLOSED.
+The Code Change Gate remains CLOSED.
 
 ---
 
 
 ## Next Allowed Action
 
-Complete the bounded **Subject-Matter Intake & Objective Formation architecture-governance checkpoint** only.
+Begin **read-only minimum bounded implementation-slice derivation** only.
 
-Required sequence:
+The derivation must remain downstream of:
 
-1. verify the complete `PROJECT_CONTROL.md` governance state;
-2. run `./scripts/dev checkpoint`;
-3. run `./scripts/dev status`;
-4. commit the architecture-governance checkpoint;
-5. push to `origin/migration-next16-to-root`;
-6. verify the remote branch-head;
-7. verify the local working tree is Clean.
+```text
+docs/product/PRODUCT_VISION.md
+docs/product/LEARNING_MODEL.md
+docs/product/mvp.md
+docs/architecture/subject-matter-intake.md
+docs/architecture/learning-science-engine.md
+```
 
-No product implementation is authorized during this sequence.
+No product code, dependency, schema, migration, database, persistence, or provider change is authorized.
 
 The Code Change Gate remains CLOSED.
 
-Only after the architecture-governance checkpoint is verified, committed, pushed, remotely verified, and locally Clean may the Architect derive the minimum bounded implementation slice and decide whether a new Code Change Gate should be opened.
+A new bounded Code Change Gate may be opened only after the Architect has derived and governance-verified the minimum implementation responsibility and explicitly recorded its acceptance boundary in `PROJECT_CONTROL.md`.
 
 ---
 
