@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { extractSourceMaterial } from "./extractSourceMaterial";
+import { createObjectiveProposal } from "./objectiveProposal";
 import { createBoundedPlainTextSourceDocument } from "./types";
 
 describe("Subject-Matter Intake", () => {
@@ -43,12 +44,29 @@ describe("Subject-Matter Intake", () => {
       startOffset: 0,
       endOffset: sourceDocument.text.length,
     });
+  });
 
-    expect(
-      extractedSourceMaterial.text.slice(
-        extractedSourceMaterial.fullSourceBoundary.startOffset,
-        extractedSourceMaterial.fullSourceBoundary.endOffset,
-      ),
-    ).toBe(sourceDocument.text);
+  it("represents an objective as a proposal with supporting source traceability", () => {
+    const sourceDocument = createBoundedPlainTextSourceDocument(
+      "The learner must be able to define mentalization.",
+    );
+    const extractedSourceMaterial = extractSourceMaterial(sourceDocument);
+
+    const proposal = createObjectiveProposal(
+      "Define mentalization.",
+      extractedSourceMaterial.fullSourceBoundary,
+    );
+
+    expect(proposal).toEqual({
+      state: "PROPOSED",
+      statement: "Define mentalization.",
+      supportingSourceBoundary: extractedSourceMaterial.fullSourceBoundary,
+    });
+  });
+
+  it("rejects an empty objective proposal statement", () => {
+    expect(() =>
+      createObjectiveProposal("   ", { startOffset: 0, endOffset: 1 }),
+    ).toThrow("Objective proposal requires a non-empty statement.");
   });
 });

@@ -206,6 +206,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/repositories/types.ts`](./lib/repositories/types.ts)
 - [`lib/storage.ts`](./lib/storage.ts)
 - [`lib/subject-matter-intake/extractSourceMaterial.ts`](./lib/subject-matter-intake/extractSourceMaterial.ts)
+- [`lib/subject-matter-intake/objectiveProposal.ts`](./lib/subject-matter-intake/objectiveProposal.ts)
 - [`lib/subject-matter-intake/subjectMatterIntake.test.ts`](./lib/subject-matter-intake/subjectMatterIntake.test.ts)
 - [`lib/subject-matter-intake/types.ts`](./lib/subject-matter-intake/types.ts)
 - [`lib/supabase.ts`](./lib/supabase.ts)
