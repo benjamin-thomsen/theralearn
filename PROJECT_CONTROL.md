@@ -1142,7 +1142,7 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Implement the first authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice**: **bounded plain-text source input**, preserving the verified authorization and Acceptance Contract.
+Implement the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice**: **source-material extraction**, preserving substantive meaning, source traceability, and the verified Acceptance Contract.
 
 Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
@@ -1155,7 +1155,7 @@ The Code Change Gate is OPEN only for that governance-verified bounded implement
 
 ## Next Allowed Action
 
-Implement **bounded plain-text source input** as the first authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice** only.
+Implement **source-material extraction** as the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice** only.
 
 Implementation execution must remain downstream of:
 
