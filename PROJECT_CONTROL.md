@@ -908,7 +908,7 @@ Only behavior required by the verified Implementation Acceptance Contract is aut
 
 ## Subject-Matter Intake Minimum Implementation Slice Derivation
 
-**Status: DERIVED — PENDING GOVERNANCE VERIFICATION**
+**Status: DERIVED — GOVERNANCE VERIFIED**
 
 A bounded read-only repository compatibility assessment has been completed downstream of:
 
@@ -1037,11 +1037,35 @@ None of these capabilities may enter the bounded implementation merely because t
 
 ### AI-Assisted Objective Analysis Boundary
 
-The verified architecture requires AI-assisted objective proposal responsibility but intentionally does not select an AI provider, model, SDK, prompt implementation, API structure, evaluation implementation, retry strategy, or cost-control mechanism.
+The verified architecture permits AI-assisted objective analysis while preserving AI output as proposal rather than subject-matter authority.
 
-The minimum implementation derivation therefore does not yet authorize an AI-provider dependency or integration.
+Repository assessment found no existing product AI integration, provider abstraction, AI SDK dependency, or objective-analysis service. The `OPENAI_API_KEY` reference in `supabase/config.toml` belongs to Supabase Studio configuration and does not establish a TheraLearn product AI capability.
 
-The precise minimum technical realization of AI-assisted objective analysis must be governance-verified before any provider-specific implementation is authorized.
+The minimum technical realization is therefore provider-neutral and requires only the following bounded trust boundary:
+
+```text
+CREATOR / CLIENT
+        ↓
+BOUNDED SOURCE MATERIAL
+        ↓
+SERVER-SIDE AI EXECUTION BOUNDARY
+        ↓
+OBJECTIVE-PROPOSAL-ONLY TRANSFORMATION
+        ↓
+STRUCTURAL VALIDATION
+        ↓
+SOURCE-GROUNDING EVALUATION
+        ↓
+CREATOR REVIEW / AUTHORITY
+```
+
+Any credentialed or privileged provider execution must remain server-side. API credentials must not be exposed through the client.
+
+The AI responsibility is limited to bounded source-material-to-objective-proposal assistance. It must not establish Creator acceptance, perform Learning Science applicability reasoning, select Learning Principles or mechanisms, derive Learning Design, or authorize downstream execution.
+
+No specific AI provider, model, SDK, dependency, prompt implementation, route handler, server action, retry strategy, or cost-control mechanism is selected or authorized by this governance verification.
+
+A future bounded Code Change Gate may select the smallest technical provider realization only if that selection preserves this provider-neutral contract and does not expand the verified slice.
 
 ### Governance Conclusion
 
@@ -1055,9 +1079,9 @@ No product implementation is authorized by this derivation record.
 
 Before a new bounded Code Change Gate may be opened:
 
-1. this derivation and its Implementation Acceptance Contract must be governance-verified;
-2. the minimum technical realization of AI-assisted objective analysis must be resolved without expanding the slice beyond the verified responsibility;
-3. `PROJECT_CONTROL.md` must explicitly record the resulting bounded implementation authorization.
+1. the bounded implementation authorization must be explicitly derived from this verified responsibility and Acceptance Contract;
+2. any selected AI-provider realization must preserve the verified provider-neutral server-side boundary and must not expand the slice;
+3. `PROJECT_CONTROL.md` must explicitly open and bound a new Code Change Gate before any product implementation begins.
 
 ---
 
