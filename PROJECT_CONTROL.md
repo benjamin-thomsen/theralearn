@@ -906,6 +906,161 @@ Only behavior required by the verified Implementation Acceptance Contract is aut
 
 ---
 
+## Subject-Matter Intake Minimum Implementation Slice Derivation
+
+**Status: DERIVED — PENDING GOVERNANCE VERIFICATION**
+
+A bounded read-only repository compatibility assessment has been completed downstream of:
+
+```text
+docs/product/PRODUCT_VISION.md
+docs/product/LEARNING_MODEL.md
+docs/product/mvp.md
+docs/architecture/subject-matter-intake.md
+docs/architecture/learning-science-engine.md
+```
+
+No product implementation, dependency, schema, migration, database, persistence, storage, or AI-provider change was made during the derivation.
+
+### Repository Compatibility Classification
+
+**REUSE**
+
+```text
+LearningObjective
+RelevantContext
+deriveLearningDesign()
+Learning Design domain representation
+Learning Design lifecycle
+ApprovedRetrievalExperience
+bounded learner execution
+```
+
+The existing Learning Science Engine already owns the downstream responsibility beginning from `LearningObjective + RelevantContext` and must not be duplicated by Subject-Matter Intake.
+
+**ADAPT**
+
+```text
+BoundedLearningDesignSlice
+existing learning_objectives storage and use
+```
+
+`BoundedLearningDesignSlice` currently permits direct Learning Objective editing inside the Learning Design lifecycle. Under the verified Subject-Matter Intake architecture, objective formation and Creator objective authority belong upstream. A future adapted boundary must therefore receive an already accepted Learning Objective rather than independently owning objective proposal authority.
+
+Existing `learning_objectives` storage may remain technically useful but does not establish objective proposal state, source grounding, Creator authority, or the required handoff contract.
+
+**MISSING**
+
+```text
+bounded source-document input
+source-material extraction
+source-material representation
+source traceability
+objective proposal representation
+objective proposal lifecycle
+Creator objective review
+Creator objective change
+Creator objective rejection
+Creator objective acceptance
+accepted-objective handoff
+source traceability through the handoff
+```
+
+These missing responsibilities establish the minimum new implementation boundary.
+
+### Derived Minimum Implementation Responsibility
+
+```text
+ONE BOUNDED SOURCE DOCUMENT
+        ↓
+SOURCE-MATERIAL EXTRACTION
+        ↓
+TRACEABLE SOURCE MATERIAL
+        ↓
+ONE OBJECTIVE PROPOSAL
+        ↓
+CREATOR REVIEW
+   ↙       ↓       ↘
+CHANGE   REJECT   APPROVE
+                    ↓
+ACCEPTED LEARNING OBJECTIVE
+        +
+BOUNDED RELEVANT CONTEXT
+        +
+SOURCE TRACEABILITY
+                    ↓
+BOUNDED HANDOFF
+                    ↓
+EXISTING LEARNING SCIENCE ENGINE
+```
+
+The implementation responsibility stops at that handoff.
+
+The existing Learning Science Engine remains responsible for applicability reasoning, certified Learning Principle references, Learning Requirements, mechanism proposal, Proposed Learning Design, Creator Learning Design control, Approved Learning Design, learner execution, performance, and feedback/result.
+
+### Minimum Technical Boundary
+
+The current repository has no product dependency for PDF, DOCX, OCR, generalized document extraction, or an AI-provider SDK.
+
+The architecture permits the smallest supported document class sufficient to prove bounded document input and extraction. Implementation derivation currently identifies a bounded plain-text document class as the minimum candidate because it can prove deterministic extraction of source material without requiring PDF parsing, DOCX parsing, OCR, generalized document understanding, or persistence infrastructure.
+
+This candidate remains subject to governance verification before implementation authority is granted.
+
+### Implementation Acceptance Contract
+
+A future bounded implementation may be accepted only if all of the following are demonstrated:
+
+1. One supported bounded Creator-provided source document can enter the workflow.
+2. Usable source material is extracted without silently changing its substantive meaning.
+3. Unsupported or failed extraction cannot silently continue into authoritative objective formation.
+4. An objective output is explicitly represented as a proposal rather than as accepted authority.
+5. The proposal remains traceable to supporting source material sufficiently for Creator review.
+6. The Creator can inspect the proposal together with its supporting source boundary.
+7. The Creator can change the proposed objective.
+8. A material Creator change cannot silently retain stale source-grounding claims.
+9. The Creator can reject the objective proposal.
+10. A rejected objective cannot enter downstream Learning Science Engine derivation.
+11. The Creator can explicitly approve the objective.
+12. Only explicit Creator approval can establish an Accepted Learning Objective.
+13. A bounded Relevant Context is formed separately from the Learning Objective.
+14. Source traceability remains associated with the accepted handoff for subject-matter authority preservation.
+15. Only an Accepted Learning Objective together with bounded Relevant Context may enter the existing Learning Science Engine.
+16. Merely proposed or rejected objectives must be structurally prevented from becoming authoritative Learning Science Engine input.
+17. Subject-Matter Intake must not perform Learning Science applicability reasoning, select certified Learning Principles, choose learning mechanisms, derive Learning Requirements, or independently own Learning Design responsibilities.
+18. The existing `deriveLearningDesign()` boundary must remain the downstream Learning Science Engine entrypoint unless separately justified architecture requires otherwise.
+
+### Explicit Minimum-Slice Non-Requirements
+
+The derived minimum slice does not currently require PDF support, DOCX support, OCR, scanned-document support, image understanding, URL ingestion, web crawling, multiple-document workflows, generalized ingestion, autonomous course/curriculum/chapter/lesson generation, vector databases, embeddings, RAG infrastructure, knowledge graphs, new database schema, database migrations, persistent workflow state, Supabase storage changes, organization administration, payments, certification, or analytics infrastructure.
+
+None of these capabilities may enter the bounded implementation merely because they could be useful later.
+
+### AI-Assisted Objective Analysis Boundary
+
+The verified architecture requires AI-assisted objective proposal responsibility but intentionally does not select an AI provider, model, SDK, prompt implementation, API structure, evaluation implementation, retry strategy, or cost-control mechanism.
+
+The minimum implementation derivation therefore does not yet authorize an AI-provider dependency or integration.
+
+The precise minimum technical realization of AI-assisted objective analysis must be governance-verified before any provider-specific implementation is authorized.
+
+### Governance Conclusion
+
+The repository compatibility assessment and minimum implementation responsibility derivation are complete.
+
+The principal new responsibility is the bounded authority-preserving bridge between Creator-provided subject matter and the existing Learning Science Engine.
+
+The Code Change Gate remains CLOSED.
+
+No product implementation is authorized by this derivation record.
+
+Before a new bounded Code Change Gate may be opened:
+
+1. this derivation and its Implementation Acceptance Contract must be governance-verified;
+2. the minimum technical realization of AI-assisted objective analysis must be resolved without expanding the slice beyond the verified responsibility;
+3. `PROJECT_CONTROL.md` must explicitly record the resulting bounded implementation authorization.
+
+---
+
 ## Code Change Gate
 
 **Bounded product implementation: CLOSED**
