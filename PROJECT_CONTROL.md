@@ -1142,7 +1142,7 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Implement the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice**: **source-material extraction**, preserving substantive meaning, source traceability, and the verified Acceptance Contract.
+Implement the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice**: **source traceability**, preserving an explicit relationship between extracted source material and the supporting source boundary for later Creator review.
 
 Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
@@ -1155,7 +1155,7 @@ The Code Change Gate is OPEN only for that governance-verified bounded implement
 
 ## Next Allowed Action
 
-Implement **source-material extraction** as the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice** only.
+Implement **source traceability** as the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice** only.
 
 Implementation execution must remain downstream of:
 

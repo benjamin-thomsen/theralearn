@@ -31,4 +31,24 @@ describe("Subject-Matter Intake", () => {
     expect(extractedSourceMaterial.text).toBe(sourceDocument.text);
     expect(extractedSourceMaterial.sourceDocument).toBe(sourceDocument);
   });
+
+  it("preserves a deterministic full-source boundary for traceability", () => {
+    const sourceDocument = createBoundedPlainTextSourceDocument(
+      "Traceable subject matter.",
+    );
+
+    const extractedSourceMaterial = extractSourceMaterial(sourceDocument);
+
+    expect(extractedSourceMaterial.fullSourceBoundary).toEqual({
+      startOffset: 0,
+      endOffset: sourceDocument.text.length,
+    });
+
+    expect(
+      extractedSourceMaterial.text.slice(
+        extractedSourceMaterial.fullSourceBoundary.startOffset,
+        extractedSourceMaterial.fullSourceBoundary.endOffset,
+      ),
+    ).toBe(sourceDocument.text);
+  });
 });
