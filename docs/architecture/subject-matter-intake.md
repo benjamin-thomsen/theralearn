@@ -151,7 +151,9 @@ The architectural responsibility is:
             ↓
     BOUNDED SOURCE MATERIAL
 
-The exact supported document type, size limits, upload mechanism, storage mechanism, extraction library, and persistence model belong to implementation derivation.
+For the first externally testable MVP, Product Authority fixes the supported document class as one bounded text-based PDF with machine-readable embedded text.
+
+Size limits, upload mechanism, storage mechanism, extraction library, and persistence model remain implementation-derivation responsibilities.
 
 The architecture permits the first implementation slice to support only the smallest document class required to prove the responsibility chain.
 
