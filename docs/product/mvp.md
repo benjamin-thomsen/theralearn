@@ -116,6 +116,14 @@ The first MVP does not require universal ingestion of every possible content for
 
 The bounded input may use one explicitly selected supported format or workflow.
 
+For the first externally testable MVP, that supported input must be one bounded **text-based PDF with machine-readable embedded text**.
+
+The Creator must be able to provide that PDF through the product workflow, and TheraLearn must be able to extract its machine-readable text into bounded source material for the downstream Subject-Matter Intake flow.
+
+Extraction failure must be explicit and must not silently continue into objective formation.
+
+This first-MVP PDF requirement does not require OCR, scanned or image-only PDF support, handwriting recognition, DOCX support, generalized document ingestion, URL crawling, RAG, embeddings, vector databases, or autonomous course generation.
+
 The important product requirement is that the material enters the TheraLearn learning-design process as subject matter rather than as a pre-built TheraLearn learning experience.
 
 TheraLearn must preserve the authority boundary:
