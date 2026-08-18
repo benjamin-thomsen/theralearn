@@ -1002,9 +1002,13 @@ The existing Learning Science Engine remains responsible for applicability reaso
 
 The current repository has no product dependency for PDF, DOCX, OCR, generalized document extraction, or an AI-provider SDK.
 
-The architecture permits the smallest supported document class sufficient to prove bounded document input and extraction. Implementation derivation currently identifies a bounded plain-text document class as the minimum candidate because it can prove deterministic extraction of source material without requiring PDF parsing, DOCX parsing, OCR, generalized document understanding, or persistence infrastructure.
+Product Authority now fixes the first externally testable MVP input as one bounded text-based PDF with machine-readable embedded text.
 
-This candidate remains subject to governance verification before implementation authority is granted.
+The minimum technical boundary must therefore support deterministic extraction of machine-readable embedded PDF text into bounded source material, with explicit extraction failure that cannot silently continue into objective formation.
+
+OCR, scanned or image-only PDF support, handwriting recognition, DOCX parsing, generalized document understanding, RAG, embeddings, vector databases, and autonomous course generation remain outside this bounded requirement.
+
+Concrete PDF parsing dependency, size limit, upload mechanism, storage mechanism, and persistence model remain subject to bounded implementation derivation and explicit Code Change Gate authorization.
 
 ### Implementation Acceptance Contract
 
@@ -1075,7 +1079,7 @@ The minimum bounded implementation authorization is derived from the verified Pr
 
 #### AUTHORIZED FOR MINIMUM SLICE
 
-- bounded plain-text source input;
+- one bounded text-based PDF with machine-readable embedded text;
 - deterministic source-material extraction;
 - persistence-independent source-material representation;
 - source traceability and supporting source boundary;
@@ -1098,7 +1102,7 @@ Any credentialed or privileged AI execution must remain server-side. AI output r
 
 #### OUTSIDE MINIMUM SLICE
 
-PDF, DOCX, OCR, scanned-document support, generalized ingestion, URL crawling, multiple-document workflows, RAG, embeddings, vector databases, knowledge graphs, persistent workflow state, new schema, migrations, database changes, Supabase storage changes, autonomous course or curriculum generation, payments, certification, analytics infrastructure, and provider-specific AI technology as a product requirement remain outside the minimum slice.
+DOCX, OCR, scanned or image-only PDF support, handwriting recognition, generalized ingestion, URL crawling, multiple-document workflows, RAG, embeddings, vector databases, knowledge graphs, persistent workflow state, new schema, migrations, database changes, Supabase storage changes, autonomous course or curriculum generation, payments, certification, analytics infrastructure, and provider-specific AI technology as a product requirement remain outside the minimum slice.
 
 #### Authorization Boundary
 
@@ -1128,13 +1132,13 @@ Before a new bounded Code Change Gate may be opened:
 
 ## Code Change Gate
 
-**Bounded product implementation: OPEN — SUBJECT-MATTER INTAKE MINIMUM SLICE ONLY**
+**Bounded product implementation: CLOSED — PDF MVP AUTHORIZATION REALIGNMENT**
 
-The Code Change Gate is OPEN only for the governance-verified **Subject-Matter Intake Minimum Implementation Slice**.
+The Code Change Gate is CLOSED while the Subject-Matter Intake authorization is realigned with the verified text-based PDF MVP Product Authority and architecture boundary.
 
 Authorized implementation is strictly limited to the responsibilities recorded under **Minimum Implementation Authorization Derivation — AUTHORIZED FOR MINIMUM SLICE** and must satisfy the verified Implementation Acceptance Contract.
 
-No persistence, schema, migration, database, generalized ingestion, PDF, DOCX, OCR, RAG, embeddings, vector database, autonomous course/curriculum generation, or provider-specific AI technology is authorized by this gate.
+No persistence, schema, migration, database, generalized ingestion, DOCX, OCR, scanned or image-only PDF support, handwriting recognition, RAG, embeddings, vector database, autonomous course/curriculum generation, or provider-specific AI technology is authorized by this gate.
 
 Any implementation outside this explicit boundary requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
 
@@ -1142,20 +1146,20 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Implement the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice**: **objective proposal representation**, preserving proposal state distinct from Creator acceptance and retaining supporting source traceability.
+Realign the bounded Subject-Matter Intake implementation authorization with the verified text-based PDF MVP Product Authority and architecture boundary before any further product implementation.
 
 Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
 Only implementation within the explicitly bounded **Subject-Matter Intake Minimum Implementation Slice** is authorized by this gate.
 
-The Code Change Gate is OPEN only for that governance-verified bounded implementation responsibility.
+The Code Change Gate remains CLOSED until the PDF-aligned minimum implementation responsibility and acceptance boundary are explicitly recorded and a new bounded authorization is opened.
 
 ---
 
 
 ## Next Allowed Action
 
-Implement **objective proposal representation** as the next authorized responsibility of the **Subject-Matter Intake Minimum Implementation Slice** only.
+Complete the PDF-aligned minimum implementation authorization and acceptance-boundary realignment in `PROJECT_CONTROL.md`, then explicitly decide whether a new bounded Code Change Gate may open for the first text-based PDF implementation responsibility.
 
 Implementation execution must remain downstream of:
 
