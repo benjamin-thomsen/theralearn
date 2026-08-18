@@ -1132,9 +1132,9 @@ Before a new bounded Code Change Gate may be opened:
 
 ## Code Change Gate
 
-**Bounded product implementation: CLOSED — PDF MVP AUTHORIZATION REALIGNMENT**
+**Bounded product implementation: OPEN — TEXT-BASED PDF EXTRACTION SLICE ONLY**
 
-The Code Change Gate is CLOSED while the Subject-Matter Intake authorization is realigned with the verified text-based PDF MVP Product Authority and architecture boundary.
+The Code Change Gate is OPEN only for the bounded text-based PDF extraction responsibility: accept one text-based PDF with machine-readable embedded text, deterministically extract usable text into bounded source material, and fail explicitly when extraction is unsupported or unsuccessful.
 
 Authorized implementation is strictly limited to the responsibilities recorded under **Minimum Implementation Authorization Derivation — AUTHORIZED FOR MINIMUM SLICE** and must satisfy the verified Implementation Acceptance Contract.
 
@@ -1146,20 +1146,20 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Realign the bounded Subject-Matter Intake implementation authorization with the verified text-based PDF MVP Product Authority and architecture boundary before any further product implementation.
+Implement only the bounded text-based PDF extraction responsibility authorized by the current Code Change Gate.
 
 Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
-Only implementation within the explicitly bounded **Subject-Matter Intake Minimum Implementation Slice** is authorized by this gate.
+Only the text-based PDF extraction responsibility within the broader verified Subject-Matter Intake Minimum Implementation Slice is authorized by this gate.
 
-The Code Change Gate remains CLOSED until the PDF-aligned minimum implementation responsibility and acceptance boundary are explicitly recorded and a new bounded authorization is opened.
+The Code Change Gate is OPEN only for the bounded text-based PDF extraction slice defined above.
 
 ---
 
 
 ## Next Allowed Action
 
-Complete the PDF-aligned minimum implementation authorization and acceptance-boundary realignment in `PROJECT_CONTROL.md`, then explicitly decide whether a new bounded Code Change Gate may open for the first text-based PDF implementation responsibility.
+Implement the smallest repository-compatible text-based PDF extraction slice authorized by the current Code Change Gate.
 
 Implementation execution must remain downstream of:
 
@@ -1171,11 +1171,11 @@ docs/architecture/subject-matter-intake.md
 docs/architecture/learning-science-engine.md
 ```
 
-No product code, dependency, schema, migration, database, persistence, or provider change is authorized.
+No product code or technical change outside the bounded text-based PDF extraction responsibility is authorized; persistence, schema, migration, database, provider-specific technology, and generalized ingestion remain outside this gate.
 
-The Code Change Gate remains CLOSED.
+The Code Change Gate is OPEN only for the bounded text-based PDF extraction slice.
 
-A new bounded Code Change Gate may be opened only after the Architect has derived and governance-verified the minimum implementation responsibility and explicitly recorded its acceptance boundary in `PROJECT_CONTROL.md`.
+Any implementation beyond the bounded text-based PDF extraction responsibility requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
 
 ---
 
