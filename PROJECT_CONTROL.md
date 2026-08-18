@@ -1132,9 +1132,9 @@ Before a new bounded Code Change Gate may be opened:
 
 ## Code Change Gate
 
-**Bounded product implementation: OPEN — TEXT-BASED PDF EXTRACTION SLICE ONLY**
+**Bounded product implementation: CLOSED — TEXT-BASED PDF EXTRACTION SLICE IMPLEMENTED**
 
-The Code Change Gate is OPEN only for the bounded text-based PDF extraction responsibility: accept one text-based PDF with machine-readable embedded text, deterministically extract usable text into bounded source material, and fail explicitly when extraction is unsupported or unsuccessful.
+The bounded text-based PDF extraction responsibility has been implemented, committed, pushed, and remotely verified at 06e0dfbcca7adc2436033cea51399ddb2e731435.
 
 Authorized implementation is strictly limited to the responsibilities recorded under **Minimum Implementation Authorization Derivation — AUTHORIZED FOR MINIMUM SLICE** and must satisfy the verified Implementation Acceptance Contract.
 
@@ -1146,20 +1146,20 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Implement only the bounded text-based PDF extraction responsibility authorized by the current Code Change Gate.
+Close and governance-verify the completed bounded text-based PDF extraction implementation.
 
 Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
 
 Only the text-based PDF extraction responsibility within the broader verified Subject-Matter Intake Minimum Implementation Slice is authorized by this gate.
 
-The Code Change Gate is OPEN only for the bounded text-based PDF extraction slice defined above.
+The completed text-based PDF extraction Code Change Gate is CLOSED; no further product implementation is authorized by the Current Task.
 
 ---
 
 
 ## Next Allowed Action
 
-Implement the smallest repository-compatible text-based PDF extraction slice authorized by the current Code Change Gate.
+Governance-verify the completed text-based PDF extraction implementation, run the repository checkpoint, commit and push this governance closure, and remotely verify the resulting checkpoint.
 
 Implementation execution must remain downstream of:
 
@@ -1173,7 +1173,7 @@ docs/architecture/learning-science-engine.md
 
 No product code or technical change outside the bounded text-based PDF extraction responsibility is authorized; persistence, schema, migration, database, provider-specific technology, and generalized ingestion remain outside this gate.
 
-The Code Change Gate is OPEN only for the bounded text-based PDF extraction slice.
+The completed text-based PDF extraction Code Change Gate is CLOSED; any subsequent product implementation requires a separately derived, governance-verified, and explicitly opened bounded Code Change Gate.
 
 Any implementation beyond the bounded text-based PDF extraction responsibility requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
 
