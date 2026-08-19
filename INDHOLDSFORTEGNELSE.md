@@ -138,7 +138,6 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`app/opengraph-image.tsx`](./app/opengraph-image.tsx)
 - [`app/page.module.css`](./app/page.module.css)
 - [`app/page.tsx`](./app/page.tsx)
-- [`app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx`](./app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx)
 - [`app/pensum/[slug]/[chapterSlug]/[lessonSlug]/page.tsx`](./app/pensum/[slug]/[chapterSlug]/[lessonSlug]/page.tsx)
 - [`app/pensum/[slug]/page.module.css`](./app/pensum/[slug]/page.module.css)
 - [`app/pensum/[slug]/page.tsx`](./app/pensum/[slug]/page.tsx)
