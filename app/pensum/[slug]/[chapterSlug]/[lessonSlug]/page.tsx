@@ -9,17 +9,17 @@ import { createClient } from "@/lib/supabase/server";
 
 type LessonPageProps = {
   params: Promise<{
-    courseSlug: string;
+    slug: string;
     chapterSlug: string;
     lessonSlug: string;
   }>;
 };
 
 export default async function LessonPage({ params }: LessonPageProps) {
-  const { courseSlug, chapterSlug, lessonSlug } = await params;
+  const { slug, chapterSlug, lessonSlug } = await params;
   const client = await createClient();
 
-  const course = await getCourseBySlug(client, courseSlug);
+  const course = await getCourseBySlug(client, slug);
 
   if (!course || !course.is_published) {
     notFound();

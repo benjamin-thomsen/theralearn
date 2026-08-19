@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Minimum Implementation Execution**
+**Subject-Matter Intake & Objective Formation — Post-PDF Objective-Proposal Vertical Verification Closure**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -69,11 +69,11 @@ The bounded **Learning Science Engine — Minimum Implementation Slice Derivatio
 
 The bounded **Subject-Matter Intake & Objective Formation Architecture** is now **CLOSED — VERIFIED — COMMITTED — PUSHED — REMOTELY VERIFIED**.
 
-The project is now in **read-only minimum bounded implementation-slice derivation** downstream of that verified architecture.
+The project is now in **bounded Post-PDF Objective-Proposal Vertical implementation execution** downstream of the governance-verified Post-PDF authorization and technical realization.
 
-No product implementation is currently authorized.
+Product implementation is authorized only within the explicitly bounded Post-PDF browser-testable objective-proposal vertical.
 
-The Code Change Gate remains CLOSED.
+The Post-PDF browser-testable objective-proposal Code Change Gate is OPEN only for that governance-verified bounded responsibility.
 
 ---
 
@@ -1130,15 +1130,169 @@ Before a new bounded Code Change Gate may be opened:
 
 ---
 
+## Post-PDF Vertical Implementation Authorization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The next bounded browser-testable responsibility is derived downstream of the completed text-based PDF extraction slice and the verified Subject-Matter Intake architecture.
+
+The authorized responsibility is strictly bounded to:
+
+```text
+CREATOR / BROWSER
+        ↓
+ONE TEXT-BASED PDF
+        ↓
+EXISTING PDF EXTRACTION
+        ↓
+TRACEABLE SOURCE MATERIAL
+        ↓
+BOUNDED SERVER-SIDE OBJECTIVE ANALYSIS
+        ↓
+STRUCTURAL AND SOURCE-GROUNDING VALIDATION
+        ↓
+EXISTING ObjectiveProposal REPRESENTATION
+        ↓
+OBJECTIVE PROPOSAL + SUPPORTING SOURCE CONTEXT VISIBLE TO CREATOR
+        ↓
+STOP
+```
+
+The implementation must reuse the existing text-based PDF extraction, `BoundedPlainTextSourceDocument`, `ExtractedSourceMaterial`, `SupportingSourceBoundary`, and `createObjectiveProposal()` responsibilities rather than duplicate them.
+
+The resulting objective output must remain `state: PROPOSED` and must preserve supporting source traceability for Creator review.
+
+This bounded vertical stops before Creator change, Creator rejection, Creator acceptance, Relevant Context formation, Accepted Learning Objective handoff, Learning Science derivation, persistence, storage, schema, migrations, database changes, and learner execution.
+
+This derivation does not itself authorize product implementation. A separately governance-verified technical realization and explicit Code Change Gate decision are required before implementation begins.
+
+---
+
+## Post-PDF Technical Realization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization for the governance-verified Post-PDF browser-testable objective-proposal vertical is:
+
+```text
+CREATOR / BROWSER
+        ↓
+DEDICATED SERVER ACTION
+        ↓
+EXISTING PDF EXTRACTION
+        ↓
+ExtractedSourceMaterial
+        ↓
+TYPED PROVIDER-NEUTRAL OBJECTIVE-ANALYSIS DOMAIN CONTRACT
+        ↓
+ONE CONCRETE SERVER-SIDE OPENAI ADAPTER
+        ↓
+OPENAI RESPONSES API VIA EXISTING SERVER RUNTIME FETCH
+        ↓
+STRUCTURAL + SOURCE-GROUNDING VALIDATION
+        ↓
+createObjectiveProposal()
+        ↓
+PROPOSED OBJECTIVE + SUPPORTING SOURCE CONTEXT
+        ↓
+CREATOR VISIBLE
+        ↓
+STOP
+```
+
+The Creator initiates the bounded analysis through one dedicated Server Action. Existing text-based PDF extraction and `ExtractedSourceMaterial` must be reused.
+
+Objective analysis must be represented behind a typed provider-neutral domain contract. One concrete server-side OpenAI adapter is selected as the minimum provider realization.
+
+`OPENAI_API_KEY` is server-side only and must use the existing `process.env` / `.env.local` runtime convention. Missing credentials must fail explicitly.
+
+The adapter uses the OpenAI Responses API through the existing server runtime `fetch`; no OpenAI or other AI SDK dependency is introduced.
+
+The initial model realization is `gpt-5.6`. The model identifier remains a server-side provider-adapter configuration detail and must not leak into the provider-neutral domain contract.
+
+OpenAI-specific HTTP request and response mapping must remain behind the provider-neutral objective-analysis contract.
+
+Provider failure, structurally invalid output, and insufficient source grounding must each fail explicitly. Only structurally valid and sufficiently source-grounded proposal content may pass through the existing `createObjectiveProposal()` boundary.
+
+The resulting `ObjectiveProposal` must remain `state: PROPOSED` and preserve supporting source traceability for Creator review.
+
+This realization does not authorize agents, tools, streaming, RAG, embeddings, vector databases, generalized AI abstraction, generalized ingestion, persistence, storage, schema, migrations, database changes, Creator change/rejection/acceptance, Relevant Context formation, Accepted Learning Objective handoff, Learning Science derivation, or learner execution.
+
+This derivation does not itself authorize product implementation. An explicit bounded Code Change Gate decision remains required before implementation begins.
+
+---
+
+## Browser Runtime Route-Compatibility Prerequisite
+
+**Status: DERIVED — GOVERNANCE VERIFIED — BOUNDED PREREQUISITE AUTHORIZED**
+
+Runtime verification of the Post-PDF browser-testable objective-proposal vertical is currently blocked by a pre-existing Next.js dynamic-route naming conflict:
+
+```text
+app/pensum/[slug]
+app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]
+```
+
+Both `next dev` and `next start` fail with:
+
+```text
+You cannot use different slug names for the same dynamic path ('courseSlug' !== 'slug').
+```
+
+Repository inspection verifies that `courseSlug` is referenced only within the lesson route itself.
+
+The smallest authorized prerequisite is therefore strictly limited to:
+
+```text
+app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]
+        ↓
+app/pensum/[slug]/[chapterSlug]/[lessonSlug]
+```
+
+and the corresponding local route parameter rename from `courseSlug` to `slug`.
+
+This prerequisite must not change URL structure, product behavior, repository queries, persistence, schema, database state, Learning Science responsibilities, Subject-Matter Intake responsibilities, or any other Pensum behavior.
+
+Its sole purpose is to restore Next.js runtime compatibility so the already-authorized Post-PDF browser vertical can be tested.
+
+The implementation must stop after runtime compatibility is restored and verified.
+
+### PDF.js Server Runtime Compatibility Prerequisite
+
+**Status: DERIVED — GOVERNANCE VERIFIED — BOUNDED PREREQUISITE AUTHORIZED**
+
+Browser verification has established that the exact Creator-selected text-based PDF succeeds through the existing PDF extractor and Server Action chain outside Next.js runtime, but fails during PDF extraction when the same Server Action executes through Next.js.
+
+The bounded prerequisite is authorized only to restore equivalent server-side PDF extraction behavior inside Next.js runtime. The smallest candidate realization may assess and, only if required by verification, configure `pdfjs-dist` as a Next.js server-external package.
+
+This prerequisite must not change PDF extraction semantics, supported document types, source-material representation, objective-analysis behavior, Creator authority, persistence, schema, database state, Learning Science responsibilities, or any other product behavior.
+
+Any configuration change must be verified against the exact browser-test PDF and must stop once equivalent Next.js server-runtime PDF extraction is restored.
+
+#### Runtime Verification Result
+
+**VERIFIED — BROWSER RUNTIME PASS**
+
+- Next.js starts successfully without the previous dynamic-route naming conflict.
+- `pdfjs-dist` configured through `serverExternalPackages` restores PDF extraction inside Next.js server runtime.
+- The exact Creator-selected text-based PDF successfully reaches the existing PDF extraction boundary in browser runtime.
+- OpenAI Responses API connectivity was independently verified with HTTP 200 using server-side credentials.
+- `/creator-objective` successfully completed the bounded browser flow from PDF upload through objective analysis.
+- The resulting `ObjectiveProposal` remained `state: PROPOSED`.
+- Supporting source context and source offsets were visible to the Creator.
+- Verification stopped before Creator change, rejection, acceptance, Relevant Context formation, Learning Science handoff, persistence, or learner execution.
+
+---
+
 ## Code Change Gate
 
-**Bounded product implementation: CLOSED — TEXT-BASED PDF EXTRACTION SLICE IMPLEMENTED**
+**Bounded product implementation: CLOSED — VERIFIED — POST-PDF BROWSER-TESTABLE OBJECTIVE-PROPOSAL VERTICAL**
 
 The bounded text-based PDF extraction responsibility has been implemented, committed, pushed, and remotely verified at 06e0dfbcca7adc2436033cea51399ddb2e731435.
 
-Authorized implementation is strictly limited to the responsibilities recorded under **Minimum Implementation Authorization Derivation — AUTHORIZED FOR MINIMUM SLICE** and must satisfy the verified Implementation Acceptance Contract.
+The completed Code Change Gate applied only to the bounded responsibility governance-verified under **Post-PDF Vertical Implementation Authorization Derivation** and **Post-PDF Technical Realization Derivation**, and is now closed after successful browser-runtime verification.
 
-No persistence, schema, migration, database, generalized ingestion, DOCX, OCR, scanned or image-only PDF support, handwriting recognition, RAG, embeddings, vector database, autonomous course/curriculum generation, or provider-specific AI technology is authorized by this gate.
+No persistence, schema, migration, database, generalized ingestion, DOCX, OCR, scanned or image-only PDF support, handwriting recognition, RAG, embeddings, vector database, autonomous course/curriculum generation, or provider capability beyond the governance-verified bounded OpenAI objective-analysis realization is authorized by this gate.
 
 Any implementation outside this explicit boundary requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
 
@@ -1146,36 +1300,22 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Close and governance-verify the completed bounded text-based PDF extraction implementation.
+Close and verify the completed Post-PDF browser-testable objective-proposal vertical implementation checkpoint.
 
-Implementation execution must remain strictly within the governance-verified authorization and must not expand into persistence, schema, migration, database, provider-specific technology, or generalized ingestion responsibilities.
+No further product implementation is authorized by the completed Post-PDF Code Change Gate.
 
-Only the text-based PDF extraction responsibility within the broader verified Subject-Matter Intake Minimum Implementation Slice is authorized by this gate.
-
-The completed text-based PDF extraction Code Change Gate is CLOSED; no further product implementation is authorized by the Current Task.
+The implementation checkpoint must now be verified, synchronized with repository governance, and prepared for commit without expanding into Creator change, rejection, acceptance, Relevant Context formation, Learning Science handoff, persistence, or learner execution.
 
 ---
 
 
 ## Next Allowed Action
 
-Governance-verify the completed text-based PDF extraction implementation, run the repository checkpoint, commit and push this governance closure, and remotely verify the resulting checkpoint.
+Run the complete repository verification/checkpoint for the completed Post-PDF browser-testable objective-proposal vertical.
 
-Implementation execution must remain downstream of:
+If verification passes, synchronize the generated repository index and implementation checkpoint state, inspect the final diff, and prepare the bounded verified implementation for commit.
 
-```text
-docs/product/PRODUCT_VISION.md
-docs/product/LEARNING_MODEL.md
-docs/product/mvp.md
-docs/architecture/subject-matter-intake.md
-docs/architecture/learning-science-engine.md
-```
-
-No product code or technical change outside the bounded text-based PDF extraction responsibility is authorized; persistence, schema, migration, database, provider-specific technology, and generalized ingestion remain outside this gate.
-
-The completed text-based PDF extraction Code Change Gate is CLOSED; any subsequent product implementation requires a separately derived, governance-verified, and explicitly opened bounded Code Change Gate.
-
-Any implementation beyond the bounded text-based PDF extraction responsibility requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
+No further product implementation is authorized. Any continuation into Creator change, rejection, acceptance, Relevant Context formation, Accepted Learning Objective handoff, Learning Science derivation, persistence, or learner execution requires a separately derived and governance-verified authorization and a new Code Change Gate decision.
 
 ---
 

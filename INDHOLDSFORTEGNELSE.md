@@ -117,6 +117,9 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 - [`app/apple-icon.tsx`](./app/apple-icon.tsx)
 - [`app/auth/confirm/route.ts`](./app/auth/confirm/route.ts)
+- [`app/creator-objective/actions.ts`](./app/creator-objective/actions.ts)
+- [`app/creator-objective/page.module.css`](./app/creator-objective/page.module.css)
+- [`app/creator-objective/page.tsx`](./app/creator-objective/page.tsx)
 - [`app/dashboard/page.tsx`](./app/dashboard/page.tsx)
 - [`app/error.tsx`](./app/error.tsx)
 - [`app/favicon.ico`](./app/favicon.ico)
@@ -136,6 +139,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`app/page.module.css`](./app/page.module.css)
 - [`app/page.tsx`](./app/page.tsx)
 - [`app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx`](./app/pensum/[courseSlug]/[chapterSlug]/[lessonSlug]/page.tsx)
+- [`app/pensum/[slug]/[chapterSlug]/[lessonSlug]/page.tsx`](./app/pensum/[slug]/[chapterSlug]/[lessonSlug]/page.tsx)
 - [`app/pensum/[slug]/page.module.css`](./app/pensum/[slug]/page.module.css)
 - [`app/pensum/[slug]/page.tsx`](./app/pensum/[slug]/page.tsx)
 - [`app/pensum/page.module.css`](./app/pensum/page.module.css)
@@ -208,7 +212,10 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/subject-matter-intake/extractSourceMaterial.ts`](./lib/subject-matter-intake/extractSourceMaterial.ts)
 - [`lib/subject-matter-intake/extractTextFromPdf.test.ts`](./lib/subject-matter-intake/extractTextFromPdf.test.ts)
 - [`lib/subject-matter-intake/extractTextFromPdf.ts`](./lib/subject-matter-intake/extractTextFromPdf.ts)
+- [`lib/subject-matter-intake/objectiveAnalysis.ts`](./lib/subject-matter-intake/objectiveAnalysis.ts)
 - [`lib/subject-matter-intake/objectiveProposal.ts`](./lib/subject-matter-intake/objectiveProposal.ts)
+- [`lib/subject-matter-intake/openAiObjectiveAnalysisProvider.test.ts`](./lib/subject-matter-intake/openAiObjectiveAnalysisProvider.test.ts)
+- [`lib/subject-matter-intake/openAiObjectiveAnalysisProvider.ts`](./lib/subject-matter-intake/openAiObjectiveAnalysisProvider.ts)
 - [`lib/subject-matter-intake/subjectMatterIntake.test.ts`](./lib/subject-matter-intake/subjectMatterIntake.test.ts)
 - [`lib/subject-matter-intake/types.ts`](./lib/subject-matter-intake/types.ts)
 - [`lib/supabase.ts`](./lib/supabase.ts)
@@ -291,6 +298,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 - [`scripts/create-docs-structure.sh`](./scripts/create-docs-structure.sh)
 - [`scripts/dev`](./scripts/dev)
+- [`scripts/set-openai-key.sh`](./scripts/set-openai-key.sh)
 
 ---
 
