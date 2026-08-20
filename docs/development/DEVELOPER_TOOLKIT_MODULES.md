@@ -128,6 +128,7 @@ Example commands:
 ```text
 dev file
 dev edit
+dev patch
 dev replace
 dev copy
 ```
@@ -136,6 +137,7 @@ Responsibilities include:
 
 * inspect files
 * edit existing files safely
+* apply exact targeted replacements safely
 * replace existing file contents
 * copy file contents
 * create files

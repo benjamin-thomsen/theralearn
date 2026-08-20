@@ -849,6 +849,22 @@ New repository files must still be Git-tracked before `checkpoint` can include t
 
 ---
 
+### Developer Toolkit Exact Patch Prerequisite
+
+**Status: VERIFIED — IMPLEMENTED — COMMIT / PUSH / REMOTE VERIFICATION PENDING**
+
+The Developer Toolkit File Module now provides the bounded exact-replacement command:
+
+`./scripts/dev patch <file-path>`
+
+The command accepts JSON through stdin with one literal `find` value and one `replace` value. It validates the file, parses the patch, reads current content, requires exactly one literal match, transforms in memory, and writes once.
+
+Zero matches or multiple matches fail explicitly with `PATCH FAIL: target must match exactly once`. The command does not use regex, editor workflows, or truncation.
+
+This tooling prerequisite does not authorize product implementation and does not open the Accepted Subject-Matter Handoff Code Change Gate.
+
+---
+
 ## Current Risks
 
 ### R1 – Learning Science Engine could become cosmetic
@@ -1530,6 +1546,42 @@ No persistence, schema, migration, database, Supabase, route, UI, `BoundedLearni
 This derivation does not authorize product implementation. The Code Change Gate remains CLOSED.
 
 ---
+
+## Accepted Subject-Matter Handoff to Learning Science Engine Responsibility Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The bounded responsibility begins from one existing `AcceptedLearningObjective` combined with one existing `BoundedRelevantContext`, with existing source traceability preserved, and stops after those accepted upstream premises have entered the existing `deriveLearningDesign()` boundary as a `ProposedLearningDesign`.
+
+The existing `deriveLearningDesign()`, Learning Design lifecycle, and approved-design execution gate are REUSE responsibilities and must not be reimplemented by this handoff responsibility.
+
+`BoundedLearningDesignSlice` and lesson integration are ADAPT responsibilities only where required to consume the already accepted upstream handoff instead of independently sourcing or editing Learning Objective and Relevant Context premises.
+
+This responsibility does not include new applicability reasoning, new Learning Requirements, new mechanism-selection logic, Learning Design lifecycle changes, execution-gate changes, persistence, schema, migrations, database or Supabase changes, generalized handoff infrastructure, learner profiles, or new learner-execution behavior.
+
+This derivation does not authorize product implementation. The Code Change Gate remains CLOSED until this responsibility is governance-verified and a separately bounded technical realization and implementation authorization are explicitly established.
+
+### Accepted Subject-Matter Handoff Technical Realization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization is one bounded handoff adapter that accepts the existing `AcceptedObjectiveWithRelevantContext`, maps `acceptedLearningObjective.statement` to the existing Learning Science `LearningObjective`, maps the existing bounded `relevantContext` to the existing Learning Science `RelevantContext`, invokes the existing `deriveLearningDesign()`, and returns the resulting `ProposedLearningDesign`.
+
+The existing `supportingSourceBoundary` must remain associated with the accepted upstream handoff for subject-matter authority traceability, but it must not be converted into a Learning Science premise or used to alter applicability reasoning. This technical realization stops when the existing `deriveLearningDesign()` has produced a `ProposedLearningDesign`.
+
+This technical realization does not require changes to `deriveLearningDesign()`, Learning Science applicability logic, Learning Requirements, mechanism selection, Learning Design lifecycle, approved-design execution gating, persistence, schema, migrations, database or Supabase state, generalized handoff infrastructure, or new learner-execution behavior.
+
+This technical realization does not authorize product implementation. The Code Change Gate remains CLOSED until this technical realization is governance-verified and a separately bounded implementation authorization is explicitly established.
+
+### Accepted Subject-Matter Handoff Minimum Implementation Authorization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The minimum implementation authorization is limited to one bounded Subject-Matter Intake handoff adapter that accepts the existing `AcceptedObjectiveWithRelevantContext`, preserves its accepted objective authority and source traceability, maps only the required objective and context premises into the existing Learning Science input contracts, invokes the existing `deriveLearningDesign()`, and returns the resulting `ProposedLearningDesign`.
+
+This implementation authorization does not include changes to `deriveLearningDesign()`, Learning Science applicability reasoning, Learning Requirements, mechanism selection, Learning Design lifecycle, execution gating, persistence, schema, migrations, database or Supabase state, generalized handoff infrastructure, learner profiles, or new learner-execution behavior.
+
+This implementation authorization derivation does not itself authorize product implementation. The Code Change Gate remains CLOSED until this authorization is governance-verified and an explicit bounded Code Change Gate decision opens implementation for this responsibility.
 
 ## Code Change Gate
 

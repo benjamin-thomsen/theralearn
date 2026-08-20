@@ -39,6 +39,10 @@ export function help(): void {
   console.log("      Open an existing file without changing its contents.");
   console.log("");
 
+  console.log("  patch <file-path>");
+  console.log("      Apply one exact targeted replacement from JSON on stdin.");
+  console.log("");
+
   console.log("  replace <file-path>");
   console.log("      Clear an existing file and open it for replacement.");
   console.log("");

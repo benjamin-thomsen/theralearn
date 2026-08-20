@@ -5,6 +5,7 @@ import { edit } from "./commands/edit";
 import { file } from "./commands/file";
 import { help } from "./commands/help";
 import { index } from "./commands/index";
+import { patch } from "./commands/patch";
 import { replace } from "./commands/replace";
 import { search } from "./commands/search";
 import { status } from "./commands/status";
@@ -94,6 +95,20 @@ function main(): void {
 
       if (filePath) {
         edit(filePath);
+      }
+
+      break;
+    }
+
+    case "patch": {
+      const filePath = requireArgument(
+        command,
+        "file path",
+        "<file-path>",
+      );
+
+      if (filePath) {
+        patch(filePath);
       }
 
       break;
