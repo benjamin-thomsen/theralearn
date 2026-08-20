@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { extractSourceMaterial } from "./extractSourceMaterial";
 import { validateObjectiveAnalysisCandidate } from "./objectiveAnalysis";
-import { createObjectiveProposal } from "./objectiveProposal";
+import { changeObjectiveProposal, createObjectiveProposal, makeObjectiveCandidateReviewable, rejectObjectiveCandidate, approveObjectiveCandidate } from "./objectiveProposal";
 import { createBoundedPlainTextSourceDocument } from "./types";
 
 describe("Subject-Matter Intake", () => {
@@ -126,9 +126,60 @@ describe("Subject-Matter Intake", () => {
   });
 
 
+  it("invalidates prior source grounding after Creator change", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+
+    expect(candidate).toEqual({
+      state: "CREATOR_CONTROLLED",
+      statement: "Explain mentalization.",
+      supportingSourceBoundary: proposal.supportingSourceBoundary,
+      sourceGroundingState: "INVALIDATED",
+    });
+  });
+
   it("rejects an empty objective proposal statement", () => {
     expect(() =>
       createObjectiveProposal("   ", { startOffset: 0, endOffset: 1 }),
     ).toThrow("Objective proposal requires a non-empty statement.");
+  });
+
+  it("makes a changed objective reviewable only after source-grounding reassessment", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+    const reviewable = makeObjectiveCandidateReviewable(candidate, { sourceGroundingReassessed: true });
+
+    expect(reviewable).toEqual({
+      state: "REVIEWABLE",
+      statement: "Explain mentalization.",
+      supportingSourceBoundary: proposal.supportingSourceBoundary,
+      sourceGroundingState: "REASSESSED",
+    });
+  });
+
+  it("rejects a reviewable objective with no downstream authority", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+    const reviewable = makeObjectiveCandidateReviewable(candidate, { sourceGroundingReassessed: true });
+    const rejected = rejectObjectiveCandidate(reviewable);
+
+    expect(rejected).toEqual({
+      state: "REJECTED",
+      statement: "Explain mentalization.",
+      supportingSourceBoundary: proposal.supportingSourceBoundary,
+    });
+  });
+
+  it("establishes an AcceptedLearningObjective only through explicit Creator approval", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+    const reviewable = makeObjectiveCandidateReviewable(candidate, { sourceGroundingReassessed: true });
+    const accepted = approveObjectiveCandidate(reviewable);
+
+    expect(accepted).toEqual({
+      state: "ACCEPTED",
+      statement: "Explain mentalization.",
+      supportingSourceBoundary: proposal.supportingSourceBoundary,
+    });
   });
 });
