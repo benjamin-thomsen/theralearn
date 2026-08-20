@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Accepted Subject-Matter Handoff Implementation Authorized**
+**Subject-Matter Intake & Objective Formation — Accepted Subject-Matter Handoff Closed**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -1585,9 +1585,11 @@ This implementation authorization derivation does not itself authorize product i
 
 ## Code Change Gate
 
-**Bounded product implementation: OPEN — ACCEPTED SUBJECT-MATTER HANDOFF TO LEARNING SCIENCE ENGINE**
+**Bounded product implementation: CLOSED — ACCEPTED SUBJECT-MATTER HANDOFF TO LEARNING SCIENCE ENGINE**
 
-**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED**
+**Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED — COMMITTED — PUSHED — REMOTELY VERIFIED**
+
+**Verified implementation checkpoint:** `9d0381de3c00bc4a77046771171cfa9fe20dfd3f` — `Connect accepted subject matter to Learning Science`
 
 **Bounded responsibility:** Accepted Subject-Matter Handoff to Learning Science Engine
 
@@ -1662,18 +1664,18 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Implement and verify the explicitly authorized Accepted Subject-Matter Handoff to Learning Science Engine bounded adapter.
+Close and verify the Accepted Subject-Matter Handoff to Learning Science Engine governance checkpoint after the bounded implementation was verified, committed, pushed, and remotely verified at `9d0381de3c00bc4a77046771171cfa9fe20dfd3f`.
 
-Implementation is strictly limited to the OPEN — BOUNDED — GOVERNANCE VERIFIED Code Change Gate and must reuse the existing `AcceptedObjectiveWithRelevantContext`, Learning Science input contracts, and `deriveLearningDesign()` boundary.
+No further product implementation is authorized by this completed Code Change Gate.
 
 ---
 
 
 ## Next Allowed Action
 
-Implement the smallest bounded Subject-Matter Intake handoff adapter that accepts `AcceptedObjectiveWithRelevantContext`, preserves accepted objective authority and source traceability, maps the accepted objective and bounded Relevant Context into the existing Learning Science contracts, invokes `deriveLearningDesign()`, and returns the resulting `ProposedLearningDesign`.
+Verify the Accepted Subject-Matter Handoff governance closure, commit and push the closure checkpoint, and keep product implementation stopped.
 
-Stop after the bounded adapter and its focused verification. Do not expand into persistence, schema, Supabase, generalized handoff infrastructure, Learning Science reasoning changes, lifecycle changes, or new learner-execution behavior.
+Only after that closure is complete may the next bounded product responsibility be separately derived from Product Authority and the verified Subject-Matter Intake and Learning Science architecture, governance-verified, and explicitly authorized through a new bounded Code Change Gate.
 
 The completed Post-PDF browser-testable objective-proposal vertical remains closed at remote checkpoint `9160fba51f104f2519ccb2a3466c478683cec4f5`.
 
