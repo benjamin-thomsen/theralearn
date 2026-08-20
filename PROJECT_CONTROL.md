@@ -851,7 +851,7 @@ New repository files must still be Git-tracked before `checkpoint` can include t
 
 ### Developer Toolkit Exact Patch Prerequisite
 
-**Status: VERIFIED — IMPLEMENTED — COMMIT / PUSH / REMOTE VERIFICATION PENDING**
+**Status: CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED — REMOTELY VERIFIED**
 
 The Developer Toolkit File Module now provides the bounded exact-replacement command:
 
