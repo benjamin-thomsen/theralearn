@@ -5,6 +5,7 @@ import { validateObjectiveAnalysisCandidate } from "./objectiveAnalysis";
 import { changeObjectiveProposal, createObjectiveProposal, makeObjectiveCandidateReviewable, rejectObjectiveCandidate, approveObjectiveCandidate } from "./objectiveProposal";
 import { createBoundedPlainTextSourceDocument } from "./types";
 import { formBoundedRelevantContext } from "./relevantContext";
+import { handoffToLearningScience } from "./handoffToLearningScience";
 
 describe("Subject-Matter Intake", () => {
   it("rejects empty plain-text source input", () => {
@@ -215,5 +216,28 @@ describe("Subject-Matter Intake", () => {
     expect(() =>
       formBoundedRelevantContext(accepted, "   ", false),
     ).toThrow("Bounded Relevant Context requires an explicit description.");
+  });
+
+  it("hands an accepted objective and bounded Relevant Context to the existing Learning Science Engine", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+    const reviewable = makeObjectiveCandidateReviewable(candidate, { sourceGroundingReassessed: true });
+    const accepted = approveObjectiveCandidate(reviewable);
+    const acceptedHandoff = formBoundedRelevantContext(
+      accepted,
+      "Durable retention is intended for this bounded learning context.",
+      true,
+    );
+
+    const design = handoffToLearningScience(acceptedHandoff);
+
+    expect(design.state).toBe("PROPOSED");
+    expect(design.learningObjective).toEqual({
+      statement: accepted.statement,
+    });
+    expect(design.relevantContext).toBe(acceptedHandoff.relevantContext);
+    expect(acceptedHandoff.acceptedLearningObjective.supportingSourceBoundary).toBe(
+      accepted.supportingSourceBoundary,
+    );
   });
 });

@@ -211,6 +211,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/subject-matter-intake/extractSourceMaterial.ts`](./lib/subject-matter-intake/extractSourceMaterial.ts)
 - [`lib/subject-matter-intake/extractTextFromPdf.test.ts`](./lib/subject-matter-intake/extractTextFromPdf.test.ts)
 - [`lib/subject-matter-intake/extractTextFromPdf.ts`](./lib/subject-matter-intake/extractTextFromPdf.ts)
+- [`lib/subject-matter-intake/handoffToLearningScience.ts`](./lib/subject-matter-intake/handoffToLearningScience.ts)
 - [`lib/subject-matter-intake/objectiveAnalysis.ts`](./lib/subject-matter-intake/objectiveAnalysis.ts)
 - [`lib/subject-matter-intake/objectiveProposal.ts`](./lib/subject-matter-intake/objectiveProposal.ts)
 - [`lib/subject-matter-intake/openAiObjectiveAnalysisProvider.test.ts`](./lib/subject-matter-intake/openAiObjectiveAnalysisProvider.test.ts)
