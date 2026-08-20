@@ -1289,7 +1289,223 @@ Any configuration change must be verified against the exact browser-test PDF and
 
 ---
 
-## Code Change Gate
+## Creator Objective Authority Lifecycle Responsibility Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The next bounded Subject-Matter Intake responsibility is derived downstream of the completed and remotely verified Post-PDF Objective-Proposal Vertical and the verified Subject-Matter Intake architecture.
+
+The responsibility begins from one existing traceable `ObjectiveProposal` and is strictly bounded to Creator authority over that objective.
+
+The required lifecycle is:
+
+```text
+EXISTING TRACEABLE PROPOSED OBJECTIVE
+        ↓
+CREATOR REVIEW
+        ↓
+CHANGE / REJECT / APPROVE
+
+CHANGE
+        ↓
+CREATOR-CONTROLLED CANDIDATE
+        ↓
+SOURCE-GROUNDING REASSESSMENT
+        ↓
+REVIEWABLE CANDIDATE
+        ↓
+REVIEW / REJECT / APPROVE
+
+REJECT
+        ↓
+REJECTED
+        ↓
+STOP
+
+APPROVE
+        ↓
+ACCEPTED LEARNING OBJECTIVE
+        ↓
+STOP
+```
+
+### Repository Compatibility Classification
+
+**REUSE**
+
+```text
+ObjectiveProposal
+SupportingSourceBoundary
+ExtractedSourceMaterial
+existing source traceability
+existing Post-PDF objective-analysis vertical
+existing Creator-visible proposal + supporting source context
+```
+
+The existing `ObjectiveProposal` remains the entry representation for this responsibility. Existing source-material extraction, source boundaries, objective analysis, proposal creation, and Creator-visible source context must be reused rather than duplicated.
+
+**ADAPT LATER — OUTSIDE THIS SLICE**
+
+```text
+BoundedLearningDesignSlice
+direct downstream objective editing
+direct downstream Relevant Context editing
+deriveLearningDesign() integration
+```
+
+`BoundedLearningDesignSlice` currently owns editable local state for both the Learning Objective and Relevant Context and calls `deriveLearningDesign()` directly.
+
+That downstream responsibility must later be adapted to consume an already accepted upstream objective, but that adaptation is explicitly outside the Creator Objective Authority Lifecycle responsibility.
+
+**MISSING**
+
+```text
+Creator-controlled candidate representation
+source-grounding reassessment after material Creator change
+reviewable candidate lifecycle
+rejected objective state
+AcceptedLearningObjective representation
+explicit Creator change transition
+explicit Creator rejection transition
+explicit Creator approval transition
+```
+
+Repository inspection verifies that `ObjectiveProposal` currently supports only `state: "PROPOSED"`.
+
+Repository inspection also verifies that no `AcceptedLearningObjective` representation currently exists.
+
+The existing `validateObjectiveAnalysisCandidate()` validates statement presence and structural source offsets. Structural offset validity alone does not establish that a materially Creator-modified objective remains meaningfully supported by the prior source boundary.
+
+### Bounded Responsibility
+
+This responsibility begins at:
+
+```text
+EXISTING TRACEABLE PROPOSED OBJECTIVE
+```
+
+and stops at:
+
+```text
+ACCEPTED LEARNING OBJECTIVE
+```
+
+Creator change must not silently retain a stale source-grounding claim.
+
+A material Creator change must therefore invalidate the prior grounding claim until source grounding has been reassessed.
+
+Creator rejection must prevent the rejected objective from acquiring downstream authority.
+
+Only explicit Creator approval may establish an Accepted Learning Objective.
+
+The following responsibilities remain outside this bounded responsibility:
+
+```text
+Relevant Context formation
+accepted-objective handoff
+BoundedLearningDesignSlice adaptation
+deriveLearningDesign()
+Learning Science applicability reasoning
+Learning Principle selection
+Learning Requirements
+mechanism selection
+Learning Design derivation
+persistence
+schema
+migrations
+database changes
+learner execution
+```
+
+The Code Change Gate remains CLOSED.
+
+This derivation does not authorize product implementation.
+
+---
+
+## Creator Objective Authority Lifecycle Technical Realization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization that preserves the verified Creator authority lifecycle is:
+
+```text
+EXISTING ObjectiveProposal
+        ↓
+CREATOR REVIEW STATE
+        ↓
+CHANGE / REJECT / APPROVE
+
+CHANGE
+        ↓
+CREATOR-CONTROLLED CANDIDATE
+        ↓
+INVALIDATE PRIOR GROUNDING CLAIM
+        ↓
+SOURCE-GROUNDING REASSESSMENT
+        ↓
+REVIEWABLE CANDIDATE
+        ↓
+REVIEW / REJECT / APPROVE
+
+REJECT
+        ↓
+REJECTED
+        ↓
+STOP
+
+APPROVE
+        ↓
+AcceptedLearningObjective
+        ↓
+STOP
+```
+
+### Technical Rules
+
+The realization must preserve all of the following rules:
+
+1. The existing traceable `ObjectiveProposal` is the lifecycle entrypoint.
+2. Creator change produces a Creator-controlled candidate rather than silently rewriting the existing proposal authority state.
+3. A material Creator change invalidates the prior grounding claim before reassessment.
+4. Structural source-offset validity alone is insufficient to satisfy source-grounding reassessment.
+5. A changed candidate may become reviewable only after its source grounding has been reassessed.
+6. Rejection establishes a rejected objective state that cannot become downstream subject-matter authority.
+7. Only explicit Creator approval may establish `AcceptedLearningObjective`.
+8. `AcceptedLearningObjective` must be distinct from merely proposed, changed, reviewable, or rejected objective state.
+9. Existing source material, source boundaries, proposal traceability, and Post-PDF objective-analysis responsibilities must be reused.
+10. This realization must stop when an Accepted Learning Objective has been established.
+
+### Explicit Technical Non-Requirements
+
+This technical realization does not include:
+
+```text
+Relevant Context formation
+accepted-objective handoff
+BoundedLearningDesignSlice adaptation
+deriveLearningDesign()
+Learning Science applicability reasoning
+Learning Principle selection
+Learning Requirements
+mechanism selection
+Learning Design derivation
+persistence
+schema
+migrations
+database changes
+Supabase changes
+learner execution
+```
+
+No implementation technology, persistence model, schema, database representation, or downstream Learning Science integration is selected by this derivation.
+
+The Code Change Gate remains CLOSED.
+
+This technical realization does not authorize product implementation.
+
+A new bounded Code Change Gate may be considered only after both this responsibility derivation and this technical realization have been directly verified in repository authority and governance-verified.
+ ## Code Change Gate
 
 **Bounded product implementation: CLOSED — VERIFIED — POST-PDF BROWSER-TESTABLE OBJECTIVE-PROPOSAL VERTICAL**
 
