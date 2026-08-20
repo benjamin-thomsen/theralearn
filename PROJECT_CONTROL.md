@@ -1506,8 +1506,42 @@ This technical realization does not authorize product implementation.
 
 A new bounded Code Change Gate may be considered only after both this responsibility derivation and this technical realization have been directly verified in repository authority and governance-verified.
  ## Code Change Gate
+**Bounded product implementation: OPEN — CREATOR OBJECTIVE AUTHORITY LIFECYCLE**
 
-**Bounded product implementation: CLOSED — VERIFIED — POST-PDF BROWSER-TESTABLE OBJECTIVE-PROPOSAL VERTICAL**
+**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED — CODE CHANGE AUTHORIZED**
+
+**Bounded responsibility:** Creator Objective Authority Lifecycle
+
+**Purpose (bounded):** Implement the governance-verified Creator authority lifecycle over one existing traceable `ObjectiveProposal`.
+
+**Bounded scope:**
+- Creator review of one existing traceable `ObjectiveProposal`
+- Creator Change producing a Creator-controlled candidate
+- invalidation of the prior grounding claim after material Creator change
+- source-grounding reassessment before a changed candidate becomes reviewable
+- Creator Reject producing a rejected objective state with no downstream authority
+- Creator Approve as the only transition that may establish `AcceptedLearningObjective`
+
+**Out of scope:**
+- Relevant Context formation
+- accepted-objective handoff
+- `BoundedLearningDesignSlice` adaptation
+- `deriveLearningDesign()`
+- Learning Science applicability reasoning
+- Learning Principle selection
+- Learning Requirements
+- mechanism selection
+- Learning Design derivation
+- persistence
+- schema
+- migrations
+- database changes
+- Supabase changes
+- learner execution
+
+This Code Change Gate is OPEN only for the governance-verified Creator Objective Authority Lifecycle technical realization.
+
+Any implementation outside this explicit bounded scope remains unauthorized.
 
 The bounded text-based PDF extraction responsibility has been implemented, committed, pushed, and remotely verified at 06e0dfbcca7adc2436033cea51399ddb2e731435.
 
