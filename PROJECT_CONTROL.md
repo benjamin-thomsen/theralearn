@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Creator Objective Authority Lifecycle Verification Closure**
+**Subject-Matter Intake & Objective Formation — Bounded Relevant Context Formation Verification Closure**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -1505,7 +1505,48 @@ The Code Change Gate remains CLOSED.
 This technical realization does not authorize product implementation.
 
 A new bounded Code Change Gate may be considered only after both this responsibility derivation and this technical realization have been directly verified in repository authority and governance-verified.
- ## Code Change Gate
+## Bounded Relevant Context Formation Responsibility Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The next bounded Subject-Matter Intake responsibility begins from one existing `AcceptedLearningObjective` and is limited to forming the explicit bounded Relevant Context required before the existing Learning Science Engine boundary.
+
+The responsibility stops with `AcceptedLearningObjective + bounded Relevant Context + existing source traceability`. It does not enter Learning Science applicability reasoning or Learning Design derivation.
+
+This derivation does not authorize product implementation. The Code Change Gate remains CLOSED.
+
+### Minimum Technical Realization
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization is a persistence-independent Subject-Matter Intake domain representation that combines one existing `AcceptedLearningObjective` with an explicit bounded context description and an explicit `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise.
+
+This representation may prepare those premises for the existing downstream `RelevantContext` contract, but it must not perform applicability reasoning, select Active Retrieval, derive Learning Requirements, call `deriveLearningDesign()`, or adapt learner execution.
+
+The existing `AcceptedLearningObjective`, `SupportingSourceBoundary`, source traceability, Learning Science `RelevantContext` contract, and `deriveLearningDesign()` boundary must be reused rather than duplicated.
+
+No persistence, schema, migration, database, Supabase, route, UI, `BoundedLearningDesignSlice`, or lesson integration change is selected by this derivation.
+
+This derivation does not authorize product implementation. The Code Change Gate remains CLOSED.
+
+---
+
+## Code Change Gate
+
+**Bounded product implementation: CLOSED — BOUNDED RELEVANT CONTEXT FORMATION**
+
+**Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+
+**Bounded responsibility:** Bounded Relevant Context Formation
+
+**Authorized scope:** Implement the smallest persistence-independent Subject-Matter Intake domain realization that combines one existing `AcceptedLearningObjective` with an explicit bounded context description and an explicit `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise while preserving existing source traceability.
+
+**Required boundary:** The implementation must stop before Learning Science applicability reasoning and must not select Active Retrieval, derive Learning Requirements, call `deriveLearningDesign()`, adapt `BoundedLearningDesignSlice`, alter lesson integration, or authorize learner execution.
+
+**Explicitly unauthorized:** persistence, schema, migrations, database or Supabase changes, routes, UI, generalized context modelling, learner profiles, learning-style classification, generalized personalization, and generalized accessibility modelling.
+
+### Previous Closed Gate
+
 **Bounded product implementation: CLOSED — CREATOR OBJECTIVE AUTHORITY LIFECYCLE**
 
 **Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**
@@ -1555,18 +1596,18 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Close and governance-synchronize the verified Creator Objective Authority Lifecycle implementation and close its bounded Code Change Gate.
+Governance-synchronize the verified Bounded Relevant Context Formation implementation, then commit and push the closed bounded responsibility.
 
 The Creator Objective Authority Lifecycle implementation is verified, committed, and pushed at checkpoint `ad6e480`.
 
-No new product responsibility may be implemented until this bounded lifecycle gate is governance-synchronized and closed.
+No new product responsibility may be implemented until the next bounded responsibility is derived, governance-verified, and explicitly authorized through a new bounded Code Change Gate.
 
 ---
 
 
 ## Next Allowed Action
 
-Governance-synchronize and close the verified Creator Objective Authority Lifecycle Code Change Gate before any new product responsibility is considered.
+Inspect the final bounded diff and verification state, then stage only the explicitly verified files, commit, push, and verify the remote checkpoint.
 
 The next product responsibility must be separately derived from Product Authority and the verified Subject-Matter Intake and Learning Science architecture, governance-verified, and explicitly authorized through a new bounded Code Change Gate before implementation begins.
 

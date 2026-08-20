@@ -215,6 +215,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/subject-matter-intake/objectiveProposal.ts`](./lib/subject-matter-intake/objectiveProposal.ts)
 - [`lib/subject-matter-intake/openAiObjectiveAnalysisProvider.test.ts`](./lib/subject-matter-intake/openAiObjectiveAnalysisProvider.test.ts)
 - [`lib/subject-matter-intake/openAiObjectiveAnalysisProvider.ts`](./lib/subject-matter-intake/openAiObjectiveAnalysisProvider.ts)
+- [`lib/subject-matter-intake/relevantContext.ts`](./lib/subject-matter-intake/relevantContext.ts)
 - [`lib/subject-matter-intake/subjectMatterIntake.test.ts`](./lib/subject-matter-intake/subjectMatterIntake.test.ts)
 - [`lib/subject-matter-intake/types.ts`](./lib/subject-matter-intake/types.ts)
 - [`lib/supabase.ts`](./lib/supabase.ts)

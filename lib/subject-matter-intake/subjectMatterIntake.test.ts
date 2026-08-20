@@ -4,6 +4,7 @@ import { extractSourceMaterial } from "./extractSourceMaterial";
 import { validateObjectiveAnalysisCandidate } from "./objectiveAnalysis";
 import { changeObjectiveProposal, createObjectiveProposal, makeObjectiveCandidateReviewable, rejectObjectiveCandidate, approveObjectiveCandidate } from "./objectiveProposal";
 import { createBoundedPlainTextSourceDocument } from "./types";
+import { formBoundedRelevantContext } from "./relevantContext";
 
 describe("Subject-Matter Intake", () => {
   it("rejects empty plain-text source input", () => {
@@ -181,5 +182,38 @@ describe("Subject-Matter Intake", () => {
       statement: "Explain mentalization.",
       supportingSourceBoundary: proposal.supportingSourceBoundary,
     });
+  });
+  it("forms bounded Relevant Context around an AcceptedLearningObjective while preserving source traceability", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+    const reviewable = makeObjectiveCandidateReviewable(candidate, { sourceGroundingReassessed: true });
+    const accepted = approveObjectiveCandidate(reviewable);
+
+    const formed = formBoundedRelevantContext(
+      accepted,
+      "Durable retention is intended for this bounded learning context.",
+      true,
+    );
+
+    expect(formed).toEqual({
+      acceptedLearningObjective: accepted,
+      relevantContext: {
+        description: "Durable retention is intended for this bounded learning context.",
+        durableRetentionOfPreviouslyAcquiredKnowledgeIntended: true,
+      },
+    });
+    expect(formed.acceptedLearningObjective.supportingSourceBoundary).toBe(
+      accepted.supportingSourceBoundary,
+    );
+  });
+  it("rejects empty bounded Relevant Context description", () => {
+    const proposal = createObjectiveProposal("Define mentalization.", { startOffset: 0, endOffset: 10 });
+    const candidate = changeObjectiveProposal(proposal, "Explain mentalization.");
+    const reviewable = makeObjectiveCandidateReviewable(candidate, { sourceGroundingReassessed: true });
+    const accepted = approveObjectiveCandidate(reviewable);
+
+    expect(() =>
+      formBoundedRelevantContext(accepted, "   ", false),
+    ).toThrow("Bounded Relevant Context requires an explicit description.");
   });
 });
