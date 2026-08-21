@@ -1818,7 +1818,7 @@ This authorization derivation does not itself authorize product implementation. 
 
 **Bounded product implementation: CLOSED — CREATOR SUBJECT-MATTER → LEARNING DESIGN RUNTIME INTEGRATION**
 
-**Status: CLOSED — SOURCE-GROUNDING REASSESSMENT PREREQUISITE IMPLEMENTED AND VERIFIED — RUNTIME INTEGRATION NOT YET AUTHORIZED**
+**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED — SOURCE-GROUNDING REASSESSMENT PREREQUISITE IMPLEMENTED AND VERIFIED**
 
 ### Source-Grounding Reassessment Prerequisite Code Change Gate
 
@@ -1919,18 +1919,18 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Close and preserve the verified Source-Grounding Reassessment prerequisite, then determine whether the already derived and governance-verified Creator Subject-Matter → Learning Design Runtime Integration authorization satisfies the requirements for a separate bounded Code Change Gate decision.
+Implement the bounded Creator Subject-Matter → Learning Design Runtime Integration authorized by the open Code Change Gate, reusing the existing Creator objective authority lifecycle, real source-grounding reassessment, bounded Relevant Context formation, accepted handoff, and existing Learning Science derivation.
 
-The Creator Subject-Matter → Learning Design Runtime Integration Code Change Gate remains CLOSED. No runtime integration implementation is authorized until a separate explicit bounded Code Change Gate decision opens it.
+Implementation must stop when one ProposedLearningDesign derived from accepted upstream Subject-Matter premises is visible to the Creator for Learning Design review.
 
 ---
 
 
 ## Next Allowed Action
 
-Governance-verify that the already derived Creator Subject-Matter → Learning Design Runtime Integration responsibility, technical realization, minimum implementation authorization, and acceptance contract remain valid after closure of the Source-Grounding Reassessment prerequisite. Keep the runtime-integration Code Change Gate CLOSED during that verification.
+Implement the smallest server-side Creator runtime orchestration required to extend the existing /creator-objective flow through the already implemented objective authority lifecycle, real source-grounding reassessment, bounded Relevant Context formation, accepted handoff, and existing Learning Science derivation.
 
-Only if that verification passes may a separate explicit bounded Code Change Gate decision authorize the already derived Creator Subject-Matter → Learning Design Runtime Integration implementation.
+Preserve existing domain responsibilities and stop before Learning Design approval/rejection or learner execution. Verify each bounded implementation change against the existing acceptance contract.
 
 The completed Post-PDF browser-testable objective-proposal vertical remains closed at remote checkpoint `9160fba51f104f2519ccb2a3466c478683cec4f5`.
 
