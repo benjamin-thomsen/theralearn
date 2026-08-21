@@ -12,7 +12,7 @@
 
 ## Current Phase
 
-**Subject-Matter Intake & Objective Formation — Accepted Subject-Matter Handoff Closed**
+**Creator Subject-Matter → Learning Design Runtime Integration — Responsibility Derivation**
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -1583,7 +1583,262 @@ This implementation authorization does not include changes to `deriveLearningDes
 
 This implementation authorization derivation does not itself authorize product implementation. The Code Change Gate remains CLOSED until this authorization is governance-verified and an explicit bounded Code Change Gate decision opens implementation for this responsibility.
 
+## Creator Subject-Matter → Learning Design Runtime Integration Responsibility Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The bounded responsibility begins from one existing Creator-visible traceable `ObjectiveProposal` produced by the verified Post-PDF runtime and connects the already implemented Subject-Matter authority lifecycle to one Creator-visible `ProposedLearningDesign`.
+
+The required authority flow is:
+
+```text
+EXISTING TRACEABLE ObjectiveProposal
+        ↓
+CREATOR REVIEW
+        ↓
+EXISTING CHANGE / REJECT / APPROVE LIFECYCLE
+        ↓
+AcceptedLearningObjective
+        ↓
+EXISTING BOUNDED RELEVANT CONTEXT FORMATION
+        ↓
+AcceptedObjectiveWithRelevantContext
+        ↓
+EXISTING handoffToLearningScience()
+        ↓
+EXISTING deriveLearningDesign()
+        ↓
+ProposedLearningDesign
+        ↓
+CREATOR-VISIBLE LEARNING DESIGN REVIEW
+        ↓
+STOP
+```
+
+This responsibility stops when one `ProposedLearningDesign` derived from accepted upstream Subject-Matter premises is visible to the Creator for Learning Design review.
+
+It does not authorize Learning Design approval or rejection changes, learner execution changes, persistence, schema, migrations, database or Supabase changes, generalized workflow infrastructure, or new Learning Science reasoning.
+
+The Code Change Gate remains CLOSED.
+
+### Implementation Acceptance Contract
+
+A future bounded implementation may be accepted only if all of the following are demonstrated:
+
+1. One existing Creator-visible traceable `ObjectiveProposal` can enter the runtime authority lifecycle without duplicating proposal creation or source traceability.
+2. Creator change uses the existing objective lifecycle and invalidates the prior source-grounding claim before a changed candidate may become reviewable.
+3. A rejected objective cannot establish downstream Subject-Matter authority.
+4. Only explicit Creator approval may establish `AcceptedLearningObjective`.
+5. Bounded Relevant Context is formed only from an existing `AcceptedLearningObjective` through the existing `formBoundedRelevantContext()` responsibility.
+6. The resulting `AcceptedObjectiveWithRelevantContext` preserves the accepted objective and existing source traceability.
+7. Only `AcceptedObjectiveWithRelevantContext` may enter the existing `handoffToLearningScience()` boundary in this runtime path.
+8. The runtime must use the existing `handoffToLearningScience()` and existing `deriveLearningDesign()` responsibilities rather than independently deriving Learning Design from locally editable objective or context premises.
+9. The resulting `ProposedLearningDesign` must be visible to the Creator for Learning Design review.
+10. Merely proposed, changed, reviewable, or rejected objective states must be structurally prevented from becoming authoritative Learning Science input.
+11. Legacy `lesson.learning_objectives[0]`, `lesson.content`, or locally editable premises inside `BoundedLearningDesignSlice` must not establish authority for this new runtime chain.
+12. The implementation must stop before changing Learning Design approval/rejection behavior or learner execution behavior.
+13. Learning Science applicability reasoning, certified principle references, Learning Requirements, mechanism proposal, and Learning Design lifecycle must remain owned by the existing Learning Science Engine implementation.
+14. No persistence, schema, migration, database, Supabase, generalized workflow infrastructure, or new learner-execution behavior is required by this responsibility.
+
+The Code Change Gate remains CLOSED.
+
+### Minimum Technical Realization
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization is one bounded Creator runtime orchestration that extends the existing `/creator-objective` browser flow from its current Creator-visible traceable `ObjectiveProposal` through the already implemented Subject-Matter authority lifecycle, bounded Relevant Context formation, and accepted handoff into one existing `ProposedLearningDesign` visible for Creator review.
+
+The realization must:
+
+1. reuse the existing `ObjectiveProposal` lifecycle functions for Creator change, grounding invalidation/reassessment, rejection, and explicit approval;
+2. reuse the existing `AcceptedLearningObjective` representation;
+3. reuse `formBoundedRelevantContext()` to establish `AcceptedObjectiveWithRelevantContext` only after objective acceptance;
+4. reuse `handoffToLearningScience()` as the only accepted Subject-Matter-to-Learning-Science adapter in this bounded runtime path;
+5. reuse the existing `deriveLearningDesign()` implementation transitively through that handoff rather than calling it from locally editable objective/context state;
+6. expose the resulting `ProposedLearningDesign` for Creator Learning Design review;
+7. adapt `BoundedLearningDesignSlice` only as required to consume an already-derived `ProposedLearningDesign` or equivalent accepted upstream handoff result, without independently owning Learning Objective or Relevant Context authority;
+8. adapt lesson integration only where required to prevent legacy lesson objective/content from establishing authority for this new MVP runtime path.
+
+This realization must not reimplement Subject-Matter lifecycle logic, Relevant Context formation, Learning Science applicability reasoning, Learning Requirements, mechanism selection, Learning Design lifecycle, approved-design execution gating, or learner interaction.
+
+No persistence, schema, migration, database, Supabase, generalized application-service layer, generalized state-management infrastructure, or new dependency is selected or required by this derivation.
+
+The Code Change Gate remains CLOSED.
+
+### Minimum Implementation Authorization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The minimum bounded implementation authorization is limited to connecting the existing `/creator-objective` runtime from one existing Creator-visible traceable `ObjectiveProposal` through the already implemented Subject-Matter authority lifecycle, bounded Relevant Context formation, accepted handoff, and existing Learning Science derivation until one resulting `ProposedLearningDesign` is visible to the Creator for Learning Design review.
+
+#### AUTHORIZED
+
+- adapt the existing `/creator-objective` runtime to expose and execute the existing Creator objective change, grounding reassessment, rejection, and approval lifecycle;
+- reuse the existing `AcceptedLearningObjective` representation;
+- collect the minimum explicit bounded Relevant Context required by the existing `formBoundedRelevantContext()` responsibility;
+- reuse `formBoundedRelevantContext()` to create `AcceptedObjectiveWithRelevantContext` only after explicit objective acceptance;
+- reuse `handoffToLearningScience()` to enter the existing Learning Science Engine;
+- reuse the existing `deriveLearningDesign()` implementation through that handoff;
+- present the resulting existing `ProposedLearningDesign` to the Creator for review;
+- adapt `BoundedLearningDesignSlice` only where necessary to stop it from independently owning Learning Objective and Relevant Context authority in this runtime path;
+- adapt lesson integration only where necessary to prevent legacy `lesson.learning_objectives[0]` and `lesson.content` from establishing authority for this new MVP runtime chain.
+
+#### REQUIRED STOP BOUNDARY
+
+The implementation must stop when one `ProposedLearningDesign` derived from an accepted upstream Subject-Matter handoff is visible to the Creator for Learning Design review.
+
+It must not extend or change Learning Design approval/rejection behavior, Approved Learning Design execution gating, learner interaction, learner performance handling, or feedback/result behavior.
+
+#### EXPLICITLY UNAUTHORIZED
+
+Persistence, schema, migrations, database changes, Supabase changes, new storage, generalized workflow infrastructure, generalized state management, generalized Creator authoring, new Learning Science applicability logic, new Learning Requirements logic, new mechanism-selection logic, changes to certified Learning Principles, learner profiles, new learner-execution behavior, or new dependencies are outside this authorization.
+
+This derivation does not itself authorize product implementation.
+
+The Code Change Gate remains CLOSED until this authorization is governance-verified and a separate explicit bounded Code Change Gate decision opens implementation.
+
+---
+
+## Source-Grounding Reassessment Prerequisite Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The prerequisite begins from one existing `CreatorControlledObjectiveCandidate` whose prior source-grounding claim has already been invalidated by `changeObjectiveProposal()` and from the existing source material identified by its preserved `SupportingSourceBoundary`.
+
+The prerequisite responsibility is strictly limited to establishing whether the Creator-modified objective remains meaningfully supported by that existing source material.
+
+### Repository Compatibility Classification
+
+**REUSE**
+
+- `CreatorControlledObjectiveCandidate`
+- `SupportingSourceBoundary`
+- existing extracted source material and source traceability
+- existing `SourceGroundingReassessment` token
+- existing `makeObjectiveCandidateReviewable()` lifecycle boundary
+- existing server-side provider execution and explicit failure pattern
+
+**ADAPT**
+
+- the existing provider-neutral objective-analysis contract pattern
+- the existing server-side OpenAI Responses API adapter pattern
+- the existing provider failure and structurally-invalid-output test pattern
+
+The objective-analysis responsibility itself must not be reused as reassessment because it performs `source material → ObjectiveAnalysisCandidate`, not `CreatorControlledObjectiveCandidate + source material → grounding reassessment`.
+
+**MISSING**
+
+- a provider-neutral source-grounding reassessment contract
+- a concrete server-side reassessment implementation for one Creator-modified objective
+- semantic evaluation of the modified statement against its existing supporting source material
+- validation that only a positive grounding result may establish `SourceGroundingReassessment`
+
+### Bounded Responsibility
+
+The responsibility begins at:
+
+```text
+CreatorControlledObjectiveCandidate
+        +
+existing supporting source material
+```
+
+and stops at either:
+
+```text
+SourceGroundingReassessment
+```
+
+or an explicit failure / not-grounded result with no reassessment token produced.
+
+A failed, invalid, unavailable, or negative reassessment must not allow the candidate to become reviewable.
+
+The prerequisite must not approve the objective, reject the objective, form Relevant Context, perform the accepted handoff, call `deriveLearningDesign()`, perform Learning Science reasoning, authorize learner execution, or introduce persistence.
+
+### Implementation Acceptance Contract
+
+A future bounded implementation may be accepted only if all of the following are demonstrated:
+
+1. The reassessment accepts one existing `CreatorControlledObjectiveCandidate` whose grounding state is already `INVALIDATED`.
+2. The reassessment evaluates that candidate against the existing source material associated with its preserved `SupportingSourceBoundary`.
+3. Structural source-offset validity alone cannot establish successful reassessment.
+4. A positive semantic grounding evaluation is required before `SourceGroundingReassessment` may be produced.
+5. A negative grounding evaluation produces no `SourceGroundingReassessment`.
+6. Provider failure, missing credentials, invalid provider output, or malformed reassessment output fail explicitly and produce no reassessment token.
+7. Runtime code must not fabricate `{ sourceGroundingReassessed: true }` without passing through the real reassessment responsibility.
+8. Successful reassessment may feed the existing `makeObjectiveCandidateReviewable()` lifecycle boundary without changing that lifecycle responsibility.
+9. The prerequisite must preserve existing Creator authority and must not establish objective acceptance.
+10. No persistence, schema, migration, database, Supabase, Learning Science, learner-execution, or generalized AI infrastructure change is required.
+
+### Minimum Technical Realization
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization is one typed provider-neutral source-grounding reassessment contract plus one bounded server-side OpenAI adapter following the existing objective-analysis provider pattern.
+
+The contract must accept the existing Creator-controlled candidate together with the source material required to evaluate its preserved supporting boundary and must return a result from which `SourceGroundingReassessment` can be established only after successful semantic grounding evaluation.
+
+The concrete adapter may reuse the existing server runtime `fetch`, `OPENAI_API_KEY` convention, OpenAI Responses API pattern, and explicit provider-failure behavior. No new SDK or dependency is required by this realization.
+
+OpenAI-specific request, response, prompt, and model details must remain behind the provider-neutral reassessment contract.
+
+The realization stops after successful production of `SourceGroundingReassessment` or explicit reassessment failure. It must not call `makeObjectiveCandidateReviewable()` as part of the provider responsibility, approve or reject objectives, form Relevant Context, enter the Learning Science Engine, or change downstream runtime behavior.
+
+### Minimum Implementation Authorization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The minimum bounded implementation authorization is limited to implementing one real Source-Grounding Reassessment prerequisite for an existing `CreatorControlledObjectiveCandidate` whose prior grounding claim is already `INVALIDATED`.
+
+#### AUTHORIZED
+
+- add one typed provider-neutral source-grounding reassessment contract;
+- add one bounded server-side OpenAI adapter following the existing objective-analysis provider pattern;
+- evaluate the Creator-modified objective statement against the existing supporting source material identified by its preserved `SupportingSourceBoundary`;
+- validate provider output so that only a positive semantic grounding result may establish `SourceGroundingReassessment`;
+- fail explicitly on missing credentials, provider failure, invalid output, malformed reassessment result, or negative grounding;
+- reuse the existing `SourceGroundingReassessment` token only as the successful output capability passed to the existing lifecycle;
+- add bounded automated tests proving positive, negative, invalid-output, missing-credential, and provider-failure behavior.
+
+#### REQUIRED STOP BOUNDARY
+
+Implementation must stop after either a valid `SourceGroundingReassessment` has been produced from a real positive grounding evaluation or reassessment has explicitly failed without producing that token.
+
+The provider responsibility must not call `makeObjectiveCandidateReviewable()`, approve or reject an objective, form Relevant Context, perform the accepted handoff, call `deriveLearningDesign()`, or alter downstream runtime integration.
+
+#### EXPLICITLY UNAUTHORIZED
+
+Fabricating `{ sourceGroundingReassessed: true }`, changing the existing objective lifecycle semantics, Creator runtime integration, Learning Design integration, persistence, schema, migrations, database or Supabase changes, new SDKs or dependencies, generalized AI infrastructure, RAG, embeddings, vector databases, Learning Science changes, or learner execution are outside this authorization.
+
+This authorization derivation does not itself authorize product implementation. The Creator Subject-Matter → Learning Design Runtime Integration Code Change Gate remains CLOSED. A separate bounded Source-Grounding Reassessment prerequisite Code Change Gate may be considered only after this authorization is governance-verified.
+
+---
+
 ## Code Change Gate
+
+**Bounded product implementation: CLOSED — CREATOR SUBJECT-MATTER → LEARNING DESIGN RUNTIME INTEGRATION**
+
+**Status: CLOSED — SOURCE-GROUNDING REASSESSMENT PREREQUISITE IMPLEMENTED AND VERIFIED — RUNTIME INTEGRATION NOT YET AUTHORIZED**
+
+### Source-Grounding Reassessment Prerequisite Code Change Gate
+
+**Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+
+**Authorized scope:** Implement only the governance-verified Source-Grounding Reassessment prerequisite defined above.
+
+**Required stop boundary:** Stop after a real positive semantic grounding evaluation produces a valid `SourceGroundingReassessment`, or after explicit reassessment failure produces no token.
+
+**Explicitly unauthorized:** fabrication of `{ sourceGroundingReassessed: true }`, Creator runtime integration, `makeObjectiveCandidateReviewable()` orchestration inside the provider, objective approval/rejection changes, Relevant Context, accepted handoff, Learning Science changes, persistence, schema, database or Supabase changes, new dependencies, or learner execution.
+
+**Bounded responsibility:** Creator Subject-Matter → Learning Design Runtime Integration
+
+**Authorized scope:** Connect the existing `/creator-objective` runtime from one Creator-visible traceable `ObjectiveProposal` through the existing Creator objective authority lifecycle, `AcceptedLearningObjective`, `formBoundedRelevantContext()`, `AcceptedObjectiveWithRelevantContext`, `handoffToLearningScience()`, and existing `deriveLearningDesign()` until one resulting `ProposedLearningDesign` is visible to the Creator for Learning Design review.
+
+**Required boundary:** Reuse all existing Subject-Matter and Learning Science domain responsibilities. Adapt runtime integration, `BoundedLearningDesignSlice`, and lesson integration only where necessary to prevent local or legacy Learning Objective / Relevant Context authority. Stop when the accepted upstream handoff has produced one Creator-visible `ProposedLearningDesign`.
+
+**Explicitly unauthorized:** changes to Learning Design approval/rejection behavior, Approved Learning Design execution gating, learner interaction, learner performance or feedback/result behavior, persistence, schema, migrations, database or Supabase changes, generalized workflow infrastructure, generalized state management, new Learning Science applicability logic, new Learning Requirements logic, new mechanism-selection logic, changes to certified Learning Principles, learner profiles, or new dependencies.
+
+### Previous Closed Gate
 
 **Bounded product implementation: CLOSED — ACCEPTED SUBJECT-MATTER HANDOFF TO LEARNING SCIENCE ENGINE**
 
@@ -1599,7 +1854,7 @@ This implementation authorization derivation does not itself authorize product i
 
 **Explicitly unauthorized:** persistence, schema, migrations, database or Supabase changes, generalized handoff infrastructure, learner profiles, new learner-execution behavior, or changes to existing Learning Science reasoning and lifecycle responsibilities.
 
-### Previous Closed Gate
+### Earlier Closed Gate
 
 **Bounded product implementation: CLOSED — BOUNDED RELEVANT CONTEXT FORMATION**
 
@@ -1664,18 +1919,18 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Close and verify the Accepted Subject-Matter Handoff to Learning Science Engine governance checkpoint after the bounded implementation was verified, committed, pushed, and remotely verified at `9d0381de3c00bc4a77046771171cfa9fe20dfd3f`.
+Close and preserve the verified Source-Grounding Reassessment prerequisite, then determine whether the already derived and governance-verified Creator Subject-Matter → Learning Design Runtime Integration authorization satisfies the requirements for a separate bounded Code Change Gate decision.
 
-No further product implementation is authorized by this completed Code Change Gate.
+The Creator Subject-Matter → Learning Design Runtime Integration Code Change Gate remains CLOSED. No runtime integration implementation is authorized until a separate explicit bounded Code Change Gate decision opens it.
 
 ---
 
 
 ## Next Allowed Action
 
-Verify the Accepted Subject-Matter Handoff governance closure, commit and push the closure checkpoint, and keep product implementation stopped.
+Governance-verify that the already derived Creator Subject-Matter → Learning Design Runtime Integration responsibility, technical realization, minimum implementation authorization, and acceptance contract remain valid after closure of the Source-Grounding Reassessment prerequisite. Keep the runtime-integration Code Change Gate CLOSED during that verification.
 
-Only after that closure is complete may the next bounded product responsibility be separately derived from Product Authority and the verified Subject-Matter Intake and Learning Science architecture, governance-verified, and explicitly authorized through a new bounded Code Change Gate.
+Only if that verification passes may a separate explicit bounded Code Change Gate decision authorize the already derived Creator Subject-Matter → Learning Design Runtime Integration implementation.
 
 The completed Post-PDF browser-testable objective-proposal vertical remains closed at remote checkpoint `9160fba51f104f2519ccb2a3466c478683cec4f5`.
 
