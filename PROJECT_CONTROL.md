@@ -12,7 +12,16 @@
 
 ## Current Phase
 
-**Creator Subject-Matter → Learning Design Runtime Integration — Responsibility Derivation**
+**Creator Subject-Matter → Learning Design Runtime Integration — CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED — REMOTELY VERIFIED**
+
+Verified implementation checkpoint:
+
+```text
+3de5db4d9b943a74e2908e4e94a15fe95f1673e3
+Connect accepted objective to learning design runtime
+```
+
+Repository evidence, bounded automated tests, canonical complete verification, and the established browser-runtime outcome verify the implementation against the governance-verified Implementation Acceptance Contract. The implementation stops when one `ProposedLearningDesign` derived from accepted upstream Subject-Matter premises is visible to the Creator for Learning Design review.
 
 The bounded **Learning Science Engine — Minimum Implementation Slice** is now **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED**.
 
@@ -1818,7 +1827,11 @@ This authorization derivation does not itself authorize product implementation. 
 
 **Bounded product implementation: CLOSED — CREATOR SUBJECT-MATTER → LEARNING DESIGN RUNTIME INTEGRATION**
 
-**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED — SOURCE-GROUNDING REASSESSMENT PREREQUISITE IMPLEMENTED AND VERIFIED**
+**Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED — COMMITTED — PUSHED — REMOTELY VERIFIED**
+
+**Verified implementation checkpoint:** `3de5db4d9b943a74e2908e4e94a15fe95f1673e3` — `Connect accepted objective to learning design runtime`
+
+The bounded authorization has been consumed and is closed. No further product implementation is authorized by this completed gate.
 
 ### Source-Grounding Reassessment Prerequisite Code Change Gate
 
@@ -1919,20 +1932,16 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-Implement the bounded Creator Subject-Matter → Learning Design Runtime Integration authorized by the open Code Change Gate, reusing the existing Creator objective authority lifecycle, real source-grounding reassessment, bounded Relevant Context formation, accepted handoff, and existing Learning Science derivation.
+The bounded Creator Subject-Matter → Learning Design Runtime Integration is closed after verification, commit, push, and remote verification at `3de5db4d9b943a74e2908e4e94a15fe95f1673e3`.
 
-Implementation must stop when one ProposedLearningDesign derived from accepted upstream Subject-Matter premises is visible to the Creator for Learning Design review.
+No new product implementation task is currently authorized.
 
 ---
 
 
 ## Next Allowed Action
 
-Implement the smallest server-side Creator runtime orchestration required to extend the existing /creator-objective flow through the already implemented objective authority lifecycle, real source-grounding reassessment, bounded Relevant Context formation, accepted handoff, and existing Learning Science derivation.
-
-Preserve existing domain responsibilities and stop before Learning Design approval/rejection or learner execution. Verify each bounded implementation change against the existing acceptance contract.
-
-The completed Post-PDF browser-testable objective-proposal vertical remains closed at remote checkpoint `9160fba51f104f2519ccb2a3466c478683cec4f5`.
+Derive and governance-verify the next smallest bounded MVP delivery responsibility downstream of the completed Creator-visible `ProposedLearningDesign`, without implementing product behavior or opening a Code Change Gate until its responsibility, acceptance contract, technical realization, and minimum authorization are explicitly established.
 
 ---
 
