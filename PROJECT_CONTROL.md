@@ -12,7 +12,9 @@
 
 ## Current Phase
 
-**Creator Subject-Matter → Learning Design Runtime Integration — CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED — REMOTELY VERIFIED**
+**Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback — Responsibility Derivation**
+
+The bounded Creator Subject-Matter → Learning Design Runtime Integration remains **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED — REMOTELY VERIFIED**.
 
 Verified implementation checkpoint:
 
@@ -1823,6 +1825,107 @@ This authorization derivation does not itself authorize product implementation. 
 
 ---
 
+## Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback Responsibility Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The next smallest externally testable MVP responsibility begins from the existing Creator-visible `ProposedLearningDesign` produced by the completed `/creator-objective` flow and stops after one active Learner response produces visible source-grounded feedback or result information.
+
+The exact bounded flow is:
+
+```text
+EXISTING CREATOR-VISIBLE ProposedLearningDesign
+        ↓
+CREATOR APPROVE / REJECT
+        ↓
+ApprovedLearningDesign ONLY
+        ↓
+EXISTING EXECUTION AUTHORITY CHECK
+        ↓
+ONE BOUNDED ACTIVE RETRIEVAL ATTEMPT
+        ↓
+SOURCE-GROUNDED FEEDBACK / RESULT
+        ↓
+STOP
+```
+
+A rejected, merely proposed, or invalidated Learning Design must not authorize Learner execution. The bounded retrieval experience must remain downstream of the accepted Learning Objective, bounded Relevant Context, existing Learning Science derivation, and explicit Creator approval.
+
+### Repository Compatibility Classification
+
+**REUSE**
+
+- the existing `ProposedLearningDesign`, `ApprovedLearningDesign`, and Learning Design state representations;
+- `approveLearningDesign()` and `rejectLearningDesign()`;
+- `requireApprovedLearningDesign()` as the execution-authority boundary;
+- the already derived Learning Objective, Relevant Context, applicable principles, rationale, Learning Requirements, proposed mechanism, performance requirement, feedback/result requirement, and Creator-controlled decisions;
+- existing accepted-objective source traceability and supporting source context;
+- the existing interaction rule that a Learner response must precede reveal.
+
+**ADAPT**
+
+- the existing `/creator-objective` presentation to expose explicit Creator Learning Design approval and rejection after the current proposal review;
+- the existing approved-retrieval presentation pattern only as required to consume the authoritative `ApprovedLearningDesign` produced by this runtime chain;
+- the existing bounded response-before-reveal and feedback presentation behavior where it can remain tied to the accepted objective and supporting source context.
+
+`BoundedLearningDesignSlice` may be used only as an implementation reference. It must not independently edit or derive Learning Objective or Relevant Context authority for this runtime path, and legacy lesson objective, lesson content, or quiz data must not silently become authoritative inputs.
+
+**NEW**
+
+- one minimum in-session Creator-to-Learner handoff from the approved design;
+- one bounded retrieval presentation tied to the accepted objective and existing supporting source context;
+- focused automated verification of approval, rejection, execution guarding, response-before-reveal, and feedback/result behavior.
+
+### Minimum Technical Realization
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The smallest technical realization adapts the existing `/creator-objective` client runtime to apply the existing Learning Design approval or rejection lifecycle to its current `ProposedLearningDesign`. Only the resulting `ApprovedLearningDesign` may be passed through `requireApprovedLearningDesign()` into one bounded retrieval interaction.
+
+The interaction requires one active Learner response before revealing bounded feedback grounded in the existing accepted objective and supporting source context. Runtime state may remain in memory for the single browser session.
+
+The minimum implementation surface is limited to:
+
+```text
+app/creator-objective/page.tsx
+one small approved Creator-flow retrieval presentation under components/
+one focused automated test responsibility for the bounded runtime boundary
+```
+
+Existing Learning Science lifecycle, execution guard, derivation, Subject-Matter Intake, and source-grounding domain responsibilities must be reused without modification unless a separately verified repository constraint proves an adaptation necessary.
+
+### Minimum Acceptance Contract
+
+A future bounded implementation may be accepted only if all of the following are demonstrated:
+
+1. The existing Creator-visible `ProposedLearningDesign` can be explicitly approved or rejected.
+2. Approval uses the existing `approveLearningDesign()` responsibility and produces `ApprovedLearningDesign`.
+3. Rejection uses the existing `rejectLearningDesign()` responsibility and exposes no Learner activity.
+4. A proposed, rejected, or invalidated Learning Design is structurally prevented from entering Learner execution.
+5. Learner execution passes through the existing `requireApprovedLearningDesign()` authority boundary.
+6. The Learner activity realizes the approved `bounded-retrieval` mechanism and remains traceable to the accepted Learning Objective and existing Learning Science derivation.
+7. The Learner must submit one active response before source-grounded feedback or answer information is revealed.
+8. The attempt produces visible feedback or result information tied to the bounded activity.
+9. Existing supporting source context remains the authority for revealed subject-matter feedback; the runtime must not invent new subject-matter truth.
+10. Legacy lesson objectives, lesson content, quiz data, or locally editable premises must not establish authority for this new runtime chain.
+11. The implementation stops after one bounded attempt and its visible feedback/result.
+
+### Explicit Exclusions
+
+This responsibility does not include Learning Design editing or re-derivation, generalized Creator publishing, generalized learner routing, multiple activities, generated question banks, generalized assessment, learner profiles, authentication or role-system expansion, analytics, certification, new Learning Science reasoning, changes to certified Learning Principles, or generalized workflow/state infrastructure.
+
+No persistence, schema, migrations, database, Supabase, storage, learner-progress, mastery, scoring, adaptive scheduling, spaced-repetition scheduling, or longitudinal learner-state changes are required or authorized.
+
+### Minimum Implementation Authorization Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+The minimum bounded implementation authorization is limited to connecting the existing Creator-visible `ProposedLearningDesign` to the existing Learning Design approval/rejection lifecycle and, only after approval and execution-authority validation, exposing one in-session bounded retrieval attempt followed by source-grounded feedback/result.
+
+This derivation does not authorize product implementation. A separate explicit Code Change Gate decision is required before any implementation begins.
+
+---
+
 ## Code Change Gate
 
 **Bounded product implementation: CLOSED — CREATOR SUBJECT-MATTER → LEARNING DESIGN RUNTIME INTEGRATION**
@@ -1932,7 +2035,7 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The bounded Creator Subject-Matter → Learning Design Runtime Integration is closed after verification, commit, push, and remote verification at `3de5db4d9b943a74e2908e4e94a15fe95f1673e3`.
+The bounded Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback responsibility, technical realization, acceptance contract, exclusions, and minimum implementation authorization are derived and governance-verified.
 
 No new product implementation task is currently authorized.
 
@@ -1941,7 +2044,7 @@ No new product implementation task is currently authorized.
 
 ## Next Allowed Action
 
-Derive and governance-verify the next smallest bounded MVP delivery responsibility downstream of the completed Creator-visible `ProposedLearningDesign`, without implementing product behavior or opening a Code Change Gate until its responsibility, acceptance contract, technical realization, and minimum authorization are explicitly established.
+Make a separate explicit governance decision whether to open one bounded Code Change Gate for the derived Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback minimum implementation authorization; do not implement product behavior unless and until that gate is explicitly opened.
 
 ---
 
