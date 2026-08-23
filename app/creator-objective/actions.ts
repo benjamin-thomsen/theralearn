@@ -4,6 +4,54 @@ import { extractSourceMaterial } from "@/lib/subject-matter-intake/extractSource
 import { extractTextFromPdf } from "@/lib/subject-matter-intake/extractTextFromPdf";
 import { validateObjectiveAnalysisCandidate } from "@/lib/subject-matter-intake/objectiveAnalysis";
 import { OpenAiObjectiveAnalysisProvider } from "@/lib/subject-matter-intake/openAiObjectiveAnalysisProvider";
+import { OpenAiSourceGroundingReassessmentProvider } from "@/lib/subject-matter-intake/openAiSourceGroundingReassessmentProvider";
+import {
+  approveObjectiveCandidate,
+  changeObjectiveProposal,
+  makeObjectiveCandidateReviewable,
+  rejectObjectiveCandidate,
+  type ObjectiveProposal,
+  type ReviewableObjectiveCandidate,
+} from "@/lib/subject-matter-intake/objectiveProposal";
+import type { ExtractedSourceMaterial } from "@/lib/subject-matter-intake/extractSourceMaterial";
+import { formBoundedRelevantContext } from "@/lib/subject-matter-intake/relevantContext";
+import { handoffToLearningScience } from "@/lib/subject-matter-intake/handoffToLearningScience";
+
+export async function reassessCreatorObjectiveChange(
+  proposal: ObjectiveProposal,
+  statement: string,
+  sourceMaterial: ExtractedSourceMaterial,
+) {
+  const candidate = changeObjectiveProposal(proposal, statement);
+  const provider = new OpenAiSourceGroundingReassessmentProvider();
+  const reassessment = await provider.reassessSourceGrounding(
+    candidate,
+    sourceMaterial,
+  );
+
+  return makeObjectiveCandidateReviewable(candidate, reassessment);
+}
+
+export async function rejectCreatorObjective(
+  candidate: ReviewableObjectiveCandidate,
+) {
+  return rejectObjectiveCandidate(candidate);
+}
+
+export async function approveCreatorObjectiveAndDeriveLearningDesign(
+  candidate: ReviewableObjectiveCandidate,
+  contextDescription: string,
+  durableRetentionOfPreviouslyAcquiredKnowledgeIntended: boolean,
+) {
+  const acceptedLearningObjective = approveObjectiveCandidate(candidate);
+  const acceptedHandoff = formBoundedRelevantContext(
+    acceptedLearningObjective,
+    contextDescription,
+    durableRetentionOfPreviouslyAcquiredKnowledgeIntended,
+  );
+
+  return handoffToLearningScience(acceptedHandoff);
+}
 
 export async function analyzeCreatorObjective(formData: FormData) {
   const fileValue = formData.get("pdf");
@@ -27,6 +75,7 @@ export async function analyzeCreatorObjective(formData: FormData) {
 
   return {
     proposal,
+    sourceMaterial,
     supportingSourceContext: sourceMaterial.text.slice(
       proposal.supportingSourceBoundary.startOffset,
       proposal.supportingSourceBoundary.endOffset,

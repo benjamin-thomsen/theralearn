@@ -3,15 +3,29 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 
-import { analyzeCreatorObjective } from "./actions";
+import {
+  analyzeCreatorObjective,
+  approveCreatorObjectiveAndDeriveLearningDesign,
+  reassessCreatorObjectiveChange,
+  rejectCreatorObjective,
+} from "./actions";
 import styles from "./page.module.css";
 
 type ObjectiveAnalysisResult = Awaited<ReturnType<typeof analyzeCreatorObjective>>;
+type ReviewableObjective = Awaited<ReturnType<typeof reassessCreatorObjectiveChange>>;
+type RejectedObjective = Awaited<ReturnType<typeof rejectCreatorObjective>>;
+type ProposedLearningDesign = Awaited<ReturnType<typeof approveCreatorObjectiveAndDeriveLearningDesign>>;
 
 export default function CreatorObjectivePage() {
   const [result, setResult] = useState<ObjectiveAnalysisResult | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [objectiveStatement, setObjectiveStatement] = useState("");
+  const [reviewableObjective, setReviewableObjective] = useState<ReviewableObjective | null>(null);
+  const [rejectedObjective, setRejectedObjective] = useState<RejectedObjective | null>(null);
+  const [contextDescription, setContextDescription] = useState("");
+  const [durableRetentionIntended, setDurableRetentionIntended] = useState(false);
+  const [learningDesign, setLearningDesign] = useState<ProposedLearningDesign | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -23,8 +37,71 @@ export default function CreatorObjectivePage() {
       const formData = new FormData(event.currentTarget);
       const analysisResult = await analyzeCreatorObjective(formData);
       setResult(analysisResult);
+      setObjectiveStatement(analysisResult.proposal.statement);
+      setReviewableObjective(null);
+      setRejectedObjective(null);
+      setContextDescription("");
+      setDurableRetentionIntended(false);
+      setLearningDesign(null);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Objective analysis failed.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function handleObjectiveChange() {
+    if (!result) return;
+
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const reviewable = await reassessCreatorObjectiveChange(
+        result.proposal,
+        objectiveStatement,
+        result.sourceMaterial,
+      );
+      setReviewableObjective(reviewable);
+      setRejectedObjective(null);
+      setLearningDesign(null);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Objective reassessment failed.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function handleRejectObjective() {
+    if (!reviewableObjective) return;
+
+    setError("");
+
+    try {
+      const rejected = await rejectCreatorObjective(reviewableObjective);
+      setRejectedObjective(rejected);
+      setReviewableObjective(null);
+      setLearningDesign(null);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Objective rejection failed.");
+    }
+  }
+
+  async function handleApproveObjective() {
+    if (!reviewableObjective) return;
+
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const design = await approveCreatorObjectiveAndDeriveLearningDesign(
+        reviewableObjective,
+        contextDescription,
+        durableRetentionIntended,
+      );
+      setLearningDesign(design);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Learning Design derivation failed.");
     } finally {
       setIsLoading(false);
     }
@@ -56,7 +133,88 @@ export default function CreatorObjectivePage() {
           <section className={styles.result}>
             <p className={styles.state}>{result.proposal.state}</p>
             <h2>Foreslået læringsmål</h2>
-            <p>{result.proposal.statement}</p>
+            <label className={styles.field}>
+              <span>Læringsmål</span>
+              <input
+                value={objectiveStatement}
+                onChange={(event) => setObjectiveStatement(event.target.value)}
+                disabled={isLoading || Boolean(rejectedObjective) || Boolean(learningDesign)}
+              />
+            </label>
+            {!reviewableObjective && !rejectedObjective && !learningDesign ? (
+              <button className={styles.button} type="button" onClick={handleObjectiveChange} disabled={isLoading || !objectiveStatement.trim()}>
+                {isLoading ? "Revurderer..." : "Revurder læringsmål"}
+              </button>
+            ) : null}
+
+            {reviewableObjective && !learningDesign ? (
+              <section className={styles.result}>
+                <p className={styles.state}>{reviewableObjective.state}</p>
+                <h3>Review af læringsmål</h3>
+                <p>{reviewableObjective.statement}</p>
+
+                <label className={styles.field}>
+                  <span>Relevant kontekst</span>
+                  <input
+                    value={contextDescription}
+                    onChange={(event) => setContextDescription(event.target.value)}
+                    disabled={isLoading}
+                  />
+                </label>
+
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={durableRetentionIntended}
+                    onChange={(event) => setDurableRetentionIntended(event.target.checked)}
+                    disabled={isLoading}
+                  />{" "}
+                  Varig fastholdelse af tidligere tilegnet viden er tilsigtet
+                </label>
+
+                <button
+                  className={styles.button}
+                  type="button"
+                  onClick={handleRejectObjective}
+                  disabled={isLoading}
+                >
+                  Afvis læringsmål
+                </button>
+
+                <button
+                  className={styles.button}
+                  type="button"
+                  onClick={handleApproveObjective}
+                  disabled={isLoading || !contextDescription.trim() || !durableRetentionIntended}
+                >
+                  {isLoading ? "Afleder Learning Design..." : "Godkend læringsmål"}
+                </button>
+              </section>
+            ) : null}
+
+            {rejectedObjective ? (
+              <p className={styles.message}>Læringsmålet er afvist.</p>
+            ) : null}
+
+            {learningDesign ? (
+              <section className={styles.result}>
+                <p className={styles.state}>{learningDesign.state}</p>
+                <h2>Foreslået Learning Design</h2>
+                <p><strong>Læringsmål:</strong> {learningDesign.learningObjective.statement}</p>
+                <p><strong>Relevant kontekst:</strong> {learningDesign.relevantContext.description}</p>
+                <p><strong>Varig fastholdelse:</strong> {learningDesign.relevantContext.durableRetentionOfPreviouslyAcquiredKnowledgeIntended ? "Ja" : "Nej"}</p>
+                <p><strong>Anvendelige principper:</strong> {learningDesign.applicablePrinciples.join(", ")}</p>
+                <p><strong>Learning Science-rationale:</strong> {learningDesign.learningScienceRationale}</p>
+                <h3>Læringskrav</h3>
+                <ul>{learningDesign.learningRequirements.map((requirement) => <li key={requirement.description}>{requirement.description}</li>)}</ul>
+                <p><strong>Foreslået mekanisme:</strong> {learningDesign.proposedLearningMechanism.kind} — {learningDesign.proposedLearningMechanism.description}</p>
+                <p><strong>Learner performance requirement:</strong> {learningDesign.learnerPerformanceRequirement.description}</p>
+                <p><strong>Feedback result requirement:</strong> {learningDesign.feedbackResultRequirement.description}</p>
+                <h3>Creator-controlled decisions</h3>
+                <ul>{learningDesign.creatorControlledDecisions.map((decision) => <li key={decision.description}>{decision.description}</li>)}</ul>
+              </section>
+            ) : null}
+
             <h3>Understøttende kildekontekst</h3>
             <blockquote className={styles.source}>
               {result.supportingSourceContext}
