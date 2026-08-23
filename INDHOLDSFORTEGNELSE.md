@@ -161,6 +161,8 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 ## Components
 
+- [`components/ApprovedCreatorRetrievalExperience.test.ts`](./components/ApprovedCreatorRetrievalExperience.test.ts)
+- [`components/ApprovedCreatorRetrievalExperience.tsx`](./components/ApprovedCreatorRetrievalExperience.tsx)
 - [`components/ApprovedRetrievalExperience.tsx`](./components/ApprovedRetrievalExperience.tsx)
 - [`components/AuthoritativeQuizQuestion.tsx`](./components/AuthoritativeQuizQuestion.tsx)
 - [`components/BoundedLearningDesignSlice.tsx`](./components/BoundedLearningDesignSlice.tsx)
@@ -303,6 +305,8 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 ## Scripts
 
+- [`scripts/codex-notify`](./scripts/codex-notify)
+- [`scripts/codex-notify.test.sh`](./scripts/codex-notify.test.sh)
 - [`scripts/create-docs-structure.sh`](./scripts/create-docs-structure.sh)
 - [`scripts/dev`](./scripts/dev)
 - [`scripts/set-openai-key.sh`](./scripts/set-openai-key.sh)

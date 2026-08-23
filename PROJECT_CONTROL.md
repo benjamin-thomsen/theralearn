@@ -2063,14 +2063,18 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-No product implementation task is currently authorized. The bounded Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback responsibility is implemented, runtime-verified, and closed.
+The active bounded governance task is the **Codex workflow documentation repair**: establish the permanent Codex and host-shell responsibility boundary in `PROJECT_HANDBOOK.md`, reference it from the New Chat / Context Recovery Procedure, and align `AGENTS.md` with that boundary.
+
+This task is documentation-only. No product implementation is authorized.
 
 ---
 
 
 ## Next Allowed Action
 
-Perform governance derivation and verification for the next smallest bounded MVP responsibility. Product implementation may resume only after `PROJECT_CONTROL.md` records a separately governance-verified technical realization, minimum implementation authorization, and explicit open Code Change Gate.
+Complete and locally verify only the bounded Codex workflow documentation repair in `PROJECT_HANDBOOK.md`, `AGENTS.md`, and this `PROJECT_CONTROL.md` update. Do not modify `INDHOLDSFORTEGNELSE.md` as part of this task.
+
+After this repair, any further work requires a newly recorded bounded governance task. Product implementation may resume only after `PROJECT_CONTROL.md` records a separately governance-verified technical realization, minimum implementation authorization, and explicit open Code Change Gate.
 
 ---
 

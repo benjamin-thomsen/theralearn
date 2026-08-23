@@ -345,6 +345,20 @@ Preferred behavior:
 - preserve complete verification output when it is needed for review;
 - keep Git history meaningful and scoped to coherent changes.
 
+### Codex and Host-Shell Responsibility Boundary
+
+Codex operates unconditionally as a local-only repository assistant. Within the bounded authorization recorded in `PROJECT_CONTROL.md`, Codex may inspect repository files, edit authorized files, review local changes without Git, and run local verification that does not require Git, GitHub, or network access.
+
+Codex must not:
+
+- run Git commands;
+- commit or push changes;
+- access GitHub or any other network resource;
+- perform remote verification;
+- claim that a commit, push, remote branch state, or remote verification has occurred.
+
+The host shell owns all Git operations, GitHub access, commits, pushes, and remote verification. Any resulting remote state becomes project authority only after it has been established outside Codex and accurately recorded in the appropriate authoritative project document.
+
 ---
 
 ## Documentation Change Rule
@@ -374,6 +388,8 @@ For a fresh working session:
 3. read `PROJECT_CONTROL.md`;
 4. read only the domain documentation relevant to the current task;
 5. inspect the current implementation before proposing changes.
+
+Every recovered session must also apply the permanent local-only Codex and host-shell responsibility boundary defined under **Terminal and Editing Discipline**.
 
 Historical chats should be loaded only when a specific unresolved claim requires historical evidence that is not available in authoritative documentation or Git history.
 
