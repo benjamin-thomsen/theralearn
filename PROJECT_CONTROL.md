@@ -2063,18 +2063,26 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The active bounded governance task is the **Codex workflow documentation repair**: establish the permanent Codex and host-shell responsibility boundary in `PROJECT_HANDBOOK.md`, reference it from the New Chat / Context Recovery Procedure, and align `AGENTS.md` with that boundary.
+The bounded **Codex workflow documentation repair** is **CLOSED — VERIFIED — COMMITTED — PUSHED — REMOTELY VERIFIED**.
 
-This task is documentation-only. No product implementation is authorized.
+Verified documentation checkpoint:
+
+```text
+5b20c20fcc183d7b3ba79d0bb266a09f138b5189
+```
+
+The active bounded governance task is to derive and verify the **next smallest bounded MVP responsibility** from the permanent Product Authority, architecture authority, current verified implementation state, and remaining MVP boundary.
+
+This task is governance derivation and verification only. No product implementation is authorized.
 
 ---
 
 
 ## Next Allowed Action
 
-Complete and locally verify only the bounded Codex workflow documentation repair in `PROJECT_HANDBOOK.md`, `AGENTS.md`, and this `PROJECT_CONTROL.md` update. Do not modify `INDHOLDSFORTEGNELSE.md` as part of this task.
+Derive the next smallest bounded MVP responsibility, classify repository compatibility, define its minimum acceptance contract, minimum technical realization, explicit exclusions, and minimum implementation authorization boundary, and governance-verify that derivation against the permanent Product Authority and architecture authority.
 
-After this repair, any further work requires a newly recorded bounded governance task. Product implementation may resume only after `PROJECT_CONTROL.md` records a separately governance-verified technical realization, minimum implementation authorization, and explicit open Code Change Gate.
+No product implementation is authorized without a subsequent explicit open bounded Code Change Gate recorded in `PROJECT_CONTROL.md` after the responsibility, technical realization, and minimum implementation authorization have been governance-verified.
 
 ---
 
