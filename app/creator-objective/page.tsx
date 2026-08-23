@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 
+import ApprovedCreatorRetrievalExperience from "@/components/ApprovedCreatorRetrievalExperience";
+import {
+  approveLearningDesign,
+  rejectLearningDesign,
+} from "@/lib/learning-science/learningDesignLifecycle";
+import type { LearningDesign } from "@/lib/learning-science/types";
 import {
   analyzeCreatorObjective,
   approveCreatorObjectiveAndDeriveLearningDesign,
@@ -14,7 +20,6 @@ import styles from "./page.module.css";
 type ObjectiveAnalysisResult = Awaited<ReturnType<typeof analyzeCreatorObjective>>;
 type ReviewableObjective = Awaited<ReturnType<typeof reassessCreatorObjectiveChange>>;
 type RejectedObjective = Awaited<ReturnType<typeof rejectCreatorObjective>>;
-type ProposedLearningDesign = Awaited<ReturnType<typeof approveCreatorObjectiveAndDeriveLearningDesign>>;
 
 export default function CreatorObjectivePage() {
   const [result, setResult] = useState<ObjectiveAnalysisResult | null>(null);
@@ -25,7 +30,7 @@ export default function CreatorObjectivePage() {
   const [rejectedObjective, setRejectedObjective] = useState<RejectedObjective | null>(null);
   const [contextDescription, setContextDescription] = useState("");
   const [durableRetentionIntended, setDurableRetentionIntended] = useState(false);
-  const [learningDesign, setLearningDesign] = useState<ProposedLearningDesign | null>(null);
+  const [learningDesign, setLearningDesign] = useState<LearningDesign | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -105,6 +110,18 @@ export default function CreatorObjectivePage() {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function handleApproveLearningDesign() {
+    setLearningDesign((design) =>
+      design?.state === "PROPOSED" ? approveLearningDesign(design) : design,
+    );
+  }
+
+  function handleRejectLearningDesign() {
+    setLearningDesign((design) =>
+      design?.state === "PROPOSED" ? rejectLearningDesign(design) : design,
+    );
   }
 
   return (
@@ -212,16 +229,52 @@ export default function CreatorObjectivePage() {
                 <p><strong>Feedback result requirement:</strong> {learningDesign.feedbackResultRequirement.description}</p>
                 <h3>Creator-controlled decisions</h3>
                 <ul>{learningDesign.creatorControlledDecisions.map((decision) => <li key={decision.description}>{decision.description}</li>)}</ul>
+
+                {learningDesign.state === "PROPOSED" ? (
+                  <>
+                    <button
+                      className={styles.button}
+                      type="button"
+                      onClick={handleApproveLearningDesign}
+                    >
+                      Godkend Learning Design
+                    </button>
+                    <button
+                      className={styles.button}
+                      type="button"
+                      onClick={handleRejectLearningDesign}
+                    >
+                      Afvis Learning Design
+                    </button>
+                  </>
+                ) : null}
+
+                {learningDesign.state === "REJECTED" ? (
+                  <p className={styles.message}>
+                    Learning Design er afvist. Learner-udførelse er ikke godkendt.
+                  </p>
+                ) : null}
+
+                {learningDesign.state === "APPROVED" ? (
+                  <ApprovedCreatorRetrievalExperience
+                    learningDesign={learningDesign}
+                    supportingSourceContext={result.supportingSourceContext}
+                  />
+                ) : null}
               </section>
             ) : null}
 
-            <h3>Understøttende kildekontekst</h3>
-            <blockquote className={styles.source}>
-              {result.supportingSourceContext}
-            </blockquote>
-            <p className={styles.offsets}>
-              Kildegrænse: {result.proposal.supportingSourceBoundary.startOffset} – {result.proposal.supportingSourceBoundary.endOffset}
-            </p>
+            {learningDesign?.state !== "APPROVED" ? (
+              <>
+                <h3>Understøttende kildekontekst</h3>
+                <blockquote className={styles.source}>
+                  {result.supportingSourceContext}
+                </blockquote>
+                <p className={styles.offsets}>
+                  Kildegrænse: {result.proposal.supportingSourceBoundary.startOffset} – {result.proposal.supportingSourceBoundary.endOffset}
+                </p>
+              </>
+            ) : null}
           </section>
         ) : null}
       </section>

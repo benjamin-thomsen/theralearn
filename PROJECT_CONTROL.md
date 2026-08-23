@@ -6,13 +6,19 @@
 >
 > Role: Current verified project state and workflow gate
 >
-> Last updated: 2026-08-17
+> Last updated: 2026-08-23
 
 ---
 
 ## Current Phase
 
-**Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback — Responsibility Derivation**
+**Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback — CLOSED — VERIFIED — IMPLEMENTED**
+
+The bounded Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
+
+Bounded automated verification and direct browser-runtime verification establish the complete Minimum Acceptance Contract. The Creator explicitly approved the Learning Design, the approved design passed the existing execution-authority boundary, the Learner completed one active retrieval response before reveal, and the visible feedback compared the response with the approved source context. The rejection runtime was separately verified to expose no Learner activity.
+
+The bounded authorization has been consumed and is closed. No further product implementation is authorized by this completed gate.
 
 The bounded Creator Subject-Matter → Learning Design Runtime Integration remains **CLOSED — VERIFIED — IMPLEMENTED — COMMITTED — PUSHED — REMOTELY VERIFIED**.
 
@@ -1922,11 +1928,33 @@ No persistence, schema, migrations, database, Supabase, storage, learner-progres
 
 The minimum bounded implementation authorization is limited to connecting the existing Creator-visible `ProposedLearningDesign` to the existing Learning Design approval/rejection lifecycle and, only after approval and execution-authority validation, exposing one in-session bounded retrieval attempt followed by source-grounded feedback/result.
 
-This derivation does not authorize product implementation. A separate explicit Code Change Gate decision is required before any implementation begins.
+The explicit bounded Code Change Gate below authorizes only this minimum implementation responsibility. The derivation does not authorize any behavior outside that gate.
 
 ---
 
 ## Code Change Gate
+
+**Bounded product implementation: CLOSED — CREATOR LEARNING DESIGN APPROVAL → APPROVED RETRIEVAL ATTEMPT → SOURCE-GROUNDED FEEDBACK**
+
+**Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+
+**Runtime verification result:** PASS. Creator approval produced the approval-guarded bounded retrieval experience; the Learner submitted one active response before reveal; visible feedback compared that response with the approved source context. Creator rejection exposed no Learner activity.
+
+**Authorized scope:** Implement only the already-derived minimum Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback responsibility and its recorded Minimum Acceptance Contract.
+
+**Minimum implementation boundary:** Adapt the existing `/creator-objective` runtime to apply the existing Learning Design approval/rejection lifecycle to its current `ProposedLearningDesign`; permit only `ApprovedLearningDesign` validated through `requireApprovedLearningDesign()` to expose one in-session bounded retrieval attempt; require one active Learner response before revealing source-grounded feedback/result; stop immediately after that single visible feedback/result.
+
+**Required reuse boundary:** Reuse the existing Learning Design states and types, `approveLearningDesign()`, `rejectLearningDesign()`, `requireApprovedLearningDesign()`, existing Learning Science derivation, accepted objective, bounded Relevant Context, and source traceability. Do not reimplement or broaden those responsibilities.
+
+**Required acceptance verification:** Before implementation acceptance, `./scripts/dev verify` must pass, and the complete user-visible runtime path must be verified from the existing Creator-visible `ProposedLearningDesign` through explicit approval, guarded retrieval execution, active response before reveal, and visible source-grounded feedback/result. Rejection and non-approved states must also be verified to prevent execution.
+
+**Explicitly unauthorized:** Every exclusion recorded in the derived responsibility remains binding. Learning Design editing or re-derivation, generalized Creator publishing, generalized learner routing, multiple activities, generated question banks, generalized assessment, learner profiles, authentication or role-system expansion, analytics, certification, new Learning Science reasoning, changes to certified Learning Principles, generalized workflow/state infrastructure, new dependencies, and product behavior beyond the single bounded path are unauthorized.
+
+Persistence, schema, migrations, database, Supabase, storage, learner-progress, mastery, scoring, adaptive scheduling, spaced-repetition scheduling, and longitudinal learner-state changes are prohibited by this gate.
+
+The bounded authorization has been consumed and is closed. No further product implementation is authorized by this completed gate.
+
+### Previous Closed Gate
 
 **Bounded product implementation: CLOSED — CREATOR SUBJECT-MATTER → LEARNING DESIGN RUNTIME INTEGRATION**
 
@@ -2035,16 +2063,14 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The bounded Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback responsibility, technical realization, acceptance contract, exclusions, and minimum implementation authorization are derived and governance-verified.
-
-No new product implementation task is currently authorized.
+No product implementation task is currently authorized. The bounded Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback responsibility is implemented, runtime-verified, and closed.
 
 ---
 
 
 ## Next Allowed Action
 
-Make a separate explicit governance decision whether to open one bounded Code Change Gate for the derived Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback minimum implementation authorization; do not implement product behavior unless and until that gate is explicitly opened.
+Perform governance derivation and verification for the next smallest bounded MVP responsibility. Product implementation may resume only after `PROJECT_CONTROL.md` records a separately governance-verified technical realization, minimum implementation authorization, and explicit open Code Change Gate.
 
 ---
 

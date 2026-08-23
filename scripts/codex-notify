@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -u
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+if [[ $# -eq 0 ]]; then
+  printf 'Usage: ./scripts/codex-notify "<task>"\n' >&2
+  exit 64
+fi
+
+set +e
+codex exec --sandbox workspace-write --cd "$PROJECT_ROOT" "$@"
+CODEX_EXIT_CODE=$?
+set -e
+
+if [[ "$CODEX_EXIT_CODE" -eq 0 ]]; then
+  NOTIFICATION_MESSAGE="Task finished successfully."
+  NOTIFICATION_SCRIPT='display notification "Task finished successfully." with title "TheraLearn Codex" sound name "Glass"'
+else
+  NOTIFICATION_MESSAGE="Task failed with exit code $CODEX_EXIT_CODE."
+  NOTIFICATION_SCRIPT="display notification \"Task failed with exit code $CODEX_EXIT_CODE.\" with title \"TheraLearn Codex\" sound name \"Basso\""
+fi
+
+if command -v osascript >/dev/null 2>&1; then
+  osascript -e "$NOTIFICATION_SCRIPT" >/dev/null 2>&1 || \
+    printf 'TheraLearn Codex: notification could not be delivered.\n' >&2
+else
+  printf 'TheraLearn Codex: %s\n' "$NOTIFICATION_MESSAGE" >&2
+fi
+
+exit "$CODEX_EXIT_CODE"
