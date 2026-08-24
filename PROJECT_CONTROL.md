@@ -2284,6 +2284,118 @@ Any future technical realization must be separately derived from this accepted p
 
 ---
 
+## Post-MVP Learner Correction Opportunity Technical Realization Derivation
+
+**Status: DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY — NO CODE CHANGE GATE**
+
+### Architecture and Repository Basis
+
+The applicable Learning Science Engine architecture already separates Approved Learning Design authority, learner execution, bounded learner performance, and feedback/result. It requires execution to remain downstream of an `ApprovedLearningDesign`, capture the performance required by that design, produce its required feedback/result, and preserve traceability back to the approved scientific derivation.
+
+The current repository realizes the accepted MVP stop boundary through:
+
+- `ApprovedCreatorRetrievalExperience` as the existing in-session bounded retrieval presentation;
+- `requireApprovedLearningDesign()` as the existing learner-execution authority boundary;
+- `createSourceGroundedRetrievalResult()` as the existing response-before-reveal boundary;
+- the approved design's `learningObjective`, `bounded-retrieval` mechanism, and feedback/result requirement; and
+- the existing supporting source context as the subject-matter authority for visible feedback.
+
+The post-MVP correction responsibility does not require a new Learning Science derivation or lifecycle. It extends only the already-authorized learner performance and feedback/result path after the first attempt has revealed an objective-relevant error or material gap.
+
+### Repository Compatibility Classification
+
+**REUSE**
+
+- the existing `ApprovedLearningDesign` and `requireApprovedLearningDesign()` execution-authority boundary;
+- the existing `bounded-retrieval` mechanism check;
+- the approved Learning Objective and existing Learning Science traceability;
+- the existing bounded supporting source context as subject-matter authority;
+- the existing active-response-before-reveal validation; and
+- the existing in-session `/creator-objective` learner handoff and `ApprovedCreatorRetrievalExperience` presentation.
+
+**ADAPT**
+
+- the bounded retrieval result representation, only enough to record the first response, its source-grounded feedback classification, and the specific correction target when an objective-relevant error or material gap is revealed;
+- the existing retrieval presentation, only enough to expose one fresh correction input after that qualifying first feedback and then display one terminal correction outcome; and
+- focused automated verification, only for the conditional one-correction transition and its stop boundary.
+
+**NEW**
+
+- one narrow, deterministic, source-grounded evaluation boundary that distinguishes `CORRECTION_REQUIRED` from `NO_CORRECTION_REQUIRED` for the first response and identifies the bounded error or gap to be corrected;
+- one in-session correction-attempt representation linked to the first result and unchanged approved authority; and
+- one narrow source-grounded correction evaluation that reports only `CORRECTED` or `NOT_CORRECTED` for that same identified error or gap.
+
+The evaluation boundary may use the smallest deterministic comparison sufficient for the existing bounded source context. It must fail explicitly when it cannot establish a source-grounded classification. It must not treat lexical similarity, a percentage, or an ungrounded model judgment as evidence of learning, mastery, competence, or subject-matter truth.
+
+### Smallest Technical Realization
+
+The smallest technical realization extends the existing in-session approved retrieval experience with one discriminated, terminal correction branch:
+
+```text
+ApprovedLearningDesign
+        ↓
+requireApprovedLearningDesign()
+        ↓
+FIRST ACTIVE RESPONSE
+        ↓
+SOURCE-GROUNDED FIRST-RESULT CLASSIFICATION
+        ├── NO_CORRECTION_REQUIRED → EXISTING FEEDBACK / RESULT → STOP
+        └── CORRECTION_REQUIRED + IDENTIFIED ERROR OR GAP
+                                      ↓
+                           INFORMATIVE SOURCE-GROUNDED FEEDBACK
+                                      ↓
+                           ONE FRESH ACTIVE RESPONSE
+                                      ↓
+                           CORRECTED | NOT_CORRECTED
+                                      ↓
+                                     STOP
+```
+
+The first-result classification and correction outcome are learner-execution results, not `LearningDesignState` values and not new Learning Designs. Both must retain direct references to the same approved Learning Objective, the same `ApprovedLearningDesign`, the same bounded supporting source context, and, for the correction outcome, the first result's identified error or gap.
+
+The minimum implementation slice is limited to:
+
+```text
+components/ApprovedCreatorRetrievalExperience.tsx
+components/ApprovedCreatorRetrievalExperience.test.ts
+```
+
+A separate small learner-execution module under `lib/learning-science/` may be introduced only if required to keep the source-grounded classification and state transition independent of React presentation. No existing Learning Science derivation, Learning Design lifecycle, Subject-Matter Intake, Creator authority, or source-grounding responsibility needs modification.
+
+Runtime state remains in memory for the existing browser session. No route, server action, provider, persistence mechanism, schema, migration, database operation, or dependency is technically required.
+
+### Technical Acceptance Criteria
+
+A future bounded implementation realization may be accepted only if all of the following are demonstrated:
+
+1. A proposed, rejected, or invalidated Learning Design still cannot enter either the first attempt or correction path; execution continues to pass through `requireApprovedLearningDesign()`.
+2. The first active response remains required before any feedback, source context, correction classification, or correction control is revealed.
+3. The first result is classified against the existing bounded supporting source context and approved Learning Objective as either `NO_CORRECTION_REQUIRED` or `CORRECTION_REQUIRED` with one explicit bounded error or gap.
+4. `NO_CORRECTION_REQUIRED` exposes no correction input and stops at the existing first feedback/result boundary.
+5. `CORRECTION_REQUIRED` exposes informative feedback that identifies what must be corrected within the bounded source context, then permits exactly one fresh active response.
+6. The correction attempt cannot be submitted before the qualifying first feedback, cannot be empty, and cannot be submitted more than once.
+7. The correction attempt and outcome remain traceable to the same `ApprovedLearningDesign`, approved Learning Objective, bounded supporting source context, first result, and identified error or gap.
+8. The correction evaluation reports only whether that same error or gap is `CORRECTED` or `NOT_CORRECTED`; it does not produce a score, grade, mastery state, competence claim, or progression decision.
+9. After the visible correction outcome, no further attempt, retry, next activity, or learner-state transition is exposed.
+10. Missing source context, an unsupported mechanism, an indeterminate source-grounded classification, or any unrelated evaluation failure remains an explicit failure and must not silently create a correction opportunity or favorable outcome.
+11. Focused automated tests cover both first-result branches, all execution guards, the single-attempt limit, authority/traceability preservation, both correction outcomes, explicit failures, and the terminal stop boundary.
+
+### Explicit Technical Non-Goals
+
+This realization does not introduce repeated retries, a retry counter generalized beyond zero-or-one correction, multiple activities, question banks, generated questions, generalized answer evaluation, generalized assessment, scores, grades, mastery or competence state, progression, analytics, learner modelling, personalization, adaptive guidance, distributed practice, scheduling, spaced repetition, certification, or persistence.
+
+It does not change or re-derive the Learning Objective, Relevant Context, source material, source boundary, applicable certified Learning Principle, Learning Requirements, proposed mechanism, Learning Design, Creator decision, approval state, or subject-matter authority. It does not add a Learning Design state, correction principle, fallback mechanism, course or lesson workflow, authentication, roles, enrolment, organizations, commercial behavior, or additional content formats.
+
+It does not authorize an AI provider, model, SDK, prompt, network call, new dependency, route, server action, schema, migration, database, Supabase behavior, storage, or generalized state machine. It does not authorize product code.
+
+### Governance Boundary
+
+This section independently derives only the minimum technical realization, smallest implementation slice, technical acceptance criteria, and explicit non-goals for the already bounded Post-MVP Learner Correction Opportunity responsibility. The derivation preserves the applicable architecture authority and current repository boundaries.
+
+The Code Change Gate remains CLOSED. No product implementation is authorized. A future implementation-authorization derivation must be separately governance-verified before any explicit bounded Code Change Gate may be considered.
+
+---
+
 ## Code Change Gate
 
 **Bounded product implementation: CLOSED — CREATOR APPLICABILITY-PREMISE CHANGE → INVALIDATION → NON-APPLICABLE OUTCOME**
@@ -2463,9 +2575,9 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
-The single smallest post-MVP product responsibility is now **DERIVED — BOUNDED — PRODUCT-LEVEL ONLY** as **Learner Correction Opportunity After Feedback**. It begins only when the first active Learner attempt reveals an error or material gap relevant to the approved Learning Objective, permits one fresh active correction attempt after informative feedback, and stops after one visible correction outcome.
+The single smallest post-MVP product responsibility is **DERIVED — BOUNDED** as **Learner Correction Opportunity After Feedback**. Its separate minimum technical realization is now also **DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY**. It reuses the approved-design execution guard and existing source-grounded retrieval experience, conditionally permits exactly one in-session correction attempt after a source-grounded qualifying first result, and stops after one visible `CORRECTED` or `NOT_CORRECTED` outcome.
 
-This derivation does not define technical realization, open a Code Change Gate, or authorize implementation.
+The derived smallest implementation slice is limited to the existing approved retrieval component and its focused tests, with one separate small learner-execution module permitted only if presentation-independent classification requires it. This derivation does not open a Code Change Gate or authorize implementation.
 
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -2482,7 +2594,7 @@ No new product Code Change Gate is opened by MVP acceptance and closure, and no 
 
 ## Next Allowed Action
 
-The end-to-end MVP is accepted and closed. The next permissible governance action is a separate technical-realization derivation for the bounded **Post-MVP Learner Correction Opportunity** responsibility through the applicable architecture authority.
+The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility and its minimum technical realization are derived. The next permissible governance action is a separate governance review and minimum implementation-authorization derivation for exactly that recorded technical boundary.
 
 No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until a separate bounded responsibility, technical realization, and implementation authorization are governance-verified and `PROJECT_CONTROL.md` explicitly opens a new Code Change Gate.
 
