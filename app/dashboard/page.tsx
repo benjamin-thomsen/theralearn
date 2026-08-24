@@ -30,6 +30,13 @@ export default async function DashboardPage() {
           læringsresultater.
         </p>
 
+        <nav aria-label="MVP user-test workflows">
+          <ul>
+            <li><Link href="/creator-objective">Åbn Creator-workflow</Link></li>
+            <li><Link href="/learner-handoff">Åbn Learner-kontekst</Link></li>
+          </ul>
+        </nav>
+
         <Link href="/">Gå til forsiden</Link>
       </section>
     </main>

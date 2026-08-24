@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      approved_authority_packages: {
+        Row: {
+          created_at: string
+          owner_id: string
+          package_identity: string
+          package_digest: string
+          serialized_package: string
+        }
+        Insert: {
+          created_at?: string
+          owner_id: string
+          package_identity: string
+          package_digest: string
+          serialized_package: string
+        }
+        Update: {
+          created_at?: never
+          owner_id?: never
+          package_identity?: never
+          package_digest?: never
+          serialized_package?: never
+        }
+        Relationships: []
+      }
       chapters: {
         Row: {
           course_id: string

@@ -21,12 +21,28 @@ import {
   deriveOutcomeFromChangedDurableRetentionPremise,
   rederiveLearningDesignFromChangedDescription,
 } from "./learningDesignChange";
+import type { PreApprovalAuthorityPackageInput } from "@/lib/approved-package/approvedPackageRepository";
+import {
+  approvePreApprovalAuthorityPackage,
+  createOnceOrReturnIdentical,
+  SupabaseApprovedPackageStore,
+} from "@/lib/approved-package/approvedPackageRepository";
+import { createClient } from "@/lib/supabase/server";
+import { createServiceRoleClient } from "@/lib/supabase/serviceRole";
+
+async function requireAuthenticatedCreator() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Creator workflow requires authentication.");
+  return { supabase, user };
+}
 
 export async function reassessCreatorObjectiveChange(
   proposal: ObjectiveProposal,
   statement: string,
   sourceMaterial: ExtractedSourceMaterial,
 ) {
+  await requireAuthenticatedCreator();
   const candidate = changeObjectiveProposal(proposal, statement);
   const provider = new OpenAiSourceGroundingReassessmentProvider();
   const reassessment = await provider.reassessSourceGrounding(
@@ -40,6 +56,7 @@ export async function reassessCreatorObjectiveChange(
 export async function rejectCreatorObjective(
   candidate: ReviewableObjectiveCandidate,
 ) {
+  await requireAuthenticatedCreator();
   return rejectObjectiveCandidate(candidate);
 }
 
@@ -48,6 +65,7 @@ export async function approveCreatorObjectiveAndDeriveLearningDesign(
   contextDescription: string,
   durableRetentionOfPreviouslyAcquiredKnowledgeIntended: boolean,
 ) {
+  await requireAuthenticatedCreator();
   const acceptedLearningObjective = approveObjectiveCandidate(candidate);
   const acceptedHandoff = formBoundedRelevantContext(
     acceptedLearningObjective,
@@ -65,6 +83,7 @@ export async function rederiveCreatorLearningDesign(
   acceptedHandoff: AcceptedObjectiveWithRelevantContext,
   changedDescription: string,
 ) {
+  await requireAuthenticatedCreator();
   return rederiveLearningDesignFromChangedDescription(
     acceptedHandoff,
     changedDescription,
@@ -74,10 +93,12 @@ export async function rederiveCreatorLearningDesign(
 export async function determineCreatorLearningDesignApplicability(
   acceptedHandoff: AcceptedObjectiveWithRelevantContext,
 ) {
+  await requireAuthenticatedCreator();
   return deriveOutcomeFromChangedDurableRetentionPremise(acceptedHandoff);
 }
 
 export async function analyzeCreatorObjective(formData: FormData) {
+  await requireAuthenticatedCreator();
   const fileValue = formData.get("pdf");
 
   if (!(fileValue instanceof File)) {
@@ -104,5 +125,21 @@ export async function analyzeCreatorObjective(formData: FormData) {
       proposal.supportingSourceBoundary.startOffset,
       proposal.supportingSourceBoundary.endOffset,
     ),
+  };
+}
+
+export async function persistApprovedAuthorityPackage(
+  preApprovalInput: PreApprovalAuthorityPackageInput,
+) {
+  const { user } = await requireAuthenticatedCreator();
+  const serverApprovedPackage = approvePreApprovalAuthorityPackage(preApprovalInput);
+  const persistenceClient = createServiceRoleClient();
+  const persisted = await createOnceOrReturnIdentical(
+    new SupabaseApprovedPackageStore(persistenceClient),
+    user.id,
+    serverApprovedPackage,
+  );
+  return {
+    packageIdentity: persisted.learningDesign.identity,
   };
 }
