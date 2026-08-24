@@ -118,6 +118,8 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`app/apple-icon.tsx`](./app/apple-icon.tsx)
 - [`app/auth/confirm/route.ts`](./app/auth/confirm/route.ts)
 - [`app/creator-objective/actions.ts`](./app/creator-objective/actions.ts)
+- [`app/creator-objective/learningDesignChange.test.ts`](./app/creator-objective/learningDesignChange.test.ts)
+- [`app/creator-objective/learningDesignChange.ts`](./app/creator-objective/learningDesignChange.ts)
 - [`app/creator-objective/page.module.css`](./app/creator-objective/page.module.css)
 - [`app/creator-objective/page.tsx`](./app/creator-objective/page.tsx)
 - [`app/dashboard/page.tsx`](./app/dashboard/page.tsx)

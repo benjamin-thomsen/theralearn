@@ -12,9 +12,18 @@
 
 ## Current Phase
 
-**Creator Learning Design Change → Invalidation → Re-derivation — OPEN — BOUNDED — GOVERNANCE VERIFIED**
+**Creator Learning Design Change → Invalidation → Re-derivation — CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
 
-The separate bounded Creator Learning Design Change → Invalidation → Re-derivation Code Change Gate is now **OPEN — BOUNDED — GOVERNANCE VERIFIED** for exactly the recorded minimum implementation authorization. Product implementation is authorized only within that gate and must stop with one fresh visible `PROPOSED` Learning Design before approval and before Learner execution.
+The separate bounded Creator Learning Design Change → Invalidation → Re-derivation Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. The verified implementation permits one Creator-controlled bounded Relevant Context `description` change, immediately invalidates the current Learning Design, preserves accepted upstream authority, and produces one fresh visible `PROPOSED` Learning Design requiring fresh approval before any Learner execution.
+
+Verified implementation checkpoint:
+
+```text
+51bda121001491552b8187e5e1eb3d467430d784
+Implement Creator learning design re-derivation
+```
+
+The complete recorded Minimum Acceptance Contract and canonical local verification passed for this implementation. The bounded authorization has been consumed and is closed. No further product implementation is authorized by this completed gate.
 
 The bounded Creator Learning Design Approval → Approved Retrieval Attempt → Source-Grounded Feedback responsibility remains **CLOSED — VERIFIED — IMPLEMENTED**.
 
@@ -1174,7 +1183,7 @@ Before a new bounded Code Change Gate may be opened:
 
 ## Post-PDF Vertical Implementation Authorization Derivation
 
-**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**
 
 The next bounded browser-testable responsibility is derived downstream of the completed text-based PDF extraction slice and the verified Subject-Matter Intake architecture.
 
@@ -1212,7 +1221,7 @@ This derivation does not itself authorize product implementation. A separately g
 
 ## Post-PDF Technical Realization Derivation
 
-**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**
 
 The smallest technical realization for the governance-verified Post-PDF browser-testable objective-proposal vertical is:
 
@@ -1328,7 +1337,7 @@ Any configuration change must be verified against the exact browser-test PDF and
 
 ## Creator Objective Authority Lifecycle Responsibility Derivation
 
-**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**
 
 The next bounded Subject-Matter Intake responsibility is derived downstream of the completed and remotely verified Post-PDF Objective-Proposal Vertical and the verified Subject-Matter Intake architecture.
 
@@ -1932,13 +1941,13 @@ No persistence, schema, migrations, database, Supabase, storage, learner-progres
 
 The minimum bounded implementation authorization is limited to connecting the existing Creator-visible `ProposedLearningDesign` to the existing Learning Design approval/rejection lifecycle and, only after approval and execution-authority validation, exposing one in-session bounded retrieval attempt followed by source-grounded feedback/result.
 
-The explicit bounded Code Change Gate below authorizes only this minimum implementation responsibility. The derivation does not authorize any behavior outside that gate.
+The explicit bounded Code Change Gate below authorized only this minimum implementation responsibility. The derivation did not authorize any behavior outside that gate.
 
 ---
 
 ## Creator Learning Design Change → Invalidation → Re-derivation Responsibility Derivation
 
-**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**
 
 **Governance review result: PASS**
 
@@ -1948,7 +1957,7 @@ The permanent Product Authority requires that a Creator can review, understand, 
 
 The Learning Science Engine architecture establishes the governing consequence of that control: when a Creator change affects Relevant Context used by derivation, the affected downstream derivation becomes invalid, re-derivation is required, and neither scientific traceability nor approval may survive on premises that no longer match the design. Its minimum lifecycle requires a newly derived design to return to `PROPOSED` and receive Creator approval before Learner execution.
 
-The completed repository baseline already provides the accepted Subject-Matter authority and source-traceable handoff, `formBoundedRelevantContext()`, `handoffToLearningScience()`, `deriveLearningDesign()`, `invalidateLearningDesign()`, the `INVALIDATED` and `PROPOSED` design states, Creator approval/rejection, and the approved-design execution gate. The current `/creator-objective` runtime does not yet expose a Creator-controlled Relevant Context change after Learning Design derivation. `BoundedLearningDesignSlice` demonstrates local change/invalidation/re-derivation behavior only as a compatibility reference; it is not authoritative for the accepted runtime chain because it independently owns editable objective and context premises.
+At derivation time, the completed repository baseline already provided the accepted Subject-Matter authority and source-traceable handoff, `formBoundedRelevantContext()`, `handoffToLearningScience()`, `deriveLearningDesign()`, `invalidateLearningDesign()`, the `INVALIDATED` and `PROPOSED` design states, Creator approval/rejection, and the approved-design execution gate. The `/creator-objective` runtime did not yet expose a Creator-controlled Relevant Context change after Learning Design derivation. `BoundedLearningDesignSlice` demonstrated local change/invalidation/re-derivation behavior only as a compatibility reference; it was not authoritative for the accepted runtime chain because it independently owned editable objective and context premises.
 
 ### Repository Compatibility Classification
 
@@ -1967,7 +1976,7 @@ The completed repository baseline already provides the accepted Subject-Matter a
 - the orchestration around the accepted handoff, only enough to invalidate the current Learning Design immediately and re-form the handoff with the changed description;
 - the existing `BoundedLearningDesignSlice` behavior only as a reference for immediate invalidation and explicit re-derivation, without importing its independent Learning Objective or Relevant Context authority.
 
-**MISSING**
+**MISSING AT DERIVATION TIME**
 
 - one authoritative runtime transition for a Creator change to the accepted handoff's Relevant Context description;
 - immediate invalidation of the currently proposed, approved, or rejected downstream Learning Design when that description changes;
@@ -2001,7 +2010,7 @@ The change must not silently mutate the premises stored in the existing Learning
 
 ### Minimum Acceptance Contract
 
-A future bounded implementation may be accepted only if all of the following are demonstrated:
+The bounded implementation was accepted only after all of the following were demonstrated:
 
 1. The flow begins from one existing accepted `AcceptedLearningObjective`, bounded Relevant Context, preserved source traceability, and an existing downstream Learning Design.
 2. The Creator can change exactly one premise: the bounded Relevant Context `description`.
@@ -2016,7 +2025,7 @@ A future bounded implementation may be accepted only if all of the following are
 
 ### Minimum Technical Realization
 
-**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**
 
 The smallest technical realization is one in-session `/creator-objective` runtime adaptation that retains the already accepted upstream handoff, exposes one editable Relevant Context description after derivation, and calls `invalidateLearningDesign()` on the current design as soon as that description changes.
 
@@ -2036,23 +2045,25 @@ This responsibility depends on the completed and verified accepted Subject-Matte
 
 ### Minimum Implementation Authorization Boundary
 
-**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**
 
 The minimum bounded implementation authorization is limited to adapting the existing `/creator-objective` in-session runtime to permit one Creator-controlled Relevant Context `description` change; immediately invalidate the current Learning Design with `invalidateLearningDesign()`; preserve and reuse the existing accepted Learning Objective, source traceability, durable-retention premise, and accepted handoff authority; re-form bounded Relevant Context with the changed description; re-enter the existing `handoffToLearningScience()` / `deriveLearningDesign()` path; and display the resulting fresh `ProposedLearningDesign` for fresh Creator review and approval.
 
 The required stop boundary is the fresh visible `PROPOSED` Learning Design. Implementation must not approve it automatically or enter, expose, or alter Learner execution.
 
-The separate explicit bounded Code Change Gate below authorizes only this governance-verified minimum implementation boundary. Every recorded exclusion remains binding.
+The separate explicit bounded Code Change Gate below authorized only this governance-verified minimum implementation boundary. Every recorded exclusion remains binding.
 
 ---
 
 ## Code Change Gate
 
-**Bounded product implementation: OPEN — CREATOR LEARNING DESIGN CHANGE → INVALIDATION → RE-DERIVATION**
+**Bounded product implementation: CLOSED — CREATOR LEARNING DESIGN CHANGE → INVALIDATION → RE-DERIVATION**
 
-**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED**
+**Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
 
 **Governance review result: PASS**
+
+**Implementation and verification result:** PASS at verified implementation checkpoint `51bda121001491552b8187e5e1eb3d467430d784` — `Implement Creator learning design re-derivation`. The complete recorded Minimum Acceptance Contract and canonical local verification passed.
 
 **Authorized scope:** Implement exactly the governance-verified minimum Creator Learning Design Change → Invalidation → Re-derivation responsibility recorded above: one Creator-controlled change to the bounded Relevant Context `description`, immediate invalidation of the current Learning Design, reuse of accepted upstream authority and the existing handoff/`deriveLearningDesign()` path, and production of one fresh `ProposedLearningDesign` requiring fresh Creator approval.
 
@@ -2063,6 +2074,8 @@ The separate explicit bounded Code Change Gate below authorizes only this govern
 **Required acceptance verification:** Demonstrate the complete recorded Minimum Acceptance Contract, including immediate invalidation, non-executability of the invalidated design, rejection of an empty changed description, preservation of accepted upstream authority and source traceability, production of a distinct fresh `PROPOSED` design containing the changed description, and the fresh-approval requirement. Run `./scripts/dev verify` when it can be completed within the local-only boundary.
 
 **Explicitly unauthorized:** Every exclusion recorded under **Creator Learning Design Change → Invalidation → Re-derivation Responsibility Derivation** remains binding. No Learning Objective change or reassessment, source-material or source-authority change, durable-retention premise change, other Relevant Context change, direct derived-design editing, automatic or restored approval, direct derivation from locally authoritative premises, Learning Science or certified Learning Principle change, generalized editing or workflow infrastructure, version history, undo, persistence, schema, migrations, database or Supabase changes, new dependencies, learner profiles or learner-state changes, or Learner execution is authorized.
+
+The bounded authorization has been consumed and is closed. No further product implementation is authorized by this completed gate.
 
 ### Previous Closed Gate
 
@@ -2195,22 +2208,22 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The bounded **Creator Learning Design Change → Invalidation → Re-derivation** responsibility is **DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**.
+The bounded **Creator Learning Design Change → Invalidation → Re-derivation** responsibility is **DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**.
 
-The governance review result is **PASS**, and the separate bounded implementation gate is open only for the already governance-verified minimum implementation authorization recorded above.
+The implementation and verification result is **PASS** at verified implementation checkpoint `51bda121001491552b8187e5e1eb3d467430d784` — `Implement Creator learning design re-derivation`.
 
-Implement only one Creator-controlled bounded Relevant Context `description` change, immediate invalidation of the current Learning Design, reuse of the accepted upstream authority and existing handoff/`deriveLearningDesign()` path, and production of a fresh `ProposedLearningDesign` requiring fresh approval.
+The completed implementation permits only one Creator-controlled bounded Relevant Context `description` change, immediate invalidation of the current Learning Design, reuse of the accepted upstream authority and existing handoff/`deriveLearningDesign()` path, and production of a fresh `ProposedLearningDesign` requiring fresh approval.
 
-The required stop boundary is the fresh visible `PROPOSED` Learning Design, before approval and before Learner execution. Every recorded exclusion remains binding.
+The required stop boundary was met at the fresh visible `PROPOSED` Learning Design, before approval and before Learner execution. The bounded authorization has been consumed and is closed. Every recorded exclusion remains binding, and no further product implementation is authorized.
 
 ---
 
 
 ## Next Allowed Action
 
-Implement and locally verify exactly the open bounded **Creator Learning Design Change → Invalidation → Re-derivation** Code Change Gate.
+Derive and governance-review the next bounded product responsibility from the permanent Product Authority and verified repository state.
 
-Stop with a fresh visible `PROPOSED` Learning Design before approval and before Learner execution. Do not implement any recorded exclusion or any behavior outside the explicit gate.
+The Code Change Gate remains closed. This next action authorizes governance work only and does not authorize product implementation. Any further product implementation requires a separately derived, governance-verified minimum authorization and a new explicit bounded Code Change Gate decision recorded in `PROJECT_CONTROL.md`.
 
 ---
 
