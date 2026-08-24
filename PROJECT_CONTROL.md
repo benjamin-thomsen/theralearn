@@ -3075,6 +3075,88 @@ This gate closes only after the exact bounded implementation has been locally re
 
 ---
 
+## Authenticated Persisted Creator-to-Learner MVP User-Test Handoff Release-Readiness Derivation
+
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — FUTURE CODE CHANGE GATE MAY BE OPENED — CODE CHANGE GATE CLOSED**
+
+### Verified Checkpoint Reconciliation
+
+The remotely verified checkpoint supplied for this review is:
+
+```text
+f6b25847100209380dd3305b478904468007da19
+Implement bounded later retrieval prerequisite
+```
+
+Local repository metadata records that exact checkpoint for the current `migration-next16-to-root` branch and its remote-tracking reference. No remote Git operation was performed for this derivation.
+
+That checkpoint is consistent with the current verified repository state already recorded above: exactly one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair is available through the existing approved-design execution-authority boundary; the prerequisite-only gate is consumed and closed; and persistence, scheduling, opportunity exposure, and later-retrieval execution remain absent and unauthorized. The checkpoint does not itself prove or authorize the persisted user-test handoff derived here.
+
+### Release-Readiness Decision
+
+**PASS** for opening a future, separately explicit, exactly bounded Code Change Gate.
+
+This PASS is a governance-readiness decision only. It does not open the gate or authorize product-code changes. The repository contains compatible existing boundaries for authenticated identity, dashboard route protection, Creator review and approval, immutable Approved Learning Design execution authority, and Learner retrieval. The missing responsibility can therefore be isolated without changing Product Authority, Learning Science authority, the approved-package semantics, or any closed gate.
+
+### Smallest Bounded Responsibility
+
+Provide exactly one authenticated, navigable, persisted MVP user-test handoff:
+
+```text
+AUTHENTICATED TEST IDENTITY
+        ↓
+PROTECTED DASHBOARD
+        ↓
+CREATOR WORKFLOW ENTRY
+        ↓
+EXISTING EXPLICIT CREATOR APPROVAL
+        ↓
+PERSIST EXACTLY ONE IMMUTABLE APPROVED LEARNING DESIGN AUTHORITY PACKAGE
+        ↓
+PROTECTED LEARNER CONTEXT
+        ↓
+RETRIEVE THAT EXACT APPROVED PACKAGE THROUGH THE EXISTING EXECUTION-AUTHORITY BOUNDARY
+        ↓
+STOP
+```
+
+For this bounded user test, “Creator context” and “Learner context” describe two protected workflow surfaces, not a generalized role, tenancy, enrollment, assignment, or administration model. The same authenticated test identity may traverse the complete handoff. Persistence owns only the exact approved authority package and the minimum authenticated ownership/linkage metadata required to retrieve it safely.
+
+### Minimum Acceptance Contract
+
+The future bounded implementation may be accepted only if all of the following are demonstrated:
+
+1. An unauthenticated request cannot access the dashboard, Creator workflow, or Learner handoff context and is redirected to the existing login boundary.
+2. One authenticated user can reach the existing Creator workflow from a visible dashboard navigation control.
+3. Navigation does not bypass or weaken the existing Creator review, contract review, prerequisite review, explicit approval, invalidation, rejection, or approved-design execution-authority boundaries.
+4. No `PROPOSED`, `REJECTED`, `INVALIDATED`, malformed, mismatched, substituted, or post-approval-mutated design can be persisted as the approved handoff package.
+5. Exactly one package produced by the existing approval boundary is durably persisted for the authenticated user, including the complete Approved Learning Design, its immutable Response Evaluation Contract and snapshot/identity binding, its immutable same-version `LaterRetrievalPrerequisite` and snapshot/identity binding, and the exact supporting source context/boundary required by the existing Learner retrieval contract.
+6. The persisted representation preserves the package's authoritative identities and snapshot values exactly; storage must not re-derive, reinterpret, edit, merge, or silently replace any approved authority field.
+7. A duplicate creation attempt for the bounded user-test handoff fails closed or returns the already-persisted exact package; it must not create a generalized collection or silently overwrite the approved package.
+8. The authenticated user can navigate to one distinct protected Learner context after persistence.
+9. The Learner context retrieves exactly the persisted package by its authenticated ownership and approved-package identity, reconstructs or validates it without weakening immutability or snapshot checks, and passes it through the existing `requireApprovedLearningDesign()` execution-authority boundary before rendering any Learner activity.
+10. Missing, unauthorized, ambiguous, malformed, identity-mismatched, snapshot-mismatched, invalidated, rejected, proposed, or tampered persisted data fails closed and exposes no Learner activity.
+11. A focused browser-runtime test demonstrates the complete authenticated dashboard → Creator workflow → explicit approval → persistence → Learner-context navigation → exact-package retrieval handoff across a page reload or fresh request.
+12. Focused automated tests cover route protection, single-package persistence, exact round-trip identity/snapshot preservation, authenticated ownership isolation, duplicate handling, and every fail-closed condition above; canonical local verification must pass to the extent it can run without Git, GitHub, or network access.
+
+### Required Architecture Boundary
+
+Any future gate must authorize only the minimum route, navigation, persistence adapter/repository, durable schema/policy, serialization/validation, and focused test changes necessary for this single handoff. Authentication must reuse the existing Supabase session boundary. Database authorization must bind create/read access to the authenticated identity and deny cross-user access. Learner retrieval must consume, not redefine, the existing Approved Learning Design authority contract.
+
+The concrete storage representation and route names may be selected during the future bounded implementation gate only if they satisfy this contract and do not promote implementation details into Product Authority or broaden existing architecture.
+
+### Explicit Exclusions
+
+This derivation excludes generalized course, curriculum, chapter, lesson, activity, or learning-design persistence; multiple packages; package listing or management; scheduling; due-time or clock evaluation; later-retrieval opportunity generation, exposure, or execution; reminders or background jobs; analytics; multi-tenant, organization, institution, enrollment, assignment, invitation, or role administration; progress tracking; attempt history; completion or prerequisite-consumption state; generalized Learner state; content publication; course offering; and every broader product expansion.
+
+It also excludes changes to Product Authority, architecture authority, certified Learning Principles, Learning Science derivation, applicability or timing authority, Creator approval semantics, correction behavior, and every previously closed gate. Historical PASS, FAIL, checkpoint, authorization, and closure records remain unchanged.
+
+### Code Change Permission
+
+No Code Change Gate is open. The PASS permits only a future governance action to open a separately recorded gate bounded by the responsibility and acceptance contract above. Until that explicit action occurs, product implementation remains unauthorized.
+
+---
+
 ## Current Task
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
@@ -3095,6 +3177,8 @@ The verified implementation reuses the existing invalidation, Relevant Context f
 
 The bounded applicability-and-timing prerequisite correction gate is consumed and **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. The later-retrieval execution/product gate remains **CLOSED**. The bounded Post-MVP Learner Correction Opportunity correction-execution authorization and the Contract Formation and Approval-Binding prerequisite authorization remain consumed and closed. No broader product implementation is authorized.
 
+The governance-only release-readiness derivation for exactly one authenticated, navigable, persisted Creator-to-Learner MVP user-test handoff is **GOVERNANCE REVIEWED — PASS — BOUNDED**. A future separately explicit Code Change Gate may be opened only for the recorded smallest responsibility and Minimum Acceptance Contract. No gate was opened by this derivation.
+
 ---
 
 
@@ -3107,6 +3191,8 @@ The separate governance re-review and completed closure review are **PASS**. Foc
 The bounded prerequisite-only Code Change Gate recorded for the **Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation** is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL ARCHITECTURE REVIEW PASS** and **CHECKPOINT PASS** with canonical verification PASS for TypeScript, build, documentation structure, repository index completeness, and Git status. Its authorization is consumed. Any other product implementation requires a separately derived, governance-verified, and explicitly opened Code Change Gate. Eligibility calculation, scheduling, opportunity exposure, later retrieval execution, persistence, and broader product implementation remain unauthorized.
 
 No Code Change Gate is open. The separate later-retrieval execution/product gate remains **CLOSED**. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No broader product implementation is authorized.
+
+The next permitted governance action may be to open one separately explicit, bounded Code Change Gate for the authenticated persisted Creator-to-Learner MVP user-test handoff recorded above. That possible future gate must preserve every exclusion and acceptance condition in the derivation. It must not be interpreted as authority for generalized persistence, scheduling, later-retrieval opportunity execution, analytics, multi-tenant administration, progress tracking, or broader product expansion.
 
 ---
 
