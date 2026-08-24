@@ -23,6 +23,10 @@ export function help(): void {
   console.log("      Regenerate the repository index and run complete verification.");
   console.log("");
 
+  console.log("  remote-verify");
+  console.log("      Fetch and compare LOCAL HEAD with origin/migration-next16-to-root.");
+  console.log("");
+
   console.log("  status");
   console.log("      Show the current project and Git status.");
   console.log("");

@@ -12,12 +12,46 @@ fi
 
 COMMAND="$1"
 OUTPUT_FILE="$(mktemp)"
+REMOTE_BRANCH="migration-next16-to-root"
 
 trap 'rm -f "$OUTPUT_FILE"' EXIT
 
 set +e
 
-npm run docs -- "$@" 2>&1 | tee "$OUTPUT_FILE"
+if [[ "$COMMAND" == "remote-verify" ]]; then
+  {
+    echo "Fetching origin/$REMOTE_BRANCH..."
+
+    if ! git fetch origin \
+      "refs/heads/$REMOTE_BRANCH:refs/remotes/origin/$REMOTE_BRANCH"; then
+      echo "REMOTE VERIFICATION FAIL"
+      exit 1
+    fi
+
+    if ! LOCAL_HEAD="$(git rev-parse --verify 'HEAD^{commit}')"; then
+      echo "REMOTE VERIFICATION FAIL"
+      exit 1
+    fi
+
+    if ! REMOTE_HEAD="$(git rev-parse --verify \
+      "refs/remotes/origin/$REMOTE_BRANCH^{commit}")"; then
+      echo "REMOTE VERIFICATION FAIL"
+      exit 1
+    fi
+
+    echo "LOCAL HEAD:  $LOCAL_HEAD"
+    echo "REMOTE HEAD: $REMOTE_HEAD"
+
+    if [[ "$LOCAL_HEAD" == "$REMOTE_HEAD" ]]; then
+      echo "REMOTE VERIFICATION PASS"
+    else
+      echo "REMOTE VERIFICATION FAIL"
+      exit 1
+    fi
+  } 2>&1 | tee "$OUTPUT_FILE"
+else
+  npm run docs -- "$@" 2>&1 | tee "$OUTPUT_FILE"
+fi
 EXIT_CODE=${PIPESTATUS[0]}
 
 set -e
