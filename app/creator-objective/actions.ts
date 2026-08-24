@@ -17,7 +17,10 @@ import type { ExtractedSourceMaterial } from "@/lib/subject-matter-intake/extrac
 import { formBoundedRelevantContext } from "@/lib/subject-matter-intake/relevantContext";
 import { handoffToLearningScience } from "@/lib/subject-matter-intake/handoffToLearningScience";
 import type { AcceptedObjectiveWithRelevantContext } from "@/lib/subject-matter-intake/relevantContext";
-import { rederiveLearningDesignFromChangedDescription } from "./learningDesignChange";
+import {
+  deriveOutcomeFromChangedDurableRetentionPremise,
+  rederiveLearningDesignFromChangedDescription,
+} from "./learningDesignChange";
 
 export async function reassessCreatorObjectiveChange(
   proposal: ObjectiveProposal,
@@ -66,6 +69,12 @@ export async function rederiveCreatorLearningDesign(
     acceptedHandoff,
     changedDescription,
   );
+}
+
+export async function determineCreatorLearningDesignApplicability(
+  acceptedHandoff: AcceptedObjectiveWithRelevantContext,
+) {
+  return deriveOutcomeFromChangedDurableRetentionPremise(acceptedHandoff);
 }
 
 export async function analyzeCreatorObjective(formData: FormData) {

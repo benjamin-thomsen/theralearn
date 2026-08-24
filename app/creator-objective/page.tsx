@@ -13,11 +13,16 @@ import type { AcceptedObjectiveWithRelevantContext } from "@/lib/subject-matter-
 import {
   analyzeCreatorObjective,
   approveCreatorObjectiveAndDeriveLearningDesign,
+  determineCreatorLearningDesignApplicability,
   reassessCreatorObjectiveChange,
   rejectCreatorObjective,
   rederiveCreatorLearningDesign,
 } from "./actions";
-import { changeRelevantContextDescription } from "./learningDesignChange";
+import {
+  changeDurableRetentionPremise,
+  changeRelevantContextDescription,
+  type ActiveRetrievalNonApplicableOutcome,
+} from "./learningDesignChange";
 import styles from "./page.module.css";
 
 type ObjectiveAnalysisResult = Awaited<ReturnType<typeof analyzeCreatorObjective>>;
@@ -36,6 +41,7 @@ export default function CreatorObjectivePage() {
   const [learningDesign, setLearningDesign] = useState<LearningDesign | null>(null);
   const [acceptedHandoff, setAcceptedHandoff] = useState<AcceptedObjectiveWithRelevantContext | null>(null);
   const [hasRederivedLearningDesign, setHasRederivedLearningDesign] = useState(false);
+  const [nonApplicableOutcome, setNonApplicableOutcome] = useState<ActiveRetrievalNonApplicableOutcome | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -55,6 +61,7 @@ export default function CreatorObjectivePage() {
       setLearningDesign(null);
       setAcceptedHandoff(null);
       setHasRederivedLearningDesign(false);
+      setNonApplicableOutcome(null);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Objective analysis failed.");
     } finally {
@@ -162,6 +169,32 @@ export default function CreatorObjectivePage() {
       setHasRederivedLearningDesign(true);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Learning Design re-derivation failed.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function handleDurableRetentionPremiseChange() {
+    if (!acceptedHandoff || !learningDesign || learningDesign.state === "INVALIDATED") return;
+
+    const changed = changeDurableRetentionPremise(acceptedHandoff, learningDesign);
+    setDurableRetentionIntended(changed.changedDurableRetentionPremise);
+    setLearningDesign(changed.invalidatedDesign);
+  }
+
+  async function handleDetermineApplicability() {
+    if (!acceptedHandoff || learningDesign?.state !== "INVALIDATED") return;
+
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const result = await determineCreatorLearningDesignApplicability(acceptedHandoff);
+      setAcceptedHandoff(result.acceptedHandoff);
+      setLearningDesign(null);
+      setNonApplicableOutcome(result.outcome);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Learning Design applicability failed.");
     } finally {
       setIsLoading(false);
     }
@@ -278,8 +311,18 @@ export default function CreatorObjectivePage() {
                   <input
                     value={contextDescription}
                     onChange={(event) => handleContextDescriptionChange(event.target.value)}
-                    disabled={isLoading || hasRederivedLearningDesign}
+                    disabled={isLoading || hasRederivedLearningDesign || !durableRetentionIntended}
                   />
+                </label>
+
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={durableRetentionIntended}
+                    onChange={handleDurableRetentionPremiseChange}
+                    disabled={isLoading || !durableRetentionIntended}
+                  />{" "}
+                  Varig fastholdelse af tidligere tilegnet viden er tilsigtet
                 </label>
 
                 {learningDesign.state === "PROPOSED" ? (
@@ -306,14 +349,26 @@ export default function CreatorObjectivePage() {
                     <p className={styles.message}>
                       Learning Design er ugyldiggjort. Learner-udførelse er ikke godkendt.
                     </p>
-                    <button
-                      className={styles.button}
-                      type="button"
-                      onClick={handleRederiveLearningDesign}
-                      disabled={isLoading || !contextDescription.trim()}
-                    >
-                      {isLoading ? "Genafleder Learning Design..." : "Genafled Learning Design"}
-                    </button>
+                    {durableRetentionIntended ? (
+                      <button
+                        className={styles.button}
+                        type="button"
+                        onClick={handleRederiveLearningDesign}
+                        disabled={isLoading || !contextDescription.trim()}
+                      >
+                        {isLoading ? "Genafleder Learning Design..." : "Genafled Learning Design"}
+                      </button>
+                    ) : null}
+                    {!durableRetentionIntended ? (
+                      <button
+                        className={styles.button}
+                        type="button"
+                        onClick={handleDetermineApplicability}
+                        disabled={isLoading}
+                      >
+                        {isLoading ? "Vurderer anvendelighed..." : "Vurder anvendelighed"}
+                      </button>
+                    ) : null}
                   </>
                 ) : null}
 
@@ -335,6 +390,16 @@ export default function CreatorObjectivePage() {
                     supportingSourceContext={result.supportingSourceContext}
                   />
                 ) : null}
+              </section>
+            ) : null}
+
+
+            {nonApplicableOutcome ? (
+              <section className={styles.result}>
+                <p className={styles.state}>IKKE ANVENDELIG</p>
+                <h2>Active Retrieval er ikke anvendelig</h2>
+                <p className={styles.message}>{nonApplicableOutcome.message}</p>
+                <p>Der er ikke oprettet et erstatningsdesign. Forløbet stopper her.</p>
               </section>
             ) : null}
 

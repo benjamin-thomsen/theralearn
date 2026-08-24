@@ -9,6 +9,15 @@ export interface DeriveLearningDesignInput {
   relevantContext: RelevantContext;
 }
 
+export class ActiveRetrievalNotApplicableError extends Error {
+  constructor() {
+    super(
+      "Active Retrieval is not applicable unless durable retention of previously acquired knowledge is an intended learning outcome.",
+    );
+    this.name = "ActiveRetrievalNotApplicableError";
+  }
+}
+
 function assertBoundedRetrievalApplicability({
   learningObjective,
   relevantContext,
@@ -26,9 +35,7 @@ function assertBoundedRetrievalApplicability({
   }
 
   if (!relevantContext.durableRetentionOfPreviouslyAcquiredKnowledgeIntended) {
-    throw new Error(
-      "Active Retrieval is not applicable unless durable retention of previously acquired knowledge is an intended learning outcome.",
-    );
+    throw new ActiveRetrievalNotApplicableError();
   }
 }
 

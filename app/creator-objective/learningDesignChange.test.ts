@@ -14,7 +14,9 @@ import {
 import { formBoundedRelevantContext } from "../../lib/subject-matter-intake/relevantContext";
 import { handoffToLearningScience } from "../../lib/subject-matter-intake/handoffToLearningScience";
 import {
+  changeDurableRetentionPremise,
   changeRelevantContextDescription,
+  deriveOutcomeFromChangedDurableRetentionPremise,
   rederiveLearningDesignFromChangedDescription,
 } from "./learningDesignChange";
 
@@ -120,6 +122,91 @@ describe("Creator Learning Design description change", () => {
     expect(requireApprovedLearningDesign(approved)).toBe(approved);
     expect(() => requireApprovedLearningDesign(rejected)).toThrow(
       "Learner execution requires an APPROVED learning design.",
+    );
+  });
+});
+
+describe("Creator durable-retention premise change", () => {
+  it.each(["PROPOSED", "APPROVED", "REJECTED"] as const)(
+    "invalidates a %s design and reaches only the explicit non-applicable outcome",
+    (state) => {
+      const acceptedHandoff = createAcceptedHandoff();
+      const proposed = handoffToLearningScience(acceptedHandoff);
+      const design =
+        state === "APPROVED"
+          ? approveLearningDesign(proposed)
+          : state === "REJECTED"
+            ? rejectLearningDesign(proposed)
+            : proposed;
+
+      const changed = changeDurableRetentionPremise(
+        acceptedHandoff,
+        design,
+      );
+
+      expect(changed.changedDurableRetentionPremise).toBe(false);
+      expect(changed.invalidatedDesign.state).toBe("INVALIDATED");
+      expect(changed.invalidatedDesign).not.toBe(design);
+      expect(changed.invalidatedDesign.learningObjective).toBe(
+        design.learningObjective,
+      );
+      expect(() => requireApprovedLearningDesign(changed.invalidatedDesign)).toThrow(
+        "Learner execution requires an APPROVED learning design.",
+      );
+
+      const result = deriveOutcomeFromChangedDurableRetentionPremise(
+        changed.acceptedHandoff,
+      );
+
+      expect(result.acceptedHandoff.acceptedLearningObjective).toBe(
+        acceptedHandoff.acceptedLearningObjective,
+      );
+      expect(
+        result.acceptedHandoff.acceptedLearningObjective.supportingSourceBoundary,
+      ).toBe(acceptedHandoff.acceptedLearningObjective.supportingSourceBoundary);
+      expect(result.acceptedHandoff.relevantContext).toEqual({
+        description: "Original bounded context.",
+        durableRetentionOfPreviouslyAcquiredKnowledgeIntended: false,
+      });
+      expect(result.outcome).toEqual({
+        kind: "ACTIVE_RETRIEVAL_NON_APPLICABLE",
+        message:
+          "Active Retrieval is not applicable unless durable retention of previously acquired knowledge is an intended learning outcome.",
+      });
+      expect(result.outcome).not.toHaveProperty("learningDesign");
+      expect(result.outcome).not.toHaveProperty("mechanism");
+      expect(result.outcome).not.toHaveProperty("state");
+    },
+  );
+
+  it("rejects any premise transition that does not begin at true", () => {
+    const acceptedHandoff = createAcceptedHandoff();
+    const falseHandoff = formBoundedRelevantContext(
+      acceptedHandoff.acceptedLearningObjective,
+      acceptedHandoff.relevantContext.description,
+      false,
+    );
+    const design = handoffToLearningScience(acceptedHandoff);
+
+    expect(() => changeDurableRetentionPremise(falseHandoff, design)).toThrow(
+      "Durable-retention premise change requires an accepted true premise.",
+    );
+  });
+
+  it("does not convert unrelated handoff failures into non-applicability", () => {
+    const acceptedHandoff = createAcceptedHandoff();
+    const invalidHandoff = {
+      ...acceptedHandoff,
+      acceptedLearningObjective: {
+        ...acceptedHandoff.acceptedLearningObjective,
+        statement: "   ",
+      },
+    };
+
+    expect(() =>
+      deriveOutcomeFromChangedDurableRetentionPremise(invalidHandoff),
+    ).toThrow(
+      "Active Retrieval applicability requires an explicit Learning Objective.",
     );
   });
 });
