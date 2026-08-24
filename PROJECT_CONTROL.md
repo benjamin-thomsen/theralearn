@@ -16,6 +16,8 @@
 
 The verified end-to-end MVP is **ACCEPTED and CLOSED**. The durable MVP acceptance boundary in `docs/product/mvp.md` has been satisfied by the complete verified Creator-to-Learner chain and its verified non-applicable outcome. This acceptance closes the MVP as a whole; it does not open a new product Code Change Gate, authorize new implementation, or alter the authority direction from Product Authority through architecture to implementation.
 
+Exactly one Code Change Gate is now **OPEN — BOUNDED — GOVERNANCE VERIFIED** for the previously derived **Authenticated Persisted Creator-to-Learner MVP User-Test Handoff**. The gate is opened from the supplied remote-verified clean governance checkpoint `dc8de3e` and is bound without exception to the complete recorded 12-point **Minimum Acceptance Contract**, **Required Architecture Boundary**, and **Explicit Exclusions** below. Every previously closed gate remains closed and consumed.
+
 The final bounded Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome responsibility remains **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
 The separate bounded Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
@@ -3151,9 +3153,45 @@ This derivation excludes generalized course, curriculum, chapter, lesson, activi
 
 It also excludes changes to Product Authority, architecture authority, certified Learning Principles, Learning Science derivation, applicability or timing authority, Creator approval semantics, correction behavior, and every previously closed gate. Historical PASS, FAIL, checkpoint, authorization, and closure records remain unchanged.
 
-### Code Change Permission
+### Historical Code Change Permission at Release-Readiness Derivation
 
 No Code Change Gate is open. The PASS permits only a future governance action to open a separately recorded gate bounded by the responsibility and acceptance contract above. Until that explicit action occurs, product implementation remains unauthorized.
+
+That statement is preserved as the historical permission state at the time of derivation. It is superseded only by the separately explicit gate-opening record below and is not retroactively altered.
+
+### Authenticated Persisted Creator-to-Learner MVP User-Test Handoff Code Change Gate
+
+**Gate status: OPEN — BOUNDED — GOVERNANCE VERIFIED**
+
+**Opening governance baseline:** supplied remote-verified clean governance checkpoint `dc8de3e`. This record does not perform or claim any new remote verification.
+
+**Contract binding:** This gate is indivisibly bound to all 12 numbered items in the complete recorded **Minimum Acceptance Contract**, the complete **Required Architecture Boundary**, and every **Explicit Exclusion** in this derivation. Partial satisfaction does not satisfy or broaden the gate.
+
+#### Exact Authorized File and Behavior Boundary
+
+Product-code changes are authorized only where strictly necessary to implement this one handoff, and only within these existing or minimum new surfaces:
+
+1. the existing dashboard presentation, solely to add visible navigation into the existing Creator workflow and one protected Learner retrieval context;
+2. the existing Creator route boundary, solely to enforce the existing Supabase-authenticated session before access;
+3. the existing Creator approval orchestration, solely to hand exactly one package already produced by the existing approval boundary to one narrow persistence operation, without changing approval, invalidation, rejection, contract-review, prerequisite-review, or Learning Science semantics;
+4. at most one narrow approved-package persistence adapter/repository and its exact serialization/deserialization validation, solely for create-once or return-the-identical-existing-package behavior scoped to authenticated ownership and approved-package identity;
+5. one protected Learner retrieval route/context, solely to retrieve that exact owned package, deserialize and validate every authoritative identity and snapshot exactly, pass it through the existing `requireApprovedLearningDesign()` boundary, and then reuse the existing bounded Learner retrieval behavior;
+6. the minimum existing Supabase schema migration surface required for exactly one immutable approved-package record and authenticated-owner linkage, together with RLS policies permitting only the authenticated owner to create and read that record and denying cross-user access; and
+7. focused automated and browser-runtime test files/configuration solely as necessary to prove every item of the recorded 12-point contract, including protection, ownership isolation, duplicate handling, exact round-trip preservation, fail-closed behavior, and the reload/fresh-request handoff. Canonical local verification is authorized only within the repository's local-only boundary.
+
+No other product file or behavior is authorized. Route names, the concrete table/column representation, and the narrow adapter location may be selected only to the minimum extent required by the recorded **Required Architecture Boundary**; that implementation choice cannot create a generalized abstraction or expand this file boundary.
+
+#### Required Execution-Authority and Validation Boundary
+
+Persistence may accept only the complete immutable package emitted by the existing approval boundary. It must preserve, without re-derivation or reinterpretation, the complete Approved Learning Design, immutable Response Evaluation Contract and snapshot/identity binding, immutable same-version `LaterRetrievalPrerequisite` and snapshot/identity binding, and exact supporting source context/boundary. Learner deserialization and retrieval must reject absent, malformed, ambiguous, unauthorized, tampered, mismatched, substituted, non-approved, invalidated, or post-approval-mutated data and must call the existing `requireApprovedLearningDesign()` before exposing any Learner activity.
+
+#### Explicitly Unauthorized
+
+Every exclusion already recorded in this derivation remains binding. In particular, this gate does not authorize scheduling; eligibility or due-time calculation; clock observation; later-retrieval opportunity generation, exposure, or execution; recurrence; reminders; background jobs; generalized persistence, storage, repositories, content publication, or package management; multiple packages; listing or overwrite workflows; analytics; multi-tenancy; organization, institution, enrollment, assignment, invitation, role, or other administration; progress tracking; attempt history; completion or prerequisite-consumption state; generalized Learner state; mastery, scoring, grading, progression, personalization, or certification; AI/model/provider or network calls; new product dependencies; or any change to Product Authority, architecture authority, certified Learning Principles, Learning Science derivation, applicability or timing authority, Creator approval semantics, correction behavior, or any previously closed gate.
+
+#### Closure Condition
+
+The gate must close after the complete 12-point contract and architecture boundary have been locally reviewed and verified, with focused automated and browser-runtime evidence and `./scripts/dev verify` passing to the extent locally runnable without Git, GitHub, or network access. Closure must be recorded in `PROJECT_CONTROL.md`; tests alone do not close or expand the gate. The gate must also close without implementation if the work cannot remain inside this exact boundary.
 
 ---
 
@@ -3177,7 +3215,7 @@ The verified implementation reuses the existing invalidation, Relevant Context f
 
 The bounded applicability-and-timing prerequisite correction gate is consumed and **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. The later-retrieval execution/product gate remains **CLOSED**. The bounded Post-MVP Learner Correction Opportunity correction-execution authorization and the Contract Formation and Approval-Binding prerequisite authorization remain consumed and closed. No broader product implementation is authorized.
 
-The governance-only release-readiness derivation for exactly one authenticated, navigable, persisted Creator-to-Learner MVP user-test handoff is **GOVERNANCE REVIEWED — PASS — BOUNDED**. A future separately explicit Code Change Gate may be opened only for the recorded smallest responsibility and Minimum Acceptance Contract. No gate was opened by this derivation.
+The governance-only release-readiness derivation for exactly one authenticated, navigable, persisted Creator-to-Learner MVP user-test handoff remains **GOVERNANCE REVIEWED — PASS — BOUNDED**. From supplied remote-verified clean governance checkpoint `dc8de3e`, exactly one separate Code Change Gate is now **OPEN — BOUNDED — GOVERNANCE VERIFIED**, bound to the complete recorded 12-point Minimum Acceptance Contract, Required Architecture Boundary, and Explicit Exclusions. No other gate is open.
 
 ---
 
@@ -3190,9 +3228,9 @@ The separate governance re-review and completed closure review are **PASS**. Foc
 
 The bounded prerequisite-only Code Change Gate recorded for the **Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation** is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL ARCHITECTURE REVIEW PASS** and **CHECKPOINT PASS** with canonical verification PASS for TypeScript, build, documentation structure, repository index completeness, and Git status. Its authorization is consumed. Any other product implementation requires a separately derived, governance-verified, and explicitly opened Code Change Gate. Eligibility calculation, scheduling, opportunity exposure, later retrieval execution, persistence, and broader product implementation remain unauthorized.
 
-No Code Change Gate is open. The separate later-retrieval execution/product gate remains **CLOSED**. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No broader product implementation is authorized.
+Exactly one Code Change Gate is **OPEN — BOUNDED — GOVERNANCE VERIFIED** for the authenticated persisted Creator-to-Learner MVP user-test handoff. The separate later-retrieval execution/product gate remains **CLOSED**. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No broader product implementation is authorized.
 
-The next permitted governance action may be to open one separately explicit, bounded Code Change Gate for the authenticated persisted Creator-to-Learner MVP user-test handoff recorded above. That possible future gate must preserve every exclusion and acceptance condition in the derivation. It must not be interpreted as authority for generalized persistence, scheduling, later-retrieval opportunity execution, analytics, multi-tenant administration, progress tracking, or broader product expansion.
+The next allowed action is implementation and local verification only within the exact authenticated persisted Creator-to-Learner MVP user-test handoff gate recorded above. The implementation must satisfy all 12 acceptance points and the Required Architecture Boundary, and must not be interpreted as authority for generalized persistence, scheduling, eligibility calculation, later-retrieval opportunity exposure or execution, analytics, multi-tenancy, administration, progress tracking, or broader product expansion.
 
 ---
 
