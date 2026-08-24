@@ -2950,6 +2950,92 @@ This prerequisite remains **governance-only**. It derives no technical realizati
 
 ---
 
+## Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Technical Realization
+
+**Status: DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY — CODE CHANGE GATE CLOSED**
+
+### Smallest Technical Contract
+
+The smallest realization extends the existing same-version Learning Design review and approval boundary with one immutable `LaterRetrievalPrerequisite` value. The value is not a schedule, activity, eligibility event, or learner state. It contains only:
+
+1. `proposedLearningDesignIdentity`, `learningObjectiveIdentity`, `relevantContextIdentity`, and `supportingSourceBoundaryIdentity`, each matching the exact proposal under review and its unchanged upstream authority;
+2. the certified `DISTRIBUTED_PRACTICE` principle reference already established by Learning Science for that proposal;
+3. `repeatedLearningOpportunitiesRequired: true`, supplied by the authoritative Learning Science derivation rather than inferred by presentation or execution code;
+4. one `earliestEligibilityDelay` consisting of a positive whole-number `value` and an explicit `HOURS` or `DAYS` unit, measured from completion of the existing approved retrieval-and-feedback path and authored by the Creator/Content Owner from the intended retention horizon and relevant learning conditions; and
+5. the Creator/Content Owner authority reference and review event needed to bind the complete value atomically to approval of that exact Proposed Learning Design.
+
+No `false`, absent, or default applicability value qualifies. The bounded contract represents only the positive authoritative prerequisite required by the already-derived responsibility; every non-qualifying case is represented by absence of an approved bound prerequisite and must fail closed.
+
+### Authoritative Inputs and Outputs
+
+The authoritative inputs are the exact Proposed Learning Design and its stable authority identities, the Learning Science-owned positive Distributed Practice applicability determination, the Creator/Content Owner-authored relative timing boundary, and explicit same-design Creator approval. The only authoritative output is an immutable snapshot of the complete `LaterRetrievalPrerequisite` bound to the resulting Approved Learning Design and available through the existing approved-design execution-authority boundary.
+
+The output must carry no calculated timestamp, scheduled job, eligibility flag, consumption state, learner activity, or execution decision. Any future comparison between completion time and the approved relative delay belongs to the separately derived later-opportunity execution responsibility and is outside this prerequisite realization.
+
+### Lifecycle and Approval Binding
+
+The complete prerequisite must be visible with the same Proposed Learning Design during the existing review lifecycle. The existing approval transition may succeed only when every prerequisite field is complete, valid, reviewed, and identity-matched to that proposal. Approval must atomically freeze an immutable snapshot and bind it to the exact Approved Learning Design; separate approval, post-approval attachment, mutable association, inheritance, or cross-design reuse is invalid.
+
+Rejection, any upstream or Learning Design change, invalidation, replacement, or fresh derivation discards the draft or approved prerequisite together with that design version. A fresh proposal requires fresh authoritative applicability, fresh timing authorship, and fresh atomic Creator approval. The prerequisite does not add a Learning Design lifecycle state and does not alter the existing approval, rejection, invalidation, re-derivation, or execution-authority direction.
+
+### Fail-Closed Behavior
+
+Formation, review, approval, and approved-design retrieval must reject or withhold the prerequisite when any field is absent, incomplete, ambiguous, invalid, unreviewed, mutable, mismatched, superseded, or associated with another design or authority boundary. Non-positive, fractional, unitless, unsupported-unit, implementation-defaulted, or implementation-inferred timing is invalid. A design without one exact valid reviewed prerequisite snapshot must not be approved for this later-opportunity prerequisite and must expose no later-opportunity authority.
+
+Unexpected validation or identity failures remain explicit failures. They must not be converted into applicability, approval, eligibility, scheduling, or a favorable default. Elapsed time cannot repair an invalid prerequisite, and the prerequisite itself cannot establish that the later opportunity is due or unconsumed.
+
+### Minimum Technical Acceptance Contract
+
+Verification must demonstrate:
+
+1. exact same-proposal formation from the recorded authoritative inputs and no implementation-authored applicability or timing;
+2. complete Creator review and one atomic approval producing one immutable Approved Learning Design–`LaterRetrievalPrerequisite` pair;
+3. preservation of every upstream authority identity, the Distributed Practice reference, the exact relative timing value and unit, and the Creator approval reference/event;
+4. availability of that exact immutable pair through the existing approved-design execution-authority boundary without scheduling or exposing a later opportunity;
+5. rejection of every missing, incomplete, invalid, ambiguous, unreviewed, mismatched, substituted, mutable, superseded, or post-approval-attached input;
+6. invalidation and fresh-derivation behavior requiring fresh applicability, timing, review, and approval, with no inheritance or cross-design reuse; and
+7. absence of calculated eligibility, clocks, consumption state, learner activity, persistence, and every other excluded behavior.
+
+### Technical Non-Goals
+
+This realization does not calculate an eligibility timestamp; observe time; record completion or consumption; schedule, expose, or execute a later opportunity; add a clock, timer, job, reminder, notification, recurrence, or scheduler; or implement multiple opportunities. It does not change activity content, retrieval execution, response evaluation, correction execution, feedback, or Learner presentation.
+
+It does not authorize persistence, storage, schema, migrations, database or Supabase changes; routes or server actions; AI/model/provider or network calls; new dependencies; generalized authoring, scheduling, temporal, workflow, or state infrastructure; universal intervals; adaptive scheduling; learner modelling; personalization; mastery; scoring; grading; progression; analytics; or certification. It does not change Product Authority, architecture authority, certified Learning Principles, subject-matter authority, Learning Science applicability logic, Learning Requirements, mechanism selection, or the existing Learning Design lifecycle.
+
+### Governance Boundary
+
+This section derives only the prerequisite technical realization. It does not authorize implementation. **No product Code Change Gate is open**, and no product code change is authorized.
+
+---
+
+## Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation
+
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY — CODE CHANGE GATE CLOSED**
+
+**Governance review result: PASS**
+
+### Minimum Prerequisite-Only Authorization Boundary
+
+A future separately explicit governance decision may authorize only the implementation needed to form one `LaterRetrievalPrerequisite` from the recorded authoritative inputs, present it with the same existing Proposed Learning Design for explicit Creator/Content Owner review, and make the existing approval transition atomically validate, freeze, and bind the exact reviewed snapshot to the Approved Learning Design derived from that proposal.
+
+The exact permitted implementation boundary is limited to the existing Learning Design domain representation and approval/execution guards; the minimum existing `/creator-objective` in-session review orchestration and presentation required to author and review the bounded timing value; focused automated tests; and at most one small presentation-independent prerequisite validation/identity module under `lib/learning-science/`. Existing invalidation and fresh re-derivation paths may be adapted only as necessary to discard the bound prerequisite and prevent inheritance. No other product file or behavior is within this authorization derivation.
+
+Implementation within a future gate must preserve distinct Learning Science applicability authority and Creator/Content Owner timing and approval authority, exact same-version identity binding, immutable snapshot semantics, explicit validation, existing lifecycle behavior, and fail-closed approved-design retrieval. It must stop when the immutable Approved Learning Design–`LaterRetrievalPrerequisite` pair is demonstrably available at the existing approved-design execution-authority boundary.
+
+### Verification Obligations
+
+Focused automated verification must cover every item in the recorded Minimum Technical Acceptance Contract, including valid formation and atomic binding; exact authority and value preservation; all malformed-value, absence, review, identity, substitution, mutation, supersession, and post-approval-attachment failures; rejection, invalidation, and fresh-derivation behavior; approved-pair availability at the existing authority boundary; and proof that no eligibility calculation, schedule, later opportunity, learner activity, persistence, or consumption state is created. `./scripts/dev verify` must be run when it can be completed within the local-only boundary.
+
+### Explicitly Unauthorized
+
+Every exclusion and technical non-goal in the product responsibility, authoritative prerequisite, and technical realization remains binding. This authorization derivation excludes calculating or comparing due time; observing a clock; recording retrieval completion or prerequisite consumption; scheduling, exposing, or executing the later retrieval opportunity; learner-facing changes; activity generation; evaluation or feedback changes; correction changes; additional Learning Design states; generalized temporal or scheduling infrastructure; persistence, storage, schema, migrations, database or Supabase changes; routes, server actions, background jobs, reminders, notifications, AI/model/provider or network calls, new dependencies, and any broader Product Authority, architecture, Learning Science, subject-matter, lifecycle, or learner-state change.
+
+### Code Change Permission
+
+This minimum prerequisite-only implementation authorization is governance-reviewed as **PASS**, but the review does not itself authorize implementation. **No product Code Change Gate is open**, and no product-code change is authorized. A future Code Change Gate may be considered only through a separate explicit governance decision and only for the exact boundary, stop condition, verification obligations, and exclusions recorded here.
+
+---
+
 ## Current Task
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
@@ -2960,13 +3046,15 @@ The earlier minimum implementation-authorization review remains historically **R
 
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
+The **Post-MVP Exactly One Later Retrieval Opportunity** authoritative applicability-and-timing prerequisite now has a **DERIVED — BOUNDED** smallest technical realization and a **GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY** minimum implementation authorization. The authorization stops at one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair available through the existing approved-design execution-authority boundary. It does not calculate eligibility, schedule or expose an opportunity, or authorize implementation.
+
 The implementation and verification result is **PASS** at verified implementation checkpoint `227e15710234d43fff3d33955aa82dedee9c11b3`. The complete recorded Minimum Acceptance Contract and canonical local verification passed.
 
 The completed bounded responsibility permits only one Creator-controlled change to the accepted handoff's `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise from `true` to `false`; immediate invalidation of the current Learning Design; preservation of the accepted Learning Objective, source traceability, and context description; re-entry through the existing handoff and Learning Science applicability boundary; and an explicit Active Retrieval non-applicable outcome with no replacement design, approval, or Learner execution.
 
 The verified implementation reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. The bounded authorization has been consumed and is closed; every recorded exclusion remains binding.
 
-No product Code Change Gate is open. The bounded Post-MVP Learner Correction Opportunity correction-execution authorization and the Contract Formation and Approval-Binding prerequisite authorization have both been consumed and closed. No further product implementation is authorized by either completed gate.
+No product Code Change Gate is open. The applicability-and-timing prerequisite authorization requires a separate explicit Code Change Gate decision before any implementation. The bounded Post-MVP Learner Correction Opportunity correction-execution authorization and the Contract Formation and Approval-Binding prerequisite authorization have both been consumed and closed. No further product implementation is authorized by either completed gate.
 
 ---
 
@@ -2976,6 +3064,8 @@ No product Code Change Gate is open. The bounded Post-MVP Learner Correction Opp
 The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility, deterministic evaluation authority, and minimum technical realization are derived. The contract-formation and approval-binding technical prerequisite is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**, and its bounded minimum implementation authorization remains governance-reviewed as **PASS**.
 
 The separate governance re-review and completed closure review are **PASS**. Focused verification confirmed the blocker fix enforcing exactly one correction attempt and the mandatory terminal stop with no post-outcome activity. The exactly bounded Post-MVP Learner Correction Opportunity correction-execution Code Change Gate has been consumed and is closed.
+
+The next permitted governance action is consideration of one separately explicit prerequisite-only Code Change Gate for the recorded **Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation**. Until that separate decision is recorded, its bounded PASS authorizes no product change. Implementation of eligibility calculation, scheduling, opportunity exposure, or later retrieval execution remains outside consideration.
 
 No product implementation Code Change Gate is open. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No further product implementation is authorized by the completed correction-execution gate.
 
