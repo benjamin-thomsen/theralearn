@@ -5,6 +5,7 @@ import {
   approveLearningDesign,
   rejectLearningDesign,
 } from "../../lib/learning-science/learningDesignLifecycle";
+import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../../lib/learning-science/responseEvaluationContract";
 import {
   approveObjectiveCandidate,
   changeObjectiveProposal,
@@ -38,6 +39,17 @@ function createAcceptedHandoff() {
   );
 }
 
+function approve(design: ReturnType<typeof handoffToLearningScience>) {
+  const boundary = { startOffset: 2, endOffset: 24 };
+  const contract = formResponseEvaluationContract(design, {
+    identity: crypto.randomUUID(), learningObjectiveIdentity: design.learningObjectiveIdentity,
+    supportingSource: { identity: createAuthorityIdentity("source", { context: "Source context", boundary }), boundary },
+    correctionRequirementReference: design.feedbackResultRequirement.description,
+    requiredResponseElements: [{ identity: "element-1", claim: "Creator claim", acceptedFormulations: ["accepted"], contradictingFormulations: [], informativeFeedback: "Creator feedback" }],
+  }, "Source context");
+  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true));
+}
+
 describe("Creator Learning Design description change", () => {
   it.each(["PROPOSED", "APPROVED", "REJECTED"] as const)(
     "immediately invalidates a %s design without mutating its premises",
@@ -46,7 +58,7 @@ describe("Creator Learning Design description change", () => {
       const proposed = handoffToLearningScience(acceptedHandoff);
       const design =
         state === "APPROVED"
-          ? approveLearningDesign(proposed)
+          ? approve(proposed)
           : state === "REJECTED"
             ? rejectLearningDesign(proposed)
             : proposed;
@@ -76,7 +88,7 @@ describe("Creator Learning Design description change", () => {
 
   it("preserves accepted authority and creates a distinct fresh proposal", () => {
     const acceptedHandoff = createAcceptedHandoff();
-    const priorDesign = approveLearningDesign(
+    const priorDesign = approve(
       handoffToLearningScience(acceptedHandoff),
     );
     const changed = changeRelevantContextDescription(
@@ -116,7 +128,7 @@ describe("Creator Learning Design description change", () => {
       "Changed bounded context.",
     );
 
-    const approved = approveLearningDesign(rederived.learningDesign);
+    const approved = approve(rederived.learningDesign);
     const rejected = rejectLearningDesign(rederived.learningDesign);
 
     expect(requireApprovedLearningDesign(approved)).toBe(approved);
@@ -134,7 +146,7 @@ describe("Creator durable-retention premise change", () => {
       const proposed = handoffToLearningScience(acceptedHandoff);
       const design =
         state === "APPROVED"
-          ? approveLearningDesign(proposed)
+          ? approve(proposed)
           : state === "REJECTED"
             ? rejectLearningDesign(proposed)
             : proposed;

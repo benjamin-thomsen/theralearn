@@ -9,7 +9,16 @@ import {
   invalidateLearningDesign,
   rejectLearningDesign,
 } from "../lib/learning-science/learningDesignLifecycle";
-import type { LearningDesign } from "../lib/learning-science/types";
+import {
+  createAuthorityIdentity,
+  formResponseEvaluationContract,
+  reviewResponseEvaluationContract,
+} from "../lib/learning-science/responseEvaluationContract";
+import type {
+  LearningDesign,
+  ProposedLearningDesign,
+  ResponseEvaluationContract,
+} from "../lib/learning-science/types";
 
 type BoundedLearningDesignSliceProps = {
   initialLearningObjective: string;
@@ -20,6 +29,21 @@ type BoundedLearningDesignSliceProps = {
   correct_answer: number;
   explanation: string | null;
 };
+
+export function approveReviewedBoundedLearningDesign(
+  design: ProposedLearningDesign,
+  contract: ResponseEvaluationContract,
+  sourceGroundedAndSuitableConfirmed: boolean,
+) {
+  return approveLearningDesign(
+    design,
+    reviewResponseEvaluationContract(
+      design,
+      contract,
+      sourceGroundedAndSuitableConfirmed,
+    ),
+  );
+}
 
 export default function BoundedLearningDesignSlice({
   initialLearningObjective,
@@ -41,8 +65,28 @@ export default function BoundedLearningDesignSlice({
     setDurableRetentionOfPreviouslyAcquiredKnowledgeIntended,
   ] = useState(false);
   const [design, setDesign] = useState<LearningDesign | null>(null);
+  const [contractDraft, setContractDraft] =
+    useState<ResponseEvaluationContract | null>(null);
+  const [contractClaim, setContractClaim] = useState("");
+  const [acceptedFormulations, setAcceptedFormulations] = useState("");
+  const [contradictingFormulations, setContradictingFormulations] =
+    useState("");
+  const [contractFeedback, setContractFeedback] = useState("");
+  const [contractReviewed, setContractReviewed] = useState(false);
+  const [approvalError, setApprovalError] = useState("");
+
+  function resetContractFormation() {
+    setContractDraft(null);
+    setContractClaim("");
+    setAcceptedFormulations("");
+    setContradictingFormulations("");
+    setContractFeedback("");
+    setContractReviewed(false);
+    setApprovalError("");
+  }
 
   function invalidateCurrentDesign() {
+    resetContractFormation();
     setDesign((nextDesign) => {
       if (!nextDesign || nextDesign.state === "INVALIDATED") {
         return nextDesign;
@@ -68,6 +112,7 @@ export default function BoundedLearningDesignSlice({
   }
 
   function derive() {
+    resetContractFormation();
     setDesign(
       deriveLearningDesign({
         learningObjective: { statement: learningObjective },
@@ -80,11 +125,68 @@ export default function BoundedLearningDesignSlice({
   }
 
   function approve() {
-    setDesign((nextDesign) =>
-      nextDesign?.state === "PROPOSED"
-        ? approveLearningDesign(nextDesign)
-        : nextDesign,
-    );
+    setApprovalError("");
+    try {
+      setDesign((nextDesign) =>
+        nextDesign?.state === "PROPOSED" && contractDraft
+          ? approveReviewedBoundedLearningDesign(
+              nextDesign,
+              contractDraft,
+              contractReviewed,
+            )
+          : nextDesign,
+      );
+    } catch (cause) {
+      setApprovalError(
+        cause instanceof Error
+          ? cause.message
+          : "Learning Design approval failed.",
+      );
+    }
+  }
+
+  function formContract() {
+    if (design?.state !== "PROPOSED") return;
+
+    setApprovalError("");
+    try {
+      const boundary = { startOffset: 0, endOffset: relevantContext.length };
+      setContractDraft(
+        formResponseEvaluationContract(
+          design,
+          {
+            identity: crypto.randomUUID(),
+            learningObjectiveIdentity: design.learningObjectiveIdentity,
+            supportingSource: {
+              identity: createAuthorityIdentity("source", {
+                context: relevantContext,
+                boundary,
+              }),
+              boundary,
+            },
+            correctionRequirementReference:
+              design.feedbackResultRequirement.description,
+            requiredResponseElements: [
+              {
+                identity: crypto.randomUUID(),
+                claim: contractClaim,
+                acceptedFormulations: acceptedFormulations.split("\n"),
+                contradictingFormulations: contradictingFormulations
+                  ? contradictingFormulations.split("\n")
+                  : [],
+                informativeFeedback: contractFeedback,
+              },
+            ],
+          },
+          relevantContext,
+        ),
+      );
+      setContractReviewed(false);
+    } catch (cause) {
+      setApprovalError(
+        cause instanceof Error ? cause.message : "Contract formation failed.",
+      );
+    }
   }
 
   function reject() {
@@ -167,7 +269,111 @@ export default function BoundedLearningDesignSlice({
 
       {design?.state === "PROPOSED" && (
         <>
-          <button type="button" onClick={approve}>
+          <section aria-labelledby="bounded-response-contract-heading">
+            <h3 id="bounded-response-contract-heading">
+              Response Evaluation Contract
+            </h3>
+            {!contractDraft ? (
+              <>
+                <p>
+                  Creator/Content Owner authors every subject-matter-bearing
+                  field. Enter one formulation per line.
+                </p>
+                <label style={{ display: "block" }}>
+                  Source-grounded required claim
+                  <textarea
+                    value={contractClaim}
+                    onChange={(event) => setContractClaim(event.target.value)}
+                  />
+                </label>
+                <label style={{ display: "block" }}>
+                  Accepted formulations
+                  <textarea
+                    value={acceptedFormulations}
+                    onChange={(event) =>
+                      setAcceptedFormulations(event.target.value)
+                    }
+                  />
+                </label>
+                <label style={{ display: "block" }}>
+                  Contradicting formulations (optional)
+                  <textarea
+                    value={contradictingFormulations}
+                    onChange={(event) =>
+                      setContradictingFormulations(event.target.value)
+                    }
+                  />
+                </label>
+                <label style={{ display: "block" }}>
+                  Informative source-grounded feedback
+                  <textarea
+                    value={contractFeedback}
+                    onChange={(event) => setContractFeedback(event.target.value)}
+                  />
+                </label>
+                <button type="button" onClick={formContract}>
+                  Form contract draft
+                </button>
+              </>
+            ) : (
+              <>
+                <p>Contract identity: {contractDraft.identity}</p>
+                <p>
+                  Proposed Learning Design identity:{" "}
+                  {contractDraft.proposedLearningDesignIdentity}
+                </p>
+                <p>
+                  Learning Objective identity:{" "}
+                  {contractDraft.learningObjectiveIdentity}
+                </p>
+                <p>Learning Objective: {design.learningObjective.statement}</p>
+                <p>Source identity: {contractDraft.supportingSource.identity}</p>
+                <p>
+                  Immutable source boundary:{" "}
+                  {contractDraft.supportingSource.boundary.startOffset}–
+                  {contractDraft.supportingSource.boundary.endOffset}
+                </p>
+                <blockquote>{relevantContext}</blockquote>
+                <p>
+                  Correction requirement:{" "}
+                  {contractDraft.correctionRequirementReference}
+                </p>
+                <p>Mechanism: {contractDraft.mechanism}</p>
+                {contractDraft.requiredResponseElements.map((element, index) => (
+                  <div key={element.identity}>
+                    <h4>Required element {index + 1}</h4>
+                    <p>{element.claim}</p>
+                    <p>Accepted: {element.acceptedFormulations.join("; ")}</p>
+                    <p>
+                      Contradicting:{" "}
+                      {element.contradictingFormulations.join("; ") || "None"}
+                    </p>
+                    <p>Feedback: {element.informativeFeedback}</p>
+                  </div>
+                ))}
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={contractReviewed}
+                    onChange={(event) =>
+                      setContractReviewed(event.target.checked)
+                    }
+                  />
+                  I confirm this complete contract is source-grounded and
+                  suitable for this Learning Design
+                </label>
+                <button type="button" onClick={resetContractFormation}>
+                  Change contract
+                </button>
+              </>
+            )}
+          </section>
+          {approvalError && <p role="alert">{approvalError}</p>}
+          <button
+            type="button"
+            onClick={approve}
+            disabled={!contractDraft || !contractReviewed}
+          >
             Approve learning design
           </button>
           <button type="button" onClick={reject}>

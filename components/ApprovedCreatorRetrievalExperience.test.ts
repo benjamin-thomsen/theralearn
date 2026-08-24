@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { deriveLearningDesign } from "../lib/learning-science/deriveLearningDesign";
 import { approveLearningDesign, rejectLearningDesign } from "../lib/learning-science/learningDesignLifecycle";
+import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../lib/learning-science/responseEvaluationContract";
 import ApprovedCreatorRetrievalExperience, { createSourceGroundedRetrievalResult } from "./ApprovedCreatorRetrievalExperience";
 
 function createProposedDesign() {
@@ -16,9 +17,21 @@ function createProposedDesign() {
   });
 }
 
+function createApprovedPairForTest() {
+  const design = createProposedDesign();
+  const boundary = { startOffset: 0, endOffset: 10 };
+  const contract = formResponseEvaluationContract(design, {
+    identity: "contract-1", learningObjectiveIdentity: design.learningObjectiveIdentity,
+    supportingSource: { identity: createAuthorityIdentity("source", { context: "Source context", boundary }), boundary },
+    correctionRequirementReference: design.feedbackResultRequirement.description,
+    requiredResponseElements: [{ identity: "element-1", claim: "Creator claim", acceptedFormulations: ["accepted"], contradictingFormulations: [], informativeFeedback: "Creator feedback" }],
+  }, "Source context");
+  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true));
+}
+
 describe("approved Creator retrieval experience", () => {
   it("returns source-grounded feedback only after an active response", () => {
-    const approvedDesign = approveLearningDesign(createProposedDesign());
+    const approvedDesign = createApprovedPairForTest();
 
     expect(
       createSourceGroundedRetrievalResult(
@@ -67,7 +80,7 @@ describe("approved Creator retrieval experience", () => {
   });
 
   it("requires both an active response and supporting source context", () => {
-    const approvedDesign = approveLearningDesign(createProposedDesign());
+    const approvedDesign = createApprovedPairForTest();
 
     expect(() =>
       createSourceGroundedRetrievalResult(

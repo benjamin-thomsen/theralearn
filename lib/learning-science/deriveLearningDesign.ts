@@ -3,6 +3,7 @@ import type {
   ProposedLearningDesign,
   RelevantContext,
 } from "./types";
+import { createAuthorityIdentity } from "./responseEvaluationContract";
 
 export interface DeriveLearningDesignInput {
   learningObjective: LearningObjective;
@@ -56,6 +57,8 @@ export function deriveLearningDesign({
   ];
 
   return {
+    identity: crypto.randomUUID(),
+    learningObjectiveIdentity: createAuthorityIdentity("objective", learningObjective.statement),
     learningObjective,
     relevantContext,
     applicablePrinciples: ["active-retrieval"],

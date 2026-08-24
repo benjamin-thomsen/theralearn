@@ -38,7 +38,35 @@ export interface CreatorControlledDecision {
   description: string;
 }
 
+export interface SupportingSourceReference {
+  identity: string;
+  boundary: {
+    startOffset: number;
+    endOffset: number;
+  };
+}
+
+export interface RequiredResponseElement {
+  identity: string;
+  claim: string;
+  acceptedFormulations: readonly string[];
+  contradictingFormulations: readonly string[];
+  informativeFeedback: string;
+}
+
+export interface ResponseEvaluationContract {
+  identity: string;
+  proposedLearningDesignIdentity: string;
+  learningObjectiveIdentity: string;
+  supportingSource: SupportingSourceReference;
+  correctionRequirementReference: string;
+  mechanism: "bounded-retrieval";
+  requiredResponseElements: readonly RequiredResponseElement[];
+}
+
 interface LearningDesignBase {
+  identity: string;
+  learningObjectiveIdentity: string;
   learningObjective: LearningObjective;
   relevantContext: RelevantContext;
   applicablePrinciples: CertifiedLearningPrincipleReference[];
@@ -56,6 +84,9 @@ export interface ProposedLearningDesign extends LearningDesignBase {
 
 export interface ApprovedLearningDesign extends LearningDesignBase {
   state: "APPROVED";
+  responseEvaluationContractIdentity: string;
+  responseEvaluationContractSnapshot: string;
+  responseEvaluationContract: Readonly<ResponseEvaluationContract>;
 }
 
 export interface RejectedLearningDesign extends LearningDesignBase {
