@@ -117,9 +117,11 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 - [`app/apple-icon.tsx`](./app/apple-icon.tsx)
 - [`app/auth/confirm/route.ts`](./app/auth/confirm/route.ts)
+- [`app/authenticatedHandoffRoutes.test.ts`](./app/authenticatedHandoffRoutes.test.ts)
 - [`app/creator-objective/actions.ts`](./app/creator-objective/actions.ts)
 - [`app/creator-objective/creatorAuthority.test.ts`](./app/creator-objective/creatorAuthority.test.ts)
 - [`app/creator-objective/creatorAuthority.ts`](./app/creator-objective/creatorAuthority.ts)
+- [`app/creator-objective/CreatorObjectiveClient.tsx`](./app/creator-objective/CreatorObjectiveClient.tsx)
 - [`app/creator-objective/learningDesignChange.test.ts`](./app/creator-objective/learningDesignChange.test.ts)
 - [`app/creator-objective/learningDesignChange.ts`](./app/creator-objective/learningDesignChange.ts)
 - [`app/creator-objective/learningDesignReview.test.ts`](./app/creator-objective/learningDesignReview.test.ts)
@@ -133,6 +135,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`app/hooks/useQuizProgress.ts`](./app/hooks/useQuizProgress.ts)
 - [`app/icon.tsx`](./app/icon.tsx)
 - [`app/layout.tsx`](./app/layout.tsx)
+- [`app/learner-handoff/page.tsx`](./app/learner-handoff/page.tsx)
 - [`app/loading.tsx`](./app/loading.tsx)
 - [`app/login/actions.ts`](./app/login/actions.ts)
 - [`app/login/page.module.css`](./app/login/page.module.css)
@@ -179,6 +182,8 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`components/Footer.tsx`](./components/Footer.tsx)
 - [`components/Header.module.css`](./components/Header.module.css)
 - [`components/Header.tsx`](./components/Header.tsx)
+- [`components/LearnerApprovedPackageHydrationBoundary.test.ts`](./components/LearnerApprovedPackageHydrationBoundary.test.ts)
+- [`components/LearnerApprovedPackageHydrationBoundary.tsx`](./components/LearnerApprovedPackageHydrationBoundary.tsx)
 - [`components/PensumCard.module.css`](./components/PensumCard.module.css)
 - [`components/PensumCard.tsx`](./components/PensumCard.tsx)
 - [`components/ProgressBar.module.css`](./components/ProgressBar.module.css)
@@ -203,6 +208,8 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 ## Libraries og repositories
 
+- [`lib/approved-package/approvedPackageRepository.test.ts`](./lib/approved-package/approvedPackageRepository.test.ts)
+- [`lib/approved-package/approvedPackageRepository.ts`](./lib/approved-package/approvedPackageRepository.ts)
 - [`lib/constants.ts`](./lib/constants.ts)
 - [`lib/learning-science/deriveLearningDesign.ts`](./lib/learning-science/deriveLearningDesign.ts)
 - [`lib/learning-science/laterRetrievalPrerequisite.test.ts`](./lib/learning-science/laterRetrievalPrerequisite.test.ts)
@@ -240,6 +247,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/supabase/client.ts`](./lib/supabase/client.ts)
 - [`lib/supabase/proxy.ts`](./lib/supabase/proxy.ts)
 - [`lib/supabase/server.ts`](./lib/supabase/server.ts)
+- [`lib/supabase/serviceRole.ts`](./lib/supabase/serviceRole.ts)
 - [`lib/utils.test.ts`](./lib/utils.test.ts)
 - [`lib/utils.ts`](./lib/utils.ts)
 
@@ -250,6 +258,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`supabase/.gitignore`](./supabase/.gitignore)
 - [`supabase/config.toml`](./supabase/config.toml)
 - [`supabase/migrations/20260804162031_create_mvp_database_schema.sql`](./supabase/migrations/20260804162031_create_mvp_database_schema.sql)
+- [`supabase/migrations/20260824120000_create_approved_authority_package.sql`](./supabase/migrations/20260824120000_create_approved_authority_package.sql)
 
 ---
 

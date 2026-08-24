@@ -1,4 +1,9 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+vi.mock("../app/learner-handoff/actions", () => ({
+  submitInitialApprovedRetrieval: vi.fn(),
+  submitTerminalCorrection: vi.fn(),
+}));
 
 import { deriveLearningDesign } from "../lib/learning-science/deriveLearningDesign";
 import { approveLearningDesign } from "../lib/learning-science/learningDesignLifecycle";

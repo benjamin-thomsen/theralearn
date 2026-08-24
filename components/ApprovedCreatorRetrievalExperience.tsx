@@ -3,14 +3,22 @@
 import { FormEvent, useState } from "react";
 
 import { requireApprovedLearningDesign } from "../lib/learning-science/learningDesignExecution";
-import { evaluateCorrectionResponse, evaluateFirstResponse } from "../lib/learning-science/responseEvaluation";
-import type { CorrectionResult } from "../lib/learning-science/responseEvaluation";
+import { evaluateFirstResponse } from "../lib/learning-science/responseEvaluation";
+import type { RequiredResponseElement } from "../lib/learning-science/types";
 import type { LearningDesign } from "../lib/learning-science/types";
 
 type ApprovedCreatorRetrievalExperienceProps = {
   learningDesign: LearningDesign;
   supportingSourceContext: string;
+  submitInitial?: (response: string) => Promise<VisibleFirstResult>;
+  submitCorrection?: (correctionReceipt: string, correctionResponse: string) => Promise<VisibleCorrectionResult>;
 };
+
+type VisibleFirstResult =
+  | { status: "NO_CORRECTION_REQUIRED"; learnerResponse: string; supportingSourceContext: string; completionAnchor: unknown }
+  | { status: "INDETERMINATE"; learnerResponse: string; supportingSourceContext: string }
+  | { status: "EVALUATION_FAILURE"; learnerResponse: string; supportingSourceContext: string; message: string }
+  | { status: "CORRECTION_REQUIRED"; learnerResponse: string; supportingSourceContext: string; target: Readonly<RequiredResponseElement>; correctionReceipt: string };
 
 export function createSourceGroundedRetrievalResult(
   learningDesign: LearningDesign,
@@ -20,7 +28,9 @@ export function createSourceGroundedRetrievalResult(
   return evaluateFirstResponse(learningDesign, learnerResponse, supportingSourceContext);
 }
 
-export function TerminalCorrectionOutcome({ result }: { result: CorrectionResult }) {
+type VisibleCorrectionResult = { status: "CORRECTED" | "NOT_CORRECTED" | "INDETERMINATE" | "EVALUATION_FAILURE"; correctionResponse: string; completionAnchor?: unknown; message?: string };
+
+export function TerminalCorrectionOutcome({ result }: { result: VisibleCorrectionResult }) {
   return (
     <div aria-live="polite">
       <p>Korrektionsresultat: {result.status}</p>
@@ -32,24 +42,19 @@ export function TerminalCorrectionOutcome({ result }: { result: CorrectionResult
 export default function ApprovedCreatorRetrievalExperience({
   learningDesign,
   supportingSourceContext,
+  submitInitial,
+  submitCorrection,
 }: ApprovedCreatorRetrievalExperienceProps) {
   const approvedDesign = requireApprovedLearningDesign(learningDesign);
   const [learnerResponse, setLearnerResponse] = useState("");
-  const [result, setResult] = useState<ReturnType<
-    typeof createSourceGroundedRetrievalResult
-  > | null>(null);
+  const [result, setResult] = useState<VisibleFirstResult | null>(null);
   const [correctionResponse, setCorrectionResponse] = useState("");
-  const [correctionResult, setCorrectionResult] = useState<ReturnType<typeof evaluateCorrectionResponse> | null>(null);
+  const [correctionResult, setCorrectionResult] = useState<VisibleCorrectionResult | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setResult(
-      createSourceGroundedRetrievalResult(
-        approvedDesign,
-        learnerResponse,
-        supportingSourceContext,
-      ),
-    );
+    if (!submitInitial) throw new Error("Trusted server retrieval boundary is unavailable.");
+    setResult(await submitInitial(learnerResponse));
   }
 
   return (
@@ -89,9 +94,11 @@ export default function ApprovedCreatorRetrievalExperience({
             <>
               <h4>Informativ feedback</h4>
               <p>{result.target.informativeFeedback}</p>
-              <form onSubmit={(event) => {
+              <form onSubmit={async (event) => {
                 event.preventDefault();
-                setCorrectionResult(evaluateCorrectionResponse(result, correctionResponse, correctionResult));
+                if (correctionResult) throw new Error("The single correction attempt has already reached a terminal outcome.");
+                if (!submitCorrection) throw new Error("Trusted server correction boundary is unavailable.");
+                setCorrectionResult(await submitCorrection(result.correctionReceipt, correctionResponse));
               }}>
                 <label style={{ display: "block" }}>
                   Dit korrigerede svar

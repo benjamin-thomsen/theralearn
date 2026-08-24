@@ -1,6 +1,7 @@
 "use client";
 
 import ApprovedCreatorRetrievalExperience from "./ApprovedCreatorRetrievalExperience";
+import { submitInitialApprovedRetrieval, submitTerminalCorrection } from "../app/learner-handoff/actions";
 import { deriveLearningDesign } from "../lib/learning-science/deriveLearningDesign";
 import { validateLaterRetrievalPrerequisite } from "../lib/learning-science/laterRetrievalPrerequisite";
 import { requireApprovedLearningDesign } from "../lib/learning-science/learningDesignExecution";
@@ -136,5 +137,5 @@ export default function LearnerApprovedPackageHydrationBoundary({
   serializedPackage,
 }: Readonly<{ serializedPackage: string }>) {
   const authorityPackage = hydrateApprovedAuthorityPackage(serializedPackage);
-  return <ApprovedCreatorRetrievalExperience {...authorityPackage} />;
+  return <ApprovedCreatorRetrievalExperience {...authorityPackage} submitInitial={submitInitialApprovedRetrieval} submitCorrection={submitTerminalCorrection} />;
 }

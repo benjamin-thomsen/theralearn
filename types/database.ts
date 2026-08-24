@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      approved_retrieval_completion_anchors: {
+        Row: {
+          approved_learning_design_identity: string
+          approved_learning_design_snapshot: string
+          completed_at: string
+          owner_id: string
+          package_identity: string
+          response_evaluation_contract_identity: string
+          response_evaluation_contract_snapshot: string
+          retrieval_interaction_identity: string
+          terminal_interaction_digest: string
+        }
+        Insert: {
+          approved_learning_design_identity: string
+          approved_learning_design_snapshot: string
+          completed_at?: never
+          owner_id: string
+          package_identity: string
+          response_evaluation_contract_identity: string
+          response_evaluation_contract_snapshot: string
+          retrieval_interaction_identity: string
+          terminal_interaction_digest: string
+        }
+        Update: {
+          approved_learning_design_identity?: never
+          approved_learning_design_snapshot?: never
+          completed_at?: never
+          owner_id?: never
+          package_identity?: never
+          response_evaluation_contract_identity?: never
+          response_evaluation_contract_snapshot?: never
+          retrieval_interaction_identity?: never
+          terminal_interaction_digest?: never
+        }
+        Relationships: [
+          {
+            foreignKeyName: "approved_retrieval_completion_anchors_owner_id_package_identity_fkey"
+            columns: ["owner_id", "package_identity"]
+            isOneToOne: true
+            referencedRelation: "approved_authority_packages"
+            referencedColumns: ["owner_id", "package_identity"]
+          },
+        ]
+      }
       approved_authority_packages: {
         Row: {
           created_at: string
@@ -327,7 +371,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      create_retrieval_completion_anchor_once: {
+        Args: { p_owner_id: string; p_package_identity: string; p_approved_learning_design_identity: string; p_approved_learning_design_snapshot: string; p_response_evaluation_contract_identity: string; p_response_evaluation_contract_snapshot: string; p_retrieval_interaction_identity: string; p_terminal_interaction_digest: string }
+        Returns: Database["public"]["Tables"]["approved_retrieval_completion_anchors"]["Row"][]
+      }
     }
     Enums: {
       [_ in never]: never
