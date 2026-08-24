@@ -2900,6 +2900,56 @@ This section records product responsibility only. It derives no technical realiz
 
 ---
 
+## Post-MVP Exactly One Later Retrieval Opportunity Authoritative Applicability-and-Timing Input Prerequisite
+
+**Status: DERIVED — BOUNDED — UPSTREAM AUTHORITY PREREQUISITE ONLY — CODE CHANGE GATE CLOSED**
+
+This prerequisite supplies only the minimum authoritative applicability-and-timing input required by the already-derived **Post-MVP Exactly One Later Retrieval Opportunity** product responsibility. It neither schedules nor exposes an opportunity.
+
+### Authority
+
+Learning Science authority determines whether durable retention for the unchanged accepted Learning Objective and bounded Relevant Context requires repeated learning opportunities under the certified **Distributed Practice Principle**. The Creator/Content Owner remains the approval authority for the Learning Design and for the bounded later-opportunity timing input carried by that design. Neither implementation, Learner behavior, elapsed time alone, nor a default interval may originate, infer, broaden, or replace either decision.
+
+### Minimum Authoritative Fields
+
+One complete prerequisite record must contain only:
+
+1. an immutable reference to the same Approved Learning Design and its unchanged accepted Learning Objective, bounded Relevant Context, and supporting source boundary;
+2. the applicable certified **Distributed Practice Principle** reference;
+3. an explicit authoritative determination that durable retention requires repeated learning opportunities for that approved boundary;
+4. exactly one Creator-approved earliest-eligibility timing boundary for one later retrieval opportunity, expressed relative to completion of the existing approved retrieval-and-feedback path and grounded in the intended retention horizon and relevant learning conditions; and
+5. the Creator approval identity or authority reference and approval event that atomically bind the applicability determination and timing boundary to that exact Learning Design version.
+
+The timing boundary must be determinate enough to decide fail-closed whether the later opportunity is not yet eligible or eligible. It need not, and must not, prescribe a universal interval or generalized schedule.
+
+### Invariants
+
+The prerequisite remains subordinate to the same approved subject-matter and Learning Design authority. It cannot change or re-derive the Learning Objective, Relevant Context, supporting source boundary, certified principle, Learning Requirements, mechanism, activity content, response-evaluation authority, feedback grounding, or Creator decision. It can qualify at most one later retrieval opportunity and cannot itself constitute an activity, schedule, learner-state transition, or execution authorization.
+
+Missing, incomplete, ambiguous, unapproved, mismatched, superseded, or invalidated input is non-qualifying. Time passage cannot cure invalid input. A qualifying record cannot be reused for a second later opportunity, a retry, or a correction attempt.
+
+### Lifecycle and Approval Binding
+
+The complete applicability-and-timing input must exist within the Learning Design review boundary and be approved atomically with the exact Learning Design version to which it applies. Approval of either element alone is insufficient. Any rejection, change, invalidation, replacement, or fresh derivation of that Learning Design voids the prerequisite; it cannot inherit approval or transfer to another design version. Fresh applicability-and-timing input and fresh Creator approval are required before the later-opportunity responsibility can qualify again.
+
+Completion of the existing approved retrieval-and-feedback path is necessary but not sufficient. Eligibility arises only when that same approved design remains valid, its complete bound prerequisite remains authoritative, the approved earliest-eligibility boundary has been satisfied, and no later opportunity has already been consumed for it.
+
+### Explicit Exclusions
+
+This prerequisite does not authorize implementation-authored or Learner-inferred applicability, timing, intervals, or learning conditions; automatic or silent Creator approval; default timing; universal spacing rules; adaptive or algorithmic scheduling; recurrence; multiple opportunities; reminders; notifications; background jobs; persistence; clocks or scheduler infrastructure; longitudinal learner state; learner modelling; personalization; mastery; scoring; grading; progression; analytics; certification; AI/model/provider or network calls; new dependencies; routes or server actions; storage; schema; migrations; database or Supabase changes.
+
+It does not authorize product changes to Product Authority, architecture authority, certified Learning Principles, subject-matter authority, Learning Science derivation, Learning Design lifecycle, approved-design execution, correction execution, activity generation, evaluation, feedback, or any existing learner experience.
+
+### Acceptance Condition
+
+This prerequisite is accepted only if governance can identify one complete, same-version, Creator-approved authoritative record containing every minimum field; verify that Learning Science applicability and Creator timing authority remain distinct and correctly bound; deterministically decide eligible versus not eligible without implementation inference; verify invalidation and single-consumption invariants; and verify that every absent, incomplete, ambiguous, mismatched, superseded, invalidated, not-yet-due, or already-consumed case qualifies no later retrieval opportunity.
+
+### Governance Boundary
+
+This prerequisite remains **governance-only**. It derives no technical realization or implementation authorization, schedules or exposes no later retrieval opportunity, and changes no product behavior. **No product Code Change Gate is open**, and no product code change is authorized. A separately derived and governance-verified technical realization and minimum implementation authorization would be required before any new explicitly bounded Code Change Gate could be considered.
+
+---
+
 ## Current Task
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
