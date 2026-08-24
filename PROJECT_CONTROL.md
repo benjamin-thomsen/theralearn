@@ -12,7 +12,11 @@
 
 ## Current Phase
 
-**Creator Learning Design Change → Invalidation → Re-derivation — CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+**Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome — OPEN — BOUNDED — GOVERNANCE VERIFIED**
+
+The separate bounded Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome Code Change Gate is now **OPEN — BOUNDED — GOVERNANCE VERIFIED** at verified repository baseline `6c1ffd1eadf1733ec3298a307ac66ddfc38b038d`. Product implementation is authorized only within the exact gate, acceptance contract, stop boundary, and exclusions recorded below.
+
+The previously completed Creator Learning Design Change → Invalidation → Re-derivation responsibility remains **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
 The separate bounded Creator Learning Design Change → Invalidation → Re-derivation Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. The verified implementation permits one Creator-controlled bounded Relevant Context `description` change, immediately invalidates the current Learning Design, preserves accepted upstream authority, and produces one fresh visible `PROPOSED` Learning Design requiring fresh approval before any Learner execution.
 
@@ -2196,6 +2200,26 @@ Every Explicit Exclusion recorded for this responsibility remains binding. This 
 
 ## Code Change Gate
 
+**Bounded product implementation: OPEN — CREATOR APPLICABILITY-PREMISE CHANGE → INVALIDATION → NON-APPLICABLE OUTCOME**
+
+**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED**
+
+**Governance review result:** PASS at verified repository baseline `6c1ffd1eadf1733ec3298a307ac66ddfc38b038d`.
+
+**Authorized scope:** Implement exactly the governance-verified minimum Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome responsibility recorded above: permit only the accepted handoff premise transition `durableRetentionOfPreviouslyAcquiredKnowledgeIntended: true → false`; immediately invalidate the current proposed, approved, or rejected Learning Design through `invalidateLearningDesign()`; preserve the exact accepted Learning Objective, supporting source boundary/traceability, and normalized Relevant Context description; re-form the accepted handoff only through `formBoundedRelevantContext()`; re-enter Learning Science only through `handoffToLearningScience()` / `deriveLearningDesign()`; and expose the existing Active Retrieval non-applicability rejection as one explicit non-design terminal outcome.
+
+**Minimum implementation boundary:** Adapt only the existing Creator Learning Design change orchestration and the minimum `/creator-objective` in-session presentation required to expose the single premise change and display the explicit non-applicable outcome. A narrowly typed signal may be introduced only at the existing `deriveLearningDesign()` applicability boundary if required to distinguish this existing rejection from unrelated failures, without changing or duplicating the applicability rule or its message. Add only focused automated verification for the complete recorded Minimum Acceptance Contract.
+
+**Required stop boundary:** Stop at the visible explicit Active Retrieval non-applicable outcome. The outcome must contain no `LearningDesign`, mechanism, approval state, or learner-execution authority. No replacement Learning Design, fallback principle, fallback mechanism, Creator approval path, or Learner activity may be produced or exposed.
+
+**Required acceptance verification:** Demonstrate every item in the recorded Minimum Acceptance Contract, including proposed, approved, and rejected starting designs; immediate invalidation and non-executability; preservation of accepted upstream authority and context description; re-entry through the existing bounded formation, handoff, and applicability boundaries; explicit reviewable non-applicability; absence of replacement design, mechanism, approval controls, and Learner activity; and correct treatment of unrelated failures. Run `./scripts/dev verify` when it can be completed within the local-only boundary.
+
+**Explicitly unauthorized:** Every exclusion recorded under **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome Responsibility Derivation** remains binding. No Learning Objective, source material, source grounding, source boundary, Relevant Context description, arbitrary context field, certified Learning Principle, applicability rule, Learning Requirement, mechanism, derived-design field, or learner-interaction change is authorized. No fallback principle or mechanism, generalized no-design workflow, automatic reversal, automatic approval, persistence, schema, migration, database or Supabase change, generalized workflow/state infrastructure, new dependency, learner profile, personalization, accessibility modelling, or learner-state change is authorized.
+
+No other product implementation is authorized by this gate.
+
+### Previous Closed Gate
+
 **Bounded product implementation: CLOSED — CREATOR LEARNING DESIGN CHANGE → INVALIDATION → RE-DERIVATION**
 
 **Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
@@ -2347,22 +2371,22 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization are **DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**.
+The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization are **DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE OPEN**.
 
-The governance review result is **PASS** against verified local repository state `22da28f73599ef920771370d9b24a8bb49e4e6a0`.
+The gate-opening governance review result is **PASS** against verified repository baseline `6c1ffd1eadf1733ec3298a307ac66ddfc38b038d`.
 
 The next bounded responsibility permits only one Creator-controlled change to the accepted handoff's `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise from `true` to `false`; immediate invalidation of the current Learning Design; preservation of the accepted Learning Objective, source traceability, and context description; re-entry through the existing handoff and Learning Science applicability boundary; and an explicit Active Retrieval non-applicable outcome with no replacement design, approval, or Learner execution.
 
-The minimum realization reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. This governance derivation does not authorize product implementation. The Code Change Gate remains closed.
+The minimum realization reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. Product implementation is authorized only by the separate bounded open Code Change Gate recorded above.
 
 ---
 
 
 ## Next Allowed Action
 
-Consider whether to explicitly open one bounded Code Change Gate for the governance-verified **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** minimum implementation authorization recorded above.
+Implement exactly the open bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** Code Change Gate and demonstrate its complete recorded Minimum Acceptance Contract.
 
-The Code Change Gate remains closed. A bounded gate may now be considered, but product implementation remains unauthorized unless and until `PROJECT_CONTROL.md` separately and explicitly opens that exact gate.
+No implementation outside that gate is authorized. Stop at the explicit non-design Active Retrieval non-applicable outcome with no replacement design, approval path, or Learner execution.
 
 ---
 
