@@ -7,7 +7,7 @@ import { approveLearningDesign, invalidateLearningDesign, rejectLearningDesign }
 import { evaluateCorrectionResponse, evaluateFirstResponse } from "../lib/learning-science/responseEvaluation";
 import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../lib/learning-science/responseEvaluationContract";
 import type { RequiredResponseElement } from "../lib/learning-science/types";
-import ApprovedCreatorRetrievalExperience, { createSourceGroundedRetrievalResult } from "./ApprovedCreatorRetrievalExperience";
+import ApprovedCreatorRetrievalExperience, { createSourceGroundedRetrievalResult, TerminalCorrectionOutcome } from "./ApprovedCreatorRetrievalExperience";
 
 const sourceContext = "Mentalization concerns understanding mental states in oneself and others.";
 
@@ -75,16 +75,58 @@ describe("approved Creator retrieval experience", () => {
   it("requires a non-empty correction and evaluates only the selected target", () => {
     const first = evaluateFirstResponse(createApprovedPairForTest(), "others", sourceContext);
     if (first.status !== "CORRECTION_REQUIRED") throw new Error("Expected correction branch.");
-    expect(() => evaluateCorrectionResponse(first, "  ")).toThrow("one fresh active correction response");
-    expect(evaluateCorrectionResponse(first, "Now I include oneself.")).toMatchObject({ status: "CORRECTED", correctionResponse: "Now I include oneself." });
-    expect(evaluateCorrectionResponse(first, "Still only observable behavior.").status).toBe("NOT_CORRECTED");
-    expect(evaluateCorrectionResponse(first, "Only others are included.").status).toBe("NOT_CORRECTED");
+    expect(() => evaluateCorrectionResponse(first, "  ", null)).toThrow("one fresh active correction response");
+    expect(evaluateCorrectionResponse(first, "Now I include oneself.", null)).toMatchObject({ status: "CORRECTED", correctionResponse: "Now I include oneself." });
+    expect(evaluateCorrectionResponse(first, "Still only observable behavior.", null).status).toBe("NOT_CORRECTED");
+    expect(evaluateCorrectionResponse(first, "Only others are included.", null).status).toBe("NOT_CORRECTED");
   });
 
   it("keeps correction indeterminate and evaluation failure explicit and terminal", () => {
     const first = evaluateFirstResponse(createApprovedPairForTest(), "others", sourceContext);
     if (first.status !== "CORRECTION_REQUIRED") throw new Error("Expected correction branch.");
-    expect(evaluateCorrectionResponse(first, "oneself and only observable behavior").status).toBe("INDETERMINATE");
-    expect(evaluateCorrectionResponse({ ...first, supportingSourceContext: "substituted source" }, "oneself")).toMatchObject({ status: "EVALUATION_FAILURE", message: "Supporting source context differs from the approved source boundary." });
+    expect(evaluateCorrectionResponse(first, "oneself and only observable behavior", null).status).toBe("INDETERMINATE");
+    expect(evaluateCorrectionResponse({ ...first, supportingSourceContext: "substituted source" }, "oneself", null)).toMatchObject({ status: "EVALUATION_FAILURE", message: "Supporting source context differs from the approved source boundary." });
+  });
+
+  it("permits only one correction attempt after every terminal correction outcome", () => {
+    const cases = [
+      ["oneself", "CORRECTED"],
+      ["still absent", "NOT_CORRECTED"],
+      ["oneself and only observable behavior", "INDETERMINATE"],
+    ] as const;
+
+    for (const [response, status] of cases) {
+      const first = evaluateFirstResponse(createApprovedPairForTest(), "others", sourceContext);
+      if (first.status !== "CORRECTION_REQUIRED") throw new Error("Expected correction branch.");
+      const terminal = evaluateCorrectionResponse(first, response, null);
+      expect(terminal.status).toBe(status);
+      expect(() => evaluateCorrectionResponse(first, "oneself", terminal)).toThrow("single correction attempt has already reached a terminal outcome");
+    }
+
+    const first = evaluateFirstResponse(createApprovedPairForTest(), "others", sourceContext);
+    if (first.status !== "CORRECTION_REQUIRED") throw new Error("Expected correction branch.");
+    const failure = evaluateCorrectionResponse({ ...first, supportingSourceContext: "substituted source" }, "oneself", null);
+    expect(failure.status).toBe("EVALUATION_FAILURE");
+    expect(() => evaluateCorrectionResponse(first, "oneself", failure)).toThrow("single correction attempt has already reached a terminal outcome");
+  });
+
+  it("exposes no retry, further activity, or learner-state transition after every terminal correction outcome", () => {
+    const first = evaluateFirstResponse(createApprovedPairForTest(), "others", sourceContext);
+    if (first.status !== "CORRECTION_REQUIRED") throw new Error("Expected correction branch.");
+    const outcomes = [
+      evaluateCorrectionResponse(first, "oneself", null),
+      evaluateCorrectionResponse(first, "still absent", null),
+      evaluateCorrectionResponse(first, "oneself and only observable behavior", null),
+      evaluateCorrectionResponse({ ...first, supportingSourceContext: "substituted source" }, "oneself", null),
+    ];
+
+    for (const outcome of outcomes) {
+      const markup = renderToStaticMarkup(createElement(TerminalCorrectionOutcome, { result: outcome }));
+      expect(markup).toContain(`Korrektionsresultat: ${outcome.status}`);
+      expect(markup).not.toMatch(/<form|<button|<textarea/);
+      expect(markup).not.toMatch(/retry|prøv igen|næste aktivitet|learner state|progression/i);
+      expect(outcome).not.toHaveProperty("nextActivity");
+      expect(outcome).not.toHaveProperty("learnerStateTransition");
+    }
   });
 });

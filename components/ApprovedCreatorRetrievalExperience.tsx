@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 
 import { requireApprovedLearningDesign } from "../lib/learning-science/learningDesignExecution";
 import { evaluateCorrectionResponse, evaluateFirstResponse } from "../lib/learning-science/responseEvaluation";
+import type { CorrectionResult } from "../lib/learning-science/responseEvaluation";
 import type { LearningDesign } from "../lib/learning-science/types";
 
 type ApprovedCreatorRetrievalExperienceProps = {
@@ -17,6 +18,15 @@ export function createSourceGroundedRetrievalResult(
   supportingSourceContext: string,
 ) {
   return evaluateFirstResponse(learningDesign, learnerResponse, supportingSourceContext);
+}
+
+export function TerminalCorrectionOutcome({ result }: { result: CorrectionResult }) {
+  return (
+    <div aria-live="polite">
+      <p>Korrektionsresultat: {result.status}</p>
+      {result.status === "EVALUATION_FAILURE" ? <p>{result.message}</p> : null}
+    </div>
+  );
 }
 
 export default function ApprovedCreatorRetrievalExperience({
@@ -81,7 +91,7 @@ export default function ApprovedCreatorRetrievalExperience({
               <p>{result.target.informativeFeedback}</p>
               <form onSubmit={(event) => {
                 event.preventDefault();
-                if (!correctionResult) setCorrectionResult(evaluateCorrectionResponse(result, correctionResponse));
+                setCorrectionResult(evaluateCorrectionResponse(result, correctionResponse, correctionResult));
               }}>
                 <label style={{ display: "block" }}>
                   Dit korrigerede svar
@@ -89,12 +99,7 @@ export default function ApprovedCreatorRetrievalExperience({
                 </label>
                 {!correctionResult ? <button type="submit" disabled={!correctionResponse.trim()}>Indsend én korrektion</button> : null}
               </form>
-              {correctionResult ? (
-                <div aria-live="polite">
-                  <p>Korrektionsresultat: {correctionResult.status}</p>
-                  {correctionResult.status === "EVALUATION_FAILURE" ? <p>{correctionResult.message}</p> : null}
-                </div>
-              ) : null}
+              {correctionResult ? <TerminalCorrectionOutcome result={correctionResult} /> : null}
             </>
           ) : null}
         </div>

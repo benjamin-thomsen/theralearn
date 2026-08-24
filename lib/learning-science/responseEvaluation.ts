@@ -85,7 +85,9 @@ export function evaluateFirstResponse(
 export function evaluateCorrectionResponse(
   firstResult: Extract<FirstResponseResult, { status: "CORRECTION_REQUIRED" }>,
   correctionResponse: string,
+  existingResult: CorrectionResult | null,
 ): CorrectionResult {
+  if (existingResult) throw new Error("The single correction attempt has already reached a terminal outcome.");
   const response = correctionResponse.trim();
   if (!response) throw new Error("The learner must provide one fresh active correction response.");
   try {

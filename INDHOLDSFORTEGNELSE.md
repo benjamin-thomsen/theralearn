@@ -203,6 +203,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/learning-science/deriveLearningDesign.ts`](./lib/learning-science/deriveLearningDesign.ts)
 - [`lib/learning-science/learningDesignExecution.ts`](./lib/learning-science/learningDesignExecution.ts)
 - [`lib/learning-science/learningDesignLifecycle.ts`](./lib/learning-science/learningDesignLifecycle.ts)
+- [`lib/learning-science/responseEvaluation.ts`](./lib/learning-science/responseEvaluation.ts)
 - [`lib/learning-science/responseEvaluationContract.test.ts`](./lib/learning-science/responseEvaluationContract.test.ts)
 - [`lib/learning-science/responseEvaluationContract.ts`](./lib/learning-science/responseEvaluationContract.ts)
 - [`lib/learning-science/types.ts`](./lib/learning-science/types.ts)
