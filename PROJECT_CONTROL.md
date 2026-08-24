@@ -2210,6 +2210,80 @@ Every Explicit Exclusion recorded for this responsibility remains binding. This 
 ---
 
 
+## Post-MVP Learner Correction Opportunity Responsibility Derivation
+
+**Status: DERIVED — BOUNDED — PRODUCT-LEVEL ONLY — NO CODE CHANGE GATE**
+
+### Authority Basis
+
+The end-to-end MVP is accepted and closed after one active Learner attempt produces relevant feedback or result information. Permanent Product Authority continues beyond that MVP stop boundary:
+
+```text
+ACTIVE ATTEMPT
+        ↓
+RELEVANT FEEDBACK
+        ↓
+NEW ATTEMPT OR NEXT ACTIVITY
+```
+
+The Informative Correction Principle requires that, when a Learner attempt reveals an error, misconception, or material gap relevant to the Learning Objective, the learning process provide sufficient information **and opportunity** to support correction. The smallest post-MVP responsibility not already contained in the accepted MVP is therefore one bounded Learner correction opportunity after such a revealed error or gap.
+
+This derivation does not alter the accepted MVP boundary, add a certified Learning Principle, or establish a universal learning sequence.
+
+### Single Smallest Bounded Responsibility
+
+For the existing bounded creator-approved learning experience, when the Learner's first active attempt reveals an error or material gap relevant to the approved Learning Objective, TheraLearn must permit the Learner to make **one fresh active correction attempt** after receiving the relevant informative feedback.
+
+The correction attempt must remain tied to the same approved Learning Objective, approved Learning Design, bounded source context, and revealed error or gap. It must produce a visible bounded correction outcome that tells the Learner whether the fresh attempt corrected that same error or gap.
+
+If the first attempt does not reveal a relevant error or gap, this responsibility does not require a correction attempt.
+
+### Acceptance Boundary
+
+This responsibility is accepted only when all of the following product outcomes are demonstrated:
+
+1. One Learner enters the existing creator-approved bounded learning experience.
+2. The Learner's first active attempt reveals an error or material gap relevant to the approved Learning Objective.
+3. The Learner receives informative feedback sufficient to identify what requires correction within the bounded source context.
+4. After that feedback, the Learner can make one fresh active attempt directed at correcting the revealed error or gap.
+5. The fresh attempt remains traceable to the same approved Learning Objective, approved Learning Design, and bounded source context.
+6. A visible bounded outcome tells the Learner whether that same error or gap was corrected by the fresh attempt.
+7. The responsibility stops immediately after that single correction outcome.
+
+The complete bounded product responsibility is:
+
+```text
+FIRST ACTIVE ATTEMPT
+        ↓
+OBJECTIVE-RELEVANT ERROR OR GAP
+        ↓
+INFORMATIVE FEEDBACK
+        ↓
+ONE FRESH ACTIVE CORRECTION ATTEMPT
+        ↓
+VISIBLE CORRECTION OUTCOME
+        ↓
+STOP
+```
+
+### Explicit Exclusions
+
+This responsibility does not include repeated or open-ended retry loops, multiple subsequent activities, distributed practice, scheduling, spaced repetition, progression, mastery, competence claims, grading, scoring, certification, analytics, longitudinal learner modelling, personalization, accessibility modelling, or adaptation beyond the single correction opportunity.
+
+It does not include changing or re-approving the Learning Objective, Relevant Context, source material, source grounding, Learning Design, applicable certified Learning Principle, Learning Requirements, proposed mechanism, Creator-controlled decisions, or subject-matter authority.
+
+It does not include generalized assessment, question generation, course publication, enrolment, role or permission expansion, organisation workflows, commercial capabilities, or support for additional content formats.
+
+No technical architecture, data model, state model, interface, route, component, provider, persistence mechanism, schema, migration, database behavior, dependency, test strategy, or other technical realization is derived or authorized here.
+
+### Governance Boundary
+
+This section records only the single smallest post-MVP product responsibility derivable from permanent Product Authority. It does not open a Code Change Gate and does not authorize implementation.
+
+Any future technical realization must be separately derived from this accepted product boundary through the applicable architecture authority. Any future implementation authorization must then be separately governance-verified before a Code Change Gate may be opened.
+
+---
+
 ## Code Change Gate
 
 **Bounded product implementation: CLOSED — CREATOR APPLICABILITY-PREMISE CHANGE → INVALIDATION → NON-APPLICABLE OUTCOME**
@@ -2389,6 +2463,10 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
+The single smallest post-MVP product responsibility is now **DERIVED — BOUNDED — PRODUCT-LEVEL ONLY** as **Learner Correction Opportunity After Feedback**. It begins only when the first active Learner attempt reveals an error or material gap relevant to the approved Learning Objective, permits one fresh active correction attempt after informative feedback, and stops after one visible correction outcome.
+
+This derivation does not define technical realization, open a Code Change Gate, or authorize implementation.
+
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
 The implementation and verification result is **PASS** at verified implementation checkpoint `227e15710234d43fff3d33955aa82dedee9c11b3`. The complete recorded Minimum Acceptance Contract and canonical local verification passed.
@@ -2404,7 +2482,7 @@ No new product Code Change Gate is opened by MVP acceptance and closure, and no 
 
 ## Next Allowed Action
 
-The end-to-end MVP is accepted and closed. Any future work must begin with a separately selected and governance-derived bounded responsibility, if any, from the permanent Product Authority and architecture authority.
+The end-to-end MVP is accepted and closed. The next permissible governance action is a separate technical-realization derivation for the bounded **Post-MVP Learner Correction Opportunity** responsibility through the applicable architecture authority.
 
 No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until a separate bounded responsibility, technical realization, and implementation authorization are governance-verified and `PROJECT_CONTROL.md` explicitly opens a new Code Change Gate.
 
