@@ -2396,6 +2396,126 @@ The Code Change Gate remains CLOSED. No product implementation is authorized. A 
 
 ---
 
+## Post-MVP Learner Correction Opportunity Authoritative Classification Input and Deterministic Evaluation Contract
+
+**Status: DERIVED — BOUNDED — UPSTREAM AUTHORITY ESTABLISHED — CODE CHANGE GATE CLOSED**
+
+### Architecture Authority and Ownership
+
+This contract is derived from the permanent Learning Science Engine architecture authority in `docs/architecture/learning-science-engine.md`. That architecture requires an Approved Learning Design to define required Learner Performance and the Feedback / Result that follows it, preserves traceability from learner execution to the approved scientific derivation, distinguishes Creator-controlled decisions from scientific derivation, and assigns subject-matter truth, correctness, and content responsibility to the Creator/Content Owner.
+
+For this one bounded retrieval experience, the Learning Science Engine therefore owns the correction-capable performance and feedback/result structure, while the Creator/Content Owner must supply and approve the source-grounded subject-matter classification input. Implementation may execute the approved contract deterministically. It may not infer, supplement, rank, or rewrite subject-matter truth.
+
+The authoritative input is part of the Creator-controlled decisions for the same Proposed Learning Design and becomes learner-execution authority only with that design's approval. It must retain direct references to the same Learning Objective, bounded supporting source context, applicable Informative Correction requirement, and Proposed Learning Design. A change to the contract or any referenced source premise invalidates affected derivation and approval under the existing Creator Change and Re-Derivation rule.
+
+### Minimum Creator/Content Owner-Controlled Classification Input
+
+Before the design can be approved for this correction-capable experience, the Creator/Content Owner must review and approve one `ResponseEvaluationContract` containing exactly:
+
+1. the identifier of the Learning Objective it evaluates;
+2. the identifier and immutable boundary of the bounded supporting source context from which every evaluation statement is grounded;
+3. one or more ordered `RequiredResponseElement` entries, each representing one objective-relevant claim required for a sufficient first response;
+4. for each element, a stable element identifier, a Creator-readable source-grounded claim, one or more explicit accepted formulations, zero or more explicit contradicting formulations, and informative feedback that states the same bounded claim without adding subject matter beyond the source; and
+5. the contract version or other immutable identity required to bind both evaluations to the exact contract approved with the Learning Design.
+
+Each accepted or contradicting formulation must be expressly authored or accepted by the Creator/Content Owner and must be supported by the bounded source context. Entries must not be empty after normalization. The same normalized formulation must not occur in both sets for one element. An accepted formulation may not be reused as a contradicting formulation for another element. The ordered elements, their formulations, feedback, source boundary, objective reference, and contract identity are authoritative input, not implementation defaults.
+
+The ordered elements collectively define a **sufficient first response** for this bounded experience: every required element must be positively evidenced and no required element may be contradicted under the deterministic rules below. The contract does not authorize implementation to judge any unlisted proposition, synonym, implication, omission, or contradiction.
+
+### Closed Deterministic Matching Rule
+
+Both the first response and the single correction response use the same closed rule and the same approved contract.
+
+Normalization is fixed for this contract as: Unicode NFKC normalization; locale-independent lowercasing; replacement of each run of whitespace with one space; removal of leading and trailing whitespace; and removal of only the terminal punctuation characters `.`, `!`, and `?`. No stemming, synonym expansion, semantic similarity, keyword weighting, partial-token match, translation, model judgment, or implementation-authored equivalence is permitted.
+
+A formulation matches only when its complete normalized text occurs in the normalized Learner response on whole-token boundaries. A whole-token boundary is the start or end of the normalized response, or an adjacent character that is neither a Unicode letter nor a Unicode decimal digit. For each required element:
+
+- `EVIDENCED` means at least one accepted formulation matches and no contradicting formulation matches;
+- `CONTRADICTED` means at least one contradicting formulation matches and no accepted formulation matches;
+- `ABSENT` means neither an accepted nor a contradicting formulation matches; and
+- `INDETERMINATE` means both an accepted and a contradicting formulation match.
+
+Text not matched by the closed approved formulation sets has no classification effect. The result is a deterministic execution of Creator/Content Owner authority; it is not a general judgment that the response is wholly true, correct, complete, learned, or mastered.
+
+### First-Response Classification and Correctable-Target Selection
+
+After the required non-empty first active response:
+
+1. if contract validation or evaluation fails, the result is explicit `EVALUATION_FAILURE` and no correction opportunity is created;
+2. if any element is `INDETERMINATE`, the result is explicit `INDETERMINATE` and no correction opportunity is created;
+3. if every ordered element is `EVIDENCED`, the result is `NO_CORRECTION_REQUIRED`; and
+4. otherwise the result is `CORRECTION_REQUIRED`, and the single correctable error or gap is the first element in Creator-approved order whose state is `CONTRADICTED` or `ABSENT`.
+
+For the selected target, `CONTRADICTED` is recorded as a correctable error and `ABSENT` as a correctable gap. Its approved feedback is exposed. Later unmatched elements are not additional correction targets in this bounded opportunity. Creator-approved ordering is the sole priority rule; implementation may not choose a more important, easier, or semantically inferred target.
+
+### Single-Correction Evaluation
+
+The fresh non-empty correction response is evaluated only against the selected target, using the unchanged approved contract and identical normalization and matching rules:
+
+- `CORRECTED` means the selected target is `EVIDENCED`;
+- `NOT_CORRECTED` means the selected target is `CONTRADICTED` or `ABSENT`; and
+- `INDETERMINATE` or `EVALUATION_FAILURE` remains an explicit terminal non-favorable evaluation result and must not be converted to `CORRECTED` or `NOT_CORRECTED`.
+
+For the product's bounded visible binary correction outcome, an indeterminate or failed evaluation must display an explicit inability to determine the correction outcome, not `NOT_CORRECTED`; otherwise operational failure would be represented as Learner performance. No retry, fallback evaluator, inferred synonym, favorable default, or second correction opportunity follows.
+
+### Validation and Fail-Closed Behavior
+
+Evaluation must fail explicitly before classification when the approved design, objective reference, bounded source reference, applicable contract identity, required element set, accepted formulations, ordering, or traceability is missing or inconsistent; when a formulation violates the input constraints; when the source or contract differs from the version approved with the Learning Design; or when the mechanism is unsupported. Runtime or unrelated evaluation errors also produce explicit `EVALUATION_FAILURE`.
+
+`INDETERMINATE` and `EVALUATION_FAILURE` are evaluation-status outcomes, not favorable classifications, Learning Design states, scores, grades, or Learner states. Neither may silently become `NO_CORRECTION_REQUIRED`, `CORRECTION_REQUIRED`, `CORRECTED`, or `NOT_CORRECTED`. Both stop the bounded path without exposing a correction control for a first-response failure and without exposing another attempt after a correction-evaluation failure.
+
+### Bounded Authority and Non-Goals
+
+This authority applies only to the already-derived Post-MVP Learner Correction Opportunity and its single existing approved retrieval experience. It does not create generalized answer evaluation, assessment, natural-language understanding, automatic rubric generation, Creator-independent truth, or evaluation of unlisted claims. It does not authorize scores, grades, mastery, competence, progression, learner modelling, analytics, personalization, repeated retries, persistence, AI/provider calls, a dependency, schema, migration, database behavior, or product code.
+
+This derivation supplies the missing upstream classification authority only. It does not re-review the minimum implementation authorization, open a Code Change Gate, or authorize implementation.
+
+---
+
+## Post-MVP Learner Correction Opportunity Minimum Implementation Authorization Derivation
+
+**Status: REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED**
+
+**Governance review result: FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT**
+
+### Governance Review
+
+This review records the pre-authority governance state and is retained as historical evidence; it was conducted before the authoritative contract immediately above was established.
+
+The recorded product responsibility, architecture boundary, execution guard, conditional zero-or-one correction lifecycle, terminal stop boundary, in-session constraint, file boundary, verification obligations, and explicit non-goals are mutually consistent and sufficiently bounded.
+
+At the time of this review, the repository was not sufficient to implement the required source-grounded first-result classification and correction evaluation without making a new product or subject-matter decision inside implementation. The approved runtime supplied only:
+
+- a free-text approved Learning Objective;
+- a free-text bounded supporting source context; and
+- a free-text Learner response.
+
+No authoritative expected response, bounded claim set, correction target, rubric, or deterministic comparison rule exists from which implementation can establish both:
+
+1. `NO_CORRECTION_REQUIRED` versus `CORRECTION_REQUIRED` with one explicit objective-relevant error or gap; and
+2. whether a fresh free-text response makes that same error or gap `CORRECTED` or `NOT_CORRECTED`.
+
+Exact string equality, keyword overlap, lexical similarity, or implementation-authored interpretation of the source passage would not be derived from current Product Authority or architecture. Selecting any such rule in product code would silently assign subject-matter truth and pedagogical sufficiency to implementation, contrary to the Content Owner authority boundary and the recorded prohibition on ungrounded judgments.
+
+### Minimum Authorization Derivation Result
+
+The narrow implementation boundary remains derivable as the recorded two component files, with at most one small presentation-independent learner-execution module under `lib/learning-science/`, and with the existing technical acceptance criteria and non-goals unchanged. However, implementation authorization cannot be completed until an upstream authoritative classification input and deterministic evaluation contract are separately derived.
+
+At the time of this review, the minimum missing authority had to establish, for this one bounded retrieval experience only:
+
+- the source-grounded representation that identifies what constitutes a sufficient first response for the approved Learning Objective;
+- how one explicit correctable error or gap is selected when correction is required;
+- the exact deterministic rule by which the first response enters either recorded branch; and
+- the exact deterministic rule by which the single correction response becomes `CORRECTED` or `NOT_CORRECTED` for that same target.
+
+That authority must preserve Creator/Content Owner subject-matter control, define explicit indeterminate/failure behavior, and remain within the existing prohibition on scores, grades, mastery, generalized assessment, AI/provider calls, persistence, and new dependencies. It must not be invented as part of implementation.
+
+### Code Change Permission
+
+The missing authoritative classification input and deterministic evaluation contract are now recorded immediately above. This historical review remains a FAIL and does not become implementation authorization retroactively. The Post-MVP Learner Correction Opportunity Code Change Gate remains **CLOSED**. No product-code change is authorized. Exactly one future gate may be considered only after the same bounded implementation authorization is separately re-reviewed as PASS against the newly recorded authority.
+
+---
+
 ## Code Change Gate
 
 **Bounded product implementation: CLOSED — CREATOR APPLICABILITY-PREMISE CHANGE → INVALIDATION → NON-APPLICABLE OUTCOME**
@@ -2575,9 +2695,9 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
-The single smallest post-MVP product responsibility is **DERIVED — BOUNDED** as **Learner Correction Opportunity After Feedback**. Its separate minimum technical realization is now also **DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY**. It reuses the approved-design execution guard and existing source-grounded retrieval experience, conditionally permits exactly one in-session correction attempt after a source-grounded qualifying first result, and stops after one visible `CORRECTED` or `NOT_CORRECTED` outcome.
+The single smallest post-MVP product responsibility is **DERIVED — BOUNDED** as **Learner Correction Opportunity After Feedback**. Its separate minimum technical realization is **DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY**. The missing Creator/Content Owner-controlled source-grounded classification input and deterministic evaluation contract is now **DERIVED — BOUNDED — UPSTREAM AUTHORITY ESTABLISHED — CODE CHANGE GATE CLOSED**.
 
-The derived smallest implementation slice is limited to the existing approved retrieval component and its focused tests, with one separate small learner-execution module permitted only if presentation-independent classification requires it. This derivation does not open a Code Change Gate or authorize implementation.
+The earlier minimum implementation-authorization review remains historically **REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED** and is not retroactively converted to PASS. The newly established authority defines sufficient first response, deterministic branch selection, one Creator-ordered correctable target, terminal correction evaluation, and fail-closed indeterminate/error behavior without assigning subject-matter truth to implementation. No implementation is authorized until the same bounded implementation authorization is separately re-reviewed against this authority and passes governance review.
 
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -2587,16 +2707,18 @@ The completed bounded responsibility permits only one Creator-controlled change 
 
 The verified implementation reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. The bounded authorization has been consumed and is closed; every recorded exclusion remains binding.
 
-No new product Code Change Gate is opened by MVP acceptance and closure, and no new implementation is authorized.
+No new product Code Change Gate is open, and no new implementation is authorized.
 
 ---
 
 
 ## Next Allowed Action
 
-The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility and its minimum technical realization are derived. The next permissible governance action is a separate governance review and minimum implementation-authorization derivation for exactly that recorded technical boundary.
+The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility and minimum technical realization are derived, but its minimum implementation authorization is not governance-ready.
 
-No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until a separate bounded responsibility, technical realization, and implementation authorization are governance-verified and `PROJECT_CONTROL.md` explicitly opens a new Code Change Gate.
+The minimum authoritative classification input and deterministic evaluation contract recorded in the failed implementation-authorization review are now established. The next permissible governance action is to re-review the same bounded Post-MVP Learner Correction Opportunity minimum implementation authorization against that authority.
+
+No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until that missing authority is established, the bounded implementation authorization passes governance review, and `PROJECT_CONTROL.md` explicitly opens exactly one Code Change Gate for the recorded slice.
 
 ---
 
