@@ -61,7 +61,11 @@ export function deriveLearningDesign({
     learningObjectiveIdentity: createAuthorityIdentity("objective", learningObjective.statement),
     learningObjective,
     relevantContext,
-    applicablePrinciples: ["active-retrieval"],
+    applicablePrinciples: ["active-retrieval", "distributed-practice"],
+    distributedPracticeApplicability: {
+      principleReference: "DISTRIBUTED_PRACTICE",
+      repeatedLearningOpportunitiesRequired: true,
+    },
     learningScienceRationale:
       "Active Retrieval applies because durable retention of previously acquired knowledge is explicitly represented as an intended learning outcome in the Relevant Context.",
     learningRequirements,

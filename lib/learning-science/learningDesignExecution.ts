@@ -1,5 +1,24 @@
 import type { ApprovedLearningDesign, LearningDesign } from "./types";
-import { serializeContractSnapshot } from "./responseEvaluationContract";
+import { createAuthorityIdentity, serializeContractSnapshot } from "./responseEvaluationContract";
+import { serializeLaterRetrievalPrerequisite } from "./laterRetrievalPrerequisite";
+
+function hasValidBoundLaterRetrievalPrerequisite(
+  design: ApprovedLearningDesign,
+) {
+  const prerequisite = design.laterRetrievalPrerequisite;
+
+  return prerequisite.relevantContextIdentity === createAuthorityIdentity("context", design.relevantContext) &&
+    prerequisite.principleReference === "DISTRIBUTED_PRACTICE" &&
+    prerequisite.repeatedLearningOpportunitiesRequired === true &&
+    Number.isInteger(prerequisite.earliestEligibilityDelay.value) &&
+    prerequisite.earliestEligibilityDelay.value > 0 &&
+    (prerequisite.earliestEligibilityDelay.unit === "HOURS" ||
+      prerequisite.earliestEligibilityDelay.unit === "DAYS") &&
+    typeof prerequisite.creatorAuthorityReference === "string" &&
+    Boolean(prerequisite.creatorAuthorityReference.trim()) &&
+    typeof prerequisite.creatorApprovalEvent === "string" &&
+    Boolean(prerequisite.creatorApprovalEvent.trim());
+}
 
 export function canExecuteLearningDesign(
   design: LearningDesign,
@@ -10,7 +29,16 @@ export function canExecuteLearningDesign(
     Object.isFrozen(design.responseEvaluationContract) &&
     design.responseEvaluationContractIdentity === design.responseEvaluationContract.identity &&
     design.responseEvaluationContractSnapshot === serializeContractSnapshot(design.responseEvaluationContract) &&
-    design.responseEvaluationContract.proposedLearningDesignIdentity === design.identity;
+    design.responseEvaluationContract.proposedLearningDesignIdentity === design.identity &&
+    Boolean(design.laterRetrievalPrerequisite) &&
+    Object.isFrozen(design.laterRetrievalPrerequisite) &&
+    Object.isFrozen(design.laterRetrievalPrerequisite.earliestEligibilityDelay) &&
+    design.laterRetrievalPrerequisiteIdentity === design.laterRetrievalPrerequisite.identity &&
+    design.laterRetrievalPrerequisiteSnapshot === serializeLaterRetrievalPrerequisite(design.laterRetrievalPrerequisite) &&
+    design.laterRetrievalPrerequisite.proposedLearningDesignIdentity === design.identity &&
+    design.laterRetrievalPrerequisite.learningObjectiveIdentity === design.learningObjectiveIdentity &&
+    design.laterRetrievalPrerequisite.supportingSourceBoundaryIdentity === design.responseEvaluationContract.supportingSource.identity &&
+    hasValidBoundLaterRetrievalPrerequisite(design);
 }
 
 export function requireApprovedLearningDesign(

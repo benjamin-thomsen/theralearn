@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { deriveLearningDesign } from "../lib/learning-science/deriveLearningDesign";
 import { approveLearningDesign, invalidateLearningDesign, rejectLearningDesign } from "../lib/learning-science/learningDesignLifecycle";
+import { formLaterRetrievalPrerequisite, relevantContextIdentity, reviewLaterRetrievalPrerequisite } from "../lib/learning-science/laterRetrievalPrerequisite";
 import { evaluateCorrectionResponse, evaluateFirstResponse } from "../lib/learning-science/responseEvaluation";
 import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../lib/learning-science/responseEvaluationContract";
 import type { RequiredResponseElement } from "../lib/learning-science/types";
@@ -26,7 +27,8 @@ function createApprovedPairForTest(elements: readonly RequiredResponseElement[] 
     supportingSource: { identity: createAuthorityIdentity("source", { context: sourceContext, boundary }), boundary },
     correctionRequirementReference: design.feedbackResultRequirement.description, requiredResponseElements: elements,
   }, sourceContext);
-  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true));
+  const prerequisite = formLaterRetrievalPrerequisite(design, { identity: "later-1", proposedLearningDesignIdentity: design.identity, learningObjectiveIdentity: design.learningObjectiveIdentity, relevantContextIdentity: relevantContextIdentity(design), supportingSourceBoundaryIdentity: contract.supportingSource.identity, earliestEligibilityDelay: { value: 2, unit: "DAYS" }, creatorAuthorityReference: "creator-1" });
+  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true), reviewLaterRetrievalPrerequisite(design, prerequisite, true));
 }
 
 describe("approved Creator retrieval experience", () => {

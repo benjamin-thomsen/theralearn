@@ -27,7 +27,7 @@ function snapshot(contract: ResponseEvaluationContract) {
   return JSON.stringify(contract);
 }
 
-export function createAuthorityIdentity(kind: "objective" | "source", value: unknown) {
+export function createAuthorityIdentity(kind: "objective" | "source" | "context", value: unknown) {
   const text = JSON.stringify(value).normalize("NFKC");
   let hash = 2166136261;
   for (let index = 0; index < text.length; index += 1) {

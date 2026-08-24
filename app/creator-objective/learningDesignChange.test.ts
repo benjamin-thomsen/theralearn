@@ -6,6 +6,7 @@ import {
   rejectLearningDesign,
 } from "../../lib/learning-science/learningDesignLifecycle";
 import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../../lib/learning-science/responseEvaluationContract";
+import { formLaterRetrievalPrerequisite, relevantContextIdentity, reviewLaterRetrievalPrerequisite } from "../../lib/learning-science/laterRetrievalPrerequisite";
 import {
   approveObjectiveCandidate,
   changeObjectiveProposal,
@@ -47,7 +48,8 @@ function approve(design: ReturnType<typeof handoffToLearningScience>) {
     correctionRequirementReference: design.feedbackResultRequirement.description,
     requiredResponseElements: [{ identity: "element-1", claim: "Creator claim", acceptedFormulations: ["accepted"], contradictingFormulations: [], informativeFeedback: "Creator feedback" }],
   }, "Source context");
-  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true));
+  const prerequisite = formLaterRetrievalPrerequisite(design, { identity: "later-1", proposedLearningDesignIdentity: design.identity, learningObjectiveIdentity: design.learningObjectiveIdentity, relevantContextIdentity: relevantContextIdentity(design), supportingSourceBoundaryIdentity: contract.supportingSource.identity, earliestEligibilityDelay: { value: 2, unit: "DAYS" }, creatorAuthorityReference: "creator-1" });
+  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true), reviewLaterRetrievalPrerequisite(design, prerequisite, true));
 }
 
 describe("Creator Learning Design description change", () => {

@@ -4,7 +4,9 @@ export type LearningDesignState =
   | "REJECTED"
   | "INVALIDATED";
 
-export type CertifiedLearningPrincipleReference = "active-retrieval";
+export type CertifiedLearningPrincipleReference =
+  | "active-retrieval"
+  | "distributed-practice";
 
 export type LearningMechanismKind = "bounded-retrieval";
 
@@ -64,12 +66,37 @@ export interface ResponseEvaluationContract {
   requiredResponseElements: readonly RequiredResponseElement[];
 }
 
+export interface LaterRetrievalPrerequisite {
+  identity: string;
+  proposedLearningDesignIdentity: string;
+  learningObjectiveIdentity: string;
+  relevantContextIdentity: string;
+  supportingSourceBoundaryIdentity: string;
+  principleReference: "DISTRIBUTED_PRACTICE";
+  repeatedLearningOpportunitiesRequired: true;
+  earliestEligibilityDelay: {
+    value: number;
+    unit: "HOURS" | "DAYS";
+  };
+  creatorAuthorityReference: string;
+  creatorApprovalEvent: string;
+}
+
+export type LaterRetrievalPrerequisiteDraft = Omit<
+  LaterRetrievalPrerequisite,
+  "creatorApprovalEvent"
+>;
+
 interface LearningDesignBase {
   identity: string;
   learningObjectiveIdentity: string;
   learningObjective: LearningObjective;
   relevantContext: RelevantContext;
   applicablePrinciples: CertifiedLearningPrincipleReference[];
+  distributedPracticeApplicability: {
+    principleReference: "DISTRIBUTED_PRACTICE";
+    repeatedLearningOpportunitiesRequired: true;
+  };
   learningScienceRationale: string;
   learningRequirements: LearningRequirement[];
   proposedLearningMechanism: ProposedLearningMechanism;
@@ -87,6 +114,9 @@ export interface ApprovedLearningDesign extends LearningDesignBase {
   responseEvaluationContractIdentity: string;
   responseEvaluationContractSnapshot: string;
   responseEvaluationContract: Readonly<ResponseEvaluationContract>;
+  laterRetrievalPrerequisiteIdentity: string;
+  laterRetrievalPrerequisiteSnapshot: string;
+  laterRetrievalPrerequisite: Readonly<LaterRetrievalPrerequisite>;
 }
 
 export interface RejectedLearningDesign extends LearningDesignBase {

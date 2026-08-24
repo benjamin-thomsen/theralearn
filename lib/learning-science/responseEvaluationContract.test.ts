@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { deriveLearningDesign } from "./deriveLearningDesign";
 import { requireApprovedLearningDesign } from "./learningDesignExecution";
 import { approveLearningDesign, invalidateLearningDesign } from "./learningDesignLifecycle";
+import { formLaterRetrievalPrerequisite, relevantContextIdentity, reviewLaterRetrievalPrerequisite } from "./laterRetrievalPrerequisite";
 import {
   createAuthorityIdentity,
   formResponseEvaluationContract,
@@ -40,7 +41,12 @@ function input(design = proposed()) {
 function approvedPair() {
   const { design, contractInput } = input();
   const contract = formResponseEvaluationContract(design, contractInput, "Source context");
-  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true));
+  const prerequisite = formLaterRetrievalPrerequisite(design, {
+    identity: "later-1", proposedLearningDesignIdentity: design.identity, learningObjectiveIdentity: design.learningObjectiveIdentity,
+    relevantContextIdentity: relevantContextIdentity(design), supportingSourceBoundaryIdentity: contract.supportingSource.identity,
+    earliestEligibilityDelay: { value: 2, unit: "DAYS" }, creatorAuthorityReference: "creator-1",
+  });
+  return approveLearningDesign(design, reviewResponseEvaluationContract(design, contract, true), reviewLaterRetrievalPrerequisite(design, prerequisite, true));
 }
 
 describe("Response Evaluation Contract approval binding", () => {

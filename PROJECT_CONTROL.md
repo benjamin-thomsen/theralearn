@@ -32,7 +32,7 @@ The bounded Post-MVP Learner Correction Opportunity Contract Formation and Appro
 
 The completed local implementation and accepted verification satisfy the complete recorded addendum acceptance criteria. The prerequisite authorization has been consumed and is closed. The historical Post-MVP Learner Correction Opportunity authorization result remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged. A separate re-review passed against the established authoritative contract and verified approved-pair prerequisite. The bounded Post-MVP Learner Correction Opportunity correction-execution implementation has now passed closure review and focused verification, and its Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. No broader correction execution or generalized evaluation is authorized.
 
-Exactly one product Code Change Gate is now **OPEN — BOUNDED — PREREQUISITE-ONLY** for technical realization of the authoritative applicability-and-timing contract for exactly one later retrieval opportunity. This gate is authorized solely by the recorded **GOVERNANCE REVIEWED — PASS** decision and stops before eligibility calculation, scheduling, opportunity exposure, or Learner execution. The separate later-retrieval execution/product gate remains **CLOSED**.
+The bounded prerequisite-only Code Change Gate for technical realization of the authoritative applicability-and-timing contract for exactly one later retrieval opportunity is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL ARCHITECTURE REVIEW PASS** and **CHECKPOINT PASS** with canonical verification PASS for TypeScript, build, documentation structure, repository index completeness, and Git status. Its authorization is consumed. The implementation boundary stops at one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair available through the existing approved-design execution-authority boundary. It does not calculate eligibility, schedule or expose an opportunity, add Learner execution, persist later-retrieval state, or implement broader product behavior. The separate later-retrieval execution/product gate remains **CLOSED**.
 
 The previously completed Creator Learning Design Change → Invalidation → Re-derivation responsibility remains **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -3012,7 +3012,7 @@ This section derives only the prerequisite technical realization. It does not au
 
 ## Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation
 
-**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY — CODE CHANGE GATE OPEN**
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY — IMPLEMENTED — VERIFIED — CODE CHANGE GATE CLOSED**
 
 **Governance review result: PASS**
 
@@ -3034,15 +3034,19 @@ Every exclusion and technical non-goal in the product responsibility, authoritat
 
 ### Code Change Permission
 
-The immediately preceding **PASS** decision now authorizes exactly one **OPEN — BOUNDED — PREREQUISITE-ONLY** Code Change Gate. No other product Code Change Gate is open.
+The immediately preceding **PASS** decision authorized exactly one **BOUNDED — PREREQUISITE-ONLY** Code Change Gate. The bounded implementation and verification are complete, the gate is closed, and its authorization is consumed.
 
-### Open Bounded Prerequisite-Only Code Change Gate
+### Closed Bounded Prerequisite-Only Code Change Gate
 
-**Gate status: OPEN — BOUNDED — PREREQUISITE-ONLY**
+**Gate status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+
+**Final architecture review result: FINAL ARCHITECTURE REVIEW PASS**
+
+**Implementation and verification result: CHECKPOINT PASS.** Canonical verification passed TypeScript, build, documentation structure, repository index completeness, and Git status. The exact bounded prerequisite implementation is accepted as implemented and verified. This prerequisite-only Code Change Gate is closed and its authorization is consumed.
 
 #### Exact Implementation Boundary
 
-Implementation is authorized only to:
+Implementation was authorized only to:
 
 1. add the minimum existing Learning Design domain representation needed to form one `LaterRetrievalPrerequisite` from the recorded authoritative inputs;
 2. use the minimum existing `/creator-objective` in-session review orchestration and presentation needed for the Creator/Content Owner to author and review the positive whole-number `earliestEligibilityDelay` and its explicit `HOURS` or `DAYS` unit with the same Proposed Learning Design;
@@ -3051,7 +3055,7 @@ Implementation is authorized only to:
 5. add focused automated tests; and
 6. add at most one small presentation-independent prerequisite validation/identity module under `lib/learning-science/` if required.
 
-No other product file or behavior is authorized. The implementation must stop when one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair is available through the existing approved-design execution-authority boundary, without calculating eligibility or exposing a later retrieval opportunity.
+No other product file or behavior was authorized. The implementation stopped when one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair became available through the existing approved-design execution-authority boundary, without calculating eligibility or exposing a later retrieval opportunity.
 
 #### Required Verification
 
@@ -3062,6 +3066,8 @@ Verification must satisfy every item in the recorded **Minimum Technical Accepta
 This gate does not authorize calculating or comparing a due time; observing a clock; recording completion or consumption; scheduling, exposing, generating, or executing a later retrieval opportunity; any Learner-facing product change; a later-retrieval response, reveal, evaluation, feedback, or correction path; multiple opportunities, retries, recurrence, reminders, notifications, background jobs, or generalized temporal or scheduling infrastructure; persistence, storage, schema, migrations, database or Supabase changes; routes or server actions; AI/model/provider or network calls; new dependencies; additional Learning Design states; or changes to Product Authority, architecture authority, certified Learning Principles, subject-matter authority, Learning Science applicability logic, Learning Requirements, mechanism selection, or any broader lifecycle or learner state.
 
 The later-retrieval execution/product gate remains **CLOSED**. This prerequisite-only gate cannot be interpreted as authority to implement eligibility, scheduling, opportunity exposure, or later retrieval execution.
+
+The completed implementation preserves exactly one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair through the existing approved-design execution-authority boundary. It performs no eligibility calculation, scheduling, opportunity exposure, later-retrieval execution, persistence, or broader product implementation.
 
 #### Closure Condition
 
@@ -3079,15 +3085,15 @@ The earlier minimum implementation-authorization review remains historically **R
 
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
-The **Post-MVP Exactly One Later Retrieval Opportunity** authoritative applicability-and-timing prerequisite now has a **DERIVED — BOUNDED** smallest technical realization, a **GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY** minimum implementation authorization, and exactly one **OPEN — BOUNDED — PREREQUISITE-ONLY** Code Change Gate. The gate stops at one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair available through the existing approved-design execution-authority boundary. It does not authorize eligibility calculation, scheduling, opportunity exposure, or later retrieval execution.
+The **Post-MVP Exactly One Later Retrieval Opportunity** authoritative applicability-and-timing prerequisite has a **DERIVED — BOUNDED** smallest technical realization and a **GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY — IMPLEMENTED — VERIFIED** minimum implementation authorization. After **FINAL ARCHITECTURE REVIEW PASS** and **CHECKPOINT PASS**, its Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**, and its authorization is consumed. Canonical verification passed TypeScript, build, documentation structure, repository index completeness, and Git status. The implementation stops at one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair available through the existing approved-design execution-authority boundary. It does not implement eligibility calculation, scheduling, opportunity exposure, later retrieval execution, persistence, or broader product behavior.
 
-The implementation and verification result is **PASS** at verified implementation checkpoint `227e15710234d43fff3d33955aa82dedee9c11b3`. The complete recorded Minimum Acceptance Contract and canonical local verification passed.
+The prerequisite implementation and verification result is **PASS**. Final architecture review and canonical checkpoint verification are complete, and the prerequisite-only authorization is consumed and closed.
 
 The completed bounded responsibility permits only one Creator-controlled change to the accepted handoff's `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise from `true` to `false`; immediate invalidation of the current Learning Design; preservation of the accepted Learning Objective, source traceability, and context description; re-entry through the existing handoff and Learning Science applicability boundary; and an explicit Active Retrieval non-applicable outcome with no replacement design, approval, or Learner execution.
 
 The verified implementation reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. The bounded authorization has been consumed and is closed; every recorded exclusion remains binding.
 
-Exactly one product Code Change Gate is open, solely for the bounded applicability-and-timing prerequisite implementation recorded above. The later-retrieval execution/product gate remains **CLOSED**. The bounded Post-MVP Learner Correction Opportunity correction-execution authorization and the Contract Formation and Approval-Binding prerequisite authorization have both been consumed and closed. No further product implementation is authorized by either completed gate.
+The bounded applicability-and-timing prerequisite correction gate is consumed and **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. The later-retrieval execution/product gate remains **CLOSED**. The bounded Post-MVP Learner Correction Opportunity correction-execution authorization and the Contract Formation and Approval-Binding prerequisite authorization remain consumed and closed. No broader product implementation is authorized.
 
 ---
 
@@ -3098,9 +3104,9 @@ The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correc
 
 The separate governance re-review and completed closure review are **PASS**. Focused verification confirmed the blocker fix enforcing exactly one correction attempt and the mandatory terminal stop with no post-outcome activity. The exactly bounded Post-MVP Learner Correction Opportunity correction-execution Code Change Gate has been consumed and is closed.
 
-The next permitted action is implementation and local verification within the exactly bounded prerequisite-only Code Change Gate recorded for the **Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation**. Work must stop at the immutable approved pair available through the existing approved-design execution-authority boundary. Implementation of eligibility calculation, scheduling, opportunity exposure, or later retrieval execution remains outside the open gate.
+The bounded prerequisite-only Code Change Gate recorded for the **Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation** is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL ARCHITECTURE REVIEW PASS** and **CHECKPOINT PASS** with canonical verification PASS for TypeScript, build, documentation structure, repository index completeness, and Git status. Its authorization is consumed. Any other product implementation requires a separately derived, governance-verified, and explicitly opened Code Change Gate. Eligibility calculation, scheduling, opportunity exposure, later retrieval execution, persistence, and broader product implementation remain unauthorized.
 
-Exactly one prerequisite-only product Code Change Gate is open. The separate later-retrieval execution/product gate remains **CLOSED**. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No further product implementation is authorized by the completed correction-execution gate.
+No Code Change Gate is open. The separate later-retrieval execution/product gate remains **CLOSED**. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No broader product implementation is authorized.
 
 ---
 

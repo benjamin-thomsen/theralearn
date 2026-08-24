@@ -18,6 +18,9 @@ type LessonPageProps = {
 export default async function LessonPage({ params }: LessonPageProps) {
   const { slug, chapterSlug, lessonSlug } = await params;
   const client = await createClient();
+  const {
+    data: { user },
+  } = await client.auth.getUser();
 
   const course = await getCourseBySlug(client, slug);
 
@@ -75,6 +78,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         {learningObjective && retrievalQuestion && (
           <BoundedLearningDesignSlice
+            creatorAuthorityReference={user?.id ?? null}
             initialLearningObjective={learningObjective}
             initialRelevantContext={lesson.content}
             id={retrievalQuestion.id}

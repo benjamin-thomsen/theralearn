@@ -6,10 +6,10 @@ import { FormEvent, useState } from "react";
 import ApprovedCreatorRetrievalExperience from "@/components/ApprovedCreatorRetrievalExperience";
 import {
   approveLearningDesign,
-  rejectLearningDesign,
 } from "@/lib/learning-science/learningDesignLifecycle";
 import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "@/lib/learning-science/responseEvaluationContract";
-import type { LearningDesign, ResponseEvaluationContract } from "@/lib/learning-science/types";
+import { formLaterRetrievalPrerequisite, relevantContextIdentity, reviewLaterRetrievalPrerequisite } from "@/lib/learning-science/laterRetrievalPrerequisite";
+import type { LaterRetrievalPrerequisiteDraft, LearningDesign, ResponseEvaluationContract } from "@/lib/learning-science/types";
 import type { AcceptedObjectiveWithRelevantContext } from "@/lib/subject-matter-intake/relevantContext";
 import {
   analyzeCreatorObjective,
@@ -19,11 +19,13 @@ import {
   rejectCreatorObjective,
   rederiveCreatorLearningDesign,
 } from "./actions";
+import { getCurrentCreatorAuthorityReference } from "./creatorAuthority";
 import {
   changeDurableRetentionPremise,
   changeRelevantContextDescription,
   type ActiveRetrievalNonApplicableOutcome,
 } from "./learningDesignChange";
+import { rejectLearningDesignReview } from "./learningDesignReview";
 import styles from "./page.module.css";
 
 type ObjectiveAnalysisResult = Awaited<ReturnType<typeof analyzeCreatorObjective>>;
@@ -49,6 +51,10 @@ export default function CreatorObjectivePage() {
   const [contradictingFormulations, setContradictingFormulations] = useState("");
   const [contractFeedback, setContractFeedback] = useState("");
   const [contractReviewed, setContractReviewed] = useState(false);
+  const [laterRetrievalPrerequisite, setLaterRetrievalPrerequisite] = useState<LaterRetrievalPrerequisiteDraft | null>(null);
+  const [earliestEligibilityDelay, setEarliestEligibilityDelay] = useState("");
+  const [earliestEligibilityUnit, setEarliestEligibilityUnit] = useState<"HOURS" | "DAYS">("DAYS");
+  const [laterRetrievalPrerequisiteReviewed, setLaterRetrievalPrerequisiteReviewed] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -139,10 +145,11 @@ export default function CreatorObjectivePage() {
     setError("");
     try {
       setLearningDesign((design) => {
-        if (design?.state !== "PROPOSED" || !contractDraft) return design;
+        if (design?.state !== "PROPOSED" || !contractDraft || !laterRetrievalPrerequisite) return design;
         return approveLearningDesign(
           design,
           reviewResponseEvaluationContract(design, contractDraft, contractReviewed),
+          reviewLaterRetrievalPrerequisite(design, laterRetrievalPrerequisite, laterRetrievalPrerequisiteReviewed),
         );
       });
     } catch (cause) {
@@ -157,6 +164,31 @@ export default function CreatorObjectivePage() {
     setContradictingFormulations("");
     setContractFeedback("");
     setContractReviewed(false);
+    setLaterRetrievalPrerequisite(null);
+    setEarliestEligibilityDelay("");
+    setEarliestEligibilityUnit("DAYS");
+    setLaterRetrievalPrerequisiteReviewed(false);
+  }
+
+  async function handleFormLaterRetrievalPrerequisite() {
+    if (learningDesign?.state !== "PROPOSED" || !contractDraft) return;
+    setError("");
+    try {
+      const creatorAuthorityReference =
+        await getCurrentCreatorAuthorityReference();
+      setLaterRetrievalPrerequisite(formLaterRetrievalPrerequisite(learningDesign, {
+        identity: crypto.randomUUID(),
+        proposedLearningDesignIdentity: learningDesign.identity,
+        learningObjectiveIdentity: learningDesign.learningObjectiveIdentity,
+        relevantContextIdentity: relevantContextIdentity(learningDesign),
+        supportingSourceBoundaryIdentity: contractDraft.supportingSource.identity,
+        earliestEligibilityDelay: { value: Number(earliestEligibilityDelay), unit: earliestEligibilityUnit },
+        creatorAuthorityReference,
+      }));
+      setLaterRetrievalPrerequisiteReviewed(false);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Later Retrieval Prerequisite formation failed.");
+    }
   }
 
   function handleFormContract() {
@@ -187,9 +219,14 @@ export default function CreatorObjectivePage() {
   }
 
   function handleRejectLearningDesign() {
-    setLearningDesign((design) =>
-      design?.state === "PROPOSED" ? rejectLearningDesign(design) : design,
+    if (learningDesign?.state !== "PROPOSED") return;
+    const rejected = rejectLearningDesignReview(
+      learningDesign,
+      laterRetrievalPrerequisite,
     );
+    setLearningDesign(rejected.learningDesign);
+    setLaterRetrievalPrerequisite(rejected.laterRetrievalPrerequisite);
+    resetContractFormation();
   }
 
   function handleContextDescriptionChange(description: string) {
@@ -393,6 +430,29 @@ export default function CreatorObjectivePage() {
                   </section>
                 ) : null}
 
+                {learningDesign.state === "PROPOSED" && contractDraft ? (
+                  <section className={styles.result} aria-labelledby="later-retrieval-prerequisite-heading">
+                    <h3 id="later-retrieval-prerequisite-heading">Later Retrieval Prerequisite</h3>
+                    {!laterRetrievalPrerequisite ? (
+                      <>
+                        <p>Learning Science has authoritatively determined that repeated opportunities are required under {learningDesign.distributedPracticeApplicability.principleReference}. Author and review one relative earliest-eligibility boundary; this does not schedule an opportunity.</p>
+                        <label className={styles.field}><span>Positive whole-number delay</span><input type="number" min="1" step="1" value={earliestEligibilityDelay} onChange={(event) => { setEarliestEligibilityDelay(event.target.value); setLaterRetrievalPrerequisiteReviewed(false); }} /></label>
+                        <label className={styles.field}><span>Delay unit</span><select value={earliestEligibilityUnit} onChange={(event) => { setEarliestEligibilityUnit(event.target.value as "HOURS" | "DAYS"); setLaterRetrievalPrerequisiteReviewed(false); }}><option value="HOURS">Hours</option><option value="DAYS">Days</option></select></label>
+                        <button className={styles.button} type="button" onClick={handleFormLaterRetrievalPrerequisite}>Form prerequisite draft</button>
+                      </>
+                    ) : (
+                      <>
+                        <p><strong>Distributed Practice applicability:</strong> {laterRetrievalPrerequisite.repeatedLearningOpportunitiesRequired ? "Repeated learning opportunities required" : "Not applicable"}</p>
+                        <p><strong>Earliest-eligibility delay:</strong> {laterRetrievalPrerequisite.earliestEligibilityDelay.value} {laterRetrievalPrerequisite.earliestEligibilityDelay.unit}</p>
+                        <p><strong>Proposed Learning Design identity:</strong> {laterRetrievalPrerequisite.proposedLearningDesignIdentity}</p>
+                        <p><strong>Creator authority:</strong> {laterRetrievalPrerequisite.creatorAuthorityReference}</p>
+                        <label><input type="checkbox" checked={laterRetrievalPrerequisiteReviewed} onChange={(event) => setLaterRetrievalPrerequisiteReviewed(event.target.checked)} /> I confirm this complete prerequisite and timing boundary with this Learning Design</label>
+                        <button className={styles.button} type="button" onClick={() => { setLaterRetrievalPrerequisite(null); setLaterRetrievalPrerequisiteReviewed(false); }}>Change prerequisite</button>
+                      </>
+                    )}
+                  </section>
+                ) : null}
+
                 <label className={styles.field}>
                   <span>Ændr Relevant Context-beskrivelse</span>
                   <input
@@ -418,7 +478,7 @@ export default function CreatorObjectivePage() {
                       className={styles.button}
                       type="button"
                       onClick={handleApproveLearningDesign}
-                      disabled={!contractDraft || !contractReviewed}
+                      disabled={!contractDraft || !contractReviewed || !laterRetrievalPrerequisite || !laterRetrievalPrerequisiteReviewed}
                     >
                       Godkend Learning Design
                     </button>
