@@ -2866,6 +2866,40 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ---
 
+## Post-MVP Exactly One Later Retrieval Opportunity Responsibility Derivation
+
+**Status: DERIVED — BOUNDED — PRODUCT RESPONSIBILITY ONLY — CODE CHANGE GATE CLOSED**
+
+This record adopts the immediately preceding derivation as its authority and carries forward only its single bounded post-MVP consequence under the certified **Distributed Practice Principle**.
+
+### Responsibility
+
+When durable retention requires repeated learning opportunities and the authoritative prerequisite below is satisfied, TheraLearn is responsible for exposing exactly one later active retrieval opportunity for the same approved learning-objective boundary. The opportunity must occur later than the completed existing retrieval-and-feedback path, preserve an actual temporal separation rather than immediate repetition, require a fresh Learner response before reveal, and stop after one visible source-grounded result.
+
+### Invariant Boundaries
+
+The accepted Learning Objective, bounded Relevant Context, supporting source boundary, applicable certified Learning Principle, Learning Requirements, mechanism, Approved Learning Design, Creator decision, and subject-matter authority remain unchanged and traceable. The later opportunity remains subordinate to the same approved authority and cannot re-derive, broaden, replace, or silently reinterpret it. Exactly one later opportunity is permitted; it cannot become an immediate retry, a correction attempt, or an open-ended sequence.
+
+### Authoritative Prerequisite
+
+The responsibility is applicable only after the authoritative learning-design boundary has established that durable retention requires repeated learning opportunities and has fixed a Creator-approved later-opportunity timing boundary in relation to the intended retention horizon and relevant learning conditions. In the absence of that authoritative applicability and timing input, no later retrieval opportunity may be inferred, scheduled, or exposed.
+
+### Explicit Exclusions
+
+This responsibility does not derive or authorize a universal interval, fixed schedule, spaced-repetition algorithm, flashcard scheduler, adaptive scheduling, multiple later opportunities, recurrence, reminders or notifications, background jobs, persistence, longitudinal learner state, learner modelling, personalization, mastery, competence, scoring, grading, progression, analytics, certification, or generalized course or lesson sequencing.
+
+It does not authorize a second correction opportunity, repeated retries, question banks, generated questions, generalized assessment or evaluation, AI/model/provider or network calls, new dependencies, routes or server actions, storage, schema, migrations, database or Supabase changes, or any change to Product Authority, architecture authority, certified Learning Principles, subject-matter authority, Learning Science derivation, Learning Design lifecycle, or the completed post-MVP correction boundary.
+
+### Acceptance Condition
+
+This product responsibility is accepted only if one qualifying completed approved retrieval-and-feedback path can lead, after the authoritative temporal boundary has been satisfied, to exactly one fresh active retrieval opportunity bound to the unchanged approved authority; a fresh non-empty response is required before reveal; one source-grounded result is visible; non-qualifying or missing authoritative prerequisite input exposes no opportunity; and every branch stops without another activity, retry, correction, progression decision, or learner-state transition.
+
+### Governance Boundary
+
+This section records product responsibility only. It derives no technical realization or implementation authorization. **No product Code Change Gate is open**, and no product code change is authorized. Any technical realization and implementation authorization must be separately derived and governance-verified before a new explicitly bounded Code Change Gate may be considered.
+
+---
+
 ## Current Task
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
