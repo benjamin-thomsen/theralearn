@@ -2055,6 +2055,107 @@ The separate explicit bounded Code Change Gate below authorized only this govern
 
 ---
 
+## Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome Responsibility Derivation
+
+**Status: DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**
+
+**Governance review result: PASS**
+
+### Verified Baseline and Authority Evidence
+
+This derivation is performed against the user-supplied verified repository baseline:
+
+```text
+366c43c9281ee2dc3a6f5b7de87371508c1c14ee
+```
+
+The permanent Product Authority requires Creator control over relevant Learning Design inputs and requires Learning Science to affect product behavior rather than appear only as rationale or labels. The Learning Science Engine architecture requires a Creator change to an upstream Relevant Context or scientific premise to invalidate affected downstream derivation and requires mechanism selection to remain downstream of applicability reasoning.
+
+The verified repository already implements the bounded Active Retrieval applicability rule: durable retention of previously acquired knowledge must be explicitly intended before Active Retrieval may produce a `ProposedLearningDesign`. It also implements Learning Design invalidation, accepted upstream authority preservation, re-derivation through `handoffToLearningScience()` / `deriveLearningDesign()`, approval guarding, and non-executability of an invalidated design.
+
+The completed description-change responsibility deliberately preserves the durable-retention premise. It therefore proves invalidation and re-derivation when applicability remains unchanged, but it does not yet prove the product consequence of a Creator changing the premise that determines whether Active Retrieval is applicable.
+
+### Repository Compatibility Classification
+
+**REUSE**
+
+- the existing accepted `AcceptedLearningObjective` and source traceability;
+- the existing `AcceptedObjectiveWithRelevantContext` boundary;
+- `formBoundedRelevantContext()`;
+- `handoffToLearningScience()` and `deriveLearningDesign()`;
+- the existing explicit Active Retrieval applicability rule;
+- `invalidateLearningDesign()` and the `INVALIDATED` state;
+- `requireApprovedLearningDesign()` and the existing learner-execution authority boundary.
+
+**ADAPT LATER — SUBJECT TO SEPARATE TECHNICAL DERIVATION**
+
+- the bounded `/creator-objective` runtime orchestration and presentation, only if required to expose one Creator-controlled change to the durable-retention premise after derivation;
+- the re-derivation outcome handling, only if required to represent the existing explicit non-applicability result without converting it into a proposed design.
+
+**MISSING**
+
+- one authoritative runtime transition for changing the accepted handoff's `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise after Learning Design derivation;
+- an explicit bounded product outcome when the changed accepted premise makes Active Retrieval non-applicable;
+- verification that non-applicability cannot retain or create approval, a replacement mechanism, or Learner execution.
+
+### Exact Bounded Responsibility
+
+The responsibility begins with one existing accepted, source-traceable upstream handoff whose durable-retention premise is `true`, and one current downstream Learning Design derived from that premise. It permits the Creator to change only that premise to `false` while preserving the accepted Learning Objective, source traceability, and Relevant Context description.
+
+The exact bounded flow is:
+
+```text
+ACCEPTED HANDOFF + CURRENT LEARNING DESIGN
+        ↓
+CREATOR CHANGES DURABLE-RETENTION PREMISE: TRUE → FALSE
+        ↓
+CURRENT LEARNING DESIGN IMMEDIATELY INVALIDATED
+        ↓
+RE-FORM ACCEPTED HANDOFF WITH OTHER UPSTREAM AUTHORITY PRESERVED
+        ↓
+EXISTING handoffToLearningScience() / deriveLearningDesign()
+        ↓
+ACTIVE RETRIEVAL EXPLICITLY NON-APPLICABLE
+        ↓
+NO PROPOSED OR APPROVED REPLACEMENT DESIGN
+        ↓
+NO LEARNER EXECUTION
+        ↓
+STOP
+```
+
+This responsibility must not select another certified Learning Principle or mechanism. A non-applicable result in this bounded one-principle implementation is an explicit stop outcome, not authority to invent a fallback design.
+
+### Minimum Acceptance Contract
+
+A future bounded implementation may be accepted only if all of the following are demonstrated:
+
+1. The flow begins from one accepted, source-traceable handoff with durable retention explicitly intended and one current downstream Learning Design.
+2. The Creator changes exactly one upstream premise: `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` from `true` to `false`.
+3. The accepted Learning Objective, source traceability, and Relevant Context description remain unchanged.
+4. The premise change immediately invalidates the current proposed, approved, or rejected Learning Design through the existing lifecycle responsibility.
+5. The invalidated design cannot authorize or expose Learner execution.
+6. The changed premise is re-formed through the existing bounded Relevant Context responsibility and re-enters Learning Science only through `handoffToLearningScience()` / `deriveLearningDesign()`.
+7. The existing Active Retrieval applicability rule determines that Active Retrieval is not applicable.
+8. Non-applicability is explicit and reviewable; it is not silently treated as a successful derivation.
+9. No fresh `ProposedLearningDesign`, `ApprovedLearningDesign`, replacement mechanism, approval path, or Learner activity is produced from the non-applicable premises.
+10. The flow stops at the explicit non-applicable outcome.
+
+### Explicit Exclusions
+
+This responsibility excludes changing the Learning Objective, source material, source grounding, source boundary, Relevant Context description, arbitrary context fields, certified Learning Principles, applicability logic, Learning Requirements, mechanisms, derived design fields, or learner interaction.
+
+It also excludes selecting or implementing a fallback principle or mechanism, generalized no-design workflows, automatic reversal of the Creator change, automatic approval, persistence, schema, migrations, database or Supabase changes, generalized workflow or state infrastructure, new dependencies, learner profiles, personalization, accessibility modelling, and learner-state changes.
+
+### Governance Boundary
+
+This derivation establishes the next bounded product responsibility only. It does not select a technical realization and does not authorize product implementation.
+
+The Code Change Gate remains CLOSED. The next allowed action is a read-only minimum technical-realization and implementation-authorization derivation for this exact responsibility. A Code Change Gate may be considered only after that derivation is governance-reviewed and explicitly demonstrates that the existing authority and repository boundaries support a bounded implementation.
+
+---
+
+
 ## Code Change Gate
 
 **Bounded product implementation: CLOSED — CREATOR LEARNING DESIGN CHANGE → INVALIDATION → RE-DERIVATION**
@@ -2208,22 +2309,22 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The bounded **Creator Learning Design Change → Invalidation → Re-derivation** responsibility is **DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED — IMPLEMENTED — VERIFIED**.
+The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility is **DERIVED — GOVERNANCE VERIFIED — CODE CHANGE GATE CLOSED**.
 
-The implementation and verification result is **PASS** at verified implementation checkpoint `51bda121001491552b8187e5e1eb3d467430d784` — `Implement Creator learning design re-derivation`.
+The governance review result is **PASS** against the user-supplied verified repository baseline `366c43c9281ee2dc3a6f5b7de87371508c1c14ee`.
 
-The completed implementation permits only one Creator-controlled bounded Relevant Context `description` change, immediate invalidation of the current Learning Design, reuse of the accepted upstream authority and existing handoff/`deriveLearningDesign()` path, and production of a fresh `ProposedLearningDesign` requiring fresh approval.
+The next bounded responsibility permits only one Creator-controlled change to the accepted handoff's `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise from `true` to `false`; immediate invalidation of the current Learning Design; preservation of the accepted Learning Objective, source traceability, and context description; re-entry through the existing handoff and Learning Science applicability boundary; and an explicit Active Retrieval non-applicable outcome with no replacement design, approval, or Learner execution.
 
-The required stop boundary was met at the fresh visible `PROPOSED` Learning Design, before approval and before Learner execution. The bounded authorization has been consumed and is closed. Every recorded exclusion remains binding, and no further product implementation is authorized.
+This governance derivation does not select a technical realization and does not authorize product implementation. The Code Change Gate remains closed.
 
 ---
 
 
 ## Next Allowed Action
 
-Derive and governance-review the next bounded product responsibility from the permanent Product Authority and verified repository state.
+Derive and governance-review the minimum technical realization and minimum implementation authorization for the bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility.
 
-The Code Change Gate remains closed. This next action authorizes governance work only and does not authorize product implementation. Any further product implementation requires a separately derived, governance-verified minimum authorization and a new explicit bounded Code Change Gate decision recorded in `PROJECT_CONTROL.md`.
+The Code Change Gate remains closed. This next action authorizes governance work only and does not authorize product implementation. A new Code Change Gate may be considered only if the technical realization and implementation authorization are separately derived, governance-verified, and explicitly supported by existing authority.
 
 ---
 
