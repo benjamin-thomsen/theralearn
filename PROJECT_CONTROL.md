@@ -12,7 +12,11 @@
 
 ## Current Phase
 
-**Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome — CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+**END-TO-END MVP — ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+
+The verified end-to-end MVP is **ACCEPTED and CLOSED**. The durable MVP acceptance boundary in `docs/product/mvp.md` has been satisfied by the complete verified Creator-to-Learner chain and its verified non-applicable outcome. This acceptance closes the MVP as a whole; it does not open a new product Code Change Gate, authorize new implementation, or alter the authority direction from Product Authority through architecture to implementation.
+
+The final bounded Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome responsibility remains **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
 The separate bounded Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -747,9 +751,9 @@ The five certified Learning Principles remain unchanged.
 
 ### MVP Boundary
 
-**VERIFIED — COMMITTED**
+**ACCEPTED — CLOSED — VERIFIED — COMMITTED**
 
-`docs/product/mvp.md` remains the durable MVP acceptance boundary.
+`docs/product/mvp.md` remains the durable MVP acceptance boundary. The verified end-to-end MVP satisfies that boundary and is accepted and closed. This recorded acceptance creates no new product implementation authority.
 
 ### Existing Implementation Compatibility
 
@@ -2383,7 +2387,9 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 ## Current Task
 
-The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization are **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
+The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
+
+The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
 The implementation and verification result is **PASS** at verified implementation checkpoint `227e15710234d43fff3d33955aa82dedee9c11b3`. The complete recorded Minimum Acceptance Contract and canonical local verification passed.
 
@@ -2391,12 +2397,14 @@ The completed bounded responsibility permits only one Creator-controlled change 
 
 The verified implementation reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. The bounded authorization has been consumed and is closed; every recorded exclusion remains binding.
 
+No new product Code Change Gate is opened by MVP acceptance and closure, and no new implementation is authorized.
+
 ---
 
 
 ## Next Allowed Action
 
-Select and governance-derive the next bounded responsibility, if any, from the permanent Product Authority and architecture authority.
+The end-to-end MVP is accepted and closed. Any future work must begin with a separately selected and governance-derived bounded responsibility, if any, from the permanent Product Authority and architecture authority.
 
 No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until a separate bounded responsibility, technical realization, and implementation authorization are governance-verified and `PROJECT_CONTROL.md` explicitly opens a new Code Change Gate.
 
