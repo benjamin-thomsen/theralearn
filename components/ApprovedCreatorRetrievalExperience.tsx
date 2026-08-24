@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 
 import { requireApprovedLearningDesign } from "../lib/learning-science/learningDesignExecution";
+import { evaluateCorrectionResponse, evaluateFirstResponse } from "../lib/learning-science/responseEvaluation";
 import type { LearningDesign } from "../lib/learning-science/types";
 
 type ApprovedCreatorRetrievalExperienceProps = {
@@ -15,29 +16,7 @@ export function createSourceGroundedRetrievalResult(
   learnerResponse: string,
   supportingSourceContext: string,
 ) {
-  const approvedDesign = requireApprovedLearningDesign(learningDesign);
-
-  if (approvedDesign.proposedLearningMechanism.kind !== "bounded-retrieval") {
-    throw new Error(
-      "Approved learning design does not authorize the bounded retrieval mechanism.",
-    );
-  }
-
-  const response = learnerResponse.trim();
-  const sourceContext = supportingSourceContext.trim();
-
-  if (!response) {
-    throw new Error("The learner must provide an active response before reveal.");
-  }
-
-  if (!sourceContext) {
-    throw new Error("Source-grounded feedback requires supporting source context.");
-  }
-
-  return {
-    learnerResponse: response,
-    supportingSourceContext: sourceContext,
-  };
+  return evaluateFirstResponse(learningDesign, learnerResponse, supportingSourceContext);
 }
 
 export default function ApprovedCreatorRetrievalExperience({
@@ -49,6 +28,8 @@ export default function ApprovedCreatorRetrievalExperience({
   const [result, setResult] = useState<ReturnType<
     typeof createSourceGroundedRetrievalResult
   > | null>(null);
+  const [correctionResponse, setCorrectionResponse] = useState("");
+  const [correctionResult, setCorrectionResult] = useState<ReturnType<typeof evaluateCorrectionResponse> | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -92,6 +73,30 @@ export default function ApprovedCreatorRetrievalExperience({
           <blockquote>{result.learnerResponse}</blockquote>
           <p>Sammenlign dit svar med den godkendte kildekontekst:</p>
           <blockquote>{result.supportingSourceContext}</blockquote>
+          <p>Resultat: {result.status}</p>
+          {result.status === "EVALUATION_FAILURE" ? <p>{result.message}</p> : null}
+          {result.status === "CORRECTION_REQUIRED" ? (
+            <>
+              <h4>Informativ feedback</h4>
+              <p>{result.target.informativeFeedback}</p>
+              <form onSubmit={(event) => {
+                event.preventDefault();
+                if (!correctionResult) setCorrectionResult(evaluateCorrectionResponse(result, correctionResponse));
+              }}>
+                <label style={{ display: "block" }}>
+                  Dit korrigerede svar
+                  <textarea value={correctionResponse} onChange={(event) => setCorrectionResponse(event.target.value)} disabled={Boolean(correctionResult)} />
+                </label>
+                {!correctionResult ? <button type="submit" disabled={!correctionResponse.trim()}>Indsend én korrektion</button> : null}
+              </form>
+              {correctionResult ? (
+                <div aria-live="polite">
+                  <p>Korrektionsresultat: {correctionResult.status}</p>
+                  {correctionResult.status === "EVALUATION_FAILURE" ? <p>{correctionResult.message}</p> : null}
+                </div>
+              ) : null}
+            </>
+          ) : null}
         </div>
       ) : null}
     </section>
