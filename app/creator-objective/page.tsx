@@ -9,12 +9,15 @@ import {
   rejectLearningDesign,
 } from "@/lib/learning-science/learningDesignLifecycle";
 import type { LearningDesign } from "@/lib/learning-science/types";
+import type { AcceptedObjectiveWithRelevantContext } from "@/lib/subject-matter-intake/relevantContext";
 import {
   analyzeCreatorObjective,
   approveCreatorObjectiveAndDeriveLearningDesign,
   reassessCreatorObjectiveChange,
   rejectCreatorObjective,
+  rederiveCreatorLearningDesign,
 } from "./actions";
+import { changeRelevantContextDescription } from "./learningDesignChange";
 import styles from "./page.module.css";
 
 type ObjectiveAnalysisResult = Awaited<ReturnType<typeof analyzeCreatorObjective>>;
@@ -31,6 +34,8 @@ export default function CreatorObjectivePage() {
   const [contextDescription, setContextDescription] = useState("");
   const [durableRetentionIntended, setDurableRetentionIntended] = useState(false);
   const [learningDesign, setLearningDesign] = useState<LearningDesign | null>(null);
+  const [acceptedHandoff, setAcceptedHandoff] = useState<AcceptedObjectiveWithRelevantContext | null>(null);
+  const [hasRederivedLearningDesign, setHasRederivedLearningDesign] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,6 +53,8 @@ export default function CreatorObjectivePage() {
       setContextDescription("");
       setDurableRetentionIntended(false);
       setLearningDesign(null);
+      setAcceptedHandoff(null);
+      setHasRederivedLearningDesign(false);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Objective analysis failed.");
     } finally {
@@ -99,12 +106,13 @@ export default function CreatorObjectivePage() {
     setIsLoading(true);
 
     try {
-      const design = await approveCreatorObjectiveAndDeriveLearningDesign(
+      const derived = await approveCreatorObjectiveAndDeriveLearningDesign(
         reviewableObjective,
         contextDescription,
         durableRetentionIntended,
       );
-      setLearningDesign(design);
+      setAcceptedHandoff(derived.acceptedHandoff);
+      setLearningDesign(derived.learningDesign);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Learning Design derivation failed.");
     } finally {
@@ -122,6 +130,41 @@ export default function CreatorObjectivePage() {
     setLearningDesign((design) =>
       design?.state === "PROPOSED" ? rejectLearningDesign(design) : design,
     );
+  }
+
+  function handleContextDescriptionChange(description: string) {
+    setContextDescription(description);
+
+    if (!acceptedHandoff || !learningDesign) return;
+
+    const changed = changeRelevantContextDescription(
+      acceptedHandoff,
+      learningDesign,
+      description,
+    );
+    setLearningDesign(changed.invalidatedDesign);
+  }
+
+  async function handleRederiveLearningDesign() {
+    if (!acceptedHandoff || learningDesign?.state !== "INVALIDATED") return;
+
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const rederived = await rederiveCreatorLearningDesign(
+        acceptedHandoff,
+        contextDescription,
+      );
+      setAcceptedHandoff(rederived.acceptedHandoff);
+      setLearningDesign(rederived.learningDesign);
+      setContextDescription(rederived.acceptedHandoff.relevantContext.description);
+      setHasRederivedLearningDesign(true);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Learning Design re-derivation failed.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -230,6 +273,15 @@ export default function CreatorObjectivePage() {
                 <h3>Creator-controlled decisions</h3>
                 <ul>{learningDesign.creatorControlledDecisions.map((decision) => <li key={decision.description}>{decision.description}</li>)}</ul>
 
+                <label className={styles.field}>
+                  <span>Ændr Relevant Context-beskrivelse</span>
+                  <input
+                    value={contextDescription}
+                    onChange={(event) => handleContextDescriptionChange(event.target.value)}
+                    disabled={isLoading || hasRederivedLearningDesign}
+                  />
+                </label>
+
                 {learningDesign.state === "PROPOSED" ? (
                   <>
                     <button
@@ -247,6 +299,28 @@ export default function CreatorObjectivePage() {
                       Afvis Learning Design
                     </button>
                   </>
+                ) : null}
+
+                {learningDesign.state === "INVALIDATED" ? (
+                  <>
+                    <p className={styles.message}>
+                      Learning Design er ugyldiggjort. Learner-udførelse er ikke godkendt.
+                    </p>
+                    <button
+                      className={styles.button}
+                      type="button"
+                      onClick={handleRederiveLearningDesign}
+                      disabled={isLoading || !contextDescription.trim()}
+                    >
+                      {isLoading ? "Genafleder Learning Design..." : "Genafled Learning Design"}
+                    </button>
+                  </>
+                ) : null}
+
+                {learningDesign.state === "PROPOSED" && hasRederivedLearningDesign ? (
+                  <p className={styles.message}>
+                    Det friske Learning Design kræver ny eksplicit Creator-godkendelse før Learner-udførelse.
+                  </p>
                 ) : null}
 
                 {learningDesign.state === "REJECTED" ? (
