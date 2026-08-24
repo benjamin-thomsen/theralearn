@@ -2472,6 +2472,55 @@ This derivation supplies the missing upstream classification authority only. It 
 
 ---
 
+## Post-MVP Learner Correction Opportunity Contract Formation and Approval-Binding Technical Realization Addendum
+
+**Status: DERIVED — BOUNDED — TECHNICAL-REALIZATION ADDENDUM ONLY — CODE CHANGE GATE CLOSED**
+
+### Missing Realization Closed by This Addendum
+
+The technical realization above defines deterministic execution of an approved `ResponseEvaluationContract`, but it does not yet realize the prerequisite by which the Creator/Content Owner creates, reviews, and approves that authoritative input for the same Proposed Learning Design. The smallest bounded addition is one pre-approval contract-formation step inside the existing Creator Learning Design review boundary.
+
+For the single existing Proposed Learning Design, the runtime may create exactly one reviewable `ResponseEvaluationContract` draft from Creator/Content Owner-authored input. Implementation may validate and preserve that input; it may not generate, infer, supplement, reorder, or rewrite any required claim, accepted formulation, contradicting formulation, feedback statement, source boundary, or subject-matter judgment.
+
+The draft must reference the exact Proposed Learning Design identity, Learning Objective identity, bounded supporting source identity and immutable boundary, applicable Informative Correction requirement, and `bounded-retrieval` mechanism. It remains non-authoritative and non-executable while incomplete, invalid, unreviewed, or associated with any other design.
+
+### Single Review and Atomic Approval Binding
+
+Before Learning Design approval is permitted, the Creator/Content Owner must be shown the complete contract in the same review boundary as the Proposed Learning Design and must explicitly confirm that the contract is source-grounded and suitable for that design. The existing approval transition may then succeed only as one atomic authority transition that:
+
+1. validates the complete contract against the recorded authoritative input constraints;
+2. freezes one immutable contract snapshot and stable contract identity;
+3. records that exact contract identity on the Approved Learning Design produced from that exact Proposed Learning Design; and
+4. makes the approved pair executable only through the existing `requireApprovedLearningDesign()` boundary.
+
+Approval must fail closed and produce no Approved Learning Design when the contract is absent, incomplete, invalid, unreviewed, source-inconsistent, objective-inconsistent, mechanism-inconsistent, already bound to another design, or changed between review confirmation and approval. A contract cannot be approved independently, attached after Learning Design approval, substituted at learner execution, or shared across Proposed Learning Designs.
+
+Any change to the Proposed Learning Design, contract snapshot, contract identity, Learning Objective, bounded source identity or boundary, required-element ordering, formulations, feedback, or referenced correction requirement invalidates the review confirmation and prevents approval. After approval, neither member of the approved pair may be mutated; change requires the existing invalidation and fresh re-derivation path, a fresh Proposed Learning Design, a fresh contract snapshot, and fresh Creator/Content Owner review and approval.
+
+### Minimum Repository Realization
+
+The minimum implementation realization may adapt only the existing Learning Design domain representation and approval guard, the existing `/creator-objective` in-session review orchestration and presentation, and focused tests needed to prove contract formation, complete Creator/Content Owner review, atomic approval binding, immutability, invalidation, and fail-closed rejection. One small contract validation/identity module under `lib/learning-science/` may be introduced only if necessary to keep the authority boundary independent of presentation.
+
+The existing correction-execution file boundary remains unchanged and downstream. Runtime state remains in memory for the existing browser session. No persistence, schema, migration, database, provider, network call, dependency, route, server action, generalized authoring system, generalized rubric system, or product behavior outside this single approved pair is required or authorized.
+
+### Addendum Acceptance Criteria
+
+1. Exactly one contract draft can be formed for exactly one existing Proposed Learning Design from explicit Creator/Content Owner input.
+2. No implementation-authored subject-matter claim, formulation, feedback, ordering, or equivalence is introduced.
+3. The complete contract and its source, objective, correction-requirement, mechanism, and Proposed Learning Design references are visible for Creator/Content Owner review before approval.
+4. The Proposed Learning Design cannot become approved unless the exact complete contract has been explicitly reviewed and passes every recorded validation rule.
+5. One approval action immutably binds the exact reviewed contract snapshot and identity to the Approved Learning Design derived from that same proposal.
+6. Missing, invalid, stale, changed, mismatched, substituted, separately approved, or cross-design contract input fails closed with no Approved Learning Design and no Learner execution.
+7. Any pre-approval change removes prior review confirmation; any post-approval premise change follows existing invalidation and fresh re-derivation rather than mutation.
+8. The approved pair remains required at learner execution, and the unchanged contract identity is available to both deterministic evaluations.
+9. Focused automated tests demonstrate the successful path, every fail-closed guard, immutable binding, invalidation, Creator/Content Owner authority preservation, and absence of premature Learner execution.
+
+### Governance Boundary
+
+This addendum supplies only the missing contract-formation, review, and approval-binding realization. All existing technical non-goals and exclusions remain binding. It does not authorize correction execution, contract generation, generalized assessment authoring, product code, or any Code Change Gate.
+
+---
+
 ## Post-MVP Learner Correction Opportunity Minimum Implementation Authorization Derivation
 
 **Status: REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED**
@@ -2480,7 +2529,7 @@ This derivation supplies the missing upstream classification authority only. It 
 
 ### Governance Review
 
-This review records the pre-authority governance state and is retained as historical evidence; it was conducted before the authoritative contract immediately above was established.
+This review records the pre-authority governance state and is retained as historical evidence; it was conducted before the authoritative contract recorded above was established.
 
 The recorded product responsibility, architecture boundary, execution guard, conditional zero-or-one correction lifecycle, terminal stop boundary, in-session constraint, file boundary, verification obligations, and explicit non-goals are mutually consistent and sufficiently bounded.
 
@@ -2512,7 +2561,35 @@ That authority must preserve Creator/Content Owner subject-matter control, defin
 
 ### Code Change Permission
 
-The missing authoritative classification input and deterministic evaluation contract are now recorded immediately above. This historical review remains a FAIL and does not become implementation authorization retroactively. The Post-MVP Learner Correction Opportunity Code Change Gate remains **CLOSED**. No product-code change is authorized. Exactly one future gate may be considered only after the same bounded implementation authorization is separately re-reviewed as PASS against the newly recorded authority.
+The missing authoritative classification input and deterministic evaluation contract are now recorded above. This historical review remains a FAIL and does not become implementation authorization retroactively. The Post-MVP Learner Correction Opportunity Code Change Gate remains **CLOSED**. No product-code change is authorized. Exactly one future gate may be considered only after the same bounded implementation authorization is separately re-reviewed as PASS against the newly recorded authority.
+
+---
+
+## Post-MVP Learner Correction Opportunity Contract Formation and Approval-Binding Minimum Implementation Authorization Derivation
+
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — CODE CHANGE GATE CLOSED**
+
+**Governance review result: PASS**
+
+### Governance Review
+
+The minimum authorization boundary is consistent with the recorded Post-MVP Learner Correction Opportunity responsibility, authoritative classification input and deterministic evaluation contract, and Contract Formation and Approval-Binding Technical Realization Addendum. It preserves Creator/Content Owner subject-matter authority, same-design review, atomic immutable approval binding, fail-closed behavior, the existing invalidation and fresh re-derivation rule, and the existing learner-execution authority boundary.
+
+This PASS applies only to the prerequisite implementation boundary recorded below. Its required stop boundary is the establishment of one immutable approved Learning Design–`ResponseEvaluationContract` pair that is demonstrably available at the existing learner-execution authority boundary. It does not authorize first-response classification, correction opportunity exposure, correction-response evaluation, or any other correction execution. Every recorded exclusion remains binding.
+
+### Minimum Authorization Boundary
+
+A future governance review may consider authorization for only the prerequisite implementation needed to create one Creator/Content Owner-authored `ResponseEvaluationContract`, present the complete contract with the same existing Proposed Learning Design for explicit review, and make Learning Design approval atomically freeze and bind that exact reviewed contract to the Approved Learning Design derived from that proposal.
+
+The bounded implementation may adapt only the existing Learning Design representation and approval guard, the existing `/creator-objective` in-session review orchestration and presentation, focused tests, and at most one small presentation-independent validation/identity module under `lib/learning-science/`. It must stop when the immutable approved pair is established and demonstrably available at the existing learner-execution authority boundary. It must not implement first-response classification, expose a correction opportunity, evaluate a correction response, or otherwise enter the post-MVP Learner correction path.
+
+Implementation must preserve Creator/Content Owner authorship and approval of every subject-matter-bearing contract field, apply the exact authoritative validation constraints, bind by stable identities and an immutable snapshot rather than mutable object association, invalidate review on any mismatch or change, preserve the existing invalidation and fresh re-derivation rule, and fail closed with no Approved Learning Design or Learner execution whenever complete same-design authority cannot be established.
+
+Every exclusion in the responsibility derivation, technical realization, authoritative contract, and technical-realization addendum remains binding. No persistence, schema, migration, database, provider, AI/model call, new dependency, generalized rubric or assessment authoring, automatic contract generation, additional design state, approval bypass, independent contract approval, post-approval attachment, contract reuse across designs, or correction execution is within this authorization derivation.
+
+### Code Change Permission
+
+This bounded minimum implementation authorization is governance-reviewed as **PASS**. The review does not itself authorize implementation. The Code Change Gate remains **CLOSED**, and no product-code change is authorized. Exactly one prerequisite-only Code Change Gate may be considered in a separate governance decision, limited to the recorded authorization boundary, stop boundary, and exclusions.
 
 ---
 
@@ -2695,9 +2772,9 @@ Any implementation outside this explicit boundary requires a separately derived 
 
 The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
-The single smallest post-MVP product responsibility is **DERIVED — BOUNDED** as **Learner Correction Opportunity After Feedback**. Its separate minimum technical realization is **DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY**. The missing Creator/Content Owner-controlled source-grounded classification input and deterministic evaluation contract is now **DERIVED — BOUNDED — UPSTREAM AUTHORITY ESTABLISHED — CODE CHANGE GATE CLOSED**.
+The single smallest post-MVP product responsibility is **DERIVED — BOUNDED** as **Learner Correction Opportunity After Feedback**. Its separate minimum technical realization is **DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY**. The Creator/Content Owner-controlled source-grounded classification input and deterministic evaluation contract is **DERIVED — BOUNDED — UPSTREAM AUTHORITY ESTABLISHED — CODE CHANGE GATE CLOSED**. The smallest missing technical prerequisite is now separately derived as one bounded contract-formation, same-design review, and atomic immutable approval-binding addendum.
 
-The earlier minimum implementation-authorization review remains historically **REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED** and is not retroactively converted to PASS. The newly established authority defines sufficient first response, deterministic branch selection, one Creator-ordered correctable target, terminal correction evaluation, and fail-closed indeterminate/error behavior without assigning subject-matter truth to implementation. No implementation is authorized until the same bounded implementation authorization is separately re-reviewed against this authority and passes governance review.
+The earlier minimum implementation-authorization review remains historically **REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED** and is not retroactively converted to PASS. Its FAIL evidence is preserved. The prerequisite Contract Formation and Approval-Binding Minimum Implementation Authorization is now **GOVERNANCE REVIEWED — PASS — BOUNDED — CODE CHANGE GATE CLOSED** and stops after one Creator/Content Owner-authored contract is reviewed with, atomically approved with, and immutably bound to the same Learning Design. No correction execution is included, and no implementation is authorized.
 
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -2714,11 +2791,11 @@ No new product Code Change Gate is open, and no new implementation is authorized
 
 ## Next Allowed Action
 
-The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility and minimum technical realization are derived, but its minimum implementation authorization is not governance-ready.
+The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility, deterministic evaluation authority, and minimum technical realization are derived. The contract-formation and approval-binding technical prerequisite is derived, and its exact bounded minimum implementation authorization is now governance-reviewed as **PASS**.
 
-The minimum authoritative classification input and deterministic evaluation contract recorded in the failed implementation-authorization review are now established. The next permissible governance action is to re-review the same bounded Post-MVP Learner Correction Opportunity minimum implementation authorization against that authority.
+The next permissible action is a separate governance decision whether to open exactly one prerequisite-only Code Change Gate limited to establishing the immutable approved Learning Design–contract pair within the recorded scope, stop boundary, and exclusions. Any such gate must not authorize correction execution.
 
-No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until that missing authority is established, the bounded implementation authorization passes governance review, and `PROJECT_CONTROL.md` explicitly opens exactly one Code Change Gate for the recorded slice.
+No new product implementation Code Change Gate is open. Product implementation remains unauthorized unless and until `PROJECT_CONTROL.md` separately opens exactly one explicit bounded Code Change Gate for that recorded prerequisite slice. The historical correction-opportunity authorization remains failed and may be re-reviewed only after the approved-pair prerequisite is governance-resolved.
 
 ---
 
