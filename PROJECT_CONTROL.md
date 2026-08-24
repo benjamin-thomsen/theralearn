@@ -30,7 +30,7 @@ The complete recorded Minimum Acceptance Contract and canonical local verificati
 
 The bounded Post-MVP Learner Correction Opportunity Contract Formation and Approval-Binding prerequisite is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
-The completed local implementation and accepted verification satisfy the complete recorded addendum acceptance criteria. The prerequisite authorization has been consumed and is closed. Correction execution remains explicitly unauthorized, the historical Post-MVP Learner Correction Opportunity authorization result remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT**, and no broader correction execution or generalized evaluation is authorized.
+The completed local implementation and accepted verification satisfy the complete recorded addendum acceptance criteria. The prerequisite authorization has been consumed and is closed. The historical Post-MVP Learner Correction Opportunity authorization result remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged. A separate re-review has now passed against the established authoritative contract and verified approved-pair prerequisite, and exactly one bounded Post-MVP Learner Correction Opportunity correction-execution Code Change Gate is **OPEN — BOUNDED — GOVERNANCE VERIFIED**. No broader correction execution or generalized evaluation is authorized.
 
 The previously completed Creator Learning Design Change → Invalidation → Re-derivation responsibility remains **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -2569,6 +2569,54 @@ The missing authoritative classification input and deterministic evaluation cont
 
 ---
 
+## Post-MVP Learner Correction Opportunity Minimum Implementation Authorization Re-Review
+
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — CODE CHANGE GATE OPEN**
+
+**Governance re-review result: PASS**
+
+### Governance Re-Review
+
+This is a separate post-authority re-review. It does not alter, replace, or retroactively convert the historical **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** recorded above.
+
+The missing authority identified by that historical review is now supplied by the recorded **Post-MVP Learner Correction Opportunity Authoritative Classification Input and Deterministic Evaluation Contract**. The separately implemented and verified Contract Formation and Approval-Binding prerequisite establishes one Creator/Content Owner-authored, reviewed, immutable `ResponseEvaluationContract` bound to the same Approved Learning Design and available through the existing learner-execution authority boundary.
+
+Against that established authority and prerequisite, the previously derived smallest correction-execution realization is governance-ready without implementation-authored subject-matter judgment. The approved contract fixes the required response elements, accepted and contradicting formulations, Creator-approved ordering, informative feedback, normalization and whole-token matching, first-result classification, correctable-target selection, single-correction evaluation, traceability, and fail-closed outcomes. Implementation is limited to deterministic execution of that approved authority.
+
+### Re-Reviewed Minimum Authorization Boundary
+
+The bounded correction-execution implementation may:
+
+- adapt only `components/ApprovedCreatorRetrievalExperience.tsx` and `components/ApprovedCreatorRetrievalExperience.test.ts`;
+- introduce at most one small presentation-independent learner-execution module under `lib/learning-science/` only if required to keep deterministic contract evaluation and the correction state transition independent of React presentation;
+- require the existing immutable Approved Learning Design–`ResponseEvaluationContract` pair through `requireApprovedLearningDesign()` before either evaluation;
+- evaluate the required non-empty first response only through the exact approved contract and record `NO_CORRECTION_REQUIRED`, `CORRECTION_REQUIRED` with the first Creator-ordered `CONTRADICTED` or `ABSENT` element, `INDETERMINATE`, or `EVALUATION_FAILURE`;
+- expose informative approved feedback and exactly one fresh non-empty correction response only after `CORRECTION_REQUIRED`;
+- evaluate that correction response only against the unchanged selected target and approved contract as `CORRECTED`, `NOT_CORRECTED`, `INDETERMINATE`, or `EVALUATION_FAILURE`; and
+- add focused automated verification for the complete recorded Technical Acceptance Criteria.
+
+Runtime state must remain in memory for the existing browser session. The existing approved Learning Objective, Approved Learning Design, bounded supporting source context, contract identity and snapshot, first result, and selected error or gap must remain traceable and unchanged throughout the bounded path.
+
+### Mandatory Stop Boundary
+
+The implementation must stop immediately after the existing first feedback/result for `NO_CORRECTION_REQUIRED`; immediately after explicit `INDETERMINATE` or `EVALUATION_FAILURE` for a failed first evaluation; or, for `CORRECTION_REQUIRED`, immediately after exactly one visible `CORRECTED`, `NOT_CORRECTED`, `INDETERMINATE`, or `EVALUATION_FAILURE` correction outcome. No further attempt, retry, next activity, progression decision, or learner-state transition may be exposed.
+
+### Required Acceptance Verification
+
+Acceptance requires demonstration of every recorded Technical Acceptance Criterion: non-approved designs cannot execute; response-before-reveal remains enforced; both first-result branches and explicit first-evaluation failures behave correctly; exactly one qualifying non-empty correction attempt is permitted only after approved informative feedback; approved authority and complete traceability remain unchanged; both binary correction outcomes and explicit correction-evaluation failures behave correctly; and every branch reaches its mandatory terminal stop. Focused automated tests must cover all execution guards, deterministic approved-contract rules, single-attempt enforcement, authority preservation, explicit failures, and absence of any post-outcome activity. Run `./scripts/dev verify` when it can be completed within the local-only boundary.
+
+### Explicit Exclusions
+
+Every exclusion and technical non-goal recorded in the Post-MVP Learner Correction Opportunity responsibility, technical realization, authoritative contract, and Contract Formation and Approval-Binding addendum remains binding. This authorization excludes repeated retries; more than one correction target or correction attempt; multiple or next activities; generalized answer evaluation, assessment, rubric or contract authoring; implementation-authored claims, formulations, feedback, ordering, synonyms, equivalence, semantic interpretation, or subject-matter judgment; AI/model/provider or network calls; new dependencies; routes or server actions; persistence, storage, schema, migrations, database or Supabase changes; scores, grades, mastery, competence, progression, analytics, learner modelling, personalization, adaptive guidance, distributed practice, scheduling, certification, or generalized workflow/state infrastructure.
+
+It also excludes any change or re-derivation of the Learning Objective, Relevant Context, source material or boundary, certified Learning Principle, Learning Requirements, mechanism, Learning Design, Creator decision, approval state, approved contract identity or snapshot, subject-matter authority, Subject-Matter Intake, Learning Science derivation, or Learning Design lifecycle. No new Learning Design state, fallback evaluator, favorable default, retry after failure, authentication, role, enrolment, organization, commercial behavior, or additional content format is authorized.
+
+### Code Change Permission
+
+The re-review result is **PASS**. Exactly one separately recorded bounded Code Change Gate below is open only for this correction-execution authorization boundary, mandatory stop boundary, acceptance verification, and explicit exclusions.
+
+---
+
 ## Post-MVP Learner Correction Opportunity Contract Formation and Approval-Binding Minimum Implementation Authorization Derivation
 
 **Status: GOVERNANCE REVIEWED — PASS — BOUNDED — IMPLEMENTED — VERIFIED — CODE CHANGE GATE CLOSED**
@@ -2599,6 +2647,26 @@ This bounded minimum implementation authorization is governance-reviewed as **PA
 
 ## Code Change Gate
 
+**Bounded product implementation: OPEN — POST-MVP LEARNER CORRECTION OPPORTUNITY CORRECTION EXECUTION ONLY**
+
+**Status: OPEN — BOUNDED — GOVERNANCE VERIFIED**
+
+**Governance re-review result:** PASS under **Post-MVP Learner Correction Opportunity Minimum Implementation Authorization Re-Review**.
+
+**Authorized scope:** Implement only deterministic execution of the existing immutable Approved Learning Design–`ResponseEvaluationContract` pair for the already-derived zero-or-one correction lifecycle. Require the approved pair through `requireApprovedLearningDesign()`; classify the required non-empty first response through the exact approved contract; expose approved informative feedback and exactly one fresh non-empty correction response only for `CORRECTION_REQUIRED`; evaluate only the unchanged selected target through that same contract; preserve complete authority and traceability; and represent only the recorded terminal classifications and evaluation-status outcomes.
+
+**Minimum implementation boundary:** Adapt only `components/ApprovedCreatorRetrievalExperience.tsx` and `components/ApprovedCreatorRetrievalExperience.test.ts`. Introduce at most one small presentation-independent learner-execution module under `lib/learning-science/` only if required to keep deterministic approved-contract evaluation and the correction transition independent of React presentation. Keep runtime state in memory for the existing browser session and add only focused automated verification for the complete recorded Technical Acceptance Criteria.
+
+**Mandatory stop boundary:** Stop immediately at the existing first feedback/result for `NO_CORRECTION_REQUIRED`; at explicit `INDETERMINATE` or `EVALUATION_FAILURE` for a failed first evaluation; or, after `CORRECTION_REQUIRED`, at exactly one visible `CORRECTED`, `NOT_CORRECTED`, `INDETERMINATE`, or `EVALUATION_FAILURE` correction outcome. No further attempt, retry, next activity, progression decision, or learner-state transition may be exposed.
+
+**Required acceptance verification:** Demonstrate every recorded Technical Acceptance Criterion, including all approval and response-before-reveal guards; both first-result branches; explicit evaluation failures; approved informative feedback; exactly one qualifying non-empty correction attempt; unchanged approved authority and complete traceability; both binary correction outcomes; terminal indeterminate/failure outcomes; and absence of any post-outcome activity. Focused automated tests must cover every guard, deterministic approved-contract rule, branch, outcome, failure, single-attempt limit, and stop boundary. Run `./scripts/dev verify` when it can be completed within the local-only boundary.
+
+**Explicitly unauthorized:** Every recorded responsibility exclusion and technical non-goal remains binding. No repeated retry, second correction target or attempt, multiple or next activity, generalized evaluation or assessment, rubric or contract authoring, implementation-authored subject-matter judgment, AI/model/provider or network call, new dependency, route, server action, persistence, storage, schema, migration, database or Supabase change, score, grade, mastery, competence, progression, analytics, learner modelling, personalization, adaptive guidance, distributed practice, scheduling, certification, or generalized workflow/state infrastructure is authorized. No change to upstream authority, Learning Science derivation, Learning Design lifecycle or state, approved contract, Creator decision, source boundary, mechanism, or approval is authorized. No fallback evaluator, favorable default, or retry after failure is authorized.
+
+No other product implementation is authorized by this gate. This gate does not alter, replace, or retroactively convert the historical **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT**. That historical review remains unchanged.
+
+### Previous Closed Gate
+
 **Bounded product implementation: CLOSED — CONTRACT FORMATION AND APPROVAL-BINDING PREREQUISITE ONLY**
 
 **Status: CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
@@ -2617,7 +2685,7 @@ This bounded minimum implementation authorization is governance-reviewed as **PA
 
 **Explicitly unauthorized:** First-response classification, correction-opportunity exposure, correction-response collection or evaluation, `CORRECTION_REQUIRED`, `NO_CORRECTION_REQUIRED`, `CORRECTED`, or `NOT_CORRECTED` execution, and every other correction-execution behavior remain unauthorized. Also unauthorized are persistence, schema, migration, database or Supabase changes; provider, AI/model, or network calls; new dependencies; generalized rubric, assessment, or contract authoring; automatic contract generation; implementation-authored subject-matter claims, formulations, feedback, ordering, or equivalence; additional design states; approval bypass; independent contract approval; post-approval attachment; cross-design contract reuse; routes or server actions; generalized workflow infrastructure; and any scope excluded by the recorded responsibility, authoritative contract, technical realization, or addendum.
 
-No other product implementation is authorized by this gate. In particular, this prerequisite-only gate does not alter or supersede the historical **Post-MVP Learner Correction Opportunity Minimum Implementation Authorization Derivation** result of **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT**. That historical FAIL remains unchanged, and the Post-MVP Learner Correction Opportunity correction-execution Code Change Gate remains CLOSED.
+No other product implementation was authorized by this prerequisite gate. In particular, this prerequisite-only gate does not alter or supersede the historical **Post-MVP Learner Correction Opportunity Minimum Implementation Authorization Derivation** result of **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT**. That historical FAIL remains unchanged.
 
 ### Previous Closed Gate
 
@@ -2800,7 +2868,7 @@ The verified **end-to-end MVP** is **ACCEPTED — CLOSED — GOVERNANCE VERIFIED
 
 The single smallest post-MVP product responsibility is **DERIVED — BOUNDED** as **Learner Correction Opportunity After Feedback**. Its separate minimum technical realization is **DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY**. The Creator/Content Owner-controlled source-grounded classification input and deterministic evaluation contract is **DERIVED — BOUNDED — UPSTREAM AUTHORITY ESTABLISHED — CODE CHANGE GATE CLOSED**. The bounded contract-formation, same-design review, and atomic immutable approval-binding prerequisite is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
-The earlier minimum implementation-authorization review remains historically **REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED** and is not retroactively converted to PASS. Its FAIL evidence is preserved unchanged. The prerequisite Contract Formation and Approval-Binding Minimum Implementation Authorization is **GOVERNANCE REVIEWED — PASS — BOUNDED — IMPLEMENTED — VERIFIED**, and its prerequisite-only Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after completed local implementation and accepted verification. The verified prerequisite stops after one Creator/Content Owner-authored contract is reviewed with, atomically approved with, and immutably bound to the same Learning Design and is demonstrably available at the existing learner-execution authority boundary. No correction execution is included or authorized.
+The earlier minimum implementation-authorization review remains historically **REVIEWED — NOT GOVERNANCE-READY — CODE CHANGE GATE CLOSED** and is not retroactively converted to PASS. Its FAIL evidence is preserved unchanged. The prerequisite Contract Formation and Approval-Binding Minimum Implementation Authorization is **GOVERNANCE REVIEWED — PASS — BOUNDED — IMPLEMENTED — VERIFIED**, and its prerequisite-only Code Change Gate is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after completed local implementation and accepted verification. The separate post-authority correction-execution re-review is now **GOVERNANCE REVIEWED — PASS — BOUNDED**, and exactly one correction-execution Code Change Gate is **OPEN — BOUNDED — GOVERNANCE VERIFIED**.
 
 The bounded **Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome** responsibility, minimum technical realization, and minimum implementation authorization remain **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -2810,7 +2878,7 @@ The completed bounded responsibility permits only one Creator-controlled change 
 
 The verified implementation reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. The bounded authorization has been consumed and is closed; every recorded exclusion remains binding.
 
-No product Code Change Gate is open. The Contract Formation and Approval-Binding prerequisite authorization has been consumed and closed. Correction execution and all other product implementation remain unauthorized.
+Exactly one product Code Change Gate is open: the bounded Post-MVP Learner Correction Opportunity correction-execution gate recorded above. The Contract Formation and Approval-Binding prerequisite authorization has been consumed and closed. All product implementation outside the open gate's exact scope remains unauthorized.
 
 ---
 
@@ -2819,9 +2887,9 @@ No product Code Change Gate is open. The Contract Formation and Approval-Binding
 
 The end-to-end MVP is accepted and closed. The bounded **Post-MVP Learner Correction Opportunity** product responsibility, deterministic evaluation authority, and minimum technical realization are derived. The contract-formation and approval-binding technical prerequisite is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**, and its bounded minimum implementation authorization remains governance-reviewed as **PASS**.
 
-No product implementation is currently authorized. The completed prerequisite may inform a future separate governance re-review, but this closure does not authorize first-response classification, correction-opportunity exposure, correction-response evaluation, broader correction execution, or generalized evaluation.
+The separate governance re-review is **PASS**. Product implementation is authorized only within the exactly bounded open Post-MVP Learner Correction Opportunity correction-execution Code Change Gate, using the reviewed smallest scope, mandatory stop boundary, acceptance verification, and explicit exclusions.
 
-No product implementation Code Change Gate is open. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged, and its correction-execution gate remains CLOSED. Any future implementation requires a separate governance decision and newly opened bounded Code Change Gate.
+Exactly one product implementation Code Change Gate is open. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the new PASS is a separate post-authority re-review and does not retroactively alter that record. No implementation outside the open gate is authorized.
 
 ---
 
