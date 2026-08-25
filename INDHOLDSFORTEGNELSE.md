@@ -135,6 +135,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`app/hooks/useQuizProgress.ts`](./app/hooks/useQuizProgress.ts)
 - [`app/icon.tsx`](./app/icon.tsx)
 - [`app/layout.tsx`](./app/layout.tsx)
+- [`app/learner-handoff/actions.ts`](./app/learner-handoff/actions.ts)
 - [`app/learner-handoff/page.tsx`](./app/learner-handoff/page.tsx)
 - [`app/loading.tsx`](./app/loading.tsx)
 - [`app/login/actions.ts`](./app/login/actions.ts)
@@ -210,7 +211,11 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 
 - [`lib/approved-package/approvedPackageRepository.test.ts`](./lib/approved-package/approvedPackageRepository.test.ts)
 - [`lib/approved-package/approvedPackageRepository.ts`](./lib/approved-package/approvedPackageRepository.ts)
+- [`lib/completion-anchor/completionAnchorRepository.test.ts`](./lib/completion-anchor/completionAnchorRepository.test.ts)
+- [`lib/completion-anchor/completionAnchorRepository.ts`](./lib/completion-anchor/completionAnchorRepository.ts)
 - [`lib/constants.ts`](./lib/constants.ts)
+- [`lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts`](./lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts)
+- [`lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts`](./lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts)
 - [`lib/learning-science/deriveLearningDesign.ts`](./lib/learning-science/deriveLearningDesign.ts)
 - [`lib/learning-science/laterRetrievalPrerequisite.test.ts`](./lib/learning-science/laterRetrievalPrerequisite.test.ts)
 - [`lib/learning-science/laterRetrievalPrerequisite.ts`](./lib/learning-science/laterRetrievalPrerequisite.ts)
@@ -259,6 +264,7 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`supabase/config.toml`](./supabase/config.toml)
 - [`supabase/migrations/20260804162031_create_mvp_database_schema.sql`](./supabase/migrations/20260804162031_create_mvp_database_schema.sql)
 - [`supabase/migrations/20260824120000_create_approved_authority_package.sql`](./supabase/migrations/20260824120000_create_approved_authority_package.sql)
+- [`supabase/migrations/20260825090000_create_approved_retrieval_completion_anchor.sql`](./supabase/migrations/20260825090000_create_approved_retrieval_completion_anchor.sql)
 
 ---
 

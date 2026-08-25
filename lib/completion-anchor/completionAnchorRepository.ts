@@ -64,6 +64,15 @@ export async function evaluateCorrectionAndComplete(store: CompletionAnchorStore
 }
 export async function requireCompletionAnchor(store: Pick<CompletionAnchorStore, "find">, ownerId: string, pkg: ApprovedAuthorityPackage) { if (!ownerId.trim()) throw new Error("Completion anchor retrieval requires an authenticated owner."); const row = await store.find(ownerId, requireApprovedLearningDesign(pkg.learningDesign).identity); if (!row) throw new Error("No completion anchor is available."); return validateAnchor(row, ownerId, pkg); }
 
+export async function requireCompletionAnchorForExactTimestampParsing(store: Pick<CompletionAnchorStore, "find">, ownerId: string, pkg: ApprovedAuthorityPackage) {
+  if (!ownerId.trim()) throw new Error("Completion anchor retrieval requires an authenticated owner.");
+  const row = await store.find(ownerId, requireApprovedLearningDesign(pkg.learningDesign).identity);
+  if (!row) throw new Error("No completion anchor is available.");
+  const expected = authority(ownerId, pkg);
+  if (row.owner_id !== expected.ownerId || row.package_identity !== expected.packageIdentity || row.approved_learning_design_identity !== expected.approvedLearningDesignIdentity || row.approved_learning_design_snapshot !== expected.approvedLearningDesignSnapshot || row.response_evaluation_contract_identity !== expected.responseEvaluationContractIdentity || row.response_evaluation_contract_snapshot !== expected.responseEvaluationContractSnapshot || row.retrieval_interaction_identity !== expected.retrievalInteractionIdentity || !/^[0-9a-f]{64}$/.test(row.terminal_interaction_digest) || typeof row.completed_at !== "string" || row.completed_at.length === 0) invalid();
+  return Object.freeze({ ...expected, completedAt: row.completed_at }) as ExistingApprovedRetrievalCompletionAnchor;
+}
+
 export class SupabaseCompletionAnchorStore implements CompletionAnchorStore {
   constructor(private readonly supabase: SupabaseClient<Database>) {}
   async find(ownerId: string, packageIdentity: string) { const { data, error } = await this.supabase.from("approved_retrieval_completion_anchors").select("*").eq("owner_id", ownerId).eq("package_identity", packageIdentity).maybeSingle(); if (error) throw new Error("Completion anchor retrieval failed closed."); return data as CompletionAnchorRow | null; }

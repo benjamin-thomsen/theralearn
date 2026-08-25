@@ -1,10 +1,11 @@
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { describe, expect, it } from "vitest";
-import { approvePreApprovalAuthorityPackage, type PreApprovalAuthorityPackageInput } from "../approved-package/approvedPackageRepository";
+import { describe, expect, it, vi } from "vitest";
+import { approvePreApprovalAuthorityPackage, serializeApprovedAuthorityPackage, type PreApprovalAuthorityPackageInput } from "../approved-package/approvedPackageRepository";
 import { deriveLearningDesign } from "../learning-science/deriveLearningDesign";
 import { formLaterRetrievalPrerequisite, relevantContextIdentity, reviewLaterRetrievalPrerequisite } from "../learning-science/laterRetrievalPrerequisite";
 import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../learning-science/responseEvaluationContract";
-import { evaluateCorrectionAndComplete, evaluateInitialAndComplete, requireCompletionAnchor, type CompletionAnchorRow, type CompletionAnchorStore } from "./completionAnchorRepository";
+import { evaluateCorrectionAndComplete, evaluateInitialAndComplete, requireCompletionAnchor, requireCompletionAnchorForExactTimestampParsing, type CompletionAnchorRow, type CompletionAnchorStore } from "./completionAnchorRepository";
 
 const source = "Mentalization concerns mental states in oneself and others.";
 const secret = "test-only-completion-signing-secret-32-bytes";
@@ -161,5 +162,123 @@ describe("completion anchor behavioral contract", () => {
     expect(`${actions}\n${component}`).not.toMatch(/acknowledg/i);
     expect(actions).toMatch(/evaluateInitialAndComplete/);
     expect(actions).toMatch(/evaluateCorrectionAndComplete/);
+  });
+});
+
+describe("Date.parse-free exact-timestamp completion-anchor seam", () => {
+  const exactTimestamp = "2026-08-25T10:00:00.123456+02:00";
+  async function storedAnchor(completedAt: unknown) {
+    const store = new MemoryStore(), pkg = approvedPackage();
+    await evaluateInitialAndComplete(store, secret, "owner-a", pkg, "oneself and others");
+    if (!store.row) throw new Error("expected completion anchor row");
+    store.row.completed_at = completedAt as string;
+    return { store, pkg };
+  }
+
+  it("keeps legacy timestamp validation behavior unchanged", async () => {
+    for (const completedAt of [" ", "not-a-timestamp"]) {
+      const { store, pkg } = await storedAnchor(completedAt);
+      await expect(requireCompletionAnchor(store, "owner-a", pkg)).rejects.toThrow("invalid");
+    }
+  });
+
+  it.each([
+    "2026-08-25T10:00:00.123456+02:00",
+    " ",
+    "not-a-timestamp",
+  ])("returns an immutable anchor with the exact non-empty completed_at string unchanged: %j", async (completedAt) => {
+    const { store, pkg } = await storedAnchor(completedAt);
+    const anchor = await requireCompletionAnchorForExactTimestampParsing(store, "owner-a", pkg);
+    expect(anchor.completedAt).toBe(completedAt);
+    expect(Object.isFrozen(anchor)).toBe(true);
+    expect(anchor).toEqual({
+      ownerId: "owner-a",
+      packageIdentity: pkg.learningDesign.identity,
+      approvedLearningDesignIdentity: pkg.learningDesign.identity,
+      approvedLearningDesignSnapshot: JSON.stringify(pkg.learningDesign),
+      responseEvaluationContractIdentity: pkg.learningDesign.responseEvaluationContractIdentity,
+      responseEvaluationContractSnapshot: pkg.learningDesign.responseEvaluationContractSnapshot,
+      retrievalInteractionIdentity: `first-approved-retrieval:${pkg.learningDesign.identity}`,
+      completedAt,
+    });
+  });
+
+  it.each([undefined, null, ""])("rejects absent or empty completed_at: %j", async (completedAt) => {
+    const { store, pkg } = await storedAnchor(completedAt);
+    await expect(requireCompletionAnchorForExactTimestampParsing(store, "owner-a", pkg)).rejects.toThrow("invalid");
+  });
+
+  it("fails closed for every completion-anchor authority-binding mismatch", async () => {
+    const mutations: ((row: CompletionAnchorRow) => void)[] = [
+      (row) => { row.owner_id = "owner-b"; },
+      (row) => { row.package_identity = "other-package"; },
+      (row) => { row.approved_learning_design_identity = "other-design"; },
+      (row) => { row.approved_learning_design_snapshot = "{}"; },
+      (row) => { row.response_evaluation_contract_identity = "other-contract"; },
+      (row) => { row.response_evaluation_contract_snapshot = "{}"; },
+      (row) => { row.retrieval_interaction_identity = "other-interaction"; },
+      (row) => { row.terminal_interaction_digest = "bad"; },
+    ];
+    for (const mutate of mutations) {
+      const { store, pkg } = await storedAnchor(exactTimestamp);
+      if (!store.row) throw new Error("expected completion anchor row");
+      mutate(store.row);
+      store.find = async () => structuredClone(store.row);
+      await expect(requireCompletionAnchorForExactTimestampParsing(store, "owner-a", pkg)).rejects.toThrow("invalid");
+    }
+  });
+
+  it("fails closed for unauthenticated access and a missing row through the sole find boundary", async () => {
+    const pkg = approvedPackage(), store = new MemoryStore();
+    await expect(requireCompletionAnchorForExactTimestampParsing(store, "", pkg)).rejects.toThrow("authenticated owner");
+    expect(store.calls).toBe(0);
+    await expect(requireCompletionAnchorForExactTimestampParsing(store, "owner-a", pkg)).rejects.toThrow("No completion anchor");
+  });
+
+  it("is a read-only seam with no temporal interpretation or numeric conversion in its complete local call path", () => {
+    const implementation = readFileSync(new URL("./completionAnchorRepository.ts", import.meta.url), "utf8");
+    const start = implementation.indexOf("export async function requireCompletionAnchorForExactTimestampParsing");
+    const end = implementation.indexOf("\nexport class SupabaseCompletionAnchorStore", start);
+    const seam = implementation.slice(start, end);
+    const authorityStart = implementation.indexOf("function authority(");
+    const authorityEnd = implementation.indexOf("\nfunction terminalDigest", authorityStart);
+    const completeLocalPath = `${implementation.slice(authorityStart, authorityEnd)}\n${seam}`;
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(completeLocalPath).not.toMatch(/\bDate\b|Date\.parse|parseInt|parseFloat|Number\s*\(|BigInt\s*\(|Math\.|trim\s*\(\s*row\.completed_at|clock|threshold|eligib|schedule|consume|createOnce|update|delete/i);
+    expect(seam).toMatch(/store\.find\(ownerId, requireApprovedLearningDesign\(pkg\.learningDesign\)\.identity\)/);
+    expect(seam).toMatch(/typeof row\.completed_at !== "string" \|\| row\.completed_at\.length === 0/);
+  });
+
+  it.each([
+    ["1970-01-01T00:00:00Z", "THRESHOLD_REACHED"],
+    ["1970-01-01T00:00:00z", "FAIL_CLOSED"],
+    ["2000-02-30T00:00:00Z", "FAIL_CLOSED"],
+    ["1970-01-01T00:00:00.1234567Z", "FAIL_CLOSED"],
+    ["1970-01-01T00:00:00+14:01", "FAIL_CLOSED"],
+    ["0001-01-01T00:00:00+00:01", "FAIL_CLOSED"],
+    [" ", "FAIL_CLOSED"],
+  ])("leaves grammar, calendar, precision, offset, and range decisions to the downstream exact parser: %j", async (completedAt, outcome) => {
+    const pkg = approvedPackage();
+    const anchorStore = new MemoryStore();
+    await evaluateInitialAndComplete(anchorStore, secret, "owner-a", pkg, "oneself and others");
+    if (!anchorStore.row) throw new Error("expected completion anchor row");
+    anchorStore.row.completed_at = completedAt;
+    const serialized = serializeApprovedAuthorityPackage(pkg);
+    const approvedStore = {
+      async findForOwner() { return { owner_id: "owner-a", package_identity: pkg.learningDesign.identity, serialized_package: serialized, package_digest: createHash("sha256").update(serialized, "utf8").digest("hex") }; },
+    };
+    const repository = await import("./completionAnchorRepository");
+    const legacyRead = vi.spyOn(repository, "requireCompletionAnchor").mockImplementation(requireCompletionAnchorForExactTimestampParsing);
+    const permissiveParser = vi.spyOn(Date, "parse");
+    try {
+      const { determineLaterRetrievalThreshold } = await import("../later-retrieval-threshold/laterRetrievalThresholdDetermination");
+      const result = await determineLaterRetrievalThreshold(approvedStore, anchorStore, "owner-a", () => BigInt("253402300799999999"));
+      expect(result.outcome).toBe(outcome);
+      expect(permissiveParser).not.toHaveBeenCalled();
+    } finally {
+      permissiveParser.mockRestore();
+      legacyRead.mockRestore();
+    }
   });
 });

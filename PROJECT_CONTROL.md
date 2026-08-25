@@ -12,13 +12,15 @@
 
 ## Current Phase
 
-**END-TO-END MVP — ACCEPTED — CLOSED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
+**LATER-RETRIEVAL THRESHOLD DETERMINATION — FINAL CLOSURE REVIEW PASS — CHECKPOINT PASS — CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**
 
 The verified end-to-end MVP is **ACCEPTED and CLOSED**. The durable MVP acceptance boundary in `docs/product/mvp.md` has been satisfied by the complete verified Creator-to-Learner chain and its verified non-applicable outcome. This acceptance closes the MVP as a whole; it does not open a new product Code Change Gate, authorize new implementation, or alter the authority direction from Product Authority through architecture to implementation.
 
 The previously opened Code Change Gate for the **Authenticated Persisted Creator-to-Learner MVP User-Test Handoff** is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL CLOSURE REVIEW PASS**. The complete recorded 12-point **Minimum Acceptance Contract**, **Required Architecture Boundary**, and **Explicit Exclusions** remain binding historical authority. Its bounded authorization has been consumed.
 
-The previously opened Code Change Gate for the **Existing Approved Retrieval-and-Feedback Completion Anchor** is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL CLOSURE REVIEW PASS**. Its bounded authorization has been consumed. The complete original recorded **Authority Boundaries**, all 12 numbered items in the **Minimum Acceptance Contract**, every **Explicit Exclusion**, the exact six-item **Minimum Implementation Authorization Derivation**, the **mandatory stop boundary**, and the binding **Corrective Addendum** remain binding history. No Code Change Gate remains open. Later-retrieval eligibility and execution remain unauthorized.
+The previously opened Code Change Gate for the **Existing Approved Retrieval-and-Feedback Completion Anchor** is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL CLOSURE REVIEW PASS**. Its bounded authorization has been consumed. The complete original recorded **Authority Boundaries**, all 12 numbered items in the **Minimum Acceptance Contract**, every **Explicit Exclusion**, the exact six-item **Minimum Implementation Authorization Derivation**, the **mandatory stop boundary**, and the binding **Corrective Addendum** remain binding history. At that closure, no Code Change Gate remained open. Later-retrieval eligibility and execution remain unauthorized.
+
+The **Later-Retrieval Threshold Determination** bounded implementation has completed **FINAL CLOSURE REVIEW PASS** and **CHECKPOINT PASS** and is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its bounded technical acceptance contract and smallest technical realization remain bound unchanged and indivisibly to the complete accepted contract. Its separate **Minimum Implementation Authorization** remains historically **GOVERNANCE REVIEWED — PASS — BOUNDED**, and its historical implementation review remains **FAIL** with the recorded evidence below. The separate bounded corrective-proof-only re-review remains **PASS**, and its Code Change Gate remains **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED**. The production-composition-only implementation retains **ARCHITECTURE REVIEW PASS**, and its Code Change Gate remains **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED**. All bounded authorization is consumed. Every recorded exclusion and mandatory stop boundary remains binding. The separate later-retrieval execution/product gate remains closed, and no Code Change Gate is open.
 
 The final bounded Creator Applicability-Premise Change → Invalidation → Non-Applicable Outcome responsibility remains **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**.
 
@@ -3341,7 +3343,368 @@ Verification evidence is accepted as follows:
 - remote migration parity confirmed through `20260825090000`; and
 - authenticated browser-runtime evidence accepted for `CORRECTION_REQUIRED` → terminal `NOT_CORRECTED` with no retry, and exactly one persisted anchor with a valid database-owned timestamp and terminal digest.
 
-This Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. The Corrective Addendum and every exclusion remain binding history. No Code Change Gate remains open. Later-retrieval eligibility and execution remain unauthorized.
+This Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. The Corrective Addendum and every exclusion remain binding history. At that closure, no Code Change Gate remained open. Later-retrieval eligibility and execution remain unauthorized.
+
+---
+
+## Later-Retrieval Threshold Determination — Bounded Technical Acceptance Contract
+
+**Status: DERIVED — BOUNDED — ARCHITECTURE REVIEW PASS — TECHNICAL ACCEPTANCE CONTRACT ONLY — CODE CHANGE GATE CLOSED**
+
+### Bounded Responsibility
+
+The smallest technical responsibility that may follow the completed applicability-and-timing prerequisite and completion-anchor prerequisites is one fail-closed, purely temporal determination of whether the approved earliest threshold is **not yet reached** or **reached** for the authenticated owner's exact persisted approved package. It does not determine or imply whether a later retrieval opportunity is eligible. The determination may compare only:
+
+1. the one immutable same-version Approved Learning Design–`LaterRetrievalPrerequisite` pair available through the existing approved-design execution-authority boundary;
+2. the one immutable Existing Approved Retrieval-and-Feedback Completion Anchor for that same authenticated owner and exact persisted approved package; and
+3. one trusted server-owned threshold-assessment instant bound to that single determination.
+
+The sole positive rule is:
+
+```text
+trustedThresholdAssessmentInstant
+        >= trustedCompletionInstant + approvedEarliestEligibilityDelay
+```
+
+The calculation must use the exact approved positive whole-number delay and its exact `HOURS` or `DAYS` unit without rounding, truncation, unit substitution, calendar reinterpretation, timezone reinterpretation, implementation default, grace period, or inferred interval. Equality reaches the threshold. A value before the boundary yields only **before threshold**. Failure to establish the comparison exactly yields no authoritative temporal determination and no opportunity.
+
+### Trusted Threshold-Assessment Time
+
+The trusted threshold-assessment clock seam has the exact contract `() => bigint`: it accepts zero arguments and returns the trusted server's current Unix epoch instant as an integer count of microseconds. Every normalized epoch-microseconds instant used by this responsibility must be within the inclusive interval `-62135596800000000n` through `253402300799999999n`, corresponding exactly to UTC years 0001 through 9999. The instant must be obtained by the trusted server within the same guarded determination operation, after authentication and exact input retrieval and before the result is returned. It must be captured exactly once for that operation and used unchanged for the entire comparison. It must not be supplied, overridden, backdated, advanced, rounded, truncated, or confirmed by the client, browser, Learner, Creator, request payload, URL, cookie, local storage, rendered page, database row controlled by a user, or implementation default. A clock value outside the inclusive interval yields `FAIL_CLOSED`.
+
+The completion anchor's persisted absolute `timestamptz` string must be parsed fail closed directly and exactly into the same Unix epoch-microseconds `bigint` unit. The only accepted grammar is exactly `YYYY-MM-DDTHH:mm:ss[.1-6 digits](Z|±HH:MM)`: four decimal year digits, two digits for every other fixed-width component, uppercase `T` and `Z`, no whitespace, and no omitted or additional component. The represented date and time must be valid in the proleptic Gregorian calendar, including leap-year and month-day validation; `HH` is `00`–`23`, and minute and second are each `00`–`59` with no leap-second form. A numeric offset hour must be `00`–`14`; offset minutes must be `00`–`59` when the offset hour is `00`–`13`, and must be exactly `00` when the offset hour is `14`. A missing fractional part means exactly zero microseconds; a present fractional part of one through five digits is right-padded with zeros to exactly six digits; exactly six digits is preserved; more than six digits is rejected. No other normalization or grammar is accepted. Parsing must preserve the represented absolute value exactly and normalize it to an epoch-microseconds `bigint` within the inclusive interval `-62135596800000000n` through `253402300799999999n`. It must not pass through JavaScript `Date`, floating-point milliseconds, locale parsing, calendar reinterpretation, rounding, truncation, or any other lossy or permissive conversion. An absent offset, invalid calendar value or offset, malformed or non-canonical representation, unsupported precision, normalized out-of-range value, or inability to prove an exact epoch-microseconds value yields `FAIL_CLOSED`.
+
+The assessment instant is temporal-determination evidence only. It is not a completion instant, schedule, due timestamp, reservation, consumption event, eligibility determination, execution authorization, reusable grant, or persisted learner-state transition. A later request requires a fresh trusted assessment instant and a complete fresh fail-closed validation of the same authoritative inputs. Clock-read failure, non-`bigint` clock output, unsupported precision, or inability to prove a common epoch-microseconds basis must fail closed. Every clock value, parsed completion instant, scaled delay, derived threshold, offset-normalized intermediate or result, and other normalized epoch-microseconds value must remain within the inclusive interval above; any value outside it, and any multiplication, addition, subtraction, offset normalization, or comparison whose exact in-range result cannot be proven, yields `FAIL_CLOSED`.
+
+### Identity, Snapshot, and Authority Invariants
+
+A threshold outcome may be determined only when all of the following are proven exactly, without re-derivation, reinterpretation, fallback lookup, or substitution:
+
+1. the requester is authenticated as the exact owner bound to the persisted approved package and completion anchor;
+2. the persisted package identity is identical across authenticated retrieval, the approved-design authority boundary, and the completion anchor;
+3. the Approved Learning Design identity and complete immutable snapshot are identical across the persisted package, the bound `LaterRetrievalPrerequisite`, and the completion anchor;
+4. the `LaterRetrievalPrerequisite` is the exact immutable snapshot atomically approved with that same still-valid design version, including unchanged upstream Learning Objective, Relevant Context, supporting source boundary, `DISTRIBUTED_PRACTICE` reference, positive applicability determination, exact delay value and unit, and Creator/Content Owner approval authority and event;
+5. the completion anchor is the one valid immutable same-owner, same-package anchor created through the trusted existing retrieval-and-feedback completion boundary, with its exact Approved Learning Design and Response Evaluation Contract identity and immutable-snapshot bindings intact; and
+6. neither the approved package, Approved Learning Design, prerequisite, approval binding, Response Evaluation Contract, nor completion anchor is missing, mutable, malformed, tampered, superseded, rejected, invalidated, revoked, duplicated in conflict, or associated with another owner, package, design version, contract, or authority snapshot.
+
+Stable identity alone cannot cure snapshot inequality, and snapshot similarity cannot cure identity inequality. Time passage cannot cure any authority, identity, snapshot, authentication, validation, or lifecycle failure. No client assertion, prior threshold response, cached value, historical page render, or implementation inference may substitute for current exact validation.
+
+### Determination Semantics and Fail-Closed Outcomes
+
+After every authority and identity invariant passes, the trusted server may derive the earliest temporal threshold instant solely by exact addition of the approved delay to the anchor's trusted completion instant and compare it with the single bound trusted threshold-assessment instant.
+
+- **BEFORE_THRESHOLD** means the trusted assessment instant is strictly earlier than the derived earliest temporal threshold instant. It conveys no schedule, promise, timer, polling instruction, eligibility, or future execution authority.
+- **THRESHOLD_REACHED** means the trusted assessment instant equals or follows the derived earliest temporal threshold instant. It establishes only that the approved temporal boundary has been reached for the exact validated authority package at that assessment instant.
+- **FAIL_CLOSED** means no authoritative temporal threshold result exists. Every absent, unreadable, unauthorized, ambiguous, malformed, mutable, tampered, unsupported, overflowed, mismatched, superseded, invalidated, conflicting, or unverifiable input or clock condition must produce this outcome and expose no opportunity.
+
+The returned value must be exactly this immutable discriminated union and no wider shape:
+
+```ts
+type LaterRetrievalThresholdDetermination =
+  | Readonly<{ outcome: "BEFORE_THRESHOLD"; packageIdentity: string }>
+  | Readonly<{ outcome: "THRESHOLD_REACHED"; packageIdentity: string }>
+  | Readonly<{ outcome: "FAIL_CLOSED" }>;
+```
+
+For either non-failure outcome, `packageIdentity` uses the repository's existing `string` type and must be the non-empty, exactly cross-validated identity of the exact persisted approved package evaluated by the guarded operation. Empty or whitespace-only identity, normalization, trimming, coercion, fallback, reconstruction, or any failure of exact cross-input string equality yields `FAIL_CLOSED`; the returned string is the unchanged validated persisted value. No other authority reference, snapshot, timestamp, threshold, delay, diagnostic, reason, error, or payload field may be returned. `FAIL_CLOSED` contains only its discriminant and must never contain `packageIdentity` or any validated or unvalidated owner, package, design, prerequisite, approval, contract, completion-anchor, snapshot, clock, or other authority reference.
+
+`THRESHOLD_REACHED` must not be called or interpreted as an eligibility outcome, opportunity eligibility, availability, scheduling, reservation, presentation, navigation authority, prerequisite consumption, an unconsumed-state assertion, or permission to execute an activity. This contract neither determines nor records whether a later opportunity has already been consumed. Eligibility requires a separate authoritative single-consumption guard that proves the exact opportunity remains unconsumed; until that separate architecture contract exists, no eligibility result may be produced and no execution path may rely on this temporal determination.
+
+### Minimum Technical Acceptance Contract
+
+Architecture review may accept this bounded technical contract only if all of the following remain indivisibly required:
+
+1. Exactly one determination is evaluated for the authenticated owner's exact persisted approved package from the exact approved prerequisite pair and exact completion anchor; no alternative or partially matching inputs qualify.
+2. Authentication, ownership, a non-empty exact `string` package identity with unchanged equality across every authoritative input, Approved Learning Design identity and immutable snapshot, prerequisite identity and immutable snapshot, approval binding, completion-anchor identity and immutable snapshot bindings, and Response Evaluation Contract identity and immutable snapshot are all validated before time is observed for a `THRESHOLD_REACHED` determination.
+3. The threshold-assessment instant is produced exactly once by a zero-argument trusted-server `() => bigint` clock within the guarded operation as Unix epoch microseconds, is within the inclusive interval `-62135596800000000n` through `253402300799999999n`, and cannot be client-authored, replayed as authority, overridden, defaulted, rounded, truncated, or changed during the comparison.
+4. The anchor's absolute `timestamptz` is accepted only in the exact grammar `YYYY-MM-DDTHH:mm:ss[.1-6 digits](Z|±HH:MM)`, with proleptic-Gregorian validation, `HH` `00`–`23`, minute/second `00`–`59`, offset hours `00`–`14`, offset minutes `00`–`59` for hours `00`–`13`, and offset minutes exactly `00` for hour `14`, missing fraction equal to zero microseconds, one-to-five-digit fractions right-padded exactly with zeros, six digits preserved, and more than six rejected. It is parsed directly and fail closed into an exact Unix epoch-microseconds `bigint`, without JavaScript `Date`, floating-point milliseconds, rounding, truncation, permissive parsing, or loss of offset or fractional precision. The parsed and offset-normalized completion instant must be rejected if it is below the global minimum `-62135596800000000n` or above the global maximum `253402300799999999n`, before the exact approved positive delay is scaled or added with checked `bigint` arithmetic. Because the delay is positive, threshold underflow is mathematically impossible after a validated in-range completion instant. Every scaled-delay and derived-threshold value must remain within the same inclusive global interval; syntax, calendar, offset, precision, unit, range, scaling, or arithmetic uncertainty yields `FAIL_CLOSED`.
+5. A trusted assessment instant strictly before the exact boundary yields only `BEFORE_THRESHOLD`; an instant exactly at or after it yields `THRESHOLD_REACHED`; clock or comparison uncertainty yields only `FAIL_CLOSED`.
+6. Missing, unauthenticated, unauthorized, malformed, mutable, tampered, non-approved, invalidated, superseded, owner-mismatched, package-mismatched, design-mismatched, prerequisite-mismatched, contract-mismatched, snapshot-mismatched, duplicate-conflicting, or otherwise unverifiable inputs yield only `FAIL_CLOSED`, regardless of elapsed time.
+7. Rejection, invalidation, replacement, or fresh derivation of the Learning Design prevents use of the prior prerequisite and anchor for a threshold-reached determination; no authority, approval, timing, completion, threshold, or eligibility state transfers across versions.
+8. Repeated determinations do not mutate either input, persist a threshold result, determine or persist eligibility, consume the prerequisite, reserve an opportunity, or convert an earlier result into continuing authority; each assessment stands only on its own freshly validated inputs and trusted assessment instant.
+9. The determination output is exactly the immutable discriminated union recorded above: `BEFORE_THRESHOLD` and `THRESHOLD_REACHED` contain only `outcome` plus the unchanged, non-empty, exactly cross-validated persisted `packageIdentity` using the repository's existing `string` type; `FAIL_CLOSED` contains only `outcome` and never exposes validated or unvalidated authority references. No branch contains any other field, including Learner response or result content, correctness, correction success, mastery, score, grade, progression, personalization, diagnostic, or inferred learning claim.
+10. Every branch stops at `BEFORE_THRESHOLD`, `THRESHOLD_REACHED`, or `FAIL_CLOSED` without determining eligibility or generating, scheduling, exposing, navigating to, reserving, consuming, executing, evaluating, providing feedback for, or completing a later retrieval opportunity.
+11. Focused future verification, if separately authorized, must cover before-, exact-, and after-boundary comparisons; the zero-argument clock seam; inclusive acceptance of `-62135596800000000n` and `253402300799999999n` and rejection immediately outside both bounds for clock instants, parsed instants, and offset-normalized instants only, including rejection of a completion instant below the global minimum before addition; for each of `HOURS` and `DAYS`, the minimum positive valid delay value, the greatest delay value whose scaling remains within the global range, and the next delay value yielding `FAIL_CLOSED`; the smallest actually attainable threshold, specifically `-62135593200000000n` for `HOURS` and `-62135510400000000n` for `DAYS`, the maximum actually attainable in-range derived threshold, and the nearest actually attainable threshold-overflow combinations yielding exactly one microsecond above the global maximum as `FAIL_CLOSED`: completion `253402297200000000n` plus the minimum `HOURS` delay and completion `253402214400000000n` plus the minimum `DAYS` delay; no threshold-underflow combination is required because positive delay makes it mathematically impossible after a validated in-range completion instant; parsing of only `YYYY-MM-DDTHH:mm:ss[.1-6 digits](Z|±HH:MM)`; valid and invalid proleptic-Gregorian dates; component and offset limits including `13:59` acceptance, `13:60` rejection, `14:00` acceptance, and `14:01` rejection; missing fraction as zero, exact right-zero-padding of one through five digits, preservation of six, and rejection above six; exact unit arithmetic and all type, syntax, range, scaling, and arithmetic failures; rejection of empty, whitespace-only, normalized, coerced, or mismatched package identities; every identity/snapshot/lifecycle failure above; repeat assessment; the exact immutable union shape including reference-free `FAIL_CLOSED`; and proof of every mandatory stop and exclusion.
+12. The accepted architecture must preserve all upstream authority boundaries and all exclusions from the authoritative applicability-and-timing prerequisite, its technical realization, the completion-anchor contract, and its Binding Corrective Addendum without weakening, substitution, or implicit gate expansion.
+
+Partial satisfaction is insufficient. These twelve items, the trusted-time rule, all identity and snapshot invariants, every exclusion, and the mandatory stop boundary below form one inseparable technical acceptance contract.
+
+### Mandatory Stop Boundary
+
+The responsibility stops after returning one bounded `BEFORE_THRESHOLD`, `THRESHOLD_REACHED`, or `FAIL_CLOSED` temporal determination for the single guarded assessment. It must stop before any eligibility determination; prerequisite consumption or any consumed/unconsumed decision; opportunity creation, persistence, availability, presentation, navigation, or execution; Learner response handling; evaluation; feedback; completion; or any subsequent activity or state transition.
+
+A `THRESHOLD_REACHED` result does not establish eligibility and does not open the later-retrieval execution/product gate. Eligibility requires a separately authorized architecture contract with an authoritative single-consumption guard. A separate architecture authority, minimum implementation-authorization derivation, governance review, and explicitly opened bounded Code Change Gate would be required before implementation of this temporal determination could begin; eligibility, later-opportunity exposure, or execution would additionally require their own separately bounded authority.
+
+### Explicit Exclusions
+
+This contract excludes eligibility determination or implication; scheduling; due-state or threshold-result persistence; persisted eligibility; prerequisite consumption; consumed/unconsumed state; any single-consumption guard; opportunity generation, reservation, exposure, navigation, execution, response handling, evaluation, feedback, or completion; immediate retry; correction; second correction; recurrence; multiple later opportunities; reminders; notifications; timers; polling; cron; queues; background jobs; generalized clock, temporal, scheduling, workflow, attempt, event, progress, or Learner-state infrastructure; browser or client time; cached threshold or eligibility authority; and proactive assessment.
+
+It excludes universal intervals, default timing, calendar scheduling, timezone-dependent semantics, adaptive or algorithmic scheduling, spaced-repetition systems, learner modelling, personalization, mastery, competence, scoring, grading, progression, analytics, certification, question banks, generated activities, generalized assessment, and course or lesson sequencing.
+
+It also excludes persistence, storage, schema, migrations, database or Supabase changes; routes or server actions; UI or Learner-facing changes; AI/model/provider or network calls; new dependencies; changes to Product Authority, architecture authority, certified Learning Principles, subject-matter authority, Learning Science applicability, Creator/Content Owner timing authority, Learning Design lifecycle, approval or invalidation semantics, the approved-package contract, Response Evaluation Contract, completion-anchor semantics, correction behavior, authentication or ownership semantics; and reopening or broadening any completed gate.
+
+### Governance and Review Boundary
+
+This section documents only a bounded technical acceptance contract derived from already-established upstream authority. Its architecture approval does not select a technical realization or authorize files, implementation, product code, tests, schema, migrations, or any other repository change.
+
+**The Code Change Gate remains CLOSED after explicit architecture review.** The complete contract must remain accepted unchanged and indivisibly binding through any subsequent minimum technical realization derivation. No implementation may begin, and neither threshold determination, eligibility determination, nor later-retrieval execution is authorized by this governance-only review.
+
+### Architecture Review Result
+
+**ARCHITECTURE REVIEW PASS.** The complete bounded technical acceptance contract above is accepted unchanged and remains indivisibly binding, including all twelve Minimum Technical Acceptance Contract items, the trusted threshold-assessment time rule, every identity, snapshot, authority, lifecycle, arithmetic, and fail-closed invariant, every explicit exclusion, and the mandatory stop boundary. This review does not open or imply a Code Change Gate and authorizes no product code, tests, schema, migration, persistence, UI, route, server action, eligibility determination, opportunity exposure, or execution.
+
+The Code Change Gate remained **CLOSED** at architecture review. The next permitted action at that review stage was a separate **minimum technical realization derivation** for this accepted contract. That derivation had to preserve the complete accepted contract unchanged and indivisibly binding and could not itself authorize implementation.
+
+### Minimum Technical Realization Derivation
+
+**Status: DERIVED — BOUNDED — TECHNICAL-REALIZATION ONLY — CODE CHANGE GATE CLOSED**
+
+This derivation is subordinate to and indivisibly bound to the complete accepted **Later-Retrieval Threshold Determination — Bounded Technical Acceptance Contract** above. It does not restate, replace, narrow, weaken, or selectively adopt that contract: all twelve Minimum Technical Acceptance Contract items, the trusted threshold-assessment time rule, every identity, immutable-snapshot, authority, lifecycle, arithmetic, and fail-closed invariant, every Explicit Exclusion, and the Mandatory Stop Boundary remain unchanged and mandatory as one acceptance contract.
+
+The smallest technical realization consists only of:
+
+1. one trusted server-side orchestration boundary that receives the already-authenticated owner identity, retrieves the owner's exact persisted approved authority package through the existing `requireOwnedApprovedAuthorityPackage()` read boundary and its existing `requireApprovedLearningDesign()` execution-authority guard, and retrieves the exact immutable completion anchor through the existing `requireCompletionAnchor()` historical-evidence guard;
+2. one narrow fail-closed binding validator that proves the complete accepted same-owner, same-package, design, prerequisite, approval, Response Evaluation Contract, completion-anchor identity, immutable-snapshot, and lifecycle invariants across those two already-existing authoritative inputs, without fallback lookup, reconstruction, re-derivation, substitution, mutation, or new persistence;
+3. one trusted-server clock dependency with the exact zero-argument `() => bigint` contract injected into that orchestration boundary, invoked exactly once only after the authoritative inputs and their complete bindings have passed validation, returning Unix epoch microseconds within the inclusive interval `-62135596800000000n` through `253402300799999999n` and retaining that value unchanged for the single determination; production authority remains the trusted server clock, while deterministic verification may inject a fixed in-range epoch-microseconds `bigint` through the same dependency and no client-controlled value may cross this boundary;
+4. one exact fail-closed parser accepting only `YYYY-MM-DDTHH:mm:ss[.1-6 digits](Z|±HH:MM)`, with proleptic-Gregorian validation, `00`–`23` hours, `00`–`59` minutes and seconds, offset hours `00`–`14`, offset minutes `00`–`59` for hours `00`–`13`, and offset minutes exactly `00` for hour `14`; absent fraction becomes zero microseconds, one through five digits are right-padded with zeros, six are preserved, and more than six are rejected. It produces Unix epoch microseconds directly as `bigint` without `Date`, floating-point milliseconds, locale parsing, rounding, truncation, or permissive conversion; plus one pure temporal function that first rejects any parsed or offset-normalized completion instant outside `-62135596800000000n` through `253402300799999999n`, then converts the exact approved positive delay (`HOURS` = 3,600,000,000 microseconds; `DAYS` = 86,400,000,000 microseconds) and performs checked `bigint` arithmetic. Positive delay makes threshold underflow mathematically impossible after that in-range completion-instant validation. Every clock, scaled-delay, threshold, and other normalized value must remain within the same inclusive global interval; otherwise it yields `FAIL_CLOSED`; and
+5. one closed immutable discriminated union exactly equal to `Readonly<{ outcome: "BEFORE_THRESHOLD"; packageIdentity: string }> | Readonly<{ outcome: "THRESHOLD_REACHED"; packageIdentity: string }> | Readonly<{ outcome: "FAIL_CLOSED" }>`; the two non-failure variants contain only the unchanged, non-empty, exactly cross-validated persisted package identity using the repository's existing `string` type in addition to the discriminant. Empty, whitespace-only, normalized, coerced, reconstructed, fallback, or mismatched identity yields `FAIL_CLOSED`, which contains only its discriminant and never any authority reference. The result is returned directly and is neither stored nor translated into eligibility or any subsequent action.
+
+No additional abstraction is necessary or permitted. In particular, this realization introduces no generalized clock, date/time, scheduling, workflow, attempt, event, progress, eligibility, opportunity, or Learner-state service. It requires no change to authentication, the persisted approved-package contract, `LaterRetrievalPrerequisite`, completion-anchor semantics, approval or invalidation behavior, response evaluation, correction, or any upstream authority.
+
+#### Deterministic Operation Order
+
+```text
+AUTHENTICATED OWNER
+        ↓
+EXISTING EXACT PERSISTED APPROVED-PACKAGE READ
+        ↓
+EXISTING requireApprovedLearningDesign() GUARD
+        ↓
+EXISTING requireCompletionAnchor() GUARD
+        ↓
+COMPLETE CROSS-INPUT IDENTITY / SNAPSHOT / LIFECYCLE VALIDATION
+        ├── FAILURE → FAIL_CLOSED → STOP
+        ↓
+INJECTED TRUSTED SERVER CLOCK: CAPTURE EXACTLY ONCE
+        ├── FAILURE OR INVALID INSTANT → FAIL_CLOSED → STOP
+        ↓
+CHECKED ABSOLUTE-INSTANT ADDITION AND COMPARISON
+        ├── completion instant outside global range before addition → FAIL_CLOSED → STOP
+        ├── assessment < completion + delay → BEFORE_THRESHOLD → STOP
+        ├── assessment ≥ completion + delay → THRESHOLD_REACHED → STOP
+        └── ANY ARITHMETIC UNCERTAINTY → FAIL_CLOSED → STOP
+```
+
+The injected `() => bigint` epoch-microseconds clock is a technical seam, not a new source of authority. It may make focused verification deterministic, but it may not admit a request parameter, payload field, browser clock, persisted user-controlled time, default instant, replayed result, or optional caller override. The trusted server obtains one fresh instant per operation; the pure temporal function cannot observe time independently. The completion-anchor parser is likewise not a clock or authority source: it only converts the already-validated persisted absolute `timestamptz` fail closed and exactly into the same epoch-microseconds `bigint` unit.
+
+#### Focused Future Verification Boundary
+
+The focused boundary must prove inclusive acceptance of `-62135596800000000n` and `253402300799999999n` and `FAIL_CLOSED` immediately outside both bounds for clock instants, parsed instants, and offset-normalized instants only, including rejection of a completion instant below the global minimum before addition. For each of `HOURS` and `DAYS`, it must prove the minimum positive valid delay value, the greatest delay value whose scaling remains within the global range, and the next delay value as `FAIL_CLOSED`. For derived thresholds, it must prove the smallest actually attainable threshold—`-62135593200000000n` for `HOURS` and `-62135510400000000n` for `DAYS`—and the maximum actually attainable in-range threshold, plus the nearest actually attainable threshold-overflow combinations yielding exactly `253402300800000000n` as `FAIL_CLOSED`: completion `253402297200000000n` plus the minimum `HOURS` delay and completion `253402214400000000n` plus the minimum `DAYS` delay. It must not require a threshold-underflow combination, because positive delay makes one mathematically impossible after a validated in-range completion instant, or any other mathematically unattainable global threshold endpoint. It must prove the sole `YYYY-MM-DDTHH:mm:ss[.1-6 digits](Z|±HH:MM)` grammar, proleptic-Gregorian leap-year and month-day rules, all time-component limits, `13:59` acceptance, `13:60` rejection, `14:00` acceptance, and `14:01` rejection, missing fraction as zero, exact right-zero-padding of one through five digits, six-digit preservation, and rejection above six digits. It must also prove that only the unchanged, non-empty, exactly cross-validated `string` package identity succeeds and that empty, whitespace-only, normalized, trimmed, coerced, fallback, reconstructed, or mismatched identities yield `FAIL_CLOSED`.
+
+If and only if a later separately governed action explicitly authorizes implementation and tests, the minimum focused verification must prove the complete unchanged acceptance contract through the bounded server-side orchestration boundary and the pure temporal seam. It must cover fixed injected epoch-microseconds `bigint` instants strictly before, exactly at, and after the threshold for both `HOURS` and `DAYS`; exact microsecond fixed-duration conversion, precision preservation, and equality semantics; the zero-argument clock contract; exactly one clock invocation after successful complete validation; no clock invocation when authority validation fails; exact absolute-`timestamptz` cases with `Z`, positive offsets, negative offsets, and microsecond fractions; rejection of absent offsets, malformed syntax, invalid calendar or offset values, sub-microsecond or otherwise unsupported precision, non-`bigint` clock values, out-of-range values, unsupported units, scaling failures, and overflow; proof that neither parsing nor arithmetic uses `Date`, floating-point milliseconds, rounding, or truncation; every accepted owner, package, design, prerequisite, approval, contract, anchor, snapshot, and lifecycle mismatch; repeated fresh assessments without mutation or persistence; exact deep shape equality for all three immutable union variants; absence of every field except `outcome` on `FAIL_CLOSED`; absence of every field except `outcome` and validated `packageIdentity` on both non-failure variants; and proof that every branch terminates without eligibility, single-consumption, persistence, UI, routes, opportunity exposure, or execution.
+
+Verification must reuse focused domain and server-boundary test seams only to the minimum extent needed to establish those cases. Browser-runtime verification is unnecessary because this realization has no browser or UI boundary. Canonical local verification would remain required only to the extent separately authorized and runnable within the repository's local-only governance boundary.
+
+#### Realization Stop and Governance Result
+
+The technical realization stops at the returned immutable temporal result for one guarded assessment. It owns no eligible/not-eligible result, no consumed/unconsumed fact, no single-consumption guard, and no next-step invocation. `THRESHOLD_REACHED` remains temporal evidence only.
+
+**DERIVATION RESULT: PASS — SMALLEST TECHNICAL REALIZATION DOCUMENTED.** The realization is exactly and indivisibly bound to the complete accepted contract above and adds no authority beyond it. This derivation authorizes no product code, tests, files, schema, migrations, persistence, UI, routes, server actions, background work, eligibility, opportunity exposure, or execution. No implementation-authorization derivation is included or implied. The Code Change Gate remains **CLOSED**.
+
+### Minimum Implementation Authorization for Later-Retrieval Threshold Determination
+
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — IMPLEMENTATION REVIEW FAIL — CODE CHANGE GATE CLOSED — BLOCKED — CORRECTION NOT AUTHORIZED**
+
+This separate authorization is subordinate to and indivisibly bound to both the complete accepted **Later-Retrieval Threshold Determination — Bounded Technical Acceptance Contract** and its complete **Minimum Technical Realization Derivation** above. Neither authority may be restated selectively, weakened, replaced, omitted, or interpreted independently. All twelve acceptance items, the trusted-time rule, every identity, immutable-snapshot, authority, lifecycle, arithmetic, and fail-closed invariant, every Explicit Exclusion, the deterministic operation order, focused verification boundary, and both stop boundaries remain mandatory as one inseparable implementation-acceptance contract. Partial satisfaction is insufficient.
+
+#### Exact Minimum Code Scope
+
+Under the explicit governance-review PASS and the separately opened bounded Code Change Gate recorded below, the complete permitted product-code scope is exactly:
+
+1. create `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts` containing only the exact closed immutable discriminated union using the repository's existing `string` type and requiring an unchanged non-empty exactly cross-validated `packageIdentity`, the narrow complete cross-input binding validator, the injected zero-argument `() => bigint` trusted-server epoch-microseconds clock seam, the exact fail-closed sole-grammar absolute-`timestamptz`-to-epoch-microseconds parser, the pure checked and inclusive-range-bounded `bigint` fixed-duration temporal function, and the single server-side orchestration function specified by the accepted technical realization;
+2. within that module, call the already-existing `requireOwnedApprovedAuthorityPackage()`, `requireApprovedLearningDesign()`, and `requireCompletionAnchor()` boundaries without changing their implementations, signatures, semantics, stores, or persisted representations; and
+3. export only the minimum types and function required for focused direct testing of that module. No route, server action, page, component, caller, scheduler, background process, or production invocation is included.
+
+No existing product-code file may be modified. No other new product-code file may be created. In particular, this scope permits no change to `lib/approved-package/approvedPackageRepository.ts`, `lib/completion-anchor/completionAnchorRepository.ts`, any file under `lib/learning-science/`, `app/`, or `components/`, any database or Supabase file, configuration, dependency manifest, or generated artifact. If the accepted contract cannot be implemented within the one new module by composition of the existing unchanged boundaries, implementation must stop and return to governance; scope may not expand by inference.
+
+#### Exact Minimum Test Scope
+
+The authorized test obligation, if the gate is later opened, must explicitly cover both inclusive epoch-microseconds endpoints and the immediately adjacent rejected values for clock instants, parsed instants, and offset-normalized instants only, including rejection of a completion instant below the global minimum before addition; for each of `HOURS` and `DAYS`, the minimum positive valid delay value, the greatest delay value whose scaling remains within the global range, and the next delay value as `FAIL_CLOSED`; the smallest actually attainable threshold (`-62135593200000000n` for `HOURS` and `-62135510400000000n` for `DAYS`), the maximum actually attainable in-range derived threshold, and the nearest actually attainable threshold-overflow combinations yielding exactly `253402300800000000n` as `FAIL_CLOSED`: completion `253402297200000000n` plus the minimum `HOURS` delay and completion `253402214400000000n` plus the minimum `DAYS` delay; no threshold-underflow combination is required because positive delay makes it mathematically impossible after a validated in-range completion instant, and no mathematically unattainable global threshold endpoint is required; every accepted and rejected element of the sole timestamp grammar and Gregorian rules; exact fractional zero/right-padding/preservation behavior; rejection above six fractional digits; offset boundaries including `13:59` as PASS, `13:60` as FAIL, `14:00` as PASS, and `14:01` as FAIL; and exact unchanged non-empty `string` package-identity validation including all empty, whitespace-only, normalized, coerced, fallback, reconstructed, and mismatch failures.
+
+Under the same governance PASS and open bounded gate, the complete permitted test-file scope is exactly one new colocated file: `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts`. It may use only in-memory fakes for the existing read/store interfaces and a deterministic injected zero-argument epoch-microseconds `bigint` trusted clock. It must prove every case required by Minimum Technical Acceptance Contract item 11 and the Focused Future Verification Boundary: strictly before, exactly at, and after the boundary for both `HOURS` and `DAYS`; exact microsecond conversion, precision, equality, range, scaling, and overflow behavior at the explicitly required attainable boundaries; exact fail-closed parsing of absolute `timestamptz` forms and offsets into epoch-microseconds `bigint` without `Date`, floating-point milliseconds, rounding, or truncation; rejection of every malformed, calendar-invalid, offset-invalid, offset-absent, sub-microsecond, unsupported-precision, out-of-range, and non-`bigint` time value; exactly one post-validation zero-argument clock read; no clock read on validation failure; every required authentication, owner, package, design, prerequisite, approval, Response Evaluation Contract, completion-anchor, immutable-snapshot, lifecycle, malformed-input, and conflict failure; fresh repeated assessments without mutation or persistence; exact deep equality with the immutable union variants, including reference-free `FAIL_CLOSED`; and termination of every branch at one of the three closed outcomes.
+
+No existing test may be modified and no browser, component, route, UI, database, migration, end-to-end, network, or external-service test may be added. Test failure caused by a missing authority or an incompatible existing seam is a mandatory governance stop, not authority to change an existing file. After any future authorized implementation, both the single focused test file and the canonical local `./scripts/dev verify` command must pass without changing verification infrastructure; command execution would verify the bounded change but would not enlarge its file scope.
+
+#### Mandatory Implementation Stop
+
+Any invalid package identity or any clock, parsed, offset-normalized, scaled-delay, threshold, or other normalized temporal value outside the inclusive `-62135596800000000n` through `253402300799999999n` interval must return `FAIL_CLOSED` and stop.
+
+Every execution branch must return exactly one variant of the immutable discriminated union recorded above and stop. `BEFORE_THRESHOLD` and `THRESHOLD_REACHED` return only `outcome` plus the unchanged, non-empty, exactly cross-validated persisted `packageIdentity` as `string`; `FAIL_CLOSED` returns only `outcome` and must not leak any validated or unvalidated authority reference. The implementation must not determine or imply eligibility; decide or persist consumed/unconsumed state; consume a prerequisite; create, persist, schedule, reserve, expose, navigate to, or execute an opportunity; handle a Learner response; evaluate, correct, provide feedback, or complete an activity; invoke a next step; or create any state transition. `THRESHOLD_REACHED` remains temporal evidence only and cannot be used as execution authority.
+
+Work must also stop immediately and return to governance if implementation would require any file outside the two exact new paths above; any modification of an existing boundary or test; any schema, migration, persistence, UI, route, server action, background work, dependency, generalized abstraction, client-authored time, additional outcome, or production caller; or any weakening, substitution, ambiguity, or partial satisfaction of the bound acceptance contract or technical realization.
+
+#### Governance Review Result
+
+**GOVERNANCE REVIEW PASS.** The complete **Minimum Implementation Authorization for Later-Retrieval Threshold Determination** is accepted unchanged as one indivisible implementation-acceptance contract. The PASS includes and may not be separated from the complete bounded technical acceptance contract and all twelve acceptance items; the trusted-time rule; every identity, immutable-snapshot, authority, lifecycle, arithmetic, and fail-closed invariant; the complete Minimum Technical Realization Derivation and deterministic operation order; the exact minimum code scope; the exact minimum test scope and focused verification boundary; every Explicit Exclusion; the Mandatory Stop Boundary; and the Mandatory Implementation Stop. Partial satisfaction is insufficient and confers no authority.
+
+#### Closed Blocked Bounded Code Change Gate
+
+**CLOSED — BLOCKED — CORRECTION NOT AUTHORIZED.** This Code Change Gate was opened as a bounded authorization permitting creation of exactly the following two new files and no others; the mandatory implementation-review stop below has now closed it:
+
+1. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts`;
+2. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts`.
+
+The gate was indivisibly bound to the complete governance-reviewed authorization and every authority incorporated by it: the entire acceptance contract, technical realization, deterministic operation order, test requirements, exclusions, and mandatory stops above. It is now closed and grants no corrective or continuing implementation authority. No existing file may be modified. No schema, migration, persistence, UI, route, server action, background work, dependency, generated artifact, generalized abstraction, production caller, eligibility or consumed/unconsumed decision, opportunity exposure, or later-retrieval execution is authorized.
+
+Implementation stopped and returned to governance because acceptance requires an existing-boundary correction outside the two exact paths. The closed gate authorizes neither further implementation nor local correction. It never authorized Git or network operations.
+
+#### Mandatory Implementation Review Stop
+
+**IMPLEMENTATION REVIEW RESULT: FAIL.** The bounded implementation cannot be accepted. The open gate has encountered its mandatory governance stop and is now **CLOSED — BLOCKED — CORRECTION NOT AUTHORIZED**. The prior implementation authorization is not enlarged or converted into corrective authority.
+
+All four blockers are binding review evidence:
+
+1. **Incompatible completion-anchor seam:** the required unchanged `requireCompletionAnchor()` boundary validates the persisted completion timestamp through JavaScript `Date.parse` before returning it. The accepted threshold contract prohibits passage through `Date`, permissive parsing, floating-point milliseconds, and any other lossy or non-exact timestamp conversion. The new exact parser therefore cannot prove the contract while composing that unchanged seam.
+2. **TypeScript blocker:** complete TypeScript verification is not PASS for the submitted two-file implementation. An implementation with an unresolved TypeScript blocker cannot satisfy the indivisible implementation-acceptance contract or proceed to closure.
+3. **Focused-test blocker:** the authorized colocated focused test verification is not PASS for the submitted implementation. A failing focused verification blocks acceptance independently of the implementation intent.
+4. **Acceptance-proof blocker:** the submitted tests do not establish the required composed-boundary guarantee. In particular, their source assertion inspects only `laterRetrievalThresholdDetermination.ts` and therefore cannot detect the forbidden `Date.parse` used by the imported completion-anchor seam; consequently they do not prove the mandatory no-`Date`, exact-parser, and complete fail-closed verification boundary.
+
+The two existing uncommitted files are retained unchanged solely as implementation-review evidence:
+
+1. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts`;
+2. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts`.
+
+They are not accepted implementation, confer no continuing Code Change Gate authority, and must not be modified under the closed gate.
+
+**Historical next permitted action — now completed by the prerequisite derivation and separate governance review below:** one separate governance-only derivation of the smallest corrective prerequisite required to provide a completion-anchor seam compatible with exact absolute-`timestamptz` to epoch-microseconds `bigint` validation without `Date.parse`, while preserving the completion anchor's existing authority, identity, immutable-snapshot, ownership, lifecycle, persistence, and fail-closed semantics. That derivation was limited to the minimum prerequisite boundary and its exclusions; it did not modify product code or tests, retroactively reopen the threshold gate, implement the prerequisite, or correct the preserved evidence files. The separate governance-reviewed minimum implementation authorization and newly opened prerequisite-only gate are recorded below.
+
+### Date.parse-Free Completion-Anchor Seam — Corrective Prerequisite Derivation
+
+**Status: GOVERNANCE REVIEWED — PASS — BOUNDED — PREREQUISITE-ONLY — CODE CHANGE GATE OPEN**
+
+#### Minimum Corrective Prerequisite
+
+The smallest corrective prerequisite is exactly one new narrow read/validation export in `lib/completion-anchor/completionAnchorRepository.ts`, provisionally named `requireCompletionAnchorForExactTimestampParsing()`. It is a sibling of, not a replacement for, the existing `requireCompletionAnchor()`. The existing export, its behavior, its callers, and all historical completion-anchor authority remain unchanged.
+
+The proposed export may accept only the same `Pick<CompletionAnchorStore, "find">`, authenticated owner identity, and exact `ApprovedAuthorityPackage` inputs used by `requireCompletionAnchor()`. It must perform the same exact owner, package, Approved Learning Design identity and immutable-snapshot, Response Evaluation Contract identity and immutable-snapshot, retrieval-interaction identity, terminal-interaction-digest binding/format, approved-design execution guard, missing-row, and fail-closed checks already owned by the completion-anchor repository. It may differ only at the timestamp handoff: `completed_at` must be a `string` with length greater than zero and must be returned unchanged as `completedAt` for the already-accepted downstream exact parser. It must not trim, normalize, parse, coerce, clone through a date type, or otherwise reinterpret the timestamp.
+
+This seam does not declare the timestamp temporally valid. A whitespace-only or malformed non-empty string may cross this repository seam only so the downstream threshold boundary's exact parser can reject it under its existing complete grammar, calendar, offset, precision, and range contract. This division preserves fail-closed composition without allowing `Date`, `Date.parse`, floating-point milliseconds, permissive time validation, or duplicated temporal authority in the repository.
+
+#### Acceptance Contract
+
+The corrective prerequisite may be accepted only if all of the following are proven together:
+
+1. `requireCompletionAnchor()` remains present and behaviorally unchanged, including its existing timestamp validation, return contract, callers, and historical authority; no existing completion-anchor acceptance statement or closure result is rewritten or weakened.
+2. Exactly one new exported read/validation function is added in `completionAnchorRepository.ts`; it uses the existing store `find` boundary, the authenticated owner, and the exact approved package, with no alternative lookup, overload, fallback, reconstruction, or additional data source.
+3. Before returning, the new export enforces the same approved-design guard and exact owner/package/design/contract/snapshot/retrieval-interaction/terminal-digest bindings as the existing completion-anchor read. Missing, unauthenticated, unauthorized, malformed, tampered, mismatched, invalidated, superseded, or otherwise unverifiable authority fails closed.
+4. The sole validation difference is `completed_at`: it must be of type `string` and non-empty by exact length. The export performs no trim-based acceptance, timestamp grammar check, calendar or offset validation, range check, temporal conversion, or permissive validation.
+5. The returned immutable completion-anchor value preserves every already-authoritative field and returns `completed_at` as the exact unchanged `completedAt` string. No normalization, trimming, case change, precision change, offset conversion, fallback, `Date`, `Date.parse`, numeric conversion, floating-point milliseconds, rounding, or truncation is permitted.
+6. The export creates no new authority. The unchanged string is unvalidated timestamp source material until the existing downstream exact parser accepts it; downstream rejection remains `FAIL_CLOSED`, and no caller may treat successful repository return alone as a temporal determination.
+7. The seam is read-only: it performs no create, update, deletion, persistence, clock observation, threshold calculation, eligibility decision, prerequisite consumption, opportunity action, or state transition.
+8. Focused verification, if separately authorized, must prove unchanged legacy `requireCompletionAnchor()` behavior; exact success and immutable unchanged-string return through the new export; rejection of absent and empty-string `completed_at`; deliberate pass-through without mutation of representative non-empty exact, whitespace-only, and malformed timestamp strings; every existing owner/package/design/contract/snapshot/retrieval-interaction/digest mismatch; missing-row and unauthenticated failure; absence of `Date`, `Date.parse`, numeric or permissive timestamp validation from the new export's complete call path; and downstream composed proof that only the already-accepted exact parser decides timestamp grammar, calendar, offset, precision, and range validity.
+
+Partial satisfaction is insufficient. In particular, copying only some authority checks, weakening digest or snapshot binding, changing the legacy export, or adding any second timestamp validator does not satisfy this prerequisite.
+
+#### Precise Stop Boundary
+
+The prerequisite stops when the single new export has read one row through the existing store boundary, validated the complete unchanged completion-anchor authority binding, established only that `completed_at` is a non-empty `string`, and returned that exact string unchanged within the immutable historical-evidence value for the downstream exact parser.
+
+It must stop before parsing or validating timestamp syntax or semantics; observing a clock; converting to epoch microseconds or any other unit; calculating or comparing a threshold; returning a threshold outcome; determining eligibility or consumed/unconsumed state; consuming a prerequisite; or creating, persisting, scheduling, reserving, exposing, navigating to, executing, evaluating, providing feedback for, or completing any later opportunity.
+
+#### Explicit Exclusions
+
+This prerequisite excludes modification, removal, renaming, redirection, or semantic reinterpretation of `requireCompletionAnchor()`; changes to any existing caller; changes to the completion-anchor representation, persistence contract, schema, migration, Supabase operation, creation flow, correction flow, receipt, terminal digest production, authentication, ownership, approval, invalidation, or lifecycle semantics; and any weakening or expansion of the original completion-anchor contract or Binding Corrective Addendum.
+
+It also excludes timestamp parsing or temporal validation in the new export; `Date`, `Date.parse`, locale parsing, regular-expression timestamp grammar, calendar validation, offset normalization, epoch conversion, floating-point milliseconds, rounding, truncation, default time, clock access, generalized date/time abstractions, new dependencies, routes, server actions, UI, background work, persistence, eligibility, scheduling, opportunity exposure or execution, and correction of either preserved threshold implementation-review evidence file.
+
+#### Minimum Implementation Authorization
+
+**GOVERNANCE REVIEW PASS.** The complete corrective-prerequisite derivation above is accepted unchanged as one indivisible implementation-acceptance contract. The PASS includes all eight numbered acceptance requirements, the Precise Stop Boundary, every Explicit Exclusion, and the requirement that `requireCompletionAnchor()` and its behavior remain unchanged. Partial satisfaction confers no authority.
+
+The exact minimum product-code authorization is one sibling export, provisionally named `requireCompletionAnchorForExactTimestampParsing()`, added only to `lib/completion-anchor/completionAnchorRepository.ts`. It may reuse or minimally factor private implementation within that same file only to establish the complete unchanged authority binding required by acceptance items 1–7, but it must not modify, remove, rename, redirect, or behaviorally change the legacy `requireCompletionAnchor()` export. It must return the exact unchanged non-empty `completed_at` string as `completedAt` and must introduce no timestamp parsing or temporal validation.
+
+The exact minimum test authorization is modification only of the existing colocated `lib/completion-anchor/completionAnchorRepository.test.ts` to prove all eight acceptance requirements, including unchanged legacy behavior, the new export's exact immutable string handoff and fail-closed authority checks, representative deliberate pass-through cases, and absence of `Date`, `Date.parse`, numeric conversion, or permissive timestamp validation from the new export's complete call path. Downstream composed proof may import and exercise the existing threshold parser from the preserved threshold module, but neither threshold file may be modified.
+
+No other file may be created or modified. In particular, `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts` and `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts` must remain unchanged as implementation-review evidence. No schema, migration, persistence contract, dependency, configuration, generated artifact, route, server action, UI, background work, eligibility decision, scheduling, opportunity exposure, later-retrieval execution, Git operation, or network operation is authorized.
+
+#### Superseded Bounded Prerequisite-Only Code Change Gate
+
+**SUPERSEDED — CLOSED — BOUNDED — PREREQUISITE-ONLY.** This gate previously authorized implementation and focused verification of the indivisible prerequisite contract above in exactly these two existing files and no others:
+
+1. `lib/completion-anchor/completionAnchorRepository.ts`;
+2. `lib/completion-anchor/completionAnchorRepository.test.ts`.
+
+Its authorization is superseded by the corrective-proof-only gate below and grants no continuing authority. Its stop boundary remains binding history: any need to change the legacy export's behavior, either threshold-review file beyond the exact mechanical correction separately authorized below, or any other file is a mandatory stop and return to governance. This gate did not accept or reopen the blocked threshold implementation.
+
+#### Bounded Corrective-Proof-Only Code Change Gate
+
+**CLOSED — BOUNDED — IMPLEMENTED — VERIFIED — CORRECTIVE-PROOF-ONLY RE-REVIEW PASS.** This gate superseded the preceding prerequisite-only gate without broadening the accepted contracts or authorizing product-behavior change. Its exact target-compatibility and proof corrections were:
+
+1. `lib/completion-anchor/completionAnchorRepository.test.ts` may receive only target-compatible replacement of `bigint` literal syntax and exactly one explicit out-of-range timestamp proof.
+2. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts` may receive only mechanical, exactly equivalent target-compatible replacements of `bigint` literal syntax.
+3. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts` may receive only mechanical, exactly equivalent target-compatible replacements of `bigint` literal syntax.
+
+The two threshold files are bound to these verified pre-change SHA-256 values:
+
+```text
+lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts
+b06aade2c607b11bcd5304daf9eff07da55943f7cc71eac3069e990ab5d44e30
+
+lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts
+3afe6884e02ce82bfc52297bdba3a2cc47f276993610f829bcf0780377e93a93
+```
+
+Every replacement must preserve the exact mathematical `bigint` value, type, evaluation order, branch behavior, and existing proof meaning. The single additional out-of-range timestamp case may only make the already-required range rejection explicit; it may not alter, weaken, replace, or remove any existing assertion.
+
+Work must stop immediately at any semantic, algorithmic, assertion, contract, or scope change. No other file, product behavior, schema, migration, persistence contract, dependency, configuration, generated artifact, route, server action, UI, background work, eligibility decision, scheduling, opportunity exposure, later-retrieval execution, Git operation, or network operation is authorized.
+
+#### Corrective-Proof-Only Re-Review and Closure
+
+**RE-REVIEW RESULT: PASS.** The exact bounded target-compatible `bigint` replacements and the single explicit out-of-range timestamp proof satisfy the corrective-proof-only authorization without semantic, algorithmic, assertion, contract, or scope expansion. The gate is **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED**; its authorization is consumed, and no Code Change Gate is open.
+
+This PASS does not accept or reopen the **Later-Retrieval Threshold Determination** implementation. That implementation gate remains **CLOSED — BLOCKED**. The remaining blocker is production composition: `laterRetrievalThresholdDetermination.ts` still composes the legacy `requireCompletionAnchor()` boundary, while the accepted exact-timestamp seam is established only through the corrective prerequisite and composed proof. Replacing the production composition is not authorized by this closed corrective-proof-only gate.
+
+**Historical next governance-only disposition — now completed by the PASS and explicit gate below:** separately re-review the minimum production-composition change required to compose `requireCompletionAnchorForExactTimestampParsing()` in the bounded threshold orchestration while preserving the complete accepted threshold contract, corrective-prerequisite contract, existing legacy completion-anchor behavior, exact file scope, and all stop boundaries and exclusions. At that historical disposition step, no product code or tests were authorized and no gate was reopened by implication.
+
+#### Production-Composition-Only Governance Review and Code Change Gate
+
+**GOVERNANCE REVIEW RESULT: PASS.** The smallest production-composition correction is accepted as governance-ready only when bound indivisibly to the complete **Later-Retrieval Threshold Determination** technical acceptance contract and Minimum Technical Realization, the complete **Date.parse-Free Completion-Anchor Seam — Corrective Prerequisite** contract, the preserved historical implementation-review evidence, every existing exclusion and mandatory stop, and the exact authorization below. This PASS does not accept the threshold implementation, alter either accepted contract, or authorize later-retrieval eligibility or execution.
+
+**Historical Code Change Gate authorization: OPEN — BOUNDED — PRODUCTION-COMPOSITION-ONLY.** Exactly these two existing threshold files were authorized for modification, and no file could be created:
+
+1. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts`;
+2. `lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts`.
+
+The production-file authorization is limited to substituting the imported completion-anchor read from `requireCompletionAnchor` to the already established `requireCompletionAnchorForExactTimestampParsing` export and substituting that exact function at its single threshold-orchestration call site. Only the mechanically necessary import identifier and call-site identifier may change. No wrapper, fallback, alias, overload, duplicate validation, parser change, control-flow change, operation-order change, error-handling change, type change, authority-binding change, or other production edit is authorized.
+
+The test-file authorization is limited to the minimum direct composition proof that the production threshold module imports and calls `requireCompletionAnchorForExactTimestampParsing()` and no longer composes `requireCompletionAnchor()`. The proof must exercise the real production composition without mocking or redirecting the legacy export and must establish that representative non-empty timestamp strings reach only the already-accepted exact threshold parser, which accepts the accepted exact grammar and returns `FAIL_CLOSED` for malformed grammar, invalid calendar, unsupported precision, invalid offset, normalized out-of-range value, and whitespace-only input. Existing threshold assertions and proof meaning must remain unchanged; only the smallest assertion or test adjustment necessary to make this composition explicit is authorized.
+
+Acceptance requires all of the following together:
+
+1. the production threshold orchestration imports and invokes only `requireCompletionAnchorForExactTimestampParsing()` for completion-anchor retrieval;
+2. the legacy `requireCompletionAnchor()` export, its implementation, behavior, callers outside this threshold call site, tests, and historical completion-anchor authority remain unchanged;
+3. the exact-timestamp seam continues to enforce the complete accepted owner, package, Approved Learning Design, Response Evaluation Contract, immutable-snapshot, retrieval-interaction, terminal-digest, approved-design, missing-row, and fail-closed authority binding before returning the exact unchanged non-empty `completedAt` string;
+4. the existing threshold parser remains the sole timestamp grammar, calendar, offset, precision, range, and epoch-microseconds authority and remains unchanged;
+5. authentication and exact authoritative reads still precede the exactly-once trusted clock observation, and every existing deterministic operation-order, arithmetic, immutable-result, and fail-closed invariant remains unchanged;
+6. direct focused proof establishes the real production composition without a mock-based substitution of the legacy export, including accepted exact input and rejection of malformed, invalid, unsupported, out-of-range, and whitespace-only timestamp input;
+7. the complete existing threshold focused test file passes, and local TypeScript verification for the bounded change passes; and
+8. the diff contains only the authorized import-/call-site substitution and the minimum direct composition proof in the two authorized files.
+
+No other product or test behavior may change. This gate excludes modification of `lib/completion-anchor/completionAnchorRepository.ts`, `lib/completion-anchor/completionAnchorRepository.test.ts`, any other existing caller, timestamp parser logic, temporal arithmetic, result shapes, authority validation, authentication, ownership, persistence, schema, migration, dependency, configuration, generated artifact, route, server action, UI, background work, scheduling, eligibility or consumed/unconsumed decision, prerequisite consumption, opportunity creation or exposure, later-retrieval execution, and every broader product responsibility. It also excludes Git and network operations.
+
+The precise stop boundary is reached when the existing threshold orchestration retrieves the exact unchanged completion timestamp through `requireCompletionAnchorForExactTimestampParsing()`, the existing exact parser alone produces the already-authorized temporal determination, and the minimum direct composition proof and bounded local acceptance verification pass. Work must stop immediately and return to governance if any acceptance item cannot be proven; if either completion-anchor file or any file outside the two authorized threshold files would need modification; if the legacy export or another caller would need alteration; if any semantic, algorithmic, assertion, contract, operation-order, type, or scope change is required; or if verification exposes any blocker not correctable solely by the authorized identifier substitution and minimum direct proof. The gate authorizes no correction beyond that stop boundary and no acceptance or closure by implication.
+
+#### Production-Composition-Only Architecture Review and Closure
+
+**ARCHITECTURE REVIEW RESULT: PASS.** The bounded production-composition-only implementation satisfies the complete recorded acceptance requirements, preserves the accepted threshold and corrective-prerequisite contracts, and introduces no broader product or test behavior.
+
+**Code Change Gate: CLOSED — BOUNDED — IMPLEMENTED — VERIFIED.** The bounded authorization is consumed. The repository-index update belongs to the subsequent host-owned checkpoint flow and is not a blocker to this architecture-review PASS or gate closure. No further product or test change is authorized by this completed gate.
+
+#### Final Closure Review and Checkpoint
+
+**FINAL CLOSURE REVIEW RESULT: PASS. CHECKPOINT RESULT: PASS.** The complete bounded **Later-Retrieval Threshold Determination** implementation is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. The technical acceptance contract, minimum technical realization, corrective-prerequisite contract, preserved historical implementation-review evidence, every explicit exclusion, and every mandatory stop boundary remain unchanged and binding.
+
+All bounded authorization is consumed. No Code Change Gate is open. This closure authorizes no further product or test change and does not authorize eligibility, scheduling, opportunity exposure, later-retrieval execution, broader persistence, or broader product behavior.
 
 ---
 
@@ -3359,6 +3722,8 @@ The **Post-MVP Exactly One Later Retrieval Opportunity** authoritative applicabi
 
 The prerequisite implementation and verification result is **PASS**. Final architecture review and canonical checkpoint verification are complete, and the prerequisite-only authorization is consumed and closed.
 
+The **Later-Retrieval Threshold Determination** bounded implementation has completed **FINAL CLOSURE REVIEW PASS** and **CHECKPOINT PASS** and is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its bounded technical acceptance contract and smallest technical realization remain unchanged and binding. Its corrective-proof-only re-review remains **PASS**, and that gate remains **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED**. The production-composition-only architecture review remains **PASS**, and its Code Change Gate remains **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED**. All bounded authorization is consumed; every exclusion and mandatory stop boundary remains binding. The separate later-retrieval execution/product gate remains closed, and no Code Change Gate is open.
+
 The completed bounded responsibility permits only one Creator-controlled change to the accepted handoff's `durableRetentionOfPreviouslyAcquiredKnowledgeIntended` premise from `true` to `false`; immediate invalidation of the current Learning Design; preservation of the accepted Learning Objective, source traceability, and context description; re-entry through the existing handoff and Learning Science applicability boundary; and an explicit Active Retrieval non-applicable outcome with no replacement design, approval, or Learner execution.
 
 The verified implementation reuses the existing invalidation, Relevant Context formation, accepted handoff, and applicability boundaries and adds only one explicit non-design terminal outcome for the existing Active Retrieval non-applicability rejection. The bounded authorization has been consumed and is closed; every recorded exclusion remains binding.
@@ -3367,7 +3732,7 @@ The bounded applicability-and-timing prerequisite correction gate is consumed an
 
 The governance-only release-readiness derivation for exactly one authenticated, navigable, persisted Creator-to-Learner MVP user-test handoff remains historically **GOVERNANCE REVIEWED — PASS — BOUNDED**. The separate Code Change Gate opened from supplied remote-verified clean governance checkpoint `dc8de3e` has completed **FINAL CLOSURE REVIEW PASS** and is now **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. Verification recorded **110 automated tests PASS**, **TypeScript PASS**, canonical **CHECKPOINT PASS** including production build, documentation, repository index, and Git status, remote Supabase migration parity for both migrations, and accepted authenticated browser-runtime evidence for dashboard → Creator workflow, server approval, exactly one immutable persisted package, fresh protected Learner retrieval as `APPROVED`, source-grounded `CORRECTION_REQUIRED`, exactly one terminal `NOT_CORRECTED` correction, and no retry. At the time of that closure, no Code Change Gate remained open.
 
-The **Existing Approved Retrieval-and-Feedback Completion Anchor** has completed **FINAL CLOSURE REVIEW PASS** and is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. Verification recorded **125 automated tests PASS**, focused coverage **PASS**, canonical **CHECKPOINT PASS**, remote migration parity through `20260825090000`, and accepted authenticated browser-runtime evidence for `CORRECTION_REQUIRED` → terminal `NOT_CORRECTED` with no retry and exactly one persisted anchor with a valid database-owned timestamp and terminal digest. The complete original authorization contract, binding Corrective Addendum, every prior exclusion, and the mandatory stop boundary remain binding history. No Code Change Gate remains open. Later-retrieval eligibility and execution remain unauthorized.
+The **Existing Approved Retrieval-and-Feedback Completion Anchor** has completed **FINAL CLOSURE REVIEW PASS** and is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. Verification recorded **125 automated tests PASS**, focused coverage **PASS**, canonical **CHECKPOINT PASS**, remote migration parity through `20260825090000`, and accepted authenticated browser-runtime evidence for `CORRECTION_REQUIRED` → terminal `NOT_CORRECTED` with no retry and exactly one persisted anchor with a valid database-owned timestamp and terminal digest. The complete original authorization contract, binding Corrective Addendum, every prior exclusion, and the mandatory stop boundary remain binding history. At that closure, no Code Change Gate remained open. Later-retrieval eligibility and execution remain unauthorized.
 
 ---
 
@@ -3380,11 +3745,13 @@ The separate governance re-review and completed closure review are **PASS**. Foc
 
 The bounded prerequisite-only Code Change Gate recorded for the **Post-MVP Exactly One Later Retrieval Opportunity Applicability-and-Timing Prerequisite Minimum Implementation Authorization Derivation** is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL ARCHITECTURE REVIEW PASS** and **CHECKPOINT PASS** with canonical verification PASS for TypeScript, build, documentation structure, repository index completeness, and Git status. Its authorization is consumed. Any other product implementation requires a separately derived, governance-verified, and explicitly opened Code Change Gate. Eligibility calculation, scheduling, opportunity exposure, later retrieval execution, persistence, and broader product implementation remain unauthorized.
 
+The complete bounded **Later-Retrieval Threshold Determination** implementation has completed **FINAL CLOSURE REVIEW PASS** and **CHECKPOINT PASS** and is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its technical acceptance contract remains unchanged and indivisibly binding, including its purely temporal outcomes and mandatory separation from eligibility through a future authoritative single-consumption guard. Its smallest technical realization, corrective-proof-only re-review PASS, production-composition-only architecture-review PASS, supplied pre-change SHA-256 values, every exclusion, and every mandatory stop boundary remain binding history. All bounded authorization is consumed.
+
 The authenticated persisted Creator-to-Learner MVP user-test handoff Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL CLOSURE REVIEW PASS**, and its authorization is consumed. The separate later-retrieval execution/product gate remains **CLOSED**. The historical correction-opportunity authorization remains **FAIL — MISSING AUTHORITATIVE CLASSIFICATION INPUT** unchanged; the separate post-authority re-review and closure PASS do not retroactively alter that record. No broader product implementation is authorized.
 
-The **Existing Approved Retrieval-and-Feedback Completion Anchor** completed **FINAL CLOSURE REVIEW PASS** and its Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. The complete original authorization contract, Corrective Addendum, mandatory stop boundary, and all exclusions remain binding history. No Code Change Gate remains open, so no product code, tests, schema, migration, index, or other implementation change is currently authorized. Later-retrieval eligibility and execution remain unauthorized.
+The **Existing Approved Retrieval-and-Feedback Completion Anchor** completed **FINAL CLOSURE REVIEW PASS** and its Code Change Gate is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Its authorization is consumed. The complete original authorization contract, Corrective Addendum, mandatory stop boundary, and all exclusions remain binding history. It authorizes no further change. Later-retrieval eligibility and execution remain unauthorized.
 
-All Code Change Gates remain **CLOSED**. Scheduling, later-retrieval eligibility calculation or execution, generalized persistence beyond the single verified anchor record, analytics, multi-tenancy, administration, progress tracking, and broader product expansion remain unauthorized.
+No Code Change Gate is open. The complete bounded **Later-Retrieval Threshold Determination** implementation is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED** after **FINAL CLOSURE REVIEW PASS** and **CHECKPOINT PASS**. The production-composition-only gate is consumed and **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED** after **ARCHITECTURE REVIEW PASS**. The corrective-proof-only gate is consumed and **CLOSED — BOUNDED — IMPLEMENTED — VERIFIED** after **RE-REVIEW PASS**, and every other Code Change Gate remains **CLOSED**. Every recorded exclusion remains binding. Scheduling, later-retrieval eligibility calculation or execution, generalized persistence beyond the single verified anchor record, analytics, multi-tenancy, administration, progress tracking, and broader product expansion remain unauthorized.
 
 ---
 
