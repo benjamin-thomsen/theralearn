@@ -214,9 +214,15 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`lib/completion-anchor/completionAnchorRepository.test.ts`](./lib/completion-anchor/completionAnchorRepository.test.ts)
 - [`lib/completion-anchor/completionAnchorRepository.ts`](./lib/completion-anchor/completionAnchorRepository.ts)
 - [`lib/constants.ts`](./lib/constants.ts)
+- [`lib/later-retrieval-consumption/atomicLaterRetrievalSingleConsumptionTransition.test.ts`](./lib/later-retrieval-consumption/atomicLaterRetrievalSingleConsumptionTransition.test.ts)
+- [`lib/later-retrieval-consumption/atomicLaterRetrievalSingleConsumptionTransition.ts`](./lib/later-retrieval-consumption/atomicLaterRetrievalSingleConsumptionTransition.ts)
+- [`lib/later-retrieval-consumption/laterRetrievalSingleConsumptionGuard.test.ts`](./lib/later-retrieval-consumption/laterRetrievalSingleConsumptionGuard.test.ts)
+- [`lib/later-retrieval-consumption/laterRetrievalSingleConsumptionGuard.ts`](./lib/later-retrieval-consumption/laterRetrievalSingleConsumptionGuard.ts)
 - [`lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts`](./lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.test.ts)
 - [`lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts`](./lib/later-retrieval-threshold/laterRetrievalThresholdDetermination.ts)
 - [`lib/learning-science/deriveLearningDesign.ts`](./lib/learning-science/deriveLearningDesign.ts)
+- [`lib/learning-science/laterRetrievalOpportunityAvailability.test.ts`](./lib/learning-science/laterRetrievalOpportunityAvailability.test.ts)
+- [`lib/learning-science/laterRetrievalOpportunityAvailability.ts`](./lib/learning-science/laterRetrievalOpportunityAvailability.ts)
 - [`lib/learning-science/laterRetrievalPrerequisite.test.ts`](./lib/learning-science/laterRetrievalPrerequisite.test.ts)
 - [`lib/learning-science/laterRetrievalPrerequisite.ts`](./lib/learning-science/laterRetrievalPrerequisite.ts)
 - [`lib/learning-science/learningDesignExecution.ts`](./lib/learning-science/learningDesignExecution.ts)
@@ -265,6 +271,9 @@ De canonical repository-links findes én gang under **Projektstyring og autorite
 - [`supabase/migrations/20260804162031_create_mvp_database_schema.sql`](./supabase/migrations/20260804162031_create_mvp_database_schema.sql)
 - [`supabase/migrations/20260824120000_create_approved_authority_package.sql`](./supabase/migrations/20260824120000_create_approved_authority_package.sql)
 - [`supabase/migrations/20260825090000_create_approved_retrieval_completion_anchor.sql`](./supabase/migrations/20260825090000_create_approved_retrieval_completion_anchor.sql)
+- [`supabase/migrations/20260825100000_add_completion_anchor_identity.sql`](./supabase/migrations/20260825100000_add_completion_anchor_identity.sql)
+- [`supabase/migrations/20260825110000_create_later_retrieval_single_consumption.sql`](./supabase/migrations/20260825110000_create_later_retrieval_single_consumption.sql)
+- [`supabase/tests/database/later_retrieval_single_consumption_transition.test.sql`](./supabase/tests/database/later_retrieval_single_consumption_transition.test.sql)
 
 ---
 

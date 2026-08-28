@@ -203,6 +203,45 @@ export type Database = {
           },
         ]
       }
+      later_retrieval_single_consumptions: {
+        Row: {
+          approved_learning_design_identity: string
+          approved_learning_design_snapshot: string
+          authenticated_owner_identity: string
+          completion_anchor_identity: string
+          completion_anchor_snapshot: string
+          consumption_identity: string
+          created_at: string
+          later_retrieval_prerequisite_identity: string
+          later_retrieval_prerequisite_snapshot: string
+          persisted_approved_package_identity: string
+        }
+        Insert: {
+          approved_learning_design_identity: string
+          approved_learning_design_snapshot: string
+          authenticated_owner_identity: string
+          completion_anchor_identity: string
+          completion_anchor_snapshot: string
+          consumption_identity?: never
+          created_at?: never
+          later_retrieval_prerequisite_identity: string
+          later_retrieval_prerequisite_snapshot: string
+          persisted_approved_package_identity: string
+        }
+        Update: {
+          approved_learning_design_identity?: never
+          approved_learning_design_snapshot?: never
+          authenticated_owner_identity?: never
+          completion_anchor_identity?: never
+          completion_anchor_snapshot?: never
+          consumption_identity?: never
+          created_at?: never
+          later_retrieval_prerequisite_identity?: never
+          later_retrieval_prerequisite_snapshot?: never
+          persisted_approved_package_identity?: never
+        }
+        Relationships: []
+      }
       lesson_progress: {
         Row: {
           completed_at: string | null
@@ -374,6 +413,36 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_later_retrieval_single_consumption_once: {
+        Args: {
+          p_approved_learning_design_identity: string
+          p_approved_learning_design_snapshot: string
+          p_authenticated_owner_identity: string
+          p_completion_anchor_identity: string
+          p_completion_anchor_snapshot: string
+          p_later_retrieval_prerequisite_identity: string
+          p_later_retrieval_prerequisite_snapshot: string
+          p_persisted_approved_package_identity: string
+        }
+        Returns: {
+          approved_learning_design_identity: string
+          approved_learning_design_snapshot: string
+          authenticated_owner_identity: string
+          completion_anchor_identity: string
+          completion_anchor_snapshot: string
+          consumption_identity: string
+          created_at: string
+          later_retrieval_prerequisite_identity: string
+          later_retrieval_prerequisite_snapshot: string
+          persisted_approved_package_identity: string
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "later_retrieval_single_consumptions"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
       create_retrieval_completion_anchor_once: {
         Args: { p_owner_id: string; p_package_identity: string; p_approved_learning_design_identity: string; p_approved_learning_design_snapshot: string; p_response_evaluation_contract_identity: string; p_response_evaluation_contract_snapshot: string; p_retrieval_interaction_identity: string; p_terminal_interaction_digest: string }
         Returns: Database["public"]["Tables"]["approved_retrieval_completion_anchors"]["Row"][]

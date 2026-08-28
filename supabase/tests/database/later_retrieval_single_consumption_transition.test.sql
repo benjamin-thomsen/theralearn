@@ -2,7 +2,7 @@ begin;
 create extension if not exists dblink with schema extensions;
 select plan(34);
 
-select has_table('public', 'later_retrieval_single_consumptions');
+select has_table('public'::name, 'later_retrieval_single_consumptions'::name);
 select columns_are('public', 'later_retrieval_single_consumptions', array[
   'authenticated_owner_identity', 'persisted_approved_package_identity',
   'approved_learning_design_identity', 'approved_learning_design_snapshot',
@@ -10,18 +10,18 @@ select columns_are('public', 'later_retrieval_single_consumptions', array[
   'completion_anchor_identity', 'completion_anchor_snapshot',
   'consumption_identity', 'created_at'
 ]);
-select col_not_null('public', 'later_retrieval_single_consumptions', 'authenticated_owner_identity');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'persisted_approved_package_identity');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'approved_learning_design_identity');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'approved_learning_design_snapshot');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'later_retrieval_prerequisite_identity');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'later_retrieval_prerequisite_snapshot');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'completion_anchor_identity');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'completion_anchor_snapshot');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'consumption_identity');
-select col_not_null('public', 'later_retrieval_single_consumptions', 'created_at');
+select col_not_null('public', 'later_retrieval_single_consumptions', 'authenticated_owner_identity'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'persisted_approved_package_identity'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'approved_learning_design_identity'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'approved_learning_design_snapshot'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'later_retrieval_prerequisite_identity'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'later_retrieval_prerequisite_snapshot'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'completion_anchor_identity'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'completion_anchor_snapshot'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'consumption_identity'::name);
+select col_not_null('public', 'later_retrieval_single_consumptions', 'created_at'::name);
 
-select has_unique('public', 'later_retrieval_single_consumptions', array[
+select col_is_unique('public', 'later_retrieval_single_consumptions', array[
   'authenticated_owner_identity', 'persisted_approved_package_identity',
   'approved_learning_design_identity', 'approved_learning_design_snapshot',
   'later_retrieval_prerequisite_identity', 'later_retrieval_prerequisite_snapshot',
@@ -74,20 +74,20 @@ select throws_ok(
   '23514', 'later retrieval single consumption facts are terminal and immutable'
 );
 
-select is(extensions.dblink_connect('winner', 'host=127.0.0.1 port=54322 dbname=postgres user=postgres password=postgres'), 'OK');
-select is(extensions.dblink_connect('loser', 'host=127.0.0.1 port=54322 dbname=postgres user=postgres password=postgres'), 'OK');
+select is(extensions.dblink_connect('winner', 'host=host.docker.internal port=54322 dbname=postgres user=postgres password=postgres'), 'OK');
+select is(extensions.dblink_connect('loser', 'host=host.docker.internal port=54322 dbname=postgres user=postgres password=postgres'), 'OK');
 select ok(extensions.dblink_send_query('winner', $$
   with barrier as (select pg_advisory_xact_lock(608251100))
   select count(*)::text from barrier cross join lateral public.create_later_retrieval_single_consumption_once(
     'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'concurrent-package', 'design', 'design-snapshot',
     'prerequisite', 'prerequisite-snapshot', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 'anchor-snapshot')
-$$));
+$$) = 1);
 select ok(extensions.dblink_send_query('loser', $$
   with barrier as (select pg_advisory_xact_lock(608251100))
   select count(*)::text from barrier cross join lateral public.create_later_retrieval_single_consumption_once(
     'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'concurrent-package', 'design', 'design-snapshot',
     'prerequisite', 'prerequisite-snapshot', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 'anchor-snapshot')
-$$));
+$$) = 1);
 select results_eq(
   $$select result::bigint from extensions.dblink_get_result('winner') as result(result text)$$,
   array[1::bigint],
