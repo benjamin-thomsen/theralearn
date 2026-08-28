@@ -6087,3 +6087,9 @@ The generated database type boundary now contains only the required later_retrie
 The **Authoritative Atomic Later-Retrieval Single-Consumption Transition Persistence Prerequisite** is **CLOSED — BOUNDED — GOVERNANCE VERIFIED — IMPLEMENTED — VERIFIED**. Every historical FAIL and PASS remains unchanged as historical evidence. The earlier local-runtime and generated-type blockers are resolved by the new-computer evidence; they are not erased or reinterpreted. The deferred full TypeScript condition on the closed downstream opportunity-availability gate is also satisfied. This review opens no production-composition, presentation, navigation, Learner execution, response, feedback, scheduling, notification, or other downstream Code Change Gate.
 
 No commit, push, merge, pull request, or deletion is authorized by this review. The sole next permitted action is bounded repository-index regeneration followed by complete repository verification and one final read-only working-tree review. Work must stop on any failure or scope expansion.
+
+### Stale Verification Instruction Closure
+
+**CLOSED — REMOTE VERIFIED — ALL CODE CHANGE GATES CLOSED**
+
+Remote-verified checkpoint `d98a72b440a8ea1fe44e33554509c8f35ceb512c`, repository-index regeneration **PASS**, complete repository verification **PASS**, final read-only working-tree review **PASS**, and clean local/upstream identity are recorded. The immediately preceding instruction to perform repository-index regeneration, complete repository verification, and final read-only working-tree review is explicitly **CONSUMED AND SUPERSEDED**. This closure opens no Code Change Gate and derives no implementation authority.
