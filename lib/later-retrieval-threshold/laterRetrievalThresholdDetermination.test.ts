@@ -40,7 +40,7 @@ class MemoryAnchorStore implements CompletionAnchorStore {
   constructor(public pkg = authority(), public completedAt = "1970-01-01T00:00:00Z") {}
   row(): CompletionAnchorRow {
     const design = this.pkg.learningDesign;
-    return { owner_id: "owner-a", package_identity: design.identity, approved_learning_design_identity: design.identity, approved_learning_design_snapshot: JSON.stringify(design), response_evaluation_contract_identity: design.responseEvaluationContractIdentity, response_evaluation_contract_snapshot: design.responseEvaluationContractSnapshot, retrieval_interaction_identity: `first-approved-retrieval:${design.identity}`, terminal_interaction_digest: "a".repeat(64), completed_at: this.completedAt };
+    return { completion_anchor_identity: "8b4b3f62-4a77-4d26-9d55-2c9c86b42f31", owner_id: "owner-a", package_identity: design.identity, approved_learning_design_identity: design.identity, approved_learning_design_snapshot: JSON.stringify(design), response_evaluation_contract_identity: design.responseEvaluationContractIdentity, response_evaluation_contract_snapshot: design.responseEvaluationContractSnapshot, retrieval_interaction_identity: `first-approved-retrieval:${design.identity}`, terminal_interaction_digest: "a".repeat(64), completed_at: this.completedAt };
   }
   async find(ownerId: string, packageIdentity: string) { this.reads += 1; const row = this.row(); return row.owner_id === ownerId && row.package_identity === packageIdentity ? structuredClone(row) : null; }
   async createOnce(): Promise<CompletionAnchorRow> { throw new Error("persistence is outside the threshold boundary"); }

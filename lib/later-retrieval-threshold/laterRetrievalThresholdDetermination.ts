@@ -130,6 +130,23 @@ function determineTemporalOutcome(
     : { outcome: "THRESHOLD_REACHED", packageIdentity });
 }
 
+export function determineLaterRetrievalThresholdFromValidatedAuthority(
+  authenticatedOwnerIdentity: string,
+  authorityPackage: ApprovedAuthorityPackage,
+  anchor: ExistingApprovedRetrievalCompletionAnchor,
+  trustedServerEpochMicrosecondsClock: () => bigint,
+): LaterRetrievalThresholdDetermination {
+  try {
+    requireApprovedLearningDesign(authorityPackage.learningDesign);
+    if (!hasExactBindings(authenticatedOwnerIdentity, authorityPackage, anchor)) return FAIL_CLOSED;
+    const assessmentInstant = trustedServerEpochMicrosecondsClock();
+    const delay = authorityPackage.learningDesign.laterRetrievalPrerequisite.earliestEligibilityDelay;
+    return determineTemporalOutcome(authorityPackage.learningDesign.identity, anchor.completedAt, delay.value, delay.unit, assessmentInstant);
+  } catch {
+    return FAIL_CLOSED;
+  }
+}
+
 export async function determineLaterRetrievalThreshold(
   approvedPackageStore: Pick<ApprovedPackageStore, "findForOwner">,
   completionAnchorStore: Pick<CompletionAnchorStore, "find">,
@@ -140,10 +157,12 @@ export async function determineLaterRetrievalThreshold(
     const authorityPackage = await requireOwnedApprovedAuthorityPackage(approvedPackageStore, authenticatedOwnerIdentity);
     requireApprovedLearningDesign(authorityPackage.learningDesign);
     const anchor = await requireCompletionAnchorForExactTimestampParsing(completionAnchorStore, authenticatedOwnerIdentity, authorityPackage);
-    if (!hasExactBindings(authenticatedOwnerIdentity, authorityPackage, anchor)) return FAIL_CLOSED;
-    const assessmentInstant = trustedServerEpochMicrosecondsClock();
-    const delay = authorityPackage.learningDesign.laterRetrievalPrerequisite.earliestEligibilityDelay;
-    return determineTemporalOutcome(authorityPackage.learningDesign.identity, anchor.completedAt, delay.value, delay.unit, assessmentInstant);
+    return determineLaterRetrievalThresholdFromValidatedAuthority(
+      authenticatedOwnerIdentity,
+      authorityPackage,
+      anchor,
+      trustedServerEpochMicrosecondsClock,
+    );
   } catch {
     return FAIL_CLOSED;
   }

@@ -5,6 +5,7 @@ import { approvePreApprovalAuthorityPackage, serializeApprovedAuthorityPackage, 
 import { deriveLearningDesign } from "../learning-science/deriveLearningDesign";
 import { formLaterRetrievalPrerequisite, relevantContextIdentity, reviewLaterRetrievalPrerequisite } from "../learning-science/laterRetrievalPrerequisite";
 import { createAuthorityIdentity, formResponseEvaluationContract, reviewResponseEvaluationContract } from "../learning-science/responseEvaluationContract";
+import type { Database } from "../../types/database";
 import { evaluateCorrectionAndComplete, evaluateInitialAndComplete, requireCompletionAnchor, requireCompletionAnchorForExactTimestampParsing, type CompletionAnchorRow, type CompletionAnchorStore } from "./completionAnchorRepository";
 
 const source = "Mentalization concerns mental states in oneself and others.";
@@ -22,9 +23,9 @@ class MemoryStore implements CompletionAnchorStore {
   calls = 0;
   now = "2026-08-25T10:00:00.000Z";
   async find(owner: string, pkg: string) { return this.row?.owner_id === owner && this.row.package_identity === pkg ? structuredClone(this.row) : null; }
-  async createOnce(input: Omit<CompletionAnchorRow, "completed_at">) {
+  async createOnce(input: Omit<CompletionAnchorRow, "completion_anchor_identity" | "completed_at">) {
     this.calls += 1;
-    if (!this.row) this.row = { ...structuredClone(input), completed_at: this.now };
+    if (!this.row) this.row = { ...structuredClone(input), completion_anchor_identity: "00000000-0000-4000-8000-000000000001", completed_at: this.now };
     else if (Object.entries(input).some(([key, value]) => this.row?.[key as keyof CompletionAnchorRow] !== value)) throw new Error("Completion anchor creation failed closed.");
     return structuredClone(this.row);
   }
@@ -36,6 +37,53 @@ async function correction(s: MemoryStore, response = "only behavior") {
   if (!("correctionReceipt" in initial) || !initial.correctionReceipt) throw new Error("expected correction receipt");
   return { p, initial, receipt: initial.correctionReceipt };
 }
+
+describe("completion anchor identity persistence and generated-type contracts", () => {
+  it("preserves the exact completion-anchor identity migration contract", () => {
+    const sql = readFileSync("supabase/migrations/20260825100000_add_completion_anchor_identity.sql", "utf8");
+    expect(sql).toBe(`alter table public.approved_retrieval_completion_anchors
+  add column completion_anchor_identity uuid not null default gen_random_uuid(),
+  add constraint approved_retrieval_completion_anchors_identity_key unique (completion_anchor_identity);
+
+create function public.reject_completion_anchor_identity_update()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+begin
+  if new.completion_anchor_identity is distinct from old.completion_anchor_identity then
+    raise exception 'completion anchor identity is immutable' using errcode = '23514';
+  end if;
+  return new;
+end;
+$$;
+
+create trigger completion_anchor_identity_immutable
+before update of completion_anchor_identity on public.approved_retrieval_completion_anchors
+for each row execute function public.reject_completion_anchor_identity_update();
+
+revoke all on function public.reject_completion_anchor_identity_update() from public, anon, authenticated;
+
+grant select (completion_anchor_identity)
+on public.approved_retrieval_completion_anchors
+to authenticated;
+`);
+    expect(sql.match(/add column completion_anchor_identity/gi)).toHaveLength(1);
+    expect(sql).not.toMatch(/p_completion_anchor_identity|create_retrieval_completion_anchor_once|on conflict|primary key|foreign key|completed_at/i);
+    expect(sql).not.toMatch(/grant (?:all|insert|update|delete|execute)|grant select \([^)]*terminal_interaction_digest|grant select on/i);
+  });
+
+  it("preserves the exact generated completion-anchor identity Row, Insert, and Update shapes", () => {
+    type Table = Database["public"]["Tables"]["approved_retrieval_completion_anchors"];
+    type Equal<Left, Right> = (<Value>() => Value extends Left ? 1 : 2) extends (<Value>() => Value extends Right ? 1 : 2)
+      ? (<Value>() => Value extends Right ? 1 : 2) extends (<Value>() => Value extends Left ? 1 : 2) ? true : false
+      : false;
+    const rowIdentityIsRequiredString: Equal<Pick<Table["Row"], "completion_anchor_identity">, { completion_anchor_identity: string }> = true;
+    const insertIdentityIsOptionalNever: Equal<Pick<Table["Insert"], "completion_anchor_identity">, { completion_anchor_identity?: never }> = true;
+    const updateIdentityIsOptionalNever: Equal<Pick<Table["Update"], "completion_anchor_identity">, { completion_anchor_identity?: never }> = true;
+    expect([rowIdentityIsRequiredString, insertIdentityIsOptionalNever, updateIdentityIsOptionalNever]).toEqual([true, true, true]);
+  });
+});
 
 describe("completion anchor behavioral contract", () => {
   it("creates and returns the CORRECT-branch anchor in the same evaluation operation", async () => {
@@ -200,7 +248,20 @@ describe("Date.parse-free exact-timestamp completion-anchor seam", () => {
       responseEvaluationContractSnapshot: pkg.learningDesign.responseEvaluationContractSnapshot,
       retrievalInteractionIdentity: `first-approved-retrieval:${pkg.learningDesign.identity}`,
       completedAt,
+      completionAnchorIdentity: "00000000-0000-4000-8000-000000000001",
+      completionAnchorSnapshot: {
+        ownerId: "owner-a",
+        packageIdentity: pkg.learningDesign.identity,
+        approvedLearningDesignIdentity: pkg.learningDesign.identity,
+        approvedLearningDesignSnapshot: JSON.stringify(pkg.learningDesign),
+        responseEvaluationContractIdentity: pkg.learningDesign.responseEvaluationContractIdentity,
+        responseEvaluationContractSnapshot: pkg.learningDesign.responseEvaluationContractSnapshot,
+        retrievalInteractionIdentity: `first-approved-retrieval:${pkg.learningDesign.identity}`,
+        terminalInteractionDigest: store.row?.terminal_interaction_digest,
+        completedAt,
+      },
     });
+    expect(Object.isFrozen(anchor.completionAnchorSnapshot)).toBe(true);
   });
 
   it.each([undefined, null, ""])("rejects absent or empty completed_at: %j", async (completedAt) => {
@@ -218,6 +279,8 @@ describe("Date.parse-free exact-timestamp completion-anchor seam", () => {
       (row) => { row.response_evaluation_contract_snapshot = "{}"; },
       (row) => { row.retrieval_interaction_identity = "other-interaction"; },
       (row) => { row.terminal_interaction_digest = "bad"; },
+      (row) => { row.completion_anchor_identity = ""; },
+      (row) => { row.completion_anchor_identity = "not-a-uuid"; },
     ];
     for (const mutate of mutations) {
       const { store, pkg } = await storedAnchor(exactTimestamp);

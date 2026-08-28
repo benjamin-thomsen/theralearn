@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           approved_learning_design_identity: string
           approved_learning_design_snapshot: string
+          completion_anchor_identity: string
           completed_at: string
           owner_id: string
           package_identity: string
@@ -29,6 +30,7 @@ export type Database = {
         Insert: {
           approved_learning_design_identity: string
           approved_learning_design_snapshot: string
+          completion_anchor_identity?: never
           completed_at?: never
           owner_id: string
           package_identity: string
@@ -40,6 +42,7 @@ export type Database = {
         Update: {
           approved_learning_design_identity?: never
           approved_learning_design_snapshot?: never
+          completion_anchor_identity?: never
           completed_at?: never
           owner_id?: never
           package_identity?: never
